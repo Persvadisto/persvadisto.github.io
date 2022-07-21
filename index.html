@@ -188,7 +188,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-07-22 01:30:27" itemprop="dateModified" datetime="2022-07-22T01:30:27+08:00">2022-07-22</time>
+                <time title="Modified: 2022-07-22 05:09:19" itemprop="dateModified" datetime="2022-07-22T05:09:19+08:00">2022-07-22</time>
               </span>
 
           
@@ -202,242 +202,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="实变函数与泛函分析"><a href="#实变函数与泛函分析" class="headerlink" title="实变函数与泛函分析"></a>实变函数与泛函分析</h2><h4 id="第一章-集合"><a href="#第一章-集合" class="headerlink" title="第一章 集合"></a>第一章 集合</h4><p>上极限和下极限的概念</p>
-<h4 id="第二章-点集"><a href="#第二章-点集" class="headerlink" title="第二章 点集"></a>第二章 点集</h4><p>定义（<strong>构成区间</strong>）：设$G$是直线上的开集。如果开区间$(\alpha, \beta) \subset G$, 而且端点$\alpha, \beta$不属于$G$, 那么称$(\alpha, \beta)$为$G$的构成区间。</p>
-<p>定理（<strong>开集构造定理</strong>）：直线上任一个非空开集可以表示成至多可数个互不相交的构成区间的和集。</p>
-<p><em>定理：直线上的闭集$F$或者是全直线，或者是从直线上挖掉至多可数个互不相交的开区间（即$F$的余区间）所得到的集。</em></p>
-<p><em>定义：设$E \subset \mathbf{R}^n$, (1) $F \subset \mathbf{R}^n$, 若对任意邻域$U(x)$, $U(x) \cap E \neq \emptyset$, 则称$E$在$F$中稠密。(2) 若对任意$x \in \mathbf{R}^n$和任意邻域$U(x)$, 存在$U(y) \subset U(x) \cap E^c$, 则称$E$是疏朗集或无处稠密集。（闭包没有内点）</em></p>
-<p>例（康托尔三分集）：一个<strong>测度为零且基数为$c$的疏朗完备集</strong>。</p>
-<h4 id="第三章-测度论"><a href="#第三章-测度论" class="headerlink" title="第三章  测度论"></a>第三章  测度论</h4><p>勒贝格测度公理：对于实数直线上的一部分集合族$\mathscr{M}$, 使得每个$E \in \mathscr{M}$, 都对应一个实数$m$，满足:</p>
-<ol>
-<li>$m(E) \ge 0$ （非负性）</li>
-<li>如果$E_1, E_2, …, E_n,…$两两不相交，那么$ m(E_1 \cup E_2\cup…\cup E_n\cup…) &#x3D; m(E_1) + m(E_2) + … + m(E_n) + … $（可列可加性）</li>
-<li>$m([a, b]) &#x3D; b-a$（正则性）</li>
-</ol>
-<p>定义（外测度）：<br>$$<br>m^* E &#x3D; \inf_{E \subset \bigcup_{i&#x3D;1}^\infty I_i} \sum_{i&#x3D;1}^\infty |I_i|<br>$$<br>定理（外测度的基本性质）：</p>
-<ol>
-<li>$m^*(E) \ge 0$, 当$E$为空集时，则$m^*E &#x3D; 0$</li>
-<li>设$A\subset B$，则$ m^*(A)$ $\le$ $m^*(B) $（单调性）</li>
-<li>$m^*(\bigcup_{i&#x3D;1}^\infty A_i) \le \sum_{i&#x3D;1}^\infty m^*A_i$（次可数可加性）</li>
-</ol>
-<p>定义（$L$可测）：设$E$为$\mathbf{R^n}$中的点集，如果对于任意点集$T$都有<br>$$<br>m^\ast T &#x3D; m^\ast(T \cap E) + m^\ast (T\cap E^c)<br>$$<br>则称$E$是$L$可测的。这时$E$的$L$外测度$m^*E$即称为$E$的$L$测度，记为$mE$. $L$可测集全体记为$\mathscr{M}$.</p>
-<p>定理：集合$E$可测的充要条件是对于任何$A \subset E$, $B \subset E$, 总有<br>$$<br>m^\ast(A \cup B) &#x3D; m^\ast A + m^\ast B<br>$$<br>可测集的性质：对有限并、有限交、可数并、可数交、余、差、极限封闭。</p>
-<p><em>P.S. 移项的时候小心正无穷！</em></p>
-<p>不可测集是存在的。</p>
-<h4 id="第四章-可测函数"><a href="#第四章-可测函数" class="headerlink" title="第四章 可测函数"></a>第四章 可测函数</h4><p><em>可测函数的加、绝对值、倒数、乘、上&#x2F;下确界、（上&#x2F;下）极限、正&#x2F;负部也是可测函数。</em></p>
-<p>可测函数函数与简单函数的关系：</p>
-<ol>
-<li>若$f(x)$在$E$上非负可测，则存在可测简单函数列${\varphi_k(x)}$, 使得对任意$x \in E$, $\varphi_k(x) \le \varphi_{k+1}(x),(k &#x3D; 1, 2, …)$, 且$\lim_{k \rightarrow \infty} \varphi_k(x) &#x3D; f(x)$.</li>
-<li>若$f(x)$在$E$上可测，则存在可测简单函数列${\varphi_k(x)}$, 使得对任意$x \in E$, $\lim_{k \rightarrow \infty} \varphi_k(x) &#x3D; f(x)$. 若$f(x)$还在$E$上有界，则上述收敛可以是一致的。</li>
-</ol>
-<p>定理（叶戈罗夫定理）：设$mE &lt; \infty$, ${f_n}$是$E$上一列a.e.收敛于一个a.e.有限的函数$f$的可测函数，则对任意$\delta &gt; 0$, 存在$E_{\delta} \subset E$, 使${f_n}$在$E_{\delta}$上一致收敛，且$m(E\setminus E_{\delta}) &lt; \delta$.</p>
-<p><em>这个定理告诉我们，凡是满足定理假设的a.e.收敛的可测函数列，即使不一致收敛，也是“基本上”（指去掉一个测度可任意小的某点集外）一致收敛的。因此在许多场合它提供了处理极限交换问题的有力工具。</em></p>
-<p>定理（卢津定理）：设$f(x)$是$E$上a.e.有限的可测函数，则对任意$\delta &gt; 0$, 存在闭子集$F_{\delta} \subset E$, 使$f(x)$在$F_{\delta}$上是连续函数，且$m(E\setminus F_{\delta}) &lt; \delta$.</p>
-<p><em>简言之，在E上a.e.有限的可测函数是“基本上连续”的函数。可测函数可以由连续函数逼近。在应用上常常可以把有关的可测函数问题归结为连续函数的问题，从而得到简化。</em></p>
-<p><em>卢津定理对可测函数本身没有任何要求，因此可以把它看作可测函数性质的一种描述：总可以在一个小测度集以外连续。同时，这个小测度集也不能再缩小为零测集。</em></p>
-<p>定义（依测度收敛）：设${f_n}$是$E \in \mathbf{R}^q$上的一列a.e.有限的可测函数，若有$E$上a.e.有限的可测函数$f(x)$满足下列关系：对任意$\sigma &gt; 0$, 有$\lim_n mE\left[|f_n - f| \ge \sigma \right] &#x3D; 0$, 则称函数列${f_n}$依测度收敛于$f$, 记为$f_n (x) \Rightarrow f(x)$. 改用$\varepsilon$-$N$说法：对任意$\varepsilon &gt; 0$及$\sigma&gt; 0$, 存在正数$N(\varepsilon, \sigma)$, 使$n \ge N(\varepsilon, \sigma)$时，$mE\left[|f_n - f| \ge \sigma\right] &lt; \varepsilon$.</p>
-<p>依测度收敛的函数列不一定几乎处处收敛，反例：<br>$$<br>f_j^{(n)}(x) &#x3D; \begin{cases}<br>1, &amp; x \in (\frac{j-1}{2^n}, \frac{j}{2^n} ] \<br>0, &amp; x \notin (\frac{j-1}{2^n}, \frac{j}{2^n} ]<br>\end{cases}, j &#x3D; 1, 2,…,2^n<br>$$<br>将${f_j^{(n)}}$按先$n$后$j$的顺序逐个排成一列，则这个序列依测度收敛于0，但处处不收敛。</p>
-<p>一个几乎处处收敛的函数列不一定依测度收敛，反例：<br>$$<br>f_n(x) &#x3D; \begin{cases}<br>1, &amp; x \in (0, n] \<br>0, &amp; x \in (n, \infty)<br>\end{cases}, n&#x3D;1,2,…<br>$$<br>取$E &#x3D; (0, \infty)$. 函数列处处收敛于1，但不依测度收敛。</p>
-<p><em>定理（里斯定理）：设在$E$上${f_n}$依测度收敛于$f$, 则存在子列${f_{n_j}}$在$E$上a.e.收敛于$f$.</em></p>
-<p><em>定理（勒贝格定理）：设$mE &lt; \infty$, ${f_n}$是$E$上一列a.e.收敛于一个a.e.有限的函数$f$的可测函数（同叶戈罗夫定理的条件），则$f_n(x) \Rightarrow f(x)$.</em></p>
-<h4 id="第五章-积分论"><a href="#第五章-积分论" class="headerlink" title="第五章 积分论"></a>第五章 积分论</h4><p>定理（莱维定理）：设$E \subset \mathbf{R}^n$为可测集，$f_n$为$E$上的可数列非负可测函数，当$x \in E$时对于任一正整数$n$, 有$ f_n(x)$在$n$上递增, 令$ f(x) &#x3D; \lim_{n \rightarrow \infty} f_n(x), x \in E $, 则<br>$$<br>\lim_{n \rightarrow \infty} \int_E f_n(x) \mathrm{d}x &#x3D; \int_E f(x) \mathrm{d}x<br>$$</p>
-<p><em>积分的极限 &#x3D; 极限的积分</em></p>
-<p><em>逐项积分定理告诉我们积分和求和也可以换序（非负可测）</em></p>
-<p>定理（法图引理）：设$E \subset \mathbf{R}^n$为可测集，$f_n$为$E$上的可数列非负可测函数，则<br>$$<br>\int_E \varliminf_{n \rightarrow \infty} f_n(x) \mathrm{d}x \le \varliminf_{n \rightarrow \infty} \int_E f_n(x) \mathrm{d}x<br>$$<br>法图引理的小于等于号不能换成等号，反例：<br>$$<br>f_n (x) &#x3D; \begin{cases}<br>n, &amp; 0&lt; x &lt; \frac{1}{n} \<br>0, &amp; x \ge \frac{1}{n}<br>\end{cases}<br>$$<br>定理（积分的绝对连续性）：设$E \subset \mathbf{R}^n$为可测集，$f \in L(E)$, 则对任意的$\varepsilon &gt; 0$, 存在$\delta &gt; 0$, 使得对于任意的可测集$A \subset E$, 只要$mA &lt; \delta$, 就有<br>$$<br>\left| \int_A f(x) \mathrm{d}x \right| \le \int_A |f(x)| \mathrm{d}x &lt; \varepsilon<br>$$<br>定理（勒贝格控制收敛定理）：设$E \subset \mathbf{R}^n$为可测集，$f_n$为$E$上可数列可测函数。$F$是$E$上的非负$L$可积函数，如果对于任意的正整数$n$, $|f_n(x)| \le F(x)$ a.e.于$E$且$\lim_{n \rightarrow \infty} f_n(x) &#x3D; f(x)$ a.e.于$E$, 则</p>
-<ol>
-<li>$\lim_{n \rightarrow \infty} \int_E |f_n(x) - f(x)| \mathrm{d}x &#x3D; 0$.</li>
-<li>$\lim_{n \rightarrow \infty} \int_E f_n(x) \mathrm{d}x &#x3D; \int_E f(x) \mathrm{d}x$.</li>
-</ol>
-<p><em>把勒贝格控制收敛定理中几乎处处收敛替换为依测度收敛，结论依然成立。</em></p>
-<h4 id="第六章-微分与不定积分"><a href="#第六章-微分与不定积分" class="headerlink" title="第六章 微分与不定积分"></a>第六章 微分与不定积分</h4><p><em>定理（勒贝格）：设$f(x)$为$[a, b]$上的单调函数，则</em></p>
-<ol>
-<li><em>$f(x)$在$[a, b]$上几乎处处存在导数$f’(x)$.</em></li>
-<li><em>$f’(x)$在$[a, b]$上可积.</em></li>
-<li><em>如果$f(x)$为增函数，有$\int_a^b f’(x) \mathrm{d}x \le f(b) - f(a)$.</em></li>
-</ol>
-<p>定义（有界变差函数）：设$f(x)$为$[a, b]$上的有限函数，如果对于$[a,b]$的一切分划$T$, 使${\sum_{i &#x3D; 1}^n |f(x_i) - f(x_{i-1})|}$成一有界数集，则称$f(x)$为$[a, b]$上的有界变差函数，并称该有界数集的上确界为$f(x)$在$[a,b]$上的全变差，记为$\mathrm{V}_a^b(f)$. </p>
-<p>用一个分划作成的和数$\mathrm{V} &#x3D; \sum_{i &#x3D; 1}^n |f(x_i) - f(x_{i-1})|$称为$f(x)$在此分划下对应的变差。</p>
-<p>在有限闭区间上的单调有限函数也是有界变差函数，因此有界变差函数不一定是连续函数；反过来，连续函数也不一定是有界变差函数，例如<br>$$<br>f(x) &#x3D; \begin{cases}<br>x \cos \frac{\pi}{2x}, &amp; 0 &lt; x \le 1 \<br>0, &amp; x &#x3D; 0<br>\end{cases}<br>$$<br>显然它在$[0, 1]$上连续。取分划$T: 0 &lt; \frac{1}{2n} &lt;  \frac{1}{2n-1} &lt; …&lt;\frac{1}{3} &lt; \frac{1}{2} &lt; 1$. 则容易证明$\mathrm{V} &#x3D; \sum_{i &#x3D; 1}^n 1&#x2F;i$. 故$\mathrm{V}_0^1(f) &#x3D; \infty$.</p>
-<p>定理（若尔当分解）：在$[a, b]$上的任意有界变差函数$f(x)$都可表示为两个增函数之差。</p>
-<p><em>因为单调函数至多有可数个不连续点，故有界变差函数至多有可数个不连续点。也可以作为有界变差函数的另一种定义方式：如果一个函数在[a, b]上有界，且可以分解成两个单调递增函数的差，则该函数为有界变差函数。</em></p>
-<p>定义（绝对连续函数）：设$F(x)$为$[a, b]$上的有限函数，如果对任意$\varepsilon &gt; 0$, 存在$\delta &gt; 0$, 使对$[a, b]$中互不相交的任意有限个开区间$(a_i, b_i), i &#x3D; 1, 2,…, n$, 只要$\sum_{i&#x3D;1}^n{(b_i - a_i)} &lt; \delta$, 就有$\sum_{i &#x3D; 1}^n |F(b_i) - F_(a_i)| &lt; \varepsilon$, 则称$F(x)$为$[a, b]$上的绝对连续函数。</p>
-<p>定理：设$f(x)$在$[a, b]$上可积，则其不定积分为绝对连续函数</p>
-<p><em>定理：设$F(x)$为$[a, b]$上的绝对连续函数，且$F’(x) &#x3D; 0$ a.e.于$[a, b]$, 则$F(x)$为常数</em></p>
-<p><em>定理：设$f(x)$在$[a, b]$上可积，则存在绝对连续函数$F(x)$使$F’(x) &#x3D;f(x)$ a.e.于$[a, b]$, 只要取$F(x) &#x3D; \int_{a}^x f(t) \mathrm{d}t$.</em></p>
-<p>定理：设$F(x)$为$[a, b]$上的绝对连续函数，则a.e.有定义的$F’(x)$在$[a, b]$上可积，且<br>$$<br>F(x) &#x3D; F(a) + \int_a^x F’(t) \mathrm{d}t<br>$$<br>即$F(x)$总是$[a, b]$上可积函数的不定积分。</p>
-<h4 id="第七章-度量空间和赋范线性空间"><a href="#第七章-度量空间和赋范线性空间" class="headerlink" title="第七章 度量空间和赋范线性空间"></a>第七章 度量空间和赋范线性空间</h4><p>某些具体空间中点列收敛的具体意义：</p>
-<ol>
-<li><p>$\mathbf{R}^n$为$n$维欧氏空间，$x_m &#x3D; (\xi_1^{(m)}, \xi_2^{(m)},…,\xi_n^{(m)}), m&#x3D;1,2,…$为$\mathbf{R}^n$中的点列，$x &#x3D; (\xi_1, \xi_2,…,\xi_n) \in \mathbf{R}^n$，${x_m}$按欧氏距离收敛于$x$的充要条件为对于每个$1 \le i \le n$, 有$\xi_i^{(m)} \rightarrow \xi_i(m \rightarrow \infty)$.</p>
-<p><em>依坐标收敛</em></p>
-</li>
-<li><p>$C[a, b]$空间中，设${x_n}$及$x$分别为$C[a,b]$中点列及点，则<br>$$<br>d(x_n, x) &#x3D; \max_{a\le t \le b} |x_n(t) - x(t)| \rightarrow 0<br>$$<br>的充要条件为函数列${x_n}$在$[a,b]$上<strong>一致收敛</strong>于$x$.</p>
-</li>
-<li><p>序列空间$S$中，设$x_m &#x3D; (\xi_1^{(m)}, \xi_2^{(m)},…,\xi_n^{(m)},…), m&#x3D;1,2,…$及$(\xi_1, \xi_2,…,\xi_n,…)$分别为$S$中点列及点，点列${x_m}$收敛于$x$的充要条件为$x_m$<strong>依坐标收敛</strong>于$x$, 即对每个正整数$i$, $\xi_i^{(m)} \rightarrow \xi_i (m \rightarrow \infty)$成立。</p>
-</li>
-<li><p>可测函数空间$\mathscr{M}(X)$. 设${f_n}$及$f$分别为$\mathscr{M}(X)$中的点列及点，则点列${f_n}$收敛于$f$的充要条件为函数列${f_n}$<strong>依测度收敛</strong>于$f$.</p>
-</li>
-</ol>
-<p><em>可分空间：有一个可数的稠密子集。</em></p>
-<p>完备的度量空间：每个柯西点列都在空间中收敛。</p>
-<p>定义（压缩映射）：设$X$是度量空间，$T$是$X$到$X$中的映射，如果存在一个数$\alpha$, $0 &lt; \alpha &lt; 1$, 使得对所有的$x, y \in X$,<br>$$<br>d(Tx, Ty) \le \alpha d(x, y)<br>$$<br>则称$T$是压缩映射。</p>
-<p>定理（压缩映射原理）：设$X$是完备的度量空间，$T$是$X$上的压缩映射，那么$T$有且只有一个不动点（就是说，方程$Tx &#x3D; x$有且只有一个解）。</p>
-<p>定义（范数）：设$X$实（或复）的线性空间，如果对每个向量$x\in X$, 有一个确定的实数，记为$\Vert x \Vert$与之对应，并且满足</p>
-<ol>
-<li>$\Vert x \Vert \ge 0$, 且$\Vert x \Vert  &#x3D; 0$ 等价于$x &#x3D; 0$.</li>
-<li>$\Vert \alpha x \Vert &#x3D; |\alpha| \Vert x \Vert$其中$\alpha$为任意实（复）数</li>
-<li>$\Vert x + y \Vert \le \Vert x \Vert + \Vert y \Vert, x, y \in X$.</li>
-</ol>
-<p>则称$\Vert x \Vert$为向量$x$的范数，称$X$按范数$\Vert \cdot \Vert$为赋范线性空间。</p>
-<p>完备的赋范线性空间称为巴拿赫空间。</p>
-<p>例：欧氏空间$\mathbf{R}^n$, 对每个$x &#x3D; ( \xi_1, \xi_2, …, \xi_n) \in \mathbf{R}^n$, 定义<br>$$<br>\Vert x \Vert &#x3D; \sqrt{|\xi_1|^2 + |\xi_2|^2 + … + |\xi_n|^2}<br>$$<br>$\mathbf{R}^n$按该范数成巴拿赫空间。</p>
-<p>例：空间$C[a,b]$, 对每个$x \in C[a, b]$, 定义<br>$$<br>\Vert x \Vert &#x3D; \max_{a \le t \le b} |x(t)|<br>$$<br>$C[a, b]$按该范数成巴拿赫空间。</p>
-<p>例：空间$l^{\infty}$, 对每个$x &#x3D; (\xi_1, \xi_2,…) \in l^{\infty}$, 定义<br>$$<br>\Vert x \Vert &#x3D; \sup_{j} |\xi_j|<br>$$<br>$l^\infty$按该范数成巴拿赫空间。</p>
-<p>例：空间$L^p[a,b]$（p方可积函数空间），对每个$f \in L^p [a, b]$, 定义<br>$$<br>\Vert f\Vert_p &#x3D; \left(\int_a^b |f(t)|^p \mathrm{d}t\right)^{\frac{1}{p}}<br>$$<br>当$p\ge 1$时，$L^p[a, b]$按$\Vert \cdot \Vert_p$成巴拿赫空间。</p>
-<p>例：空间$l^p$, 对于每个$x &#x3D; (\xi_1, \xi_2,…) \in l^p, p \ge 1$, 定义<br>$$<br>\Vert x \Vert_p &#x3D; \left(\sum_{i&#x3D;1}^\infty |\xi_i|^p\right)^{\frac{1}{p}}<br>$$<br>当$p\ge 1$时，$l^p$按$\Vert \cdot \Vert_p$成巴拿赫空间。</p>
-<p>例：让$C[a, b]$按$\Vert \cdot \Vert$成为$L^p[a, b]$的赋范线性子空间，但按该范数并不完备，故不是巴拿赫空间。</p>
-<p>引理（赫尔德不等式）：设$p &gt; 1$, $\frac{1}{p} + \frac{1}{q} &#x3D; 1$, $f \in L^p[a, b]$, $g \in L^q[a, b]$, 那么$f(t)g(t)$在$[a, b]$上$L$可积，并且<br>$$<br>\int_a^b |f(t)g(t)| \mathrm{d}t \le |f|_p |g|_q &#x3D; \left(\int_a^b|f(t)|^p \mathrm{d}t \right)^{\frac{1}{p}}\left(\int_a^b|g(t)|^q \mathrm{d}t \right)^{\frac{1}{q}}<br>$$</p>
-<h4 id="第八章-有界线性算子和连续线性泛函"><a href="#第八章-有界线性算子和连续线性泛函" class="headerlink" title="第八章 有界线性算子和连续线性泛函"></a>第八章 有界线性算子和连续线性泛函</h4><p>定义（有界线性算子）：设$X$和$Y$是两个赋范线性空间，$T$是$X$的线性子空间$\mathscr{D}(T)$到$Y$中的线性算子，如果存在常数$c$, 使对所有$x \in \mathscr{D}(T)$, 有<br>$$<br>\Vert Tx \Vert \le c \Vert x \Vert<br>$$<br>则称$T$是$\mathscr{D}(T)$到$Y$中的有界线性算子，简称有界算子。<em>有界算子的充要条件是连续。连续泛函的充要条件是$f$的零空间是$X$中的闭子空间。</em></p>
-<p>定义（算子范数）：$T$为赋范线性空间$X$的子空间$\mathscr{D}(T)$到赋范线性空间$Y$中的线性算子，称<br>$$<br>\Vert T \Vert &#x3D; \sup_{x \neq 0, x\in \mathscr{D}(T)} \frac{\Vert Tx \Vert}{\Vert x \Vert}<br>$$<br>为算子$T$在$\mathscr{D}(T)$上的范数。</p>
-<p>例（积分算子）：设$X &#x3D; C[0, 1]$, $K(t, \tau)$是矩形域$[0, 1] \times [0, 1]$上的二元连续函数，对每个$x \in C[0, 1]$, 定义<br>$$<br>(Tx)(t) &#x3D; \int_0^1 K(t, \tau) x(\tau) \mathrm{d}\tau<br>$$<br>$T$是$C[0, 1]$到$C[0, 1]$中的线性算子，这个算子称为积分算子。记<br>$$<br>M &#x3D; \max_{0\le t \le 1} \int_0^1 |K(t, \tau)| \mathrm{d}\tau<br>$$<br>可证明$\Vert T \Vert &#x3D; M$.</p>
-<p>例：对任何$f\in L^1[a, b]$, 作$(Tf)(t) &#x3D; \int_a^t f(\tau )\mathrm{d}\tau$, $|T| &#x3D; b-a$.</p>
-<p>例（微分算子）：考察微分算子$(Tx)(t) &#x3D; \frac{\mathrm{d}}{\mathrm{d}t} x(t)$. 若视$\mathscr{P}[0, 1]$为$C[0, 1]$的子空间，令$x_n(t) &#x3D; t^n$, 则$\Vert x_n \Vert &#x3D; 1$, 但$\Vert Tx_n \Vert &#x3D; \max_{0 \le t \le 1} |n t^{n-1}| &#x3D; n$, 所以$\Vert T \Vert \ge \Vert Tx_n \Vert &#x3D; n$, 即$T$是无界算子。</p>
-<p>$\mathscr{B}(X, Y)$表示由$X$到$Y$中有界线性算子全体。按算子范数成为赋范线性空间。$Y$为巴拿赫空间时，$\mathscr{B}(X, Y)$也是巴拿赫空间。</p>
-<p>定义（共轭空间）：设$X$是赋范线性空间，令$X’$表示$X$上连续线性泛函全体所成的空间，称为$X$的共轭空间。<em>任何赋范线性空间的共轭空间是巴拿赫空间。</em></p>
-<h4 id="第九章-内积空间和希尔伯特空间"><a href="#第九章-内积空间和希尔伯特空间" class="headerlink" title="第九章 内积空间和希尔伯特空间"></a>第九章 内积空间和希尔伯特空间</h4><p>定义（内积）：设$X$是复线性空间，如果对$X$中任何两个向量$x, y$, 有一复数$\langle x, y \rangle$与之对应，且满足以下条件：</p>
-<ol>
-<li>$\langle x, x \rangle \ge 0$, 且$\langle x, x \rangle &#x3D;0$等价于$x &#x3D; 0, x \in X$.</li>
-<li>$\langle \alpha x + \beta y, z \rangle &#x3D; \alpha \langle x, z\rangle + \beta \langle y,z \rangle, x, y, z\in X$, $\alpha, \beta$为复数</li>
-<li>$\langle x, y \rangle &#x3D; \overline{\langle y,x \rangle}, x, y \in X$.</li>
-</ol>
-<p>则称$\langle x , y \rangle$为$x$与$y$的内积，$X$称为内积空间。设$X$是内积空间，令$\Vert x \Vert &#x3D; \sqrt{\langle x, x \rangle}$, 那么$\Vert \cdot \Vert$是$X$上的范数，该范数为内积导出的范数，所以内积空间是一种特殊的赋范空间。</p>
-<p>定义（希尔伯特空间）：带有内积的完备度量空间（完备的内积空间）</p>
-<p>平行四边形公式：<br>$$<br>\Vert x+y \Vert^2 + \Vert x - y \Vert^2 &#x3D; 2(\Vert x\Vert^2 + \Vert y \Vert ^2)<br>$$<br>若$X$是赋范线性空间，其中范数$\Vert \cdot \Vert$对$X$中任意向量$x, y \in X $, 满足平行四边形公式，那么一定可在$X$中定义内积$\langle x, y \rangle$, 使$\Vert\cdot \Vert$就是由内积$\langle \cdot, \cdot \rangle$导出的范数。（范数满足平行四边形公式的赋范线性空间可以是内积空间）</p>
-<p>极化恒等式：<br>$$<br>\langle x, y \rangle &#x3D; \frac{1}{4}(\Vert x + y \Vert^2 - \Vert x - y \Vert^2 + \text{i} \Vert x+ \text{i}y \Vert^2 - \text{i}\Vert x - \text{i}y \Vert ^2)<br>$$<br><em>极化恒等式表示内积可以用它所导出的范数来表示。</em></p>
-<p>定义（距离）：<br>$$<br>d(x, M) &#x3D; \inf_{y \in M} \Vert x-y \Vert<br>$$<br>定理（投影定理）：设$Y$是希尔伯特空间$X$的闭子空间，那么有<br>$$<br>X &#x3D; Y \dot{+} Y^\bot<br>$$<br>这里的$\dot{+}$为直和运算：对于线性空间$X$两个子空间$Y, Z, \forall x \in X$, 存在唯一的$y \in Y, z \in Z$使得$x &#x3D; y + z$, 则称$X$是两个子空间的直和，记作$X &#x3D; Y \dot{+} Z$​. 定理中因为是正交和，所以也可以写成<br>$$<br>X &#x3D; Y \oplus Y^\bot<br>$$<br>定义（规范正交系）：设$M$是内积空间$X$的一个不含零的子集，若$M$中向量两两正交，则称$M$为$X$中的正交系，又若$M$中向量的范数都为1，则称$M$为$X$中规范正交系。</p>
-<p>正交系的基本性质有勾股定理和线性无关。</p>
-<p><em>定义（傅里叶系数）：设$M$为内积空间$X$中的规范正交系，$x \in X$, 称数集${\langle x, e\rangle : e \in M}$为向量$x$关于规范正交系$M$的傅里叶系数集，而称$\langle x , e \rangle $为$x$关于$e$的傅里叶系数。</em></p>
-<p>定理（贝塞尔不等式）：设${e_k}$是内积空间$X$中的有限或可数规范正交系，那么对于每个$x \in X$, 成立不等式<br>$$<br>\sum_{i &#x3D; 1}^\infty |\langle x, e_i \rangle|^2 \le |x|^2<br>$$<br>将不等号换成等号，变为帕塞瓦尔等式（需要规范正交系是完全的，即span的闭包是整个内积空间）</p>
-<p>格拉姆-施密特正交化</p>
-<p>定义（自共轭空间）：自己是自己的共轭空间。$X &#x3D; X’$.</p>
-<p>例：$l^p(1 &lt; p &lt; \infty)$的共轭空间为$l^q$, 其中$1&#x2F;p + 1&#x2F;q &#x3D; 1$. 因此$l^2$是自共轭空间。</p>
-<p>定理：设$X$和$Y$是两个希尔伯特空间，$A \in \mathscr{B}(X, Y)$, 那么存在唯一的$A^* \in \mathscr{B}(Y, X)$, 使得对任何$x \in X$及$y \in Y$, 有<br>$$<br>\langle Ax, y \rangle &#x3D; \langle x, A^* y \rangle<br>$$<br>并且$|A^*| &#x3D; |A|$.</p>
-<p>定义（共轭算子）：设$A$是希尔伯特空间$X$到希尔伯特空间$Y$中的有界线性算子，则称上一条定理中的算子$A^*$为$A$的希尔伯特共轭算子，或简称共轭算子。</p>
-<p>定义（自伴算子）：设$T$为希尔伯特空间$X$到$X$中的有界线性算子，若$T &#x3D; T^*$, 则称$T$为$X$上的自伴算子。当$T$是自伴算子时，对一切$x, y \in X $, $\langle Tx, y \rangle &#x3D; \langle x , Ty \rangle$.</p>
-<p>定理：设$T$为复希尔伯特空间$X$上有界线性算子，则$T$为自伴算子的充要条件为对一切$x \in X$, $\langle Tx, x \rangle$是实数。</p>
-<p>证明：若$T$为自伴算子，则对所有$x \in X$, 有<br>$$<br>\overline{\langle Tx,x\rangle } &#x3D; \langle x, Tx \rangle &#x3D; \langle Tx, x \rangle<br>$$<br>因此$\langle Tx, x \rangle$是实数；反之，如果对所有$x \in X$, $\langle Tx, x \rangle$皆为实数，则<br>$$<br>\langle Tx, x \rangle &#x3D; \overline{\langle Tx, x \rangle} &#x3D; \overline{\langle x, T^\ast x \rangle} &#x3D; \langle T^ \ast x, x \rangle<br>$$<br>所以$\langle (T- T^*)x, x \rangle &#x3D; 0$. 下面证明引理：</p>
-<blockquote>
-<p>设$T$为复内积空间$X$上有界线性算子，那么$T &#x3D; 0$的充要条件为对一切$x \in X$, 有$\langle Tx, x \rangle &#x3D; 0$.</p>
-</blockquote>
-<p>若$T &#x3D; 0$, 结论显然。反之，如果对一切$x \in X$, 有$\langle Tx, x \rangle &#x3D; 0$, 令$v &#x3D; \alpha x + y$, 则<br>$$<br>0 &#x3D; \langle Tv, v \rangle &#x3D; |\alpha|^2 \langle Tx, x \rangle + \langle Ty, y \rangle + \alpha \langle Tx, y \rangle + \overline{\alpha} \langle Ty, x \rangle &#x3D; \alpha \langle Tx, y \rangle + \overline{\alpha} \langle Ty, x \rangle<br>$$<br>分别令$\alpha &#x3D; i$和$\alpha &#x3D; 1$, 可得<br>$$<br>\begin{gather*}<br>\langle Tx, y \rangle - \langle Ty, x \rangle &#x3D; 0 \<br>\langle Tx, y \rangle + \langle Ty, x \rangle &#x3D; 0<br>\end{gather*}<br>$$<br>故$\langle Tx, y \rangle &#x3D; 0$. 由于$x, y$是$X$中的任意向量，所以$T &#x3D; 0$.</p>
-<p>由引理，$T &#x3D; T^*$, 即$T$自伴。</p>
-<h4 id="第十章-巴拿赫空间中的基本定理"><a href="#第十章-巴拿赫空间中的基本定理" class="headerlink" title="第十章 巴拿赫空间中的基本定理"></a>第十章 巴拿赫空间中的基本定理</h4><p>定理（哈恩-巴拿赫泛函延拓定理）：设$X$是实线性空间，$p(x)$是$X$上次线性泛函。若$f$是$X$子空间$Z$上的实线性泛函，且被$p(x)$控制，即满足<br>$$<br>f(x) \le p(x), x \in Z<br>$$<br>则存在$X$上的实线性泛函$\widetilde{f}$ , 使当$x \in Z$时，有$\widetilde{f}(x) &#x3D; f(x)$, 并且在整个空间$X$上仍被$p(x)$控制，<br>$$<br>\widetilde{f}(x) \le p(x), x \in X<br>$$<br>哈恩-巴拿赫定理可以推广到复空间</p>
-<p>定理（哈恩-巴拿赫泛函延拓定理）：设$X$是实或复线性空间，$p(x)$是$X$上次线性泛函。若$f$是$X$子空间$Z$上的实或复线性泛函，且被$p(x)$控制，即满足<br>$$<br>|f(x)| \le p(x), x \in Z<br>$$<br>则存在$X$上的线性泛函$\widetilde{f}$ , 使当$x \in Z$时，有$\widetilde{f}(x) &#x3D; f(x)$, 并且在整个空间$X$上仍被$p(x)$控制，<br>$$<br>|\widetilde{f}(x)| \le p(x), x \in X<br>$$<br>将哈恩-巴拿赫定理应用到赋范线性空间，得出两个重要的定理</p>
-<p>定理：设$f$是赋范线性空间$X$的子空间$Z$上的连续线性泛函，则必存在$X$上连续线性泛函$\widetilde{f}$, 它是$f$的保范延拓，即当$x \in Z$时，有<br>$$<br>\widetilde{f}(x) &#x3D; f(x), \text{ and }|\widetilde{f}|_X &#x3D; |f|_Z<br>$$<br>定理：设$X$是赋范线性空间，$x_0 \in X, x_0 \neq 0$, 则必存在$X$上的有界线性泛函$f(x)$, 使得$|f| &#x3D; 1$, 并且$f(x_0) &#x3D; |x_0|$.</p>
-<p>定理（一致有界定理或共鸣定理）：设$X$是巴拿赫空间，$Y$是赋范空间，$\mathscr{B}(X, Y)$表示$X$到$Y$中的有界线性算子全体，$T_n \in \mathscr{B}(X, Y),n&#x3D;1,2,…$, 若对每个$x \in X$, ${|T_n x|}$有界，即$|T_n x| \le C_x,n&#x3D;1,2,…$, 这里$C_x$是一与$x$有关的实数，那么，${T_n}$一致有界，即存在与$x$无关的实数$C$, 使得对一切正整数$n$, 有$|T_n| \le C$.</p>
-<p>定理（逆算子定理）：设$X$和$Y$都是巴拿赫空间，如果$T$是从$X$到$Y$上的一对一有界线性算子，则$T$的逆算子$T^{-1}$也是有界线性算子。</p>
-<p>定义（闭算子）设$X$和$Y$是赋范空间，$T$是$X$的子空间$\mathscr{D}(T)$到$Y$中的线性算子，称$X \times Y$中的集合<br>$$<br>G(T) &#x3D; {(x, y): x \in  \mathscr{D}(T), y &#x3D; Tx}<br>$$<br>为算子$T$的图像。在$X \times Y$中，定义$|(x, y)| &#x3D; |x| + |y|$, 易知$X \times Y$按$|(x, y)|$成为赋范线性空间。如果$G(T)$是$X \times Y$中的闭集，则称$T$是闭算子。</p>
-<p>定理（闭图像定理）：设$X$和$Y$是巴拿赫空间，$T$是$\mathscr{D}(T) \subset X $到$Y$中闭线性算子，如果$\mathscr{D}(T)$是闭的，则$T$是有界算子。</p>
-<p>例：设$X &#x3D; Y &#x3D; C[0, 1]$, $T &#x3D; \frac{\mathrm{d}}{\mathrm{d}t}$, 则$T$是线性算子。$\mathscr{D}(T)$为$C[0,1]$中一阶连续可微函数全体，记为$C^1[0,1]$, 前已说过$T$是无界算子，但$T$是闭算子，它的图像是<br>$$<br>G(T) &#x3D; {(x, x’):x \in C^1[0, 1]}<br>$$<br>事实上，若有<br>$$<br>(x_n, x_n’) \in G(T), n&#x3D;1,2,… \text{ and } \lim_{n\rightarrow \infty} (x_n, x_n’ )&#x3D;(x, y) \in X \times Y<br>$$<br>因$|(x, y)| &#x3D; |x| + |y|$. 易知${x_n}$一致收敛于$x$, ${x_n’}$也一致收敛于$y$, 由数学分析知道$x(t)$可微，并且$x’(t) &#x3D; y(t)$, 即$(x, y ) \in G(T)$, 这就证明了$G(T)$是$X \times Y$中闭集，因而微分算子是闭算子。</p>
-<p>定义（点列的强弱收敛）：设$X$是赋范线性空间，$x_n \in X, n &#x3D; 1,2,…$, 如果存在$x \in X$, 使得$|x_n - x| \rightarrow 0(n \rightarrow \infty)$, 则称点列${x_n}$强收敛$x$. 如果对任意的$f \in X’$, 都有$f(x_n) \rightarrow f(x)(n \rightarrow \infty)$, 则称点列${x_n}$弱收敛于$x$.</p>
-<p>强收敛必定弱收敛，但弱收敛不一定强收敛，反例</p>
-<p>例：设$X &#x3D; l^2$, $e_n &#x3D; (0,0,…,0,1,0,…)$ （1前面有$n-1$个0）, $n &#x3D; 1,2,…$, 则$|e_n| &#x3D; 1$, 故${e_n} $ 不强收敛于0, 但对任何<br>$$<br>y \in (l^2)’ &#x3D; l^2, y &#x3D; (\eta_1, \eta_2,…),\sum_{i &#x3D; 1}^\infty |\eta_i|^2 &lt; \infty<br>$$<br> 我们有$\langle e_n, y \rangle &#x3D; \eta_n \rightarrow 0 (n \rightarrow \infty)$, 故${e_n}$弱收敛于0.</p>
-<p><em>泛函的强弱收敛定义类似于点列，仅仅将$X$替换为了$X’$.</em></p>
-<p>定义（算子的强弱收敛）：设$X$和$Y$是两个赋范线性空间，$\mathscr{B}(X, Y)$表示$X$到$Y$中的有界线性算子全体所成的空间，$T_n \in \mathscr{B}(X, Y),n&#x3D;1,2,…$, 若存在$T \in \mathscr{B}(X, Y)$, 使得</p>
-<ol>
-<li>$|T_n - T| \rightarrow 0(n \rightarrow \infty)$, 则称算子列${T_n}$一致收敛于$T$.</li>
-<li>对任意的$x \in X$, $|T_n x - Tx |\rightarrow 0(n \rightarrow \infty)$, 则称${T_n}$强收敛于$T$.</li>
-<li>对任意的$x \in X$和任意的$f \in Y’$, $f(T_n x ) \rightarrow f(Tx) (n \rightarrow \infty)$, 则称${T_n}$弱收敛于$T$.</li>
-</ol>
-<p>算子的一致收敛可导出强收敛，强收敛可导出若收敛，反之不然。</p>
-<h4 id="第十一章-线性算子的谱"><a href="#第十一章-线性算子的谱" class="headerlink" title="第十一章 线性算子的谱"></a>第十一章 线性算子的谱</h4><p>定义（正则算子）：设$X$是赋范线性空间，$T \in \mathscr{B}(X)$. 若$T^{-1}$存在且是定义在整个$X$上的有界线性算子，则称$T$是$X$上的正则算子。</p>
-<p>定义（正则点）：设$T \in \mathscr{B}(X)$, $\lambda$是一复数。若$T - \lambda I$正则，我们称$\lambda$是算子$T$的正则点；$T$的正则点全体称为$T$的正则集，记为$\rho(T)$. 不是正则点的复数称为$T$的谱点，全体构成$T$的谱，记为$\sigma(T)$.</p>
-<p>谱的分类：三类</p>
-<p>定理：设$T \in \mathscr{B}(X)$, $|T| &lt; 1$, 则$1 \in \rho(T)$. 这时$1 - T$有定义在全空间上的有界逆算子：<br>$$<br>(1-T)^{-1} &#x3D; \sum_{k&#x3D;0}^\infty T^k &#x3D; I + T + T^2 +…+T^k + …<br>$$<br>这里的级数按$\mathscr{B}(X)$中范数收敛。</p>
-<p>定理（谱集的闭性）：设$T \in \mathscr{B}(X)$, 则$\rho(T)$是开集，$\sigma(T)$是闭集。</p>
-<p>定理：设$T \in \mathscr{B}(X)$, 则$\sigma(T)$是$\mathbf{C}$中的非空有界闭集，且当$\lambda \in \sigma(T)$时，有$|\lambda| \le |T|$.</p>
-<p><em>定理：设$X$是度量空间，$M$是$X$中的紧集的充要条件为对$M$中任何点列${x_n}$都存在子列${x_{n_k}}$收敛于$M$中一元素$x_0$.</em></p>
-<p><em>定义（相对紧集）：设$X$是度量空间，$M$是$X$中子集。若$\overline{M}$是$X$中紧集，则称$M$为$X$中的相对紧集。</em></p>
-<p>定义（全连续算子）：设$X$和$Y$是赋范线性空间，$T$是$X$到$Y$的线性算子。如果对$X$的任意有界子集$M$, $TM$都是$Y$中相对紧集，则称$T$为全连续算子，也称紧算子。$T$是全连续算子的充要条件是：设${x_n}$是$X$中的有界点列，则${Tx_n}$必有收敛子列。</p>
-<p>定理（里斯-绍德尔）：设$A$是$H$上的全连续算子。</p>
-<ol>
-<li>则$0 \in \sigma(A)$.</li>
-<li>若$\lambda \in \sigma(A) \setminus{0}$, 则$\lambda \in \sigma_{p} (A)$且$\dim \mathscr{N}(A - \lambda I) &lt; \infty$.</li>
-<li>若${\lambda_n} \subset \sigma_p (A)$是无限互不相同的点列，则$\lim_{n \rightarrow \infty} \lambda_n &#x3D; 0$.</li>
-</ol>
-<p>引理：设$A$是$H$上的自伴全连续算子。则</p>
-<p>(1) 存在$e \in H$, $|e| &#x3D; 1$, 使得$|Ae| &#x3D; |A|$;</p>
-<p>(2) $|A|$或$-|A|$是$A$的点谱。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/21/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Persvadisto">
-      <meta itemprop="description" content="A car car man">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Persvadisto">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/07/21/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-07-21 21:37:25" itemprop="dateCreated datePublished" datetime="2022-07-21T21:37:25+08:00">2022-07-21</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
+          <p>第一篇blog, 《实变函数与泛函分析》期末考试周整理的内容。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/07/21/%E3%80%8A%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0%E4%B8%8E%E6%B3%9B%E5%87%BD%E5%88%86%E6%9E%90%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -520,7 +293,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">1</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
