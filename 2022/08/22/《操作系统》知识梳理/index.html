@@ -1,0 +1,1386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="《操作系统》期末考试周整理的内容。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《操作系统》知识梳理">
+<meta property="og:url" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/index.html">
+<meta property="og:site_name" content="Persvadisto">
+<meta property="og:description" content="《操作系统》期末考试周整理的内容。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220606203121532.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220606203141110.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220606221932005.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220606223535990.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220606223241825.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220606231153282.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220606231245673.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220606232132485.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607101811445.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607102836333.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607112807846.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607114127859.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607165426701.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607170009882.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/Translation.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607175525528.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607175816134.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607180225246.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607193042014.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607193538780.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607195120988.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220612153556367.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607202810994.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607230425182.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607231914243.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607231921374.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607232545013.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220608100010360.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220608101559452.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220608102518337.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220608104142826.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220608105354184.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220608110712923.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220608111031144.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220608164106284.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220608170153485.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220608170910843.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220608192038116.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220609105507918.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220609143428513.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220609145228916.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220609161144740.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220609163912022.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220609165712764.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220609171246130.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220609184335072.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220609184459156.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220609184616759.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220609185020696.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220609193857473.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220609193941903.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220609195315090.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220609200356718.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220610095750730.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220610100158676.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220610103119931.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220610115148560.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220610121051445.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220610122446607.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220610151201198.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220608083112155.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220608083748555.png">
+<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220608091211541.png">
+<meta property="article:published_time" content="2022-08-22T12:49:18.827Z">
+<meta property="article:modified_time" content="2022-08-22T12:58:08.465Z">
+<meta property="article:author" content="Persvadisto">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220606203121532.png">
+
+<link rel="canonical" href="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>《操作系统》知识梳理 | Persvadisto</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Persvadisto</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Persvadisto">
+      <meta itemprop="description" content="A car car man">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Persvadisto">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          《操作系统》知识梳理
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-08-22 20:49:18 / Modified: 20:58:08" itemprop="dateCreated datePublished" datetime="2022-08-22T20:49:18+08:00">2022-08-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">课程笔记</span></a>
+                </span>
+            </span>
+
+          
+            <div class="post-description">《操作系统》期末考试周整理的内容。</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <span id="more"></span>
+
+<h3 id="进程和线程"><a href="#进程和线程" class="headerlink" title="进程和线程"></a>进程和线程</h3><h4 id="进程和线程的各种状态转换"><a href="#进程和线程的各种状态转换" class="headerlink" title="进程和线程的各种状态转换"></a>进程和线程的各种状态转换</h4><h5 id="进程创建"><a href="#进程创建" class="headerlink" title="进程创建"></a>进程创建</h5><p>系统初始化&#x2F;正在运行的程序执行系统调用&#x2F;用户请求创建&#x2F;批处理作业的初始化</p>
+<p>fork创建一个与调用进程相同的副本，parent process returns p and child process returns 0.</p>
+<p>exec修改内存映像运行一个新的程序</p>
+<p>CreateProcess for Windows</p>
+<h5 id="进程终止"><a href="#进程终止" class="headerlink" title="进程终止"></a>进程终止</h5><p>正常退出&#x2F;出错退出&#x2F;严重错误&#x2F;他のプロセスに殺される</p>
+<h5 id="进程状态"><a href="#进程状态" class="headerlink" title="进程状态"></a>进程状态</h5><p>Running&#x2F;Ready&#x2F;Blocked</p>
+<p><img src="image-20220606203121532.png" alt="image-20220606203121532"></p>
+<p><img src="image-20220606203141110.png" alt="image-20220606203141110"></p>
+<p>Orphan: Parents ends before Child process. INIT becomes the parent. INIT will periodically clean up orphans.</p>
+<p>Zombie: 一个进程使用fork创建子进程，如果子进程退出，而父进程并没有调用wait或waitpid获取子进程的状态信息，那么子进程的进程描述符仍然保存在系统中。这种进程称之为僵尸进程。</p>
+<h4 id="进程控制块-Process-Control-Block-PCB"><a href="#进程控制块-Process-Control-Block-PCB" class="headerlink" title="进程控制块(Process Control Block, PCB)"></a>进程控制块(Process Control Block, PCB)</h4><p>系统利用PCB来描述进程的基本情况和运行状态，进而控制和管理进程。</p>
+<ul>
+<li>Process state: running, waiting, etc</li>
+<li>Program counter: location of instruction to next execute</li>
+<li>CPU registers: contents of all process-centric registers</li>
+<li>Memory-management information: memory allocated to the process</li>
+<li>Accounting information: CPU used, clock time elapsed since start, time limits</li>
+<li>I&#x2F;O status information: I&#x2F;O devices allocated to process, list of open files</li>
+<li>…</li>
+</ul>
+<h4 id="多道程序设计-Multiprogramming"><a href="#多道程序设计-Multiprogramming" class="headerlink" title="多道程序设计(Multiprogramming)"></a>多道程序设计(Multiprogramming)</h4><h5 id="CPU利用率-CPU-utilization"><a href="#CPU利用率-CPU-utilization" class="headerlink" title="CPU利用率(CPU utilization)"></a>CPU利用率(CPU utilization)</h5><p>能够提高CPU的利用率。假设一个进程等待I&#x2F;O操作的时间与其停留在内存中时间的比为$p$, 则<br>$$<br>\text{CPU utilization} &#x3D; 1 - p^n<br>$$<br>$n$为多道程序设计的道数。（粗略的模型）</p>
+<h5 id="上下文切换-Context-Switch"><a href="#上下文切换-Context-Switch" class="headerlink" title="上下文切换(Context Switch)"></a>上下文切换(Context Switch)</h5><p>When CPU switches to another process, the system must save the state of the old process and load the saved state for the new process via a context switch.</p>
+<p>Context of a process represented in the PCB.</p>
+<p><img src="image-20220606221932005.png" alt="image-20220606221932005"></p>
+<h4 id="线程控制块-Thread-Control-Block-TCB"><a href="#线程控制块-Thread-Control-Block-TCB" class="headerlink" title="线程控制块(Thread Control Block, TCB)"></a>线程控制块(Thread Control Block, TCB)</h4><p><img src="image-20220606223535990.png" alt="image-20220606223535990"></p>
+<p><img src="image-20220606223241825.png"></p>
+<h3 id="调度"><a href="#调度" class="headerlink" title="调度"></a>调度</h3><p>When: 创建进程&#x2F;进程退出&#x2F;进程阻塞&#x2F;I&#x2F;O发生&#x2F;HW clock interrupt</p>
+<p>What: Save process state to PCB; Pick a process to run next; Dispatch process</p>
+<h4 id="调度的指标"><a href="#调度的指标" class="headerlink" title="调度的指标"></a>调度的指标</h4><p>Fairness&#x2F;…</p>
+<p>In Batch Systems:</p>
+<ul>
+<li>吞吐(Throughput): 每小时最大作业数</li>
+<li>周转时间(Turnaround time): 从提交到终止间的最小时间</li>
+<li>CPU利用率(CPU utilization): 保持CPU始终忙碌</li>
+</ul>
+<p>In Interactive Systems:</p>
+<ul>
+<li>响应时间(Response time): 快速响应请求(less waiting time)</li>
+</ul>
+<p>In Real Time Systems:</p>
+<ul>
+<li>締め切りに間に合う(Meeting deadlines): 避免丢失数据</li>
+</ul>
+<h4 id="批处理系统的调度-Scheduling-in-Batch-Systems"><a href="#批处理系统的调度-Scheduling-in-Batch-Systems" class="headerlink" title="批处理系统的调度(Scheduling in Batch Systems)"></a>批处理系统的调度(Scheduling in Batch Systems)</h4><p>注意等待时间(waiting)和周转时间(turnaround)不一样</p>
+<h5 id="先来先服务-First-come-Fist-Served-or-First-In-First-Out"><a href="#先来先服务-First-come-Fist-Served-or-First-In-First-Out" class="headerlink" title="先来先服务(First-come Fist-Served, or First In First Out)"></a>先来先服务(First-come Fist-Served, or First In First Out)</h5><p><img src="image-20220606231153282.png" alt="image-20220606231153282"></p>
+<p>Advantages:</p>
+<ul>
+<li>Works well if the workload (execution time of tasks) is even.</li>
+<li>Minimal overhead—switching between tasks only when each one completes. Will have the <strong>best throughput</strong>: it will complete the most tasks the most quickly.</li>
+<li>易实现。</li>
+<li>Obviously fair.</li>
+</ul>
+<p>Disadvantages: If heavy task comes first, then the average waiting time is very large.</p>
+<h5 id="最短作业优先-Shortest-Remaining-Time-Next"><a href="#最短作业优先-Shortest-Remaining-Time-Next" class="headerlink" title="最短作业优先(Shortest Remaining Time Next)"></a>最短作业优先(Shortest Remaining Time Next)</h5><p>一种适用于运行时间可以预知的另一个非抢占式的批处理调度算法。</p>
+<p><img src="image-20220606231245673.png" alt="image-20220606231245673"></p>
+<p>Claim: SJF is optimal for average turnaround time.</p>
+<blockquote>
+<p>最短作业优先算法在什么情况下是最优的？怎么证明？</p>
+</blockquote>
+<p>在所有作业都可同时运行的情况下。假设有$n$个作业，按执行时间从小到大排为$a_1, a_2,…, a_n$. 设$b_1, b_2,…, b_n$是它的一个排列，the turnaround time<br>$$<br>\frac{1}{n} \sum_{i &#x3D; 1}^n n a_i &#x3D; \frac{1}{n} \sum_{i &#x3D; 1}^n \sum_{j &#x3D; 1}^i a_j \le \frac{1}{n} \sum_{i &#x3D; 1}^n \sum_{j &#x3D; 1}^i b_j &#x3D; \frac{1}{n} \sum_{i &#x3D; 1}^n n b_i<br>$$<br>则最短作业优先算法在所有作业都可同时运行的情况下是最优的。</p>
+<p>Downsides of SJF:</p>
+<ul>
+<li>The estimation of future is not reliable.</li>
+<li>Frequent context switches —&gt; increase the overhead.</li>
+<li>Starvation, and variance in turnaround time. Some task might end soon, and some might take forever!</li>
+</ul>
+<h5 id="最短剩余时间优先-Shortest-Remaining-Time-Next-SRTN-x2F-SRTF"><a href="#最短剩余时间优先-Shortest-Remaining-Time-Next-SRTN-x2F-SRTF" class="headerlink" title="最短剩余时间优先(Shortest Remaining Time Next, SRTN&#x2F;SRTF)"></a>最短剩余时间优先(Shortest Remaining Time Next, SRTN&#x2F;SRTF)</h5><p>Preemptive version of SJF, and always do the task that has the shortest remaining amount of work to do.</p>
+<p><img src="image-20220606232132485.png" alt="image-20220606232132485"></p>
+<h4 id="交互式系统中的调度-Scheduling-in-Interactive-Systems"><a href="#交互式系统中的调度-Scheduling-in-Interactive-Systems" class="headerlink" title="交互式系统中的调度(Scheduling in Interactive Systems)"></a>交互式系统中的调度(Scheduling in Interactive Systems)</h4><h5 id="轮转调度-Round-Robin-RR"><a href="#轮转调度-Round-Robin-RR" class="headerlink" title="轮转调度(Round-Robin, RR)"></a>轮转调度(Round-Robin, RR)</h5><p>Each task gets resource for a fixed period of time (time quantum, 时间片) </p>
+<p><img src="image-20220607101811445.png" alt="image-20220607101811445"></p>
+<p>RR ensures we don’t starve, and gives everyone a turn. RR minimizes the variance of turnaround time, can get a very smooth feedback, and in this case, the turnaround is not high.</p>
+<p>时间片设太短会导致过多的进程切换，降低了CPU效率；设太长有可能引起对短的交互请求的响应时间变长。一般折中为20ms-50ms.</p>
+<h5 id="优先级调度-Priority-Scheduling"><a href="#优先级调度-Priority-Scheduling" class="headerlink" title="优先级调度(Priority Scheduling)"></a>优先级调度(Priority Scheduling)</h5><p><em>Smallest integer -&gt; highest priority</em></p>
+<p>同优先级之间也可以RR. </p>
+<p><img src="image-20220607102836333.png" alt="image-20220607102836333"></p>
+<p>Starvation – low priority processes may never execute</p>
+<ul>
+<li>Solution—&gt;Aging – as time progresses increase the priority of the process</li>
+<li>Aging can be implemented using multilevel feedback queue</li>
+</ul>
+<p>Another problem with multilevel queues is that the process needs to be assigned to the most suitable priority queue a priori, which is obviously not practical —&gt; multilevel feedback queue can also solve this problem.</p>
+<h5 id="多级反馈队列-Multilevel-Feedback-Queue-MFQ"><a href="#多级反馈队列-Multilevel-Feedback-Queue-MFQ" class="headerlink" title="多级反馈队列(Multilevel Feedback Queue, MFQ)"></a>多级反馈队列(Multilevel Feedback Queue, MFQ)</h5><p>A process can move between the various queues.</p>
+<p>MFQ scheduler defined by the following parameters:</p>
+<ul>
+<li>Number of queues</li>
+<li>Scheduling algorithms for each queue</li>
+<li>Method used to determine when to upgrade a process</li>
+<li>Method used to determine when to demote a process</li>
+<li>Method used to determine which queue a process will enter when that process needs service</li>
+</ul>
+<p>规则:</p>
+<ol>
+<li><p>如果 A 的优先级 &gt; B 的优先级，运行 A（不运行 B）。</p>
+</li>
+<li><p>如果 A 的优先级 &#x3D; B 的优先级，轮转运行 A 和 B。</p>
+</li>
+<li><p>工作进入系统时，放在最高优先级（最上层队列）。</p>
+</li>
+<li><p>一旦工作用完了其在某一层中的时间配额（无论中间主动放弃了多少次 CPU），就降低其优先级（移入低一级队列）。</p>
+</li>
+<li><p>经过一段时间$S$，就将系统中所有工作重新加入最高优先级队列。</p>
+</li>
+</ol>
+<p>MFQ scheduler can achieve a balance between turnaround time, low overhead, and fairness.</p>
+<h6 id="Game-the-system"><a href="#Game-the-system" class="headerlink" title="Game the system"></a>Game the system</h6><p>关于规则4，最初的版本是如果用完一整个时间片降低，主动释放就优先级不变。</p>
+<p>进程在时间片用完之前，调用一个 I&#x2F;O 操作（比如访问一个无关的文件），从而主动释放 CPU。如此便可以保持在高优先级，占用更多的 CPU 时间。做得好时（比如，每运行 99%的时间片时间就主动放弃一次 CPU），工作可以几乎独占CPU。</p>
+<h4 id="实时系统的调度-Scheduling-in-Real-Time-Systems"><a href="#实时系统的调度-Scheduling-in-Real-Time-Systems" class="headerlink" title="实时系统的调度(Scheduling in Real-Time Systems)"></a>实时系统的调度(Scheduling in Real-Time Systems)</h4><p>硬实时&#x2F;软实时: 能否容忍错过ddl. 周期性&#x2F;非周期性</p>
+<h5 id="准入控制-Admission-control"><a href="#准入控制-Admission-control" class="headerlink" title="准入控制(Admission-control)"></a>准入控制(Admission-control)</h5><p>如果有$m$个周期事件，事件$i$以周期$P_i$发生，并需要$C_i$秒CPU事件处理一个事件，那么可以处理负载的条件是<br>$$<br>\sum_{i&#x3D;1}^m \frac{C_i}{P_i} \le 1<br>$$<br>满足这个条件的实时系统称为是可调度的。</p>
+<h5 id="单调速率调度-Rate-Monotonic-Scheduling"><a href="#单调速率调度-Rate-Monotonic-Scheduling" class="headerlink" title="单调速率调度(Rate Monotonic Scheduling)"></a>单调速率调度(Rate Monotonic Scheduling)</h5><p>周期越短优先级越高。E.g., two processes P1 and P2, with periods: p1 is 50, p2 is 100, then P1 is scheduled first, and then P2, and P2 can be preemptive by P1. 假设t1 &#x3D; 20, t2 &#x3D; 35.</p>
+<p><img src="image-20220607112807846.png" alt="image-20220607112807846"></p>
+<p>Claim: Rate-monotonic scheduling is considered optimal in that if a set of processes cannot be scheduled by this algorithm, it cannot be scheduled by any other algorithm that assigns static priorities.</p>
+<p>Rate-monotonic scheduling has a limitation: CPU utilization is bounded, and it is not always possible to maximize CPU resources fully. The worst-case CPU utilization for scheduling N processes is:<br>$$<br>N(2^{1&#x2F;N} - 1) \<br>\lim_{N \rightarrow \infty} N(2^{1&#x2F;N} - 1) &#x3D; \ln 2<br>$$<br>P.S. 虽然$U &#x3D; \sum_{i &#x3D; 1}^m \frac{C_i}{P_i}\le N(2^{1&#x2F;N}-1)$能推导出n个独立的周期任务可以被RM调度，但不满足不等式不代表不能被RM调度。</p>
+<h5 id="最早截止期限优先-Earliest-Deadline-First-Scheduling"><a href="#最早截止期限优先-Earliest-Deadline-First-Scheduling" class="headerlink" title="最早截止期限优先(Earliest Deadline First Scheduling)"></a>最早截止期限优先(Earliest Deadline First Scheduling)</h5><p>DDL越近优先级越高。同样以上面的例子</p>
+<p><img src="image-20220607114127859.png" alt="image-20220607114127859"></p>
+<h3 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h3><h4 id="内存管理需要实现的功能"><a href="#内存管理需要实现的功能" class="headerlink" title="内存管理需要实现的功能"></a>内存管理需要实现的功能</h4><p>它的任务是有效地管理内存，即记录哪些内存是正在使用的；在进程需要时为其分配内存；protect memory required to ensure correct operation；进程使用完后释放内存。（记录、分配、保护、释放）</p>
+<p>最大化内存利用率和系统吞吐量。</p>
+<h4 id="虚拟（逻辑）地址空间和物理地址空间-Address-Space"><a href="#虚拟（逻辑）地址空间和物理地址空间-Address-Space" class="headerlink" title="虚拟（逻辑）地址空间和物理地址空间(Address Space)"></a>虚拟（逻辑）地址空间和物理地址空间(Address Space)</h4><p>地址空间是一个进程可用于寻址内存的一套地址集合。每个进程都有一个自己的地址空间，并且这个地址空间独立于其他进程的地址空间（除了在一些特殊情况下进程需要共享它们的地址空间外） 。</p>
+<ul>
+<li>Logical (Virtual) Address: generated by CPU</li>
+<li>Physical Address: seen by the memory unit</li>
+</ul>
+<p>The concept of a logical address space that is bound to a separate physical address space is central to proper memory management.</p>
+<p>Base and Limit Registers给每个进程提供私有的地址空间。</p>
+<h4 id="连续内存分配-Contiguous-Memory-Allocation"><a href="#连续内存分配-Contiguous-Memory-Allocation" class="headerlink" title="连续内存分配(Contiguous Memory Allocation)"></a>连续内存分配(Contiguous Memory Allocation)</h4><p>The dynamic memory allocation problem: How to satisfy a request of size N from a list of free holes? 动态空间分配算法。</p>
+<h5 id="First-Fit"><a href="#First-Fit" class="headerlink" title="First-Fit"></a>First-Fit</h5><p>Allocate the first hole that is big enough. </p>
+<p>Searches as little as possible.</p>
+<h5 id="Next-Fit"><a href="#Next-Fit" class="headerlink" title="Next-Fit"></a>Next-Fit</h5><p>Keeps track of the previous suitable hole, and starts first-fit search at the place where it left off last time. </p>
+<p>Slightly worse performance than first-fit.</p>
+<h5 id="Best-Fit"><a href="#Best-Fit" class="headerlink" title="Best-Fit"></a>Best-Fit</h5><p>Allocate the smallest hole that is big enough. </p>
+<p>Search the entire list and result in tiny and useless holes (might waste more memory than first-fit  or next-fit).</p>
+<h5 id="Worst-Fit"><a href="#Worst-Fit" class="headerlink" title="Worst-Fit"></a>Worst-Fit</h5><p>Allocate the largest hole.</p>
+<p>Also search the entire list. Not a very good idea either.</p>
+<p><img src="image-20220607165426701.png" alt="image-20220607165426701"></p>
+<h5 id="Quick-Fit"><a href="#Quick-Fit" class="headerlink" title="Quick-Fit"></a>Quick-Fit</h5><p>Maintains separate lists for some of the more common sizes requested.</p>
+<p>Finding a hole of the required size is extremely fast. But the holes should be sorted by size (when a process terminates).</p>
+<p><img src="image-20220607170009882.png" alt="image-20220607170009882"></p>
+<p>缺点：在一个进程终止或被换出时， 寻找它的相邻块并查看是否可以合并的过程是非常费时的。如果不进行合并，内存将会很快分裂出大批的进程无法利用的小空闲区。</p>
+<h4 id="内部碎片和外部碎片-Fragmentation"><a href="#内部碎片和外部碎片-Fragmentation" class="headerlink" title="内部碎片和外部碎片(Fragmentation)"></a>内部碎片和外部碎片(Fragmentation)</h4><p><strong>External Fragmentation</strong>: Total memory space exists to satisfy a request, but it is not contiguous (holes).</p>
+<p><strong>Internal Fragmentation</strong>: Allocated memory may be slightly larger than requested memory; this size difference is memory internal to a partition, but not being used.</p>
+<p><strong>50-percent rule</strong>: analysis of first-fit algorithm reveals that given N blocks allocated, 0.5N blocks lost to external fragmentation (1&#x2F;3 may be unusable)</p>
+<p>Reduce external fragmentation by compaction。</p>
+<ul>
+<li>Shuffle memory contents to place all free memory together in one large block to coalesce holes (very costly).</li>
+<li>Compaction is possible only if relocation is dynamic, and is done at execution time.</li>
+</ul>
+<h4 id="分段-Segmentation"><a href="#分段-Segmentation" class="headerlink" title="分段(Segmentation)"></a>分段(Segmentation)</h4><h5 id="段表-Segment-Table-的结构、分段中的地址转换"><a href="#段表-Segment-Table-的结构、分段中的地址转换" class="headerlink" title="段表(Segment Table)的结构、分段中的地址转换"></a>段表(Segment Table)的结构、分段中的地址转换</h5><p><strong>Segment Table –</strong> It maps two-dimensional Logical address into one-dimensional Physical address. It’s each table entry has:</p>
+<ul>
+<li><strong>Segment Base</strong>: the starting physical address where the segments reside in memory.</li>
+<li><strong>Segment Limit</strong>: It specifies the length of the segment.</li>
+</ul>
+<p><strong>Segment-table  base register (STBR)</strong> points to the segment table’s location in memory.</p>
+<p><strong>Segment-table length register (STLR)</strong> indicates number of segments used by a program.</p>
+<p><img src="Translation.png" alt="Lightbox"></p>
+<h4 id="分页-Paging"><a href="#分页-Paging" class="headerlink" title="分页(Paging)"></a>分页(Paging)</h4><h5 id="页表-Page-Table-的结构、分页中的地址转换、页面共享"><a href="#页表-Page-Table-的结构、分页中的地址转换、页面共享" class="headerlink" title="页表(Page Table)的结构、分页中的地址转换、页面共享"></a>页表(Page Table)的结构、分页中的地址转换、页面共享</h5><h5 id="分页中的地址转换"><a href="#分页中的地址转换" class="headerlink" title="分页中的地址转换"></a>分页中的地址转换</h5><p>虚拟地址空间按照固定大小划分成被称为页面(page) 的若干单元。在物理内存中对应的单元称为页框(page frame) 。页面和页框的大小通常是一样的。每个进程都有自己的页表，用于将逻辑地址转化为物理地址。</p>
+<p>Logical address generated by CPU is divided into: &lt;page-number, offset&gt;</p>
+<p><strong>Page number (p)</strong>: an index into a page table, which contains base address of each page in physical memory (which page).</p>
+<p><strong>Page offset (d)</strong>: combined with base address to define the physical memory address (which byte within that page).</p>
+<p><img src="image-20220607175525528.png" alt="image-20220607175525528"></p>
+<p><img src="image-20220607175816134.png" alt="image-20220607175816134"></p>
+<p><img src="image-20220607180225246.png" alt="image-20220607180225246"></p>
+<p>Not all pages may be mapped to frames. 需要一个Valid-invalid bit (Present&#x2F;Absent). 1表示表项有效，可以使用；0表示该表项对应的虚拟页面现在不在内存中，访问该页面会引起一个缺页中断。</p>
+<h5 id="页面共享"><a href="#页面共享" class="headerlink" title="页面共享"></a>页面共享</h5><p><img src="image-20220607193042014.png" alt="image-20220607193042014"></p>
+<h5 id="页表-Page-Table-的结构"><a href="#页表-Page-Table-的结构" class="headerlink" title="页表(Page Table)的结构"></a>页表(Page Table)的结构</h5><p>页表数学本质上是一个函数 <em>F(virtual page number) &#x3D; physical frame number</em></p>
+<p>不同计算机的页表项大小可能不一样，通常是32位。一个典型的页表项包括</p>
+<p><img src="image-20220607193538780.png" alt="image-20220607193538780"></p>
+<ul>
+<li>页框号(Page frame number)</li>
+<li>在&#x2F;不在位(Present&#x2F;absent bit): if the page is physically stored in memory</li>
+<li>保护位(Protection): what kinds of access are permitted (read-only, read&#x2F;write)</li>
+<li>修改位(Modified) &amp; 访问位(Referenced): <ul>
+<li>When a page is referenced, the hardware automatically sets the referenced bit</li>
+<li>When a page is written to, sets the modified bit (dirty bit)</li>
+</ul>
+</li>
+<li>禁止高速缓存(Caching disabled): for pages that map onto device registers rather than memory.</li>
+</ul>
+<h5 id="转换检测缓冲区-x2F-块表-Translation-Look-aside-Buffers-TLB"><a href="#转换检测缓冲区-x2F-块表-Translation-Look-aside-Buffers-TLB" class="headerlink" title="转换检测缓冲区&#x2F;块表(Translation Look-aside Buffers, TLB)"></a>转换检测缓冲区&#x2F;块表(Translation Look-aside Buffers, TLB)</h5><p><img src="image-20220607195120988.png" alt="image-20220607195120988"></p>
+<p>On a TLB miss, value is loaded into the TLB for faster access next time (what replacement policy?)</p>
+<p>Soft miss: occurs when the page referenced is not in the TLB, but is in memory. All that is needed is for the TLB to be updated. No disk I&#x2F;O.</p>
+<p>Hard miss: occurs when the page itself is not in memory (and not in the TLB). A disk access is required to bring in the page, which can take several milliseconds.</p>
+<h5 id="有效访问时间-Effective-Access-Time-EAT"><a href="#有效访问时间-Effective-Access-Time-EAT" class="headerlink" title="有效访问时间(Effective Access Time, EAT)"></a>有效访问时间(Effective Access Time, EAT)</h5><p>Hit Ratio ($\alpha$): percentage of times that a page number is found in the TLB, Memory access time ($t$), TLB search time ($\varepsilon$) .<br>$$<br>\text{EAT} &#x3D; (\varepsilon + t) \alpha + (\varepsilon + 2t) (1 - \alpha)<br>$$</p>
+<h5 id="页表的实现方式"><a href="#页表的实现方式" class="headerlink" title="页表的实现方式"></a>页表的实现方式</h5><h6 id="多级页表-Multi-Level-Page-Table"><a href="#多级页表-Multi-Level-Page-Table" class="headerlink" title="多级页表(Multi-Level Page Table)"></a>多级页表(Multi-Level Page Table)</h6><p>E.g.</p>
+<table>
+<thead>
+<tr>
+<th align="center">PT1(10 bits)</th>
+<th align="center">PT2(10 bits)</th>
+<th align="center">Offset(12 bits)</th>
+</tr>
+</thead>
+</table>
+<p><img src="image-20220612153556367.png" alt="image-20220612153556367"></p>
+<h6 id="倒排页表-Invented-Page-Table"><a href="#倒排页表-Invented-Page-Table" class="headerlink" title="倒排页表(Invented Page Table)"></a>倒排页表(Invented Page Table)</h6><p><img src="image-20220607202810994.png" alt="image-20220607202810994"></p>
+<p>节省了大量的空间，但地址转换会很低效(不能把p当作索引，而是要搜索整个页表)。解决方法包括TLB或哈希。</p>
+<h4 id="★-虚拟内存-Virtual-Memory"><a href="#★-虚拟内存-Virtual-Memory" class="headerlink" title="★ 虚拟内存(Virtual Memory)"></a>★ 虚拟内存(Virtual Memory)</h4><h5 id="请求调页-Demand-Paging"><a href="#请求调页-Demand-Paging" class="headerlink" title="请求调页(Demand Paging)"></a>请求调页(Demand Paging)</h5><p>Bring a page into memory only when it is needed (only keep frequently used pages in memory). In each page table entry, use a Present&#x2F;Absent (Valid&#x2F;Invalid) bit to track of which pages are physically present in memory.</p>
+<p>Lazy Pager: never swap a page into memory unless page will be needed.</p>
+<p>Pure Demand Paging: start process with no pages in memory.</p>
+<p>局部性原理保证了一旦进程开始在一组页上运行，在接下来相当长的一段时间内它会一直停留在这些页上而不去访问其它的页：这样我们就可以认为“缺页”错误是一种稀有事件。</p>
+<h6 id="Performance-of-Demand-Paging"><a href="#Performance-of-Demand-Paging" class="headerlink" title="Performance of Demand Paging"></a>Performance of Demand Paging</h6><p>Page Fault Rate ($0 \le p \le 1$) is the rate on which processes find the page fault in the memory.</p>
+<p>Effective Access Time (EAT) &#x3D; $(1-p) \times$memory access time + $p \times$page fault overhead. </p>
+<h5 id="缺页错误的处理流程-Page-fault-handling-えっ？"><a href="#缺页错误的处理流程-Page-fault-handling-えっ？" class="headerlink" title="缺页错误的处理流程 Page fault handling (????? えっ？"></a>缺页错误的处理流程 Page fault handling (????? えっ？</h5><blockquote>
+<p>流程精简版：</p>
+<ol>
+<li>将要访问的页从磁盘复制到内存，内存不够时，将内存中不经常用的页移到磁盘。</li>
+<li>缺页异常返回。</li>
+<li>重新执行刚才要处理的页。</li>
+</ol>
+</blockquote>
+<ol>
+<li><p>The hardware traps to kernel, saving program counter on stack</p>
+</li>
+<li><p>Assembly code routine started to save general registers and other volatile info</p>
+</li>
+<li><p>System discovers page fault has occurred, tries to discover which virtual page needed</p>
+</li>
+<li><p>Once virtual address caused fault is known, system checks to see if address valid and the protection consistent with access</p>
+</li>
+<li><p>Find a free (clean) frame</p>
+<ul>
+<li><p>If no free frame, run page replacement to select a victim</p>
+</li>
+<li><p>If frame selected dirty, page is scheduled for transfer to disk, context switch takes place, suspending faulting process</p>
+</li>
+</ul>
+</li>
+<li><p>As soon as frame clean, system looks up disk address where needed page is, and schedules disk operation to bring it in (faulting process is still suspended)</p>
+</li>
+<li><p>When disk interrupt indicates page has arrived, page table is updated, and frame is marked as being in normal state</p>
+</li>
+<li><p>Faulting instruction backed up to state it had, and program counter is reset</p>
+</li>
+<li><p>Faulting process is scheduled, operating system returns to routine that called it</p>
+</li>
+<li><p>Routine reloads registers and other state information, returns to user space to continue execution</p>
+</li>
+</ol>
+<p><img src="image-20220607230425182.png" alt="image-20220607230425182"></p>
+<p><strong>When a page must be brought in</strong></p>
+<ul>
+<li>Find a free frame</li>
+<li>evict one if there is no free frame</li>
+<li>Issue disk request to fetch data for page</li>
+<li>Move “current process” to disk queue</li>
+<li>Context switch to new process</li>
+<li>Update page table entry when disk completes</li>
+<li>Move “current process” to ready queue</li>
+</ul>
+<p><strong>When a page must be swapped out</strong></p>
+<ul>
+<li>Find all page table entries that refer to old page</li>
+<li>Frame might be shared</li>
+<li>Set each page table entry to not present (invalid)</li>
+<li>Remove any TLB entries</li>
+<li>TLB Shootdown: in multiprocessors, TLB entry must be eliminated from the TLB of all processors</li>
+<li>Write page back to disk, if needed</li>
+<li>Dirty bit in page table entry indicates need</li>
+</ul>
+<h4 id="页面置换算法-Page-Replacement"><a href="#页面置换算法-Page-Replacement" class="headerlink" title="页面置换算法(Page Replacement)"></a>页面置换算法(Page Replacement)</h4><h5 id="FIFO"><a href="#FIFO" class="headerlink" title="FIFO"></a>FIFO</h5><p>Replace the oldest page (use an FIFO queue to track ages of pages)</p>
+<p><img src="image-20220607231914243.png" alt="image-20220607231914243"></p>
+<p><img src="image-20220607231921374.png" alt="image-20220607231921374"></p>
+<p>Bélády’s anomaly: fewer frames, fewer page faults (可能)</p>
+<ul>
+<li>4 frames $\rightarrow$ 10 page faults</li>
+<li>3 frames $\rightarrow$ 9 page faults</li>
+</ul>
+<h5 id="Optimal"><a href="#Optimal" class="headerlink" title="Optimal"></a>Optimal</h5><p>Replace page that will not be used for longest period of time. (理论上的最优解，但实际上无法预知未来，因而不可能实现，通常作为衡量算法能力的参照)</p>
+<p><img src="image-20220607232545013.png" alt="image-20220607232545013"></p>
+<h5 id="Least-Recently-Used-LRU"><a href="#Least-Recently-Used-LRU" class="headerlink" title="Least Recently Used (LRU)"></a>Least Recently Used (LRU)</h5><p>Replace page that has not been used in the most amount of time. </p>
+<p>需要硬件支持，代价高。需要额外维护一个counter或stack</p>
+<p><img src="image-20220608100010360.png" alt="image-20220608100010360"></p>
+<h5 id="Not-Recently-Used-NRU"><a href="#Not-Recently-Used-NRU" class="headerlink" title="Not Recently Used (NRU)"></a>Not Recently Used (NRU)</h5><p>使用(Reference bit, Modify bit)表示(最近是否使用，最近是否修改). 替换优先度Class 0 (0, 0) &gt; Class 1 (0, 1) &gt; Class 2 (1, 0) &gt; Class 3 (1, 1). 算法随机从编号最小的非空类中挑选一个页面淘汰。</p>
+<h5 id="Not-Frequently-Used-NFU"><a href="#Not-Frequently-Used-NFU" class="headerlink" title="Not Frequently Used (NFU)"></a>Not Frequently Used (NFU)</h5><p>用软件模拟LRU. 每个Page和和一个软件计数器关联。计数器的初值为0 。每次时钟中断时，由操作系统扫描内存中所有的页面，将每个页面的R位（它的值是0或1) 加到它的计数器上。这个计数器大体上跟踪了各个页面被访问的频繁程度。发生缺页中断时，则置换计数器值最小的页面。</p>
+<p>NFU不会忘记任何事情，因此需要Aging Algorithm. </p>
+<blockquote>
+<p>假设在第一个时钟滴答后，页面0-5的R位值分别是101011 (页面0为1. 页面1为0, 页面2为1, 以此类推）。换句话说，在时钟滴答0到时钟滴答1期间，访问了页0 、2 、4 、5。它们的R位设置为1, 而其他页面的R位仍然是0 。对应的6个计数器在经过移位井把R位插入其左端后的值如图3-17a所示。图中后面的4列是在下4个时钟滴答后的6个计数器的值。</p>
+</blockquote>
+<p><img src="image-20220608101559452.png" alt="image-20220608101559452"></p>
+<blockquote>
+<p>发生缺页中断时，将置换计数器值最小的页面。如果一个页面在前面4个时钟滴答中都没有访问过，那么它的计数器最前面应该有4个连续的0, 因此它的值肯定要比在前面三个时钟滴答中都没有被访问过的页面的计数器值小。</p>
+</blockquote>
+<h4 id="工作集-Working-Set"><a href="#工作集-Working-Set" class="headerlink" title="工作集(Working Set)"></a>工作集(Working Set)</h4><h5 id="抖动-Thrashing"><a href="#抖动-Thrashing" class="headerlink" title="抖动(Thrashing)"></a>抖动(Thrashing)</h5><p>(FIFO) Pages不够多，每执行几条指令就发生一次Page fault。</p>
+<p><img src="image-20220608102518337.png" alt="image-20220608102518337"></p>
+<h5 id="访问局部性-Locality-of-Reference"><a href="#访问局部性-Locality-of-Reference" class="headerlink" title="访问局部性(Locality of Reference)"></a>访问局部性(Locality of Reference)</h5><ul>
+<li>Temporal locality: The same memory location is going to be accessed again in the near future.</li>
+<li>Spatial locality: Nearby memory locations are going to be accessed in the future.</li>
+</ul>
+<h5 id="工作集页面置换算法"><a href="#工作集页面置换算法" class="headerlink" title="工作集页面置换算法"></a>工作集页面置换算法</h5><p>The set of pages that a process is used in the k most recent memory references.</p>
+<p>可用内存太小装不下整个工作集，将会产生大量page fault. 因此需要Keep track of each process’ working set and make sure that it is in memory before letting the process run来减少page fault rate.</p>
+<h6 id="基本工作集算法"><a href="#基本工作集算法" class="headerlink" title="基本工作集算法"></a>基本工作集算法</h6><p>当一个page fault发生，找到一个不在工作集里的页面将其淘汰。</p>
+<p><img src="image-20220608104142826.png" alt="image-20220608104142826"></p>
+<p>如果没有页面不在工作集中，就淘汰R&#x3D;0里age最大（last use最小）的页面。</p>
+<p>因为page fault发生后需要扫描整个页表，所以比较费时。</p>
+<h6 id="工作集时钟-WSClock"><a href="#工作集时钟-WSClock" class="headerlink" title="工作集时钟(WSClock)"></a>工作集时钟(WSClock)</h6><p>Use a circular list of page frames. 提高效率</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">if R == 1:</span><br><span class="line">	R = 0</span><br><span class="line">	Advance the clock hand</span><br><span class="line">else R == 0:</span><br><span class="line">	check &quot;time of last use&quot;</span><br><span class="line">	if the page has been used within t:</span><br><span class="line">		go to the next</span><br><span class="line">	else the page has not been used within t:</span><br><span class="line">		if M == 1:</span><br><span class="line">			Schedule the page for page out and go to the next</span><br><span class="line">		else M == 0:</span><br><span class="line">			Replace the page</span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20220608105354184.png" alt="image-20220608105354184"></p>
+<h3 id="同步"><a href="#同步" class="headerlink" title="同步"></a>同步</h3><h4 id="条件竞争-Race-Condition"><a href="#条件竞争-Race-Condition" class="headerlink" title="条件竞争(Race Condition)"></a>条件竞争(Race Condition)</h4><p>考虑Producer and consumer problem</p>
+<p><img src="image-20220608110712923.png" alt="image-20220608110712923"></p>
+<p>count++和count–非原子操作，可能会出问题。</p>
+<p>Thread A: x &#x3D; x +1.	Thread B: x &#x3D; x + 2.	x初始为0，最终x的值可能为多少？</p>
+<p><img src="image-20220608111031144.png" alt="image-20220608111031144"></p>
+<h4 id="临界区-Critical-Section"><a href="#临界区-Critical-Section" class="headerlink" title="临界区(Critical Section)"></a>临界区(Critical Section)</h4><p>满足四个条件</p>
+<ol>
+<li><strong>安全性(Safety)</strong>: 任何两个进程不能同时处于其临界区。</li>
+<li>不应对CPU的速度和数据做任何假设。</li>
+<li>临界区外运行的进程不得阻塞其他进程。</li>
+<li><strong>活性(Liveness)</strong>: 不得使进程无限期等待进入临界区。</li>
+</ol>
+<h4 id="忙等待的互斥-Mutual-Exclusion-with-Busy-Waiting"><a href="#忙等待的互斥-Mutual-Exclusion-with-Busy-Waiting" class="headerlink" title="忙等待的互斥(Mutual Exclusion with Busy Waiting)"></a>忙等待的互斥(Mutual Exclusion with Busy Waiting)</h4><h5 id="屏蔽中断-Disabling-Interrupts"><a href="#屏蔽中断-Disabling-Interrupts" class="headerlink" title="屏蔽中断(Disabling Interrupts)"></a>屏蔽中断(Disabling Interrupts)</h5><p>进程在刚刚进入临界区后立即屏蔽所有中断，并在就要离开之前再打开中断。这样，在屏蔽中断之后CPU将不会被切换到其他进程。</p>
+<p>这个方法简单但不好。把屏蔽中断的权力交给用户进程是不明智的。要是Never enable interrupts就完了。而且如果系统是多处理器，则屏蔽中断仅仅对执行disable指令的那个CPU有效。其他CPU仍将继续运行，并可以访问共享内存。</p>
+<h5 id="锁变量-Lock-Variables"><a href="#锁变量-Lock-Variables" class="headerlink" title="锁变量(Lock Variables)"></a>锁变量(Lock Variables)</h5><p>This method is to assign a lock variable. This is set to (say) 1 when a process is in its critical section and reset to zero when a processes exits its critical section.</p>
+<p>不好。This simply moves the problem from the shared variable to the lock variable. 会发生Race Condition.</p>
+<h5 id="严格轮转法-Strict-Alternation"><a href="#严格轮转法-Strict-Alternation" class="headerlink" title="严格轮转法(Strict Alternation)"></a>严格轮转法(Strict Alternation)</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Process 0 */</span></span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="keyword">while</span> (turn != <span class="number">0</span>); <span class="comment">//wait</span></span><br><span class="line">    critical_section();</span><br><span class="line">    turn = <span class="number">1</span>;</span><br><span class="line">    noncritical_secion();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Process 1 */</span></span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="keyword">while</span> (turn != <span class="number">1</span>); <span class="comment">//wait</span></span><br><span class="line">    critical_section();</span><br><span class="line">    turn = <span class="number">0</span>;</span><br><span class="line">    noncritical_secion();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>有缺陷。进程0和进程1必须严格轮转，如果进程1快得多，进程1就会花很多时间等待进程0. 这违反了第三条原则（临界区外运行的进程不得阻塞其他进程）。</p>
+<h5 id="Peterson’s-Solution"><a href="#Peterson’s-Solution" class="headerlink" title="Peterson’s Solution"></a>Peterson’s Solution</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> No_Of_Processes; <span class="comment">// Number of processes</span></span><br><span class="line"><span class="type">int</span> turn; <span class="comment">// Whose turn is it?</span></span><br><span class="line"><span class="type">int</span> interested[No_Of_Processes]; <span class="comment">// All values initially FALSE</span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">enter_region</span><span class="params">(<span class="type">int</span> process)</span> &#123;</span><br><span class="line">	<span class="type">int</span> other; <span class="comment">// number of the other process</span></span><br><span class="line">	other = <span class="number">1</span> - process; <span class="comment">// the opposite process</span></span><br><span class="line">	interested[process] = TRUE; <span class="comment">// this process is interested</span></span><br><span class="line">	turn = process; <span class="comment">// set flag 冲突时后设立flag的要等待</span></span><br><span class="line">	<span class="keyword">while</span>(turn == process &amp;&amp; interested[other] == TRUE); <span class="comment">// wait</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">leave_region</span><span class="params">(<span class="type">int</span> process)</span> &#123;</span><br><span class="line">	interested[process] = FALSE; <span class="comment">// process leaves critical region</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Process 0 */</span></span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    enter_region(<span class="number">0</span>);</span><br><span class="line">    critical_section();</span><br><span class="line">    leave_region(<span class="number">0</span>);</span><br><span class="line">    noncritical_secion();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Process 1 */</span></span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    enter_region(<span class="number">1</span>);</span><br><span class="line">    critical_section();</span><br><span class="line">    leave_region(<span class="number">1</span>);</span><br><span class="line">    noncritical_secion();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="TSL-test-and-set-lock-指令"><a href="#TSL-test-and-set-lock-指令" class="headerlink" title="TSL(test and set lock)指令"></a>TSL(test and set lock)指令</h5><p>在硬件上能让test and set lock拥有原子性。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">enter_region:</span><br><span class="line">tsl register, flag		# copy flag to register and set flag to 1</span><br><span class="line">cmp register, #0 		# was flag zero?</span><br><span class="line">jnz enter_region 		# if flag was non zero, lock was set, so loop</span><br><span class="line">ret						# return (and enter critical region)</span><br><span class="line">leave_region:</span><br><span class="line">mov flag, #0 			# store zero in flag</span><br><span class="line">ret</span><br></pre></td></tr></table></figure>
+
+<p>TSL也可用XCHG来替代。</p>
+<h5 id="忙等待的问题"><a href="#忙等待的问题" class="headerlink" title="忙等待的问题"></a>忙等待的问题</h5><p>忙等待会导致浪费CPU时间和优先级反转问题。</p>
+<blockquote>
+<p>考虑一台计算机有两个进程，H优先级较高，L优先级较低。调度规则规定，只要H处于就绪态它就可以运行。在某一时刻，L处于临界区中，此时H变到就绪态，准备运行（例如，一条I&#x2F;O操作结束）。现在H开始忙等待，但由于当H就绪时L不会被调度，也就无法离开临界区，所以H将永远忙等待下去。这种情况有时被称作优先级反转问题 (priority inversion problem).</p>
+</blockquote>
+<p>可以通过优先级继承协议(The priority inheritance protocol)解决，允许任务继承处于blocking状态的最高优先级任务的优先级。</p>
+<h4 id="条件变量-Condition-Variables"><a href="#条件变量-Condition-Variables" class="headerlink" title="条件变量(Condition Variables)"></a>条件变量(Condition Variables)</h4><p>We need a new primitive (that can atomically unlock and sleep).</p>
+<p>A Condition Variable is a synchronization object that lets a thread efficiently wait for a change to shared state that is protected by a lock.</p>
+<p>A condition variable has three methods:</p>
+<ul>
+<li><strong>Wait</strong>(ConditionVariable *cv, Lock *lock): atomically release lock (unlock) and suspends execution of the calling thread (sleep)</li>
+<li><strong>Signal</strong>(ConditionVariable *cv): wake up a waiter (which is waiting for this condition variable). If no threads are on the waiting list, signal has no effect. (No memory, careful not to lose sigmals)</li>
+<li><strong>Broadcast</strong>(ConditionVariable *cv): wake up all waiters, if any.</li>
+</ul>
+<p>用条件变量解决生产者消费者问题</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> BUFFER_SIZE = <span class="number">100</span>;</span><br><span class="line"><span class="type">int</span> count = <span class="number">0</span>;</span><br><span class="line">condition empty;</span><br><span class="line">Condition full;</span><br><span class="line"><span class="type">int</span> mutex = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">producer</span><span class="params">(<span class="type">void</span>)</span> &#123;</span><br><span class="line">	<span class="type">int</span> item;</span><br><span class="line">	<span class="keyword">while</span>(TRUE) &#123;</span><br><span class="line">		produce_item(&amp;item); <span class="comment">// generate next item</span></span><br><span class="line">		mutex_lock(mutex);</span><br><span class="line">		<span class="keyword">if</span>(count == BUFFER_SIZE)</span><br><span class="line">			wait(full, mutex); <span class="comment">// if buffer full, unlock, and go to sleep, when wakened -&gt; lock</span></span><br><span class="line">		enter_item(item); <span class="comment">// put item in buffer</span></span><br><span class="line">		count++; <span class="comment">// increment count</span></span><br><span class="line">		<span class="keyword">if</span>(count == <span class="number">1</span>) signal(empty); <span class="comment">// was buffer empty?</span></span><br><span class="line">		mutex_unlock(mutex);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">consumer</span><span class="params">(<span class="type">void</span>)</span> &#123;</span><br><span class="line">	<span class="type">int</span> item;</span><br><span class="line">	<span class="keyword">while</span>(TRUE) &#123;</span><br><span class="line">		mutex_lock(mutex);</span><br><span class="line">		<span class="keyword">if</span>(count == <span class="number">0</span>)</span><br><span class="line">			wait(empty, mutex);<span class="comment">// if buffer is empty, unlock and sleep, when wakened -&gt; lock</span></span><br><span class="line">		remove_item(&amp;item); <span class="comment">// remove item from buffer</span></span><br><span class="line">		count--; <span class="comment">// decrement count</span></span><br><span class="line">		<span class="keyword">if</span>(count == BUFFER_SIZE - <span class="number">1</span>) signal(full); <span class="comment">// was buffer full?</span></span><br><span class="line">		mutex_unlock(mutex);</span><br><span class="line">		consume_item(&amp;item); <span class="comment">// print item</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>P.S. 如果有多个生产者和消费者，把睡大觉的if改成while（因为可能醒来后有同类抢先，这时还是要睡大觉），signal改成broadcast.</p>
+<h4 id="★-信号量-Semaphores"><a href="#★-信号量-Semaphores" class="headerlink" title="★ 信号量(Semaphores)"></a>★ 信号量(Semaphores)</h4><p>A semaphore is a synchronization variable that contains an integer value. 取值可以是0（表示没有保存下来的唤醒操作）或者为正值（表示有一个或多个唤醒操作）。</p>
+<ul>
+<li>Cannot access the integer value directly (only via semaphore operations)</li>
+<li>Initialized to some integer value</li>
+<li>Supports two atomic operations other than initialization<ul>
+<li>P(), (or down() or wait()) 检验: 检查值是否大于0. 大于则减1，表示用掉一个保存的唤醒信号；否则睡眠。</li>
+<li>V(), (or up() or signal()) 自增：将值加1.</li>
+</ul>
+</li>
+</ul>
+<p>If semaphore is positive value, think of value as keeping track of how many ‘resources’ or ‘un-activated unblocks’ are available.</p>
+<p>If semaphore is negative, tracks how many threads are waiting for a resource or unblock.</p>
+<p>用信号量解决生产者消费者问题</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">semaphore empty = N; <span class="comment">// 空槽数目</span></span><br><span class="line">semaphore full = <span class="number">0</span>;	<span class="comment">// 满槽数目</span></span><br><span class="line">semaphore mutex = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">producer</span><span class="params">(<span class="type">void</span>)</span> &#123;</span><br><span class="line">	<span class="type">int</span> item;</span><br><span class="line">	<span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">		produce_item(&amp;item);</span><br><span class="line">		P(empty);	<span class="comment">// 用掉一个空槽，空槽没了睡大觉</span></span><br><span class="line">		P(mutex);</span><br><span class="line">		enter_item(item);</span><br><span class="line">		V(mutex);</span><br><span class="line">		V(full);	<span class="comment">// 多了一个满槽</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">consumer</span><span class="params">(<span class="type">void</span>)</span> &#123;</span><br><span class="line">	<span class="type">int</span> item;</span><br><span class="line">	<span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">		P(full);	<span class="comment">// 用掉一个满槽，满槽没了睡大觉</span></span><br><span class="line">		P(mutex);</span><br><span class="line">		remove_item(&amp;item);</span><br><span class="line">		V(mutex);</span><br><span class="line">		V(empty);	<span class="comment">// 多了一个空槽</span></span><br><span class="line">		consume_item(&amp;item);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>用condition variable和mutex实现semaphores</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">	<span class="type">int</span> val;</span><br><span class="line">	<span class="type">int</span> mutex;	<span class="comment">//用于进入临界区</span></span><br><span class="line">	condition cond;	<span class="comment">//用于sleep和wakeup来避免busy waiting</span></span><br><span class="line">&#125;semaphore;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">init</span><span class="params">(semaphore *s)</span> &#123;</span><br><span class="line">    s-&gt;val = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">P</span><span class="params">(semaphore *s)</span> &#123;</span><br><span class="line">	mutex_lock(&amp;(s-&gt;mutex));</span><br><span class="line">	<span class="keyword">while</span> (s-&gt;val == <span class="number">0</span>) &#123;</span><br><span class="line">		wait(&amp;(s-&gt;cond), &amp;(s-&gt;mutex));</span><br><span class="line">	&#125;</span><br><span class="line">	s-&gt;val--;</span><br><span class="line">	mutex_unlock(&amp;(s-&gt;mutex));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">V</span><span class="params">(semaphore *s)</span> &#123;</span><br><span class="line">	mutex_lock(&amp;(s-&gt;mutex));</span><br><span class="line">	s-&gt;val++;</span><br><span class="line">	signal(&amp;(s-&gt;cond));</span><br><span class="line">	mutex_unlock(&amp;(s-&gt;mutex));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="★-管程-Monitors"><a href="#★-管程-Monitors" class="headerlink" title="★ 管程(Monitors)"></a>★ 管程(Monitors)</h4><p>Definition: a lock and zero or more condition variables for managing concurrent access to shared data. 一个管程是一个由过程、变量及数据结构等组成的一个集合，它们组成一个特殊的模块或软件包。</p>
+<p>Producer-Consumer with Monitors</p>
+<figure class="highlight pascal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">monitor ProdCons</span><br><span class="line">	condition full, empty;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">procedure</span> <span class="title">Add</span>;</span></span><br><span class="line">	<span class="keyword">begin</span></span><br><span class="line">		<span class="keyword">if</span> (buffer <span class="keyword">is</span> full)</span><br><span class="line">			wait(full);</span><br><span class="line">		put item into buffer;</span><br><span class="line">		<span class="keyword">if</span> (only one item)</span><br><span class="line">			signal(empty);</span><br><span class="line">	<span class="keyword">end</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">procedure</span> <span class="title">Remove</span>;</span></span><br><span class="line">	<span class="keyword">begin</span></span><br><span class="line">		<span class="keyword">if</span> (buffer <span class="keyword">is</span> empty)</span><br><span class="line">			wait(empty);</span><br><span class="line">		remove an item;</span><br><span class="line">		<span class="keyword">if</span> (buffer was full)</span><br><span class="line">			signal(full);</span><br><span class="line">	<span class="keyword">end</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">procedure</span> <span class="title">Producer</span></span></span><br><span class="line"><span class="function">    <span class="title">begin</span></span></span><br><span class="line"><span class="function">        <span class="title">while</span> <span class="title">true</span> <span class="title">do</span></span></span><br><span class="line"><span class="function">        <span class="title">begin</span></span></span><br><span class="line"><span class="function">            <span class="title">produce</span> <span class="title">an</span> <span class="title">item</span>;</span></span><br><span class="line">            ProdCons.Add();</span><br><span class="line">        <span class="keyword">end</span>;</span><br><span class="line">    <span class="keyword">end</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">procedure</span> <span class="title">Consumer</span></span></span><br><span class="line"><span class="function">    <span class="title">begin</span></span></span><br><span class="line"><span class="function">        <span class="title">while</span> <span class="title">true</span> <span class="title">do</span></span></span><br><span class="line"><span class="function">        <span class="title">begin</span></span></span><br><span class="line"><span class="function">            <span class="title">ProdCons</span>.<span class="title">Remove</span><span class="params">()</span>;</span></span><br><span class="line">            consume an item;</span><br><span class="line">        <span class="keyword">end</span>;</span><br><span class="line">    <span class="keyword">end</span>;</span><br></pre></td></tr></table></figure>
+
+<p>What will happen after signal calls?</p>
+<h5 id="Brinch-Hansen-semantics"><a href="#Brinch-Hansen-semantics" class="headerlink" title="Brinch Hansen semantics"></a>Brinch Hansen semantics</h5><p>Under Brinch Hansen semantic, signal calls take waiting threads from a condition variable’s waiting list and put them on the ready list.</p>
+<p>The thread which calls signal directly exits the monitor. <code>signal</code> must be the last statement of a monitor procedure.</p>
+<p>signal后立即退出管程</p>
+<h5 id="Hoare-semantics"><a href="#Hoare-semantics" class="headerlink" title="Hoare semantics"></a>Hoare semantics</h5><p>Under Hoare semantics, when a thread calls signal, execution of the signaling thread is suspended, the ownership of the lock is immediately transferred to one of the waiting threads (signaled thread), and execution of that thread is immediately resumed.</p>
+<p>The thread which calls signal (signaler) does not continue in the monitor until the signaled thread exits or waits again.</p>
+<p>Hoare semantics allow the signaled thread to assume that the state has not changed since the signal that woke it up.</p>
+<p>signal后自己挂起，被signal的线程执行完后回来继续执行</p>
+<h5 id="Mesa-semantics"><a href="#Mesa-semantics" class="headerlink" title="Mesa semantics"></a>Mesa semantics</h5><p>Under Mesa semantic, signal calls take waiting threads from a condition variable’s waiting list and put them on the ready list (The same as Brinch Hansen).</p>
+<p>Later, when these threads are scheduled, they may block for some time while they try to re-acquire the lock. There is no suspended state: the thread calls signal continues until it exits the monitor or waits.</p>
+<p>signal后自己接着执行，完毕退出后被signal的线程再执行</p>
+<h4 id="生产者-消费者问题-The-Producer-Consumer-Problem"><a href="#生产者-消费者问题-The-Producer-Consumer-Problem" class="headerlink" title="生产者-消费者问题(The Producer-Consumer Problem)"></a>生产者-消费者问题(The Producer-Consumer Problem)</h4><p>条件变量、信号量、管程的实现见前文。</p>
+<h4 id="读者写者问题-The-Readers-and-Writers-Problem"><a href="#读者写者问题-The-Readers-and-Writers-Problem" class="headerlink" title="读者写者问题(The Readers and Writers Problem)"></a>读者写者问题(The Readers and Writers Problem)</h4><p>Multiple processes wanting to read an item, and one or more needing to write. Rules:</p>
+<ul>
+<li>Any number of readers can read simultaneously</li>
+<li>Only one writer at a time</li>
+<li>No readers if a writer is writing</li>
+</ul>
+<p>需要实现RWLock (readers&#x2F;writers lock)，why not mutex lock? 因为多个reader可以同时read.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">RWLock</span>&#123;</span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">        <span class="comment">// Synchronization variables</span></span><br><span class="line">        Lock lock;</span><br><span class="line">        ConditionVariable readGo;</span><br><span class="line">        ConditionVariable writeGo;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// State variables</span></span><br><span class="line">        <span class="type">int</span> activeReaders;</span><br><span class="line">        <span class="type">int</span> activeWriters;</span><br><span class="line">        <span class="type">int</span> waitingReaders;</span><br><span class="line">        <span class="type">int</span> waitingWriters;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="built_in">RWLock</span>();</span><br><span class="line">        ~<span class="built_in">RWLock</span>() &#123;&#125;;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">startRead</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">doneRead</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">startWrite</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">doneWrite</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        <span class="function"><span class="type">bool</span> <span class="title">readShouldWait</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="function"><span class="type">bool</span> <span class="title">writeShouldWait</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Wait until no active or waiting writes, then proceed.</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">RWLock::startRead</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	lock.<span class="built_in">acquire</span>();</span><br><span class="line">	waitingReaders++;</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">readShouldWait</span>()) &#123;</span><br><span class="line">		readGo.<span class="built_in">Wait</span>(&amp;lock);</span><br><span class="line">	&#125;</span><br><span class="line">	waitingReaders--;</span><br><span class="line">	activeReaders++;</span><br><span class="line">	lock.<span class="built_in">release</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Done reading. If no other active reads, a write may proceed.</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">RWLock::doneRead</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	lock.<span class="built_in">acquire</span>();</span><br><span class="line">	activeReaders--;</span><br><span class="line">	<span class="keyword">if</span> (activeReaders == <span class="number">0</span> &amp;&amp; waitingWriters &gt; <span class="number">0</span>) &#123;</span><br><span class="line">		writeGo.<span class="built_in">signal</span>();</span><br><span class="line">	&#125;</span><br><span class="line">	lock.<span class="built_in">release</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Wait until no active read or write then proceed.</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">RWLock::startWrite</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	lock.<span class="built_in">acquire</span>();</span><br><span class="line">	waitingWriters++;</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">writeShouldWait</span>()) &#123;</span><br><span class="line">		writeGo.<span class="built_in">Wait</span>(&amp;lock);</span><br><span class="line">	&#125;</span><br><span class="line">	waitingWriters--;</span><br><span class="line">	activeWriters++;</span><br><span class="line">	lock.<span class="built_in">release</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Done writing. A waiting write or read may proceed.</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">RWLock::doneWrite</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	lock.<span class="built_in">acquire</span>();</span><br><span class="line">	activeWriters--;</span><br><span class="line">	<span class="keyword">if</span> (waitingWriters &gt; <span class="number">0</span>) &#123;</span><br><span class="line">		writeGo.<span class="built_in">signal</span>();</span><br><span class="line">	&#125;	<span class="comment">// write结束优先唤醒写者</span></span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		readGo.<span class="built_in">broadcast</span>();</span><br><span class="line">	&#125;</span><br><span class="line">	lock.<span class="built_in">release</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>readShouldWait()</code>和<code>writeShouldWait()</code>的实现方式可以偏向读者，也可以偏向写者。</p>
+<h5 id="Writers-preferred-solution"><a href="#Writers-preferred-solution" class="headerlink" title="Writers preferred solution"></a>Writers preferred solution</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">RWLock::readShouldWait</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (activeWriters &gt; <span class="number">0</span> || waitingWriters &gt; <span class="number">0</span>);</span><br><span class="line">&#125;	<span class="comment">// 有writer在写 或 有writer在等</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">RWLock::writeShouldWait</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (activeWriters &gt; <span class="number">0</span> || activeReaders &gt; <span class="number">0</span>);</span><br><span class="line">&#125;	<span class="comment">// 有其他writer在写 或 有reader在读</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="Readers-preferred-solution"><a href="#Readers-preferred-solution" class="headerlink" title="Readers preferred solution"></a>Readers preferred solution</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">RWLock::readShouldWait</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (activeWriters &gt; <span class="number">0</span>);</span><br><span class="line">&#125;	<span class="comment">// 有writer在写</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">RWLock::writeShouldWait</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (activeWriters &gt; <span class="number">0</span> || activeReaders &gt; <span class="number">0</span>);</span><br><span class="line">&#125;	<span class="comment">// 有其他writer在写 或 有reader在读</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="Readers-preferred-solution-even-more"><a href="#Readers-preferred-solution-even-more" class="headerlink" title="Readers preferred solution (even more)"></a>Readers preferred solution (even more)</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* ..should.. 同Readers preferred solution. 修改doneWrite: write结束优先唤醒读者 */</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">RWLock::doneWrite</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	lock.<span class="built_in">acquire</span>();</span><br><span class="line">	activeWriters--;</span><br><span class="line">	<span class="keyword">if</span> (waitingReaders &gt; <span class="number">0</span>) &#123;</span><br><span class="line">		readGo.<span class="built_in">broadcast</span>();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		writeGo.<span class="built_in">signal</span>();</span><br><span class="line">	&#125;</span><br><span class="line">	lock.<span class="built_in">release</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="A-related-fair-solution"><a href="#A-related-fair-solution" class="headerlink" title="A related fair solution"></a>A related fair solution</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">RWLock</span>&#123;</span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">		<span class="comment">// Synchronization variables</span></span><br><span class="line">		Lock lock;</span><br><span class="line">		ConditionVariable readGo;</span><br><span class="line">		ConditionVariable writeGo;</span><br><span class="line">		Semaphore Line = <span class="number">1</span>; <span class="comment">// signaling must be FIFO</span></span><br><span class="line">		<span class="comment">// State variables</span></span><br><span class="line">		<span class="type">int</span> activeReaders;</span><br><span class="line">		<span class="type">int</span> activeWriters;</span><br><span class="line">		<span class="type">int</span> waitingReaders;</span><br><span class="line">		<span class="type">int</span> waitingWriters;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		<span class="built_in">RWLock</span>();</span><br><span class="line">		~<span class="built_in">RWLock</span>() &#123;&#125;;</span><br><span class="line">		<span class="function"><span class="type">void</span> <span class="title">startRead</span><span class="params">()</span></span>;</span><br><span class="line">		<span class="function"><span class="type">void</span> <span class="title">doneRead</span><span class="params">()</span></span>;</span><br><span class="line">		<span class="function"><span class="type">void</span> <span class="title">startWrite</span><span class="params">()</span></span>;</span><br><span class="line">		<span class="function"><span class="type">void</span> <span class="title">doneWrite</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">		<span class="function"><span class="type">bool</span> <span class="title">readShouldWait</span><span class="params">()</span></span>;</span><br><span class="line">		<span class="function"><span class="type">bool</span> <span class="title">writeShouldWait</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Wait until no active or waiting writes, then proceed.</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">RWLock::startRead</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Line.<span class="built_in">P</span>();						<span class="comment">// 令牌来实现一个读写的FIFO队列</span></span><br><span class="line">	lock.<span class="built_in">acquire</span>();</span><br><span class="line">	waitingReaders++;</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">readShouldWait</span>()) &#123;</span><br><span class="line">		readGo.<span class="built_in">Wait</span>(&amp;lock);</span><br><span class="line">	&#125;</span><br><span class="line">	waitingReaders--;</span><br><span class="line">	activeReaders++;</span><br><span class="line">	lock.<span class="built_in">release</span>();</span><br><span class="line">    Line.<span class="built_in">V</span>();						<span class="comment">// 令牌来实现一个读写的FIFO队列</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Done reading. If no other active reads, a write may proceed.</span></span><br><span class="line"><span class="comment">// 不变</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">RWLock::doneRead</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	lock.<span class="built_in">acquire</span>();</span><br><span class="line">	activeReaders--;</span><br><span class="line">	<span class="keyword">if</span> (activeReaders == <span class="number">0</span> &amp;&amp; waitingWriters &gt; <span class="number">0</span>) &#123;</span><br><span class="line">		writeGo.<span class="built_in">signal</span>();</span><br><span class="line">	&#125;</span><br><span class="line">	lock.<span class="built_in">release</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">RWLock::startWrite</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Line.<span class="built_in">P</span>();</span><br><span class="line">	lock.<span class="built_in">acquire</span>();</span><br><span class="line">	waitingWriters++;</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">writeShouldWait</span>()) &#123;</span><br><span class="line">		writeGo.<span class="built_in">Wait</span>(&amp;lock);</span><br><span class="line">	&#125;</span><br><span class="line">	waitingWriters--;</span><br><span class="line">	activeWriters++;</span><br><span class="line">	lock.<span class="built_in">release</span>();</span><br><span class="line">    Line.<span class="built_in">V</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Done writing. A waiting write or read may proceed.</span></span><br><span class="line"><span class="comment">// 変わった</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">RWLock::doneWrite</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	lock.<span class="built_in">acquire</span>();</span><br><span class="line">	activeWriters--;</span><br><span class="line">	writeGo.<span class="built_in">signal</span>();</span><br><span class="line">	readGo.<span class="built_in">broadcast</span>();</span><br><span class="line">	lock.<span class="built_in">release</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">RWLock::readShouldWait</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (activeWriters &gt; <span class="number">0</span> || waitingWriters &gt; <span class="number">0</span>);</span><br><span class="line">&#125;	<span class="comment">// 这里原来两种策略都可以</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">RWLock::writeShouldWait</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (activeWriters &gt; <span class="number">0</span> || activeReaders &gt; <span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Idea: Threads should be served in queue.</p>
+<p><img src="image-20220608164106284.png" alt="image-20220608164106284"></p>
+<h4 id="Read-Copy-Update-RCU"><a href="#Read-Copy-Update-RCU" class="headerlink" title="Read-Copy-Update (RCU)"></a>Read-Copy-Update (RCU)</h4><p>想要避免使用锁。Readers should not be blocked by the writers. 每个read操作要么读取旧的数据版本，要么读取新的数据版本，但绝不能是新旧数据的一些奇怪组合。</p>
+<h5 id="订阅-发布机制-Publish-Subscribe-Mechanism"><a href="#订阅-发布机制-Publish-Subscribe-Mechanism" class="headerlink" title="订阅-发布机制(Publish-Subscribe Mechanism)"></a>订阅-发布机制(Publish-Subscribe Mechanism)</h5><p><img src="image-20220608170153485.png" alt="image-20220608170153485"></p>
+<p>Publish: <code>rcu_assign_pointer(&amp;NodeA-&gt;Next, NodeC);</code></p>
+<p>Subscribe: <code>read = rcu_dereference(&amp;Node-&gt;Next);</code></p>
+<h5 id="宽限期-RCU-Grace-period"><a href="#宽限期-RCU-Grace-period" class="headerlink" title="宽限期(RCU Grace period)"></a>宽限期(RCU Grace period)</h5><p>When to delete old data? 不能确定对待删除数据有没有更多的read. 因此需要等待，等待的时间即为宽限期。Only when the grace period expires, we can safely deleted the old data.</p>
+<p><img src="image-20220608170910843.png" alt="image-20220608170910843"></p>
+<p>Limitations: 当data很复杂（比如双向链表，需要同时更新两个指针）时RCU会很困难；宽限期可能会非常长。</p>
+<h4 id="哲学家就餐问题-The-Dining-Philosophers-Problem"><a href="#哲学家就餐问题-The-Dining-Philosophers-Problem" class="headerlink" title="哲学家就餐问题(The Dining Philosophers Problem)"></a>哲学家就餐问题(The Dining Philosophers Problem)</h4><p>5个哲学家吃意面，桌上共5把叉子，每人需要两把叉子才能进餐。每个人先思考一段时间再进餐。如果每个人一旦都拿到一把叉子，都在等待，会导致死锁。或者方案2，先拿左叉子，若有右叉子就直接拿，没有就放下叉子歇一会，重复流程。但方案2也有小概率导致饿死。方案3：一次只能有一个人吃，没有死锁，不会饿死，但不够好。</p>
+<p>方案4：哲学家展示自己的状态，Eating, Thinking or Hungry (want to eat). 饥饿的时候尝试获得两把叉子。叉子只能从Not eating的邻居处获得。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> N 5 <span class="comment">/* number of philosophers */</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> LEFT (i−1+N)%N <span class="comment">/* number of i’s left neighbor */</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> RIGHT (i+1)%N <span class="comment">/* number of i’s right neighbor */</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> THINKING 0 </span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> HUNGRY 1</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> EATING 2</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> state[N];</span><br><span class="line">semaphore mutex = <span class="number">1</span>;</span><br><span class="line">semaphore s[N]; <span class="comment">/* one semaphore per philosopher */</span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">philosopher</span><span class="params">(<span class="type">int</span> i)</span> &#123;</span><br><span class="line">	<span class="keyword">while</span> (TRUE) &#123;</span><br><span class="line">		think();</span><br><span class="line">		take_forks(i);</span><br><span class="line">		eat();</span><br><span class="line">		put_forks(i);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">take_forks</span><span class="params">(i)</span> &#123;</span><br><span class="line">	mutex.P();	<span class="comment">// 进入临界区</span></span><br><span class="line">	state[i] = HUNGRY;</span><br><span class="line">	test(i);	<span class="comment">// 尝试获得两把叉子</span></span><br><span class="line">	mutex.V();	<span class="comment">// 退出临界区</span></span><br><span class="line">	s[i].P();	<span class="comment">// block if forks were not acquired</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">put_forks</span><span class="params">(i)</span> &#123;</span><br><span class="line">	mutex.P();</span><br><span class="line">	state[i] = THINKING;	<span class="comment">// 吃完了</span></span><br><span class="line">	test(LEFT);	<span class="comment">// 让左邻居尝试获得两把叉子</span></span><br><span class="line">	test(RIGHT);</span><br><span class="line">	mutex.V();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">test</span><span class="params">(i)</span> &#123;</span><br><span class="line">	<span class="keyword">if</span> (state[i] == HUNGRY &amp;&amp; state[LEFT] != EATING &amp;&amp; state[RIGHT] != EATING) &#123;</span><br><span class="line">		state[i] = EATING;</span><br><span class="line">		s[i].V();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h3><p>A set of processes is deadlocked if (a) Each process in the set waiting for an event; (b) That event can be caused only by another process. </p>
+<h4 id="死锁的四个必要条件"><a href="#死锁的四个必要条件" class="headerlink" title="死锁的四个必要条件"></a>死锁的四个必要条件</h4><ol>
+<li>互斥条件。Only one (or finite) process at a time can use a resource.</li>
+<li>占有和等待条件。A process holding at least one resource is waiting to acquire additional resources held by other processes.</li>
+<li>不可抢占条件。A resource can be released only voluntarily by the process holding it, after that process has completed its task.</li>
+<li>环路等待条件。$P_i$等待$P_{i+1}$的某个条件，这样的关系形成一个环。</li>
+</ol>
+<h4 id="资源分配图-Resource-Allocation-Graph"><a href="#资源分配图-Resource-Allocation-Graph" class="headerlink" title="资源分配图(Resource-Allocation Graph)"></a>资源分配图(Resource-Allocation Graph)</h4><p><img src="image-20220608192038116.png" alt="image-20220608192038116"></p>
+<h4 id="死锁检测-Deadlock-Detection"><a href="#死锁检测-Deadlock-Detection" class="headerlink" title="死锁检测(Deadlock Detection)"></a>死锁检测(Deadlock Detection)</h4><p>无环则无死锁（DFS）。有环且only one resource per type则死锁，several resources per type可能死锁，需要利用基于资源分配矩阵、请求矩阵、可用向量的算法进行检测</p>
+<p>处理死锁的策略：(a) 忽略问题；(b) 检测死锁并恢复；(c) 仔细分配资源，动态地避免死锁；(d)通过破坏四个必要条件之一防止死锁产生。</p>
+<p>检测死锁的算法（还没看）</p>
+<p>从死锁中恢复：利用抢占、利用回滚、通过杀死进程。</p>
+<h4 id="死锁避免-Deadlock-Avoidance"><a href="#死锁避免-Deadlock-Avoidance" class="headerlink" title="死锁避免(Deadlock Avoidance)"></a>死锁避免(Deadlock Avoidance)</h4><h5 id="安全状态、非安全状态"><a href="#安全状态、非安全状态" class="headerlink" title="安全状态、非安全状态"></a>安全状态、非安全状态</h5><p><strong>Existing resource vector (E)</strong>: A vector of length $m$ indicates the total number of existing resources of each type.</p>
+<p><strong>Available resource vector (A)</strong>: A vector of length $m$ indicates the number of available resources of each type.</p>
+<p><strong>Current allocation matrix (C)</strong>: An $n \times m$ matrix defines the number of resources of each type currently allocated to each process. If <code>C[i][j]</code> &#x3D; $k$, then process $P_i$ holds $k$ instances of resource type $E_j$.</p>
+<p><strong>Max Request matrix (M)</strong>: An $n \times m$ matrix defines the maximum demand of each process. If <code>M[i][j]</code> &#x3D; $k$, then process $P_i$ may request at most $k$ instances of resource type $E_j$.</p>
+<p><strong>Request vector (R)</strong>: An $n \times m$ matrix indicates the current request of each process. If <code>R[i][j]</code> &#x3D; $k$, then process $P_i$ is requesting $k$ more instances of resource type $E_j$.</p>
+<p>At any instant of time, there is a current state consisting of E, A, C, M, R. A state is said to be <strong>safe</strong> if there is some scheduling order in which every process can run to completion even if all of them <strong>suddenly request their maximum number of resources</strong> immediately.</p>
+<p>Unsafe does not necessarily result in deadlock!（可能有进程先释放资源）</p>
+<h5 id="银行家算法-Banker’s-algorithm"><a href="#银行家算法-Banker’s-algorithm" class="headerlink" title="银行家算法(Banker’s algorithm)"></a>银行家算法(Banker’s algorithm)</h5><p>新增<strong>Need remaining matrix (N)</strong>: An $n \times m$ matrix indicates the remaining resource need of each process. If <code>N[i][j]</code> equals $k$, then process $P_i$ may need $k$ more instances of resource type $E_j$ to complete its task. Note that <code>N[i][j] = M[i][j] − C[i][j]</code>.</p>
+<p>Idea: check to see if granting the request leads to an unsafe state. If so, the request is denied. If granting the request leads to a safe state, it is carried out.</p>
+<p>算法流程：</p>
+<ol>
+<li>寻找$N$的一行，其各位均小于等于Available resource vector $A$. 不存在则最终会死锁（假设进程会一直占有资源直到终止）</li>
+<li>找到之后，使其获得所需的资源并运行结束，将该进程标记为终止，释放全部资源回到$A$.</li>
+<li>重复以上两步，或者直到所有的进程都标记为终止，其初始状态是安全的，或者所有进程的资源需求都得不到满足， 此时就是发生了死锁。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">while (P != ∅) &#123;</span><br><span class="line">    found = FALSE;</span><br><span class="line">    foreach (p ∈ P) &#123;</span><br><span class="line">        if (Mp − Cp ≤ A) &#123;</span><br><span class="line">             /* p可以獲得他所需的資源。假設他得到資源後執行；執行終止，並釋放所擁有的資源。*/</span><br><span class="line">             A = A + Cp ;</span><br><span class="line">             P = P − &#123;p&#125;;</span><br><span class="line">             found = TRUE;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if (! found) return FAIL;</span><br><span class="line">&#125;</span><br><span class="line">return OK;</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-cn/%E9%93%B6%E8%A1%8C%E5%AE%B6%E7%AE%97%E6%B3%95">银行家算法-维基百科</a></p>
+<p>实际上It is essentially useless，很少用因为: (1) 进程几乎不能提前知道$M$; (2) 进程总数是动态变化的; (3) $A$中的资源可能会突然消失(tape drives can break).</p>
+<h4 id="死锁预防-Deadlock-Prevention"><a href="#死锁预防-Deadlock-Prevention" class="headerlink" title="死锁预防(Deadlock Prevention)"></a>死锁预防(Deadlock Prevention)</h4><p>破坏死锁四个必要条件之一 (Assure that at least one of conditions is never satisfied).</p>
+<h5 id="破坏互斥条件"><a href="#破坏互斥条件" class="headerlink" title="破坏互斥条件"></a>破坏互斥条件</h5><ul>
+<li>Make data read only</li>
+<li>Read-Copy-Update (RCU)</li>
+<li>Proxy thread - the only thread to access shared data, other threads should communicate with proxy thread to read or write shared data —&gt; will increase the burden of system.</li>
+<li>Spooling technique - for resource like printer, the processes actually uses virtualize printers, the only process that actually requests the physical printer is the printer daemon(守护).</li>
+</ul>
+<h5 id="破坏占有并等待"><a href="#破坏占有并等待" class="headerlink" title="破坏占有并等待"></a>破坏占有并等待</h5><p>禁止已持有资源的进程再等待其他资源。一种实现方法是规定所有进程在开始执行前请求所需的全部资源。另一种方案是要求当一个进程请求资源时，先暂时释放其当前占用的所有资源，然后再尝试一次获得所需的全部资源。</p>
+<h5 id="破坏不可抢占"><a href="#破坏不可抢占" class="headerlink" title="破坏不可抢占"></a>破坏不可抢占</h5><p>Strategy:</p>
+<ul>
+<li>If a thread is holding some resources and requests another resource that cannot be immediately allocated to it (that is, the thread must wait), then all resources the thread is currently holding are preempted (implicitly released).</li>
+<li>The preempted resources are added to the list of resources for which the thread is waiting.</li>
+<li>Process will be restarted only when it can regain its old resources, as well as the new ones that it is requesting.</li>
+</ul>
+<h5 id="破坏环路等待"><a href="#破坏环路等待" class="headerlink" title="破坏环路等待"></a>破坏环路等待</h5><p>一种方式是保证每一个进程在任何时刻只能占用一个资源，如果要请求另外一个资源，它必须先释放第一个资源。</p>
+<p>另一种方式是将所有资源统一编号，进程可以在任何时刻提出资源请求，但是所有请求必须按照资源编号的顺序（e.g.升序）提出。</p>
+<h5 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h5><table>
+<thead>
+<tr>
+<th>Condition</th>
+<th>Approach</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Mutual exclusion</td>
+<td>Spool everything</td>
+</tr>
+<tr>
+<td>Hold and wait</td>
+<td>Request all resources initially</td>
+</tr>
+<tr>
+<td>No preemption</td>
+<td>Take resources away</td>
+</tr>
+<tr>
+<td>Circular wait</td>
+<td>Order resources numerically</td>
+</tr>
+</tbody></table>
+<h3 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h3><h4 id="文件系统的功能"><a href="#文件系统的功能" class="headerlink" title="文件系统的功能"></a>文件系统的功能</h4><ul>
+<li><p><strong>Naming</strong>: File name and directory</p>
+<ul>
+<li>Translate name + offset to disk blocks</li>
+</ul>
+</li>
+<li><p><strong>File Access</strong>: Open, read, write and other operations</p>
+</li>
+<li><p><strong>Disk Management</strong>: Fair and efficient use of disk space</p>
+<ul>
+<li>Allocate spaces to files</li>
+<li>Keep track of free space</li>
+<li>Fast access to files, …</li>
+</ul>
+</li>
+<li><p><strong>Protection</strong>: Must mediate file access from different users</p>
+</li>
+<li><p><strong>Reliability</strong>: Must not lose file data</p>
+</li>
+</ul>
+<h4 id="文件-File"><a href="#文件-File" class="headerlink" title="文件(File)"></a>文件(File)</h4><h5 id="文件的命名和属性、文件的顺序和随机访问模式、与文件相关的操作"><a href="#文件的命名和属性、文件的顺序和随机访问模式、与文件相关的操作" class="headerlink" title="文件的命名和属性、文件的顺序和随机访问模式、与文件相关的操作"></a>文件的命名和属性、文件的顺序和随机访问模式、与文件相关的操作</h5><h6 id="文件命名-File-Naming"><a href="#文件命名-File-Naming" class="headerlink" title="文件命名(File Naming)"></a>文件命名(File Naming)</h6><p>文件命名使用户不必关心信息储存和磁盘工作的细节。具体的命名规则因操作系统而异。不同的扩展名通常表示文件的一些信息。</p>
+<h6 id="文件属性-Metadata"><a href="#文件属性-Metadata" class="headerlink" title="文件属性(Metadata)"></a>文件属性(Metadata)</h6><p>除了文件名和数据，OS还会保存其他与文件相关的信息。包括但不限于：</p>
+<ul>
+<li><strong>Type</strong>: needed for systems that support different types</li>
+<li><strong>Location</strong>: pointer to file location on device</li>
+<li><strong>Size</strong>: how big the file is (current size, or maximum size)</li>
+<li><strong>Time</strong>: when the file was created, most recently accessed, and most recently modified</li>
+<li><strong>Protection</strong>: who may access it, and what can be done</li>
+<li><strong>Control flags</strong></li>
+</ul>
+<h6 id="文件访问-Access"><a href="#文件访问-Access" class="headerlink" title="文件访问(Access)"></a>文件访问(Access)</h6><ul>
+<li>顺序访问(Sequential Access): Data read or written in order (read next &#x2F; write next &#x2F; reset). Most common access pattern. Can be made very fast.</li>
+<li>随机访问(Random (Direct) Access): Randomly address any block (read n &#x2F; write n &#x2F; seek n). File operations include the number of block as parameter. Difficult to make fast.</li>
+<li>Index Access</li>
+</ul>
+<h6 id="与文件相关的操作"><a href="#与文件相关的操作" class="headerlink" title="与文件相关的操作"></a>与文件相关的操作</h6><p>使用文件的目的是存储信息并方便以后的检索。对于存储和检索，不同系统提供了不同的操作。以下是与文件有关的最常用的一些系统调用：</p>
+<ol>
+<li>create. 创建不包含任何数据的文件，并设置文件的一些属性。</li>
+<li>delete. 当不再需要某个文件时，必须删除该文件以释放磁盘空间。</li>
+<li>open. 把文件属性和磁盘地址表装入内存，便于后续调用的快速访问。</li>
+<li>close. 关闭文件以释放内部表空间。磁盘以块为单位写入，关闭文件时，写入该文件的最后一块，即使这个块还没有满。</li>
+<li>read. 在文件中读取数据。指明需要读取多少数据，并且提供存放这些数据的缓冲区。</li>
+<li>write. 向文件写数据，从文件当前位置开始（会覆盖后面的数据）。</li>
+<li>append. write的限制版本，只能在文件末尾添加数据的write。</li>
+<li>seek. 对于随机访问文件，要指定从何处开始获取数据，通常的方法是用seek系统调用把当前<br>位置指针指向文件中特定位置。seek调用结束后，就可以从该位置开始读写数据了。</li>
+<li>get&#x2F;set attributes.  </li>
+<li>rename. 改变文件名。</li>
+</ol>
+<h5 id="inode-Index-Node"><a href="#inode-Index-Node" class="headerlink" title="inode (Index Node)"></a>inode (Index Node)</h5><p>Several pieces of information should be associated with each open file. The inode data structure can be used to store static information about a file.</p>
+<p><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2011/12/inode.html">理解inode</a></p>
+<h5 id="打开文件表-Open-File-Table"><a href="#打开文件表-Open-File-Table" class="headerlink" title="打开文件表(Open-File Table)"></a>打开文件表(Open-File Table)</h5><p>OS在memory中维护一个open-file table, 保存所有open files的信息。</p>
+<ul>
+<li><strong>Per-process open file table</strong>: tracking all files opened by process</li>
+<li><strong>System-wide open file table</strong>: process-independent information<ul>
+<li>Multiple entries of per-process open-file table can point to the same entry of system open-file table</li>
+</ul>
+</li>
+</ul>
+<p><img src="image-20220609105507918.png" alt="image-20220609105507918"></p>
+<p>**Open()**的流程：</p>
+<ul>
+<li>search System-Wide Open-File Table to see if file is currently in use<ul>
+<li>if it is, create a Per-Process Open-File table entry pointing to the existing System-Wide Open-File Table</li>
+<li>if it is not, search the directory for the file name; once found, place the FCB in the System-Wide Open-File Table</li>
+</ul>
+</li>
+<li>make an entry, i.e., Unix file descriptor, Windows file handle in the Per-Process Open-File Table, with pointers to the entry in the System-Wide Open-File Table and other fields which include a pointer to the current location in the file and the access mode in which the file is open</li>
+<li>increment the open count in the System-Wide Open-File Table</li>
+<li>returns a pointer to the appropriate entry in the Per-Process Open-File Table</li>
+<li>all subsequent operations are performed with this pointer</li>
+</ul>
+<h4 id="目录-Directory"><a href="#目录-Directory" class="headerlink" title="目录(Directory)"></a>目录(Directory)</h4><p>Single-Level Directory: 所有文件都在同一个目录(root directory)下。</p>
+<p>Two-Level Directory: 按用户分目录，每个用户的所有文件都放在自己的目录下。</p>
+<h5 id="目录的层级结构-Hierarchical-Directory"><a href="#目录的层级结构-Hierarchical-Directory" class="headerlink" title="目录的层级结构(Hierarchical Directory)"></a>目录的层级结构(Hierarchical Directory)</h5><p>Files organized into trees</p>
+<p>Directory stores mappings between human-friendly file name and file index (inode) <code>&lt;file_name, file_index&gt;</code>.</p>
+<h5 id="硬链接-Hard-Links-和符号链接-Symbolic-Links"><a href="#硬链接-Hard-Links-和符号链接-Symbolic-Links" class="headerlink" title="硬链接(Hard Links)和符号链接(Symbolic Links)"></a>硬链接(Hard Links)和符号链接(Symbolic Links)</h5><p>Links can be hard or soft</p>
+<ul>
+<li><strong>Hard link</strong>: points to the file by inode number</li>
+<li><strong>Soft (symbolic) link</strong>: points to the file by name</li>
+</ul>
+<p>对于Hard link，每个inode都有一个link counter. File blocks are deallocated only when counter &#x3D; 0. Hard link不能链接其他文件系统的文件，通常也不允许link到一个目录（”..”可能会出问题）</p>
+<p>对于Soft link，可以链接其他文件系统的文件，也可以link到一个目录。Find the name of target file, and starts the lookup process using the new name.</p>
+<blockquote>
+<p><strong>硬连接</strong>指通过索引节点来进行连接。在 Linux 的文件系统中，保存在磁盘分区中的文件不管是什么类型都给它分配一个编号，称为索引节点号(Inode Index)。在 Linux 中，多个文件名指向同一索引节点是存在的。比如：A 是 B 的硬链接（A 和 B 都是文件名），则 A 的目录项中的 inode 节点号与 B 的目录项中的 inode 节点号相同，即一个 inode 节点对应两个不同的文件名，两个文件名指向同一个文件，A 和 B 对文件系统来说是完全平等的。删除其中任何一个都不会影响另外一个的访问。</p>
+<p>硬连接的作用是允许一个文件拥有多个有效路径名，这样用户就可以建立硬连接到重要文件，以防止“误删”的功能。其原因如上所述，因为对应该目录的索引节点有一个以上的连接。只删除一个连接并不影响索引节点本身和其它的连接，只有当最后一个连接被删除后，文件的数据块及目录的连接才会被释放。也就是说，文件真正删除的条件是与之相关的所有硬连接文件均被删除。</p>
+<p>另外一种连接称之为<strong>符号连接</strong>（Symbolic Link），也叫软连接。软链接文件有类似Windows 的快捷方式。它实际上是一个特殊的文件。在符号连接中，文件实际上是一个文本文件，其中包含的有另一文件的位置信息。比如：A 是 B 的软链接（A 和 B 都是文件名），A 的目录项中的 inode 节点号与 B 的目录项中的 inode 节点号不相同，A 和 B 指向的是两个不同的 inode，继而指向两块不同的数据块。但是 A 的数据块中存放的只是 B 的路径名（可以根据这个找到 B 的目录项）。A 和 B 之间是“主从”关系，如果 B 被删除了，A 仍然存在（因为两个是不同的文件），但指向的是一个无效的链接。</p>
+</blockquote>
+<h4 id="文件和目录的角色-Two-Key-Abstractions"><a href="#文件和目录的角色-Two-Key-Abstractions" class="headerlink" title="文件和目录的角色: Two Key Abstractions"></a>文件和目录的角色: Two Key Abstractions</h4><p><strong>File</strong>: Array of bytes that can be read and written</p>
+<ul>
+<li>Associate bytes with a user readable name</li>
+<li>Also has a low-level name (inode number)</li>
+<li>Usually OS does not know the exact type of the file</li>
+</ul>
+<p><strong>Directory</strong>: A list of files and directories</p>
+<ul>
+<li>Each entry either points to file or other directory</li>
+<li>Contains a list of user-readable name to low-level name, like <code>&lt;foo, inode number 10&gt;</code>.</li>
+</ul>
+<p><img src="image-20220609143428513.png" alt="image-20220609143428513"></p>
+<h4 id="文件系统布局-File-System-Layout"><a href="#文件系统布局-File-System-Layout" class="headerlink" title="文件系统布局(File System Layout) ?????"></a>文件系统布局(File System Layout) ?????</h4><p>Computers can have multiple storage devices (disks). Disk能被划分成不同的部分(partition, if containing file system: volume)，每个部分都可以用不同的文件系统（或者干脆不用）。Each volume containing a file system also tracks that file system’s information in device directory or volume table of contents.</p>
+<p><img src="image-20220609145228916.png" alt="image-20220609145228916"></p>
+<p>File system needs to maintain <strong>on-disk</strong> (for data storage) and <strong>in-memory</strong> (for data access) structures.</p>
+<p>On-disk structure has several control blocks.</p>
+<ul>
+<li><p><strong>Master Boot Record (MBR)</strong>: information to boot the computer (per disk)</p>
+</li>
+<li><p><strong>Partition Table</strong>: the starting and ending addresses of each partition (one is marked as active)</p>
+</li>
+<li><p><strong>Boot Block</strong>: information needed to boot OS (per partition). Typically, the first block of partition (empty if no OS).</p>
+</li>
+<li><p><strong>Partition Control Block</strong>: information about partition. Block size, # blocks, free block list, …</p>
+</li>
+<li><p><strong>File Control Block</strong>: details regarding a file. Permission, size, locations of data blocks, …</p>
+</li>
+</ul>
+<p><img src="image-20220609161144740.png" alt="image-20220609161144740"></p>
+<p>Disks are divided into blocks of fixed size (typically 4 KB). Most blocks are data blocks (form the data region).</p>
+<p>Other blocks store metadata</p>
+<ul>
+<li><p><strong>An array of inode</strong>: each contains information for a file</p>
+<ul>
+<li>While data blocks belong to the file, file size, owner, access rights, …</li>
+<li>One block can contain multiple inodes</li>
+<li>For 256 bytes inode, 16 per block; with 5 blocks for inodes, file system can have up to 80 files</li>
+</ul>
+</li>
+<li><p><strong>Free space tracking</strong> (bitmap, linked list)</p>
+<ul>
+<li>Determine whether a data block or an inode is free</li>
+<li>One structure for inode, one for data</li>
+</ul>
+</li>
+<li><p><strong>Superblock</strong>: information about the file system</p>
+<ul>
+<li>File system type, number of blocks, number of inodes, beginning of the inode table, …</li>
+<li>First block read when mounting a file system</li>
+</ul>
+</li>
+</ul>
+<p>In-memory structures reflects and extends on-disk structures</p>
+<ul>
+<li><strong>Mount table</strong> storing file system mounts (mount points, file system type)</li>
+<li><strong>System-wide open-file table</strong></li>
+<li><strong>Per-process open-file table</strong></li>
+<li><strong>Directory structure</strong>: holds the directory information about recently accessed directories</li>
+<li><strong>I&#x2F;O memory buffers</strong>: holds file-system blocks while they are being read from or written to disk</li>
+</ul>
+<h4 id="文件储存的实现-Allocation-Method"><a href="#文件储存的实现-Allocation-Method" class="headerlink" title="文件储存的实现(Allocation Method)"></a>文件储存的实现(Allocation Method)</h4><p>文件存储实现的关键问题是记录各个文件分别用到哪些磁盘块。</p>
+<h5 id="连续分配-Contiguous"><a href="#连续分配-Contiguous" class="headerlink" title="连续分配(Contiguous)"></a>连续分配(Contiguous)</h5><p>每个文件作为一连串连续数据块存储在磁盘上。For 1KB disk block, allocate 20 consecutive blocks for a 20KB file.</p>
+<p><img src="image-20220609163912022.png" alt="image-20220609163912022"></p>
+<p>优势：实现简单，记录每个文件用到的磁盘块简化为只需记住两个数字：the disk address of the first block and the number of blocks. 对于random address计算data location速度块。</p>
+<p>不足：不灵活（创建时有必要知道该文件的最终大小；会导致External fragmentation）But good for CD-ROM and DVD.</p>
+<p>Some file systems use extent-based contiguous allocation. Extent is a set of contiguous blocks. A file consists of extents, extents are not necessarily adjacent to each other.</p>
+<h5 id="链表分配-Linked-List-Allocation"><a href="#链表分配-Linked-List-Allocation" class="headerlink" title="链表分配(Linked List Allocation)"></a>链表分配(Linked List Allocation)</h5><p>为每个文件构造磁盘块链表。每个块的第一个字作为指向下一块的指针，块的其他部分存放数据。</p>
+<p><img src="image-20220609165712764.png" alt="image-20220609165712764"></p>
+<p>优势：每个disk block都会被使用；没有外部碎片；在目录项中只需要存放第一块的磁盘地址，文件的其他块就可以从这个首块地址找到。</p>
+<p>不足：随机访问缓慢, can take many disk I&#x2F;Os；需要额外的空间来存放指针；可靠性不足 when the pointer has corrupted.</p>
+<p>Improvement: cluster the blocks, like 4 blocks.（然而这会导致internal fragmentation）</p>
+<h5 id="文件分配表-File-Allocation-Table-FAT"><a href="#文件分配表-File-Allocation-Table-FAT" class="headerlink" title="文件分配表(File Allocation Table, FAT)"></a>文件分配表(File Allocation Table, FAT)</h5><p>An variation of linked allocation. 为了解决链表分配的不足，取出每个disk block的指针字，把它们放到内存的一个表之中。</p>
+<p><img src="image-20220609171246130.png" alt="image-20220609171246130"></p>
+<p>按这种方式，整个block都可以存放数据。Random access也更容易（虽然仍要顺着链在文件中查找给定的偏移量，但整个链都在内存中，所以不需要任何磁盘引用）。同样，在目录项中只需要存放第一块的起始块号就能找到全部块。</p>
+<p>FAT-16: $2^{16}$ entries, maximum disk partition size with 4KB blocks &#x3D; 256MB</p>
+<p>不足：必须把整个表都存放在内存中。For 1TB ($2^{40}$) disk and 4KB ($2^{12}$) block, more than 260+ million ($2^{28}$) entries are needed. If 4 bytes per entry, 1GB for FAT table.</p>
+<h5 id="Indexed-inode的多级索引设计"><a href="#Indexed-inode的多级索引设计" class="headerlink" title="Indexed (inode的多级索引设计)"></a>Indexed (inode的多级索引设计)</h5><p>Each file has an array of pointers to block <strong>(index block)</strong>. 索引块的第i个条目指向文件的第i个块。目录条目包括索引块的地址。要读第i块，通过索引块的第i个条目的指针来查找和读入所需的块。</p>
+<p><img src="image-20220609184335072.png" alt="image-20220609184335072"></p>
+<p><img src="image-20220609184459156.png" alt="image-20220609184459156"></p>
+<p>Size of index block不能太大（浪费空间）也不能太小（没有足够的指针）</p>
+<p><img src="image-20220609184616759.png" alt="image-20220609184616759"></p>
+<p><img src="image-20220609185020696.png" alt="image-20220609185020696"></p>
+<h5 id="Summary-1"><a href="#Summary-1" class="headerlink" title="Summary"></a>Summary</h5><p>Best allocation method depends on file access type</p>
+<ul>
+<li>Contiguous is great for sequential and random</li>
+<li>Linked is good for sequential, but not for random</li>
+<li>Indexed allocation is more complex<ul>
+<li>Index block can be directly accessed if in memory</li>
+<li>If not, requires multiple index block reads</li>
+</ul>
+</li>
+</ul>
+<h4 id="目录的实现-Directory-Implementation"><a href="#目录的实现-Directory-Implementation" class="headerlink" title="目录的实现(Directory Implementation)"></a>目录的实现(Directory Implementation)</h4><h5 id="目录项中包含的信息、不同长度文件名的处理"><a href="#目录项中包含的信息、不同长度文件名的处理" class="headerlink" title="目录项中包含的信息、不同长度文件名的处理"></a>目录项中包含的信息、不同长度文件名的处理</h5><p>The file attributes can be stored directly in the directory entry (with fixed-size entry size), or each directory entry just refers to an inode (only filename + inode number)</p>
+<p><img src="image-20220609193857473.png" alt="image-20220609193857473"></p>
+<p><img src="image-20220609193941903.png" alt="image-20220609193941903"></p>
+<p>How about long, and <strong>variable-length filenames</strong>?</p>
+<p>最简单的方法是给予文件名一个长度限制，典型值为255个字符。这种处理简单，但是浪费大量的目录空间，因为只有很少的文件会有这么长的名字。</p>
+<p>或者，让每个目录项有不同的长度。每个目录项有一个固定部分，这个固定部分通常以entry length开始，后面是attributes. 固定部分之后是Filename（以一个特殊字符结束）。缺陷是移走文件后会引入一个长度可变的gap.</p>
+<p>或者，让每个目录项有固定的长度。Keep all filenames together in a heap. When an entry is removed, the next file entered will always fit. 文件名不需要从字的边界开始。Must manage the heap.</p>
+<p><img src="image-20220609195315090.png" alt="image-20220609195315090"></p>
+<h5 id="在目录中查找文件"><a href="#在目录中查找文件" class="headerlink" title="在目录中查找文件"></a>在目录中查找文件</h5><p>方法有：</p>
+<ul>
+<li>线性地从头到尾对目录进行搜索。对于非常长的目录，线性查找就太慢了。</li>
+<li>在每个目录中使用哈希表。用链表来处理collisions. 优点是快速，但需要复杂的管理。</li>
+<li>Store &lt;filename, inode number&gt; using a tree like B tree.</li>
+<li>Nevertheless, the results of search can be cached.</li>
+</ul>
+<h4 id="磁盘空闲空间管理-Disk-Space-Management"><a href="#磁盘空闲空间管理-Disk-Space-Management" class="headerlink" title="磁盘空闲空间管理(Disk Space Management)"></a>磁盘空闲空间管理(Disk Space Management)</h4><h5 id="不同数据块大小对文件系统的影响"><a href="#不同数据块大小对文件系统的影响" class="headerlink" title="不同数据块大小对文件系统的影响"></a>不同数据块大小对文件系统的影响</h5><p><img src="image-20220609200356718.png" alt="image-20220609200356718"></p>
+<p>Data rate goes up almost linearly with block size. More spaces are wasted for larger blocks.</p>
+<p>Historically, file systems have chosen sizes in the 1~4 KB range. With disks now exceeding 1 TB, it might be better to increase the block size to 64KB.</p>
+<h5 id="记录空闲块：Bit-Map、Free-List"><a href="#记录空闲块：Bit-Map、Free-List" class="headerlink" title="记录空闲块：Bit Map、Free List"></a>记录空闲块：Bit Map、Free List</h5><h6 id="Bit-Map"><a href="#Bit-Map" class="headerlink" title="Bit Map"></a>Bit Map</h6><p>Use one bit for each block, track its allocation status. Relatively easy to find contiguous blocks. Hardware support bit manipulation operations.</p>
+<p>Bit map requires extra space. </p>
+<ul>
+<li>Block size &#x3D; 4 KB &#x3D; $2^{12}$ bytes</li>
+<li>Disk size &#x3D; 1TB &#x3D; $2^{40}$ bytes</li>
+<li>$2^{40} &#x2F; 2^{12} &#x3D; 2^{28}$ bits &#x3D; 256 MB</li>
+<li>If clusters of 4 blocks, then 64MB</li>
+</ul>
+<h6 id="Free-List"><a href="#Free-List" class="headerlink" title="Free List"></a>Free List</h6><p>No waste of space, just use the memory in free blocks for pointers. Only one block of pointers need to be kept in main memory. Keep the address of starting block + the number of contiguous free blocks (Counting). 链表的每个块中包含尽可能多的空闲磁盘块号(Grouping). 对于1KB大小的块和32位的磁盘块号（2^10&#x2F;2^2 &#x3D; 2^8），空闲表中每个块包含有255个空闲块的块号（需要有一个位置存放指向下一个块的指针）。Allocating multiple free blocks does not need to traverse the list.</p>
+<p><img src="image-20220610095750730.png" alt="image-20220610095750730"></p>
+<blockquote>
+<p>在某些特定情形下，这个方法产生了不必要的磁盘I&#x2F;O 。考虑图4-23a中的情形，内存中的指针块只有两个表项了。如果释放了一个有三个磁盘块的文件，该指针块就溢出了，必须将其写入磁盘，这就产生了图4-23b的情形。如果现在写入含有三个块的文件，满的指针块不得不再次读入，这将回到图4-23a的情形。如果有三个块的文件只是作为临时文件被写人，当它被释放时，就需要另一个磁盘写操作，以便把满的指针块写回磁盘。总之，当指针块几乎为空时，一系列短期的临时文件就会引起大最的磁盘I&#x2F;O。</p>
+</blockquote>
+<p><img src="image-20220610100158676.png" alt="image-20220610100158676"></p>
+<blockquote>
+<p>一个可以避免过多磁盘I&#x2F;O的替代策略是，拆分满了的指针块。这样，当释放三个块时，不再是从图4-23a变化到图4-23b, 而是从图4-23a变化到图4-23c 。现在，系统可以处理一系列临时文件，而不需进行任何磁盘I&#x2F;O。如果内存中指针块满了，就写入磁盘，半满的指针块从磁盘中读入。这里的思想是：保持磁盘上的大多数指针块为满的状态（减少磁盘的使用），但是在内存中保留一个半满的指针块。这样，它可以既处理文件的创建又同时处理文件的删除操作，而不会为空闲表进行磁盘I&#x2F;O.</p>
+</blockquote>
+<h4 id="文件系统的性能"><a href="#文件系统的性能" class="headerlink" title="文件系统的性能"></a>文件系统的性能</h4><p>访问磁盘(I&#x2F;O operations)比访问内存慢得多，因此需要采取各种优化措施以改善性能。</p>
+<h5 id="缓存-Cache"><a href="#缓存-Cache" class="headerlink" title="缓存(Cache)"></a>缓存(Cache)</h5><p>Keep frequently used blocks in memory.</p>
+<p>因为Cache中有许多块，通常有上千块。所以Use a hash table to track if a given block is present (and maintain a LRU list)</p>
+<p><img src="image-20220610103119931.png" alt="image-20220610103119931"></p>
+<p>当cache满了的时候，需要调入新的block，要把原来的某一块移出cache. 这种情况类似于分页(FIFO, second chance, LRU, etc.) 与分页相比，cache的好处在于对cache的引用不很频繁，所以按精确的LRU顺序在链表中记录全部的块是可行的。</p>
+<p>现在存在一种情形，使我们有可能获得精确的LRU, 但是碰巧该LRU却又不符合要求。这个问题与前一节讨论的系统崩溃和文件一致性有关。如果一个关键块（比如i节点块）读进了高速缓存并做过修改，但是没有写回磁盘，这时，系统崩溃会导致文件系统的不一致。如果把i节点块放在LRU链的尾部，在它到达链首并写回磁盘前，有可能需要相当长的一段时间。此外， 某一些块，如i节点块，极少可能在短时间内被引用两次。基于这些考虑需要修改LRU方案，并应注意如下两点：</p>
+<ul>
+<li>Is the block likely to be needed again soon? 最近可能不再需要的块(inode)在前部，最近可能再次使用的块（比如正在写入的部分满数据块）可放在链表尾部，能保存更长时间。</li>
+<li>Is the block essential to the consistency of the file system? Modification of critical blocks should be written to disk immediately. Data blocks should not be in the cache too long before writing back.</li>
+</ul>
+<h6 id="Write-back-cache"><a href="#Write-back-cache" class="headerlink" title="Write-back cache"></a>Write-back cache</h6><p>When modifying a block, mark it as dirty &amp; write to disk later</p>
+<ul>
+<li>On an explicit flush</li>
+<li>When a block is evicted (buffer cache is full)</li>
+<li>When a file is closed</li>
+<li>When a time interval elapses (a program named update will issue a sync call every 30s in Unix)</li>
+</ul>
+<p>Higher performance at the cost of potential inconsistencies</p>
+<ul>
+<li>Short-lived files might never make it to disk</li>
+<li>On crash, all modified data in cache is lost</li>
+</ul>
+<h6 id="Write-though-cache"><a href="#Write-though-cache" class="headerlink" title="Write-though cache"></a>Write-though cache</h6><ul>
+<li>Whenever modify cache block, write block to disk</li>
+<li>Cache is consistent, but poor performance</li>
+</ul>
+<h6 id="Read-Ahead-Prefetching"><a href="#Read-Ahead-Prefetching" class="headerlink" title="Read-Ahead Prefetching"></a>Read-Ahead Prefetching</h6><p>Try to get blocks into the cache before they are needed to increase the hit rate.</p>
+<ul>
+<li>Many files are read sequentially</li>
+<li>Do not help if a file is being randomly accessed. Might even read in useless blocks and remove potentially useful blocks from the cache.</li>
+<li>File system can track the access patterns to each open file.</li>
+</ul>
+<h5 id="快速文件系统-Fast-File-System-FFS"><a href="#快速文件系统-Fast-File-System-FFS" class="headerlink" title="快速文件系统(Fast File System, FFS)"></a>快速文件系统(Fast File System, FFS)</h5><p>Achieving data locality in FFS: <strong>Store related data together</strong></p>
+<ul>
+<li>Maintain locality of each file: Allocate data blocks within a group</li>
+<li>Maintain locality of inodes in a directory: Allocate inodes in same directory in a group</li>
+<li>Make room for locality within a directory: Spread out directories to groups and Switch to a different group for large files</li>
+</ul>
+<h4 id="文件系统的一致性"><a href="#文件系统的一致性" class="headerlink" title="文件系统的一致性"></a>文件系统的一致性</h4><p>很多文件系统读取磁盘块，进行修改后，再写回磁盘。如果在修改过的磁盘块全部写回之前系统崩溃，则文件系统有可能处于不一致状态。</p>
+<h5 id="★-文件系统一致性检查-File-System-Consistency-Check-fsck"><a href="#★-文件系统一致性检查-File-System-Consistency-Check-fsck" class="headerlink" title="★ 文件系统一致性检查(File System Consistency Check, fsck)"></a>★ 文件系统一致性检查(File System Consistency Check, fsck)</h5><p>Let inconsistency happen and fix them post facto (during reboot).</p>
+<ul>
+<li><p>Sanity check the superblock</p>
+<ul>
+<li>Is file system size larger than total blocks that have been allocated?</li>
+<li>Is file system size “reasonable”?</li>
+<li>On inconsistencies<ul>
+<li>Use another copy of the superblock</li>
+<li>Overwrite values in superblock with those found in the file system</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Check validity of free block and inode bitmaps</p>
+<ul>
+<li>Scan inodes, indirect blocks … to understand which blocks are allocated</li>
+<li>On inconsistency, override free block bitmap (inodes win)</li>
+<li>Perform similar check on inodes to update inode bitmap</li>
+</ul>
+</li>
+<li><p>Check that inodes are not corrupted</p>
+<ul>
+<li>e.g., check type (directory, regular file, symlink, etc) field</li>
+<li>if issues can’t be fixed, clear inode and update inode bitmap</li>
+</ul>
+</li>
+<li><p>Check inode hard links</p>
+<ul>
+<li>Scan through the entire directory tree, recomputing the number of hard links for each file</li>
+<li>If inconsistency, fix link count in inode</li>
+<li>If no directory refers to allocated inode, move to lost + found directory</li>
+</ul>
+</li>
+<li><p>Check for duplicated blocks, bad pointers</p>
+<ul>
+<li><p>Two inodes pointing to the same block</p>
+<ul>
+<li>Clear one inode (if bad), or copy block (to each, its own)</li>
+</ul>
+</li>
+<li><p>Pointer pointing to a node outside partition</p>
+</li>
+</ul>
+</li>
+<li><p>Check directories</p>
+<ul>
+<li>Check that . and .. are the first entries</li>
+<li>Check that each inode referred to is allocated</li>
+<li>Check that directory tree is a tree</li>
+</ul>
+</li>
+</ul>
+<p>缺陷：Require intricate knowledge of the file system，扫描磁盘太慢了</p>
+<h5 id="日志文件系统-Virtual-File-System"><a href="#日志文件系统-Virtual-File-System" class="headerlink" title="日志文件系统(Virtual File System)"></a>日志文件系统(Virtual File System)</h5><p>Basic idea是Write-ahead logging. 在真正update之前先把update写到Journal (stored on disk)里。如果failure occurs in the middle of the update, 我们就read the journal on restart, 再尝试一次。（write之前炸了：no operation；write之后炸了：re-do operation）.</p>
+<p>Updates are saved in the journal as transactions <strong>(journal write)</strong></p>
+<ul>
+<li>Write TxB (transaction begin)</li>
+<li>Put update of inode (I[v2]) in journal</li>
+<li>Put update of bitmap (B[v2]) in journal</li>
+<li>Put update of data block (Db) in journal</li>
+<li>Write TxE (transaction end)</li>
+</ul>
+<p><img src="image-20220610115148560.png" alt="image-20220610115148560"></p>
+<p>一旦the transaction is safely on disk, 就把update写到their final on-disk locations <strong>(checkpoint)</strong></p>
+<p>为了提高写的速度，磁盘可能并发的写。Disk may perform scheduling and complete write in any order. 同时写除了TxE的四个，再写TxE，最后写到disk (checkpoint).</p>
+<p><img src="image-20220610121051445.png" alt="image-20220610121051445"></p>
+<p>To recover from a crash: 如果crash发生在journal commit之前，忽略更新；发生在journal commit之后但checkpoint之前，redo logging；Happens during checkpointing, Some redundant writes.</p>
+<p>The log is of a finite size: Treat the log as a circular data structure, reusing it over and over. Once a transaction has been checkpointed, free the space it was occupying within the journal.  Journal super block records enough information to know which transactions have not yet been checkpointed.</p>
+<p><img src="image-20220610122446607.png" alt="image-20220610122446607"></p>
+<p>Data journaling有代价，因为数据要写两次。可以采用Metadata journaling来获得consistency和performance的平衡。</p>
+<h4 id="虚拟文件系统-Virtual-File-System-VFS"><a href="#虚拟文件系统-Virtual-File-System-VFS" class="headerlink" title="虚拟文件系统(Virtual File System, VFS)"></a>虚拟文件系统(Virtual File System, VFS)</h4><p>Many different file systems are in use on the same computer and the same operating system. VFS提供了一种object-oriented way来实现文件系统。把文件系统共有的代码封装在独立的区域，Defines a common interface (如open, read, write等POSIX接口) for file system, all file systems need to implement them. 这样能Separates file system operations from implementation details.</p>
+<h3 id="设备管理"><a href="#设备管理" class="headerlink" title="设备管理"></a>设备管理</h3><h4 id="设备控制器-Controller"><a href="#设备控制器-Controller" class="headerlink" title="设备控制器(Controller)"></a>设备控制器(Controller)</h4><p>A controller is a collection of electronics that can operate a port, a bus, or a device. 设备控制器通过寄存器与CPU通信，寄存器通常有4个 (Data-in register, Data-out register, Status register, Command register).</p>
+<h4 id="设备类型"><a href="#设备类型" class="headerlink" title="设备类型"></a>设备类型</h4><h5 id="块设备-block-device"><a href="#块设备-block-device" class="headerlink" title="块设备(block device)"></a>块设备(block device)</h5><ul>
+<li>Stores information in fixed-size blocks</li>
+<li>Transfers are in units of entire blocks</li>
+</ul>
+<h5 id="字符设备-character-device"><a href="#字符设备-character-device" class="headerlink" title="字符设备(character device)"></a>字符设备(character device)</h5><ul>
+<li>Delivers or accepts stream of characters, without regard to block structure</li>
+<li>Not addressable, does not have any <em>seek</em> operation</li>
+</ul>
+<h4 id="设备驱动程序-Driver"><a href="#设备驱动程序-Driver" class="headerlink" title="设备驱动程序(Driver)"></a>设备驱动程序(Driver)</h4><p><strong>设备驱动程序</strong>是一种内核模块，负责管理硬件设备的底层 I&#x2F;O操作。设备驱动程序是使用标准接口编写的，内核可通过调用该标准接口与设备进行交互。</p>
+<p>What does a device driver do?</p>
+<ul>
+<li>Provide “the rest of the OS” with APIs (init, open, close, read, write…)</li>
+<li>与设备控制器交互。Commands and data transfers with hardware controllers.</li>
+<li>Driver operations<ul>
+<li>Initialize devices</li>
+<li>Accept and process interrupts</li>
+<li>Maintain the integrity of driver and kernel data structures</li>
+</ul>
+</li>
+</ul>
+<h4 id="进程访问寄存器的两种方式"><a href="#进程访问寄存器的两种方式" class="headerlink" title="进程访问寄存器的两种方式"></a>进程访问寄存器的两种方式</h4><h5 id="端口映射I-x2F-O-Port-Mapped-I-x2F-O"><a href="#端口映射I-x2F-O-Port-Mapped-I-x2F-O" class="headerlink" title="端口映射I&#x2F;O (Port-Mapped I&#x2F;O)"></a>端口映射I&#x2F;O (Port-Mapped I&#x2F;O)</h5><p>Each control register is assigned an I&#x2F;O port number which is protected. Using a special I&#x2F;O instruction the OS can read and write in control register</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">IN REG, PORT</span><br><span class="line">OUT PORT, REG</span><br></pre></td></tr></table></figure>
+
+<h5 id="内存映射I-x2F-O-Memory-Mapped-I-x2F-O"><a href="#内存映射I-x2F-O-Memory-Mapped-I-x2F-O" class="headerlink" title="内存映射I&#x2F;O (Memory-Mapped I&#x2F;O)"></a>内存映射I&#x2F;O (Memory-Mapped I&#x2F;O)</h5><p>把所有的control registers映射到地址空间。当CPU想要read时，就将需要的地址给总线，如果正好在I&#x2F;O地址范围，对应的设备就会响应请求。</p>
+<p>优点</p>
+<ul>
+<li>如果需要特殊的IO指令读写control registers，那么访问这些寄存器要使用汇编，调用这样的过程增加了开销(C和C++本身并不提供这样的方法)，而内存映射不存在这样的问题</li>
+<li>不需要特殊的保护机制，操作系统只需要维护控制寄存器不要被放到用户的虚拟地址空间就可</li>
+<li>任何指令只要能访问内存，其就能访问control registers.</li>
+</ul>
+<p>缺点</p>
+<ul>
+<li>用内存映射将造成设备寄存器被cache掉，而对于设备这种实时更新状态的方式是灾难性的，可能会造成死循环</li>
+<li>所以硬件需要提供机制来禁止cache，操作系统也需要提供机制来管理cache，这无疑增加了二者的复杂性</li>
+</ul>
+<h4 id="直接存储器读取-Direct-Memory-Access-DMA"><a href="#直接存储器读取-Direct-Memory-Access-DMA" class="headerlink" title="直接存储器读取(Direct Memory Access, DMA)"></a>直接存储器读取(Direct Memory Access, DMA)</h4><p>DMA的工作过程是：CPU读写数据时，他给IO控制器发出一条命令，启动DMA控制器，然后继续其他工作。之后CPU就把这个操作委托给DMA控制器，由该控制器负责处理。DMA控制器直接与存储器交互，传送整个数据块，这个过程不需要CPU参与。当传送完成后，DMA控制器发送一个中断信号给处理器。因此，只有在传送开始和结束时才需要CPU的参与。</p>
+<p>DMA约等于一个专门执行”memcpy”程序的CPU. 节省时间和算力。</p>
+<p><img src="image-20220610151201198.png" alt="image-20220610151201198"></p>
+<h3 id="磁盘"><a href="#磁盘" class="headerlink" title="磁盘"></a>磁盘</h3><h4 id="磁盘臂调度算法-Disk-Arm-Scheduling-Algorithms"><a href="#磁盘臂调度算法-Disk-Arm-Scheduling-Algorithms" class="headerlink" title="磁盘臂调度算法(Disk Arm Scheduling Algorithms)"></a>磁盘臂调度算法(Disk Arm Scheduling Algorithms)</h4><p>Disk latency &#x3D; seek + rotation + transfer (time)</p>
+<p>seek是寻道时间（将磁盘臂移动到适当的柱面上所需的时间）</p>
+<p>On average, rotation time是等待适当扇区旋转到磁头下所需的时间，大约是一次旋转时间的一半。</p>
+<p>主要是seek和rotation占时间。</p>
+<h5 id="FIFO-FCFS-order"><a href="#FIFO-FCFS-order" class="headerlink" title="FIFO (FCFS) order"></a>FIFO (FCFS) order</h5><p>优点：公平，符合期待的顺序；缺点：输入随机时时间会很长</p>
+<h5 id="Shortest-Seek-First-SSF-SSTF"><a href="#Shortest-Seek-First-SSF-SSTF" class="headerlink" title="Shortest Seek First (SSF, SSTF)"></a>Shortest Seek First (SSF, SSTF)</h5><p>下一次总是处理与磁头最近的请求以使寻道时间最小化。优点：Try to minimize seek；缺点：饿。</p>
+<p><img src="image-20220608083112155.png" alt="image-20220608083112155"></p>
+<p>非最优。SSF是贪心算法，而最短路径是NPC问题。</p>
+<h5 id="Elevator-SCAN"><a href="#Elevator-SCAN" class="headerlink" title="Elevator (SCAN)"></a>Elevator (SCAN)</h5><p>类比三次元电梯，启动时找最近的。不轻易改变方向，除非该方向上没有其他请求(LOOK)；或者撞到边际再回头(SCAN).</p>
+<p><img src="image-20220608083748555.png" alt="image-20220608083748555"></p>
+<p>优点：每次请求的时间有上界（柱面数的两倍）；缺点：Request at the other end will take a while.</p>
+<h4 id="廉价磁盘冗余阵列-Redundant-Array-of-Inexpensive-Disks-RAID"><a href="#廉价磁盘冗余阵列-Redundant-Array-of-Inexpensive-Disks-RAID" class="headerlink" title="廉价磁盘冗余阵列(Redundant Array of Inexpensive Disks, RAID)"></a>廉价磁盘冗余阵列(Redundant Array of Inexpensive Disks, RAID)</h4><p>RAID is a system that spreads data redundantly across multiple disks in order to tolerate individual disk failures.</p>
+<ul>
+<li>RAID 0: no replication</li>
+<li>RAID 1: mirror data across two or more disks</li>
+<li>RAID 4, 5: split data across disks, with redundancy to recover from a single disk failure</li>
+<li>RAID 6: RAID 5, with extra redundancy to recover form two disk failures</li>
+</ul>
+<p><img src="image-20220608091211541.png" alt="image-20220608091211541"></p>
+<p>这里P是Parity奇偶校验。Parity block: block1 $\oplus$ block2 $\oplus$ block3 … 若某个Block寄了，能通过奇偶校验位恢复。P’是另一套检验方式，不需要掌握。</p>
+<p>更新数据：Mirroring只要write every mirror. RAID4和5更新new data和parity<br>$$<br>\text{New_Parity} &#x3D; \text{Old_parity} \oplus \text{Old_data}_i \oplus \text{New_data}_i<br>$$</p>
+<h3 id><a href="#" class="headerlink" title></a></h3>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/08/22/Reinforcing_an_Image_Caption_Generator_Using_Off-Line_Human_Feedback/" rel="prev" title="Reinforcing an Image Caption Generator Using Off-Line Human Feedback (AAAI 2020)">
+      <i class="fa fa-chevron-left"></i> Reinforcing an Image Caption Generator Using Off-Line Human Feedback (AAAI 2020)
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B"><span class="nav-text">进程和线程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%90%84%E7%A7%8D%E7%8A%B6%E6%80%81%E8%BD%AC%E6%8D%A2"><span class="nav-text">进程和线程的各种状态转换</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E5%88%9B%E5%BB%BA"><span class="nav-text">进程创建</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E7%BB%88%E6%AD%A2"><span class="nav-text">进程终止</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E7%8A%B6%E6%80%81"><span class="nav-text">进程状态</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E6%8E%A7%E5%88%B6%E5%9D%97-Process-Control-Block-PCB"><span class="nav-text">进程控制块(Process Control Block, PCB)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%9A%E9%81%93%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-Multiprogramming"><span class="nav-text">多道程序设计(Multiprogramming)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#CPU%E5%88%A9%E7%94%A8%E7%8E%87-CPU-utilization"><span class="nav-text">CPU利用率(CPU utilization)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E5%88%87%E6%8D%A2-Context-Switch"><span class="nav-text">上下文切换(Context Switch)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E6%8E%A7%E5%88%B6%E5%9D%97-Thread-Control-Block-TCB"><span class="nav-text">线程控制块(Thread Control Block, TCB)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%83%E5%BA%A6"><span class="nav-text">调度</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B0%83%E5%BA%A6%E7%9A%84%E6%8C%87%E6%A0%87"><span class="nav-text">调度的指标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%B9%E5%A4%84%E7%90%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%B0%83%E5%BA%A6-Scheduling-in-Batch-Systems"><span class="nav-text">批处理系统的调度(Scheduling in Batch Systems)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%88%E6%9D%A5%E5%85%88%E6%9C%8D%E5%8A%A1-First-come-Fist-Served-or-First-In-First-Out"><span class="nav-text">先来先服务(First-come Fist-Served, or First In First Out)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%80%E7%9F%AD%E4%BD%9C%E4%B8%9A%E4%BC%98%E5%85%88-Shortest-Remaining-Time-Next"><span class="nav-text">最短作业优先(Shortest Remaining Time Next)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%80%E7%9F%AD%E5%89%A9%E4%BD%99%E6%97%B6%E9%97%B4%E4%BC%98%E5%85%88-Shortest-Remaining-Time-Next-SRTN-x2F-SRTF"><span class="nav-text">最短剩余时间优先(Shortest Remaining Time Next, SRTN&#x2F;SRTF)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%A4%E4%BA%92%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E8%B0%83%E5%BA%A6-Scheduling-in-Interactive-Systems"><span class="nav-text">交互式系统中的调度(Scheduling in Interactive Systems)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BD%AE%E8%BD%AC%E8%B0%83%E5%BA%A6-Round-Robin-RR"><span class="nav-text">轮转调度(Round-Robin, RR)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BC%98%E5%85%88%E7%BA%A7%E8%B0%83%E5%BA%A6-Priority-Scheduling"><span class="nav-text">优先级调度(Priority Scheduling)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A4%9A%E7%BA%A7%E5%8F%8D%E9%A6%88%E9%98%9F%E5%88%97-Multilevel-Feedback-Queue-MFQ"><span class="nav-text">多级反馈队列(Multilevel Feedback Queue, MFQ)</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Game-the-system"><span class="nav-text">Game the system</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E6%97%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%B0%83%E5%BA%A6-Scheduling-in-Real-Time-Systems"><span class="nav-text">实时系统的调度(Scheduling in Real-Time Systems)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%87%86%E5%85%A5%E6%8E%A7%E5%88%B6-Admission-control"><span class="nav-text">准入控制(Admission-control)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8D%95%E8%B0%83%E9%80%9F%E7%8E%87%E8%B0%83%E5%BA%A6-Rate-Monotonic-Scheduling"><span class="nav-text">单调速率调度(Rate Monotonic Scheduling)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%80%E6%97%A9%E6%88%AA%E6%AD%A2%E6%9C%9F%E9%99%90%E4%BC%98%E5%85%88-Earliest-Deadline-First-Scheduling"><span class="nav-text">最早截止期限优先(Earliest Deadline First Scheduling)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="nav-text">内存管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E9%9C%80%E8%A6%81%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%8A%9F%E8%83%BD"><span class="nav-text">内存管理需要实现的功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%EF%BC%88%E9%80%BB%E8%BE%91%EF%BC%89%E5%9C%B0%E5%9D%80%E7%A9%BA%E9%97%B4%E5%92%8C%E7%89%A9%E7%90%86%E5%9C%B0%E5%9D%80%E7%A9%BA%E9%97%B4-Address-Space"><span class="nav-text">虚拟（逻辑）地址空间和物理地址空间(Address Space)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%9E%E7%BB%AD%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D-Contiguous-Memory-Allocation"><span class="nav-text">连续内存分配(Contiguous Memory Allocation)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#First-Fit"><span class="nav-text">First-Fit</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Next-Fit"><span class="nav-text">Next-Fit</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Best-Fit"><span class="nav-text">Best-Fit</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Worst-Fit"><span class="nav-text">Worst-Fit</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Quick-Fit"><span class="nav-text">Quick-Fit</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%85%E9%83%A8%E7%A2%8E%E7%89%87%E5%92%8C%E5%A4%96%E9%83%A8%E7%A2%8E%E7%89%87-Fragmentation"><span class="nav-text">内部碎片和外部碎片(Fragmentation)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E6%AE%B5-Segmentation"><span class="nav-text">分段(Segmentation)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%AE%B5%E8%A1%A8-Segment-Table-%E7%9A%84%E7%BB%93%E6%9E%84%E3%80%81%E5%88%86%E6%AE%B5%E4%B8%AD%E7%9A%84%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2"><span class="nav-text">段表(Segment Table)的结构、分段中的地址转换</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E9%A1%B5-Paging"><span class="nav-text">分页(Paging)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A1%B5%E8%A1%A8-Page-Table-%E7%9A%84%E7%BB%93%E6%9E%84%E3%80%81%E5%88%86%E9%A1%B5%E4%B8%AD%E7%9A%84%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2%E3%80%81%E9%A1%B5%E9%9D%A2%E5%85%B1%E4%BA%AB"><span class="nav-text">页表(Page Table)的结构、分页中的地址转换、页面共享</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%86%E9%A1%B5%E4%B8%AD%E7%9A%84%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2"><span class="nav-text">分页中的地址转换</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A1%B5%E9%9D%A2%E5%85%B1%E4%BA%AB"><span class="nav-text">页面共享</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A1%B5%E8%A1%A8-Page-Table-%E7%9A%84%E7%BB%93%E6%9E%84"><span class="nav-text">页表(Page Table)的结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BD%AC%E6%8D%A2%E6%A3%80%E6%B5%8B%E7%BC%93%E5%86%B2%E5%8C%BA-x2F-%E5%9D%97%E8%A1%A8-Translation-Look-aside-Buffers-TLB"><span class="nav-text">转换检测缓冲区&#x2F;块表(Translation Look-aside Buffers, TLB)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%89%E6%95%88%E8%AE%BF%E9%97%AE%E6%97%B6%E9%97%B4-Effective-Access-Time-EAT"><span class="nav-text">有效访问时间(Effective Access Time, EAT)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A1%B5%E8%A1%A8%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F"><span class="nav-text">页表的实现方式</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%A4%9A%E7%BA%A7%E9%A1%B5%E8%A1%A8-Multi-Level-Page-Table"><span class="nav-text">多级页表(Multi-Level Page Table)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%80%92%E6%8E%92%E9%A1%B5%E8%A1%A8-Invented-Page-Table"><span class="nav-text">倒排页表(Invented Page Table)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%98%85-%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98-Virtual-Memory"><span class="nav-text">★ 虚拟内存(Virtual Memory)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%AF%B7%E6%B1%82%E8%B0%83%E9%A1%B5-Demand-Paging"><span class="nav-text">请求调页(Demand Paging)</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Performance-of-Demand-Paging"><span class="nav-text">Performance of Demand Paging</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BC%BA%E9%A1%B5%E9%94%99%E8%AF%AF%E7%9A%84%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B-Page-fault-handling-%E3%81%88%E3%81%A3%EF%BC%9F"><span class="nav-text">缺页错误的处理流程 Page fault handling (????? えっ？</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A1%B5%E9%9D%A2%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95-Page-Replacement"><span class="nav-text">页面置换算法(Page Replacement)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#FIFO"><span class="nav-text">FIFO</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Optimal"><span class="nav-text">Optimal</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Least-Recently-Used-LRU"><span class="nav-text">Least Recently Used (LRU)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Not-Recently-Used-NRU"><span class="nav-text">Not Recently Used (NRU)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Not-Frequently-Used-NFU"><span class="nav-text">Not Frequently Used (NFU)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E9%9B%86-Working-Set"><span class="nav-text">工作集(Working Set)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8A%96%E5%8A%A8-Thrashing"><span class="nav-text">抖动(Thrashing)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE%E5%B1%80%E9%83%A8%E6%80%A7-Locality-of-Reference"><span class="nav-text">访问局部性(Locality of Reference)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E9%9B%86%E9%A1%B5%E9%9D%A2%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95"><span class="nav-text">工作集页面置换算法</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E5%B7%A5%E4%BD%9C%E9%9B%86%E7%AE%97%E6%B3%95"><span class="nav-text">基本工作集算法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E9%9B%86%E6%97%B6%E9%92%9F-WSClock"><span class="nav-text">工作集时钟(WSClock)</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5"><span class="nav-text">同步</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E7%AB%9E%E4%BA%89-Race-Condition"><span class="nav-text">条件竞争(Race Condition)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%B4%E7%95%8C%E5%8C%BA-Critical-Section"><span class="nav-text">临界区(Critical Section)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BF%99%E7%AD%89%E5%BE%85%E7%9A%84%E4%BA%92%E6%96%A5-Mutual-Exclusion-with-Busy-Waiting"><span class="nav-text">忙等待的互斥(Mutual Exclusion with Busy Waiting)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B1%8F%E8%94%BD%E4%B8%AD%E6%96%AD-Disabling-Interrupts"><span class="nav-text">屏蔽中断(Disabling Interrupts)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%94%81%E5%8F%98%E9%87%8F-Lock-Variables"><span class="nav-text">锁变量(Lock Variables)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%A5%E6%A0%BC%E8%BD%AE%E8%BD%AC%E6%B3%95-Strict-Alternation"><span class="nav-text">严格轮转法(Strict Alternation)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Peterson%E2%80%99s-Solution"><span class="nav-text">Peterson’s Solution</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TSL-test-and-set-lock-%E6%8C%87%E4%BB%A4"><span class="nav-text">TSL(test and set lock)指令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BF%99%E7%AD%89%E5%BE%85%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-text">忙等待的问题</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E5%8F%98%E9%87%8F-Condition-Variables"><span class="nav-text">条件变量(Condition Variables)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%98%85-%E4%BF%A1%E5%8F%B7%E9%87%8F-Semaphores"><span class="nav-text">★ 信号量(Semaphores)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%98%85-%E7%AE%A1%E7%A8%8B-Monitors"><span class="nav-text">★ 管程(Monitors)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Brinch-Hansen-semantics"><span class="nav-text">Brinch Hansen semantics</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Hoare-semantics"><span class="nav-text">Hoare semantics</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Mesa-semantics"><span class="nav-text">Mesa semantics</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%9F%E4%BA%A7%E8%80%85-%E6%B6%88%E8%B4%B9%E8%80%85%E9%97%AE%E9%A2%98-The-Producer-Consumer-Problem"><span class="nav-text">生产者-消费者问题(The Producer-Consumer Problem)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%BB%E8%80%85%E5%86%99%E8%80%85%E9%97%AE%E9%A2%98-The-Readers-and-Writers-Problem"><span class="nav-text">读者写者问题(The Readers and Writers Problem)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Writers-preferred-solution"><span class="nav-text">Writers preferred solution</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Readers-preferred-solution"><span class="nav-text">Readers preferred solution</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Readers-preferred-solution-even-more"><span class="nav-text">Readers preferred solution (even more)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#A-related-fair-solution"><span class="nav-text">A related fair solution</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Read-Copy-Update-RCU"><span class="nav-text">Read-Copy-Update (RCU)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%AE%A2%E9%98%85-%E5%8F%91%E5%B8%83%E6%9C%BA%E5%88%B6-Publish-Subscribe-Mechanism"><span class="nav-text">订阅-发布机制(Publish-Subscribe Mechanism)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%BD%E9%99%90%E6%9C%9F-RCU-Grace-period"><span class="nav-text">宽限期(RCU Grace period)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%93%B2%E5%AD%A6%E5%AE%B6%E5%B0%B1%E9%A4%90%E9%97%AE%E9%A2%98-The-Dining-Philosophers-Problem"><span class="nav-text">哲学家就餐问题(The Dining Philosophers Problem)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%BB%E9%94%81"><span class="nav-text">死锁</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%BB%E9%94%81%E7%9A%84%E5%9B%9B%E4%B8%AA%E5%BF%85%E8%A6%81%E6%9D%A1%E4%BB%B6"><span class="nav-text">死锁的四个必要条件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B5%84%E6%BA%90%E5%88%86%E9%85%8D%E5%9B%BE-Resource-Allocation-Graph"><span class="nav-text">资源分配图(Resource-Allocation Graph)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%BB%E9%94%81%E6%A3%80%E6%B5%8B-Deadlock-Detection"><span class="nav-text">死锁检测(Deadlock Detection)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%BB%E9%94%81%E9%81%BF%E5%85%8D-Deadlock-Avoidance"><span class="nav-text">死锁避免(Deadlock Avoidance)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%89%E5%85%A8%E7%8A%B6%E6%80%81%E3%80%81%E9%9D%9E%E5%AE%89%E5%85%A8%E7%8A%B6%E6%80%81"><span class="nav-text">安全状态、非安全状态</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%93%B6%E8%A1%8C%E5%AE%B6%E7%AE%97%E6%B3%95-Banker%E2%80%99s-algorithm"><span class="nav-text">银行家算法(Banker’s algorithm)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%BB%E9%94%81%E9%A2%84%E9%98%B2-Deadlock-Prevention"><span class="nav-text">死锁预防(Deadlock Prevention)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%A0%B4%E5%9D%8F%E4%BA%92%E6%96%A5%E6%9D%A1%E4%BB%B6"><span class="nav-text">破坏互斥条件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%A0%B4%E5%9D%8F%E5%8D%A0%E6%9C%89%E5%B9%B6%E7%AD%89%E5%BE%85"><span class="nav-text">破坏占有并等待</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%A0%B4%E5%9D%8F%E4%B8%8D%E5%8F%AF%E6%8A%A2%E5%8D%A0"><span class="nav-text">破坏不可抢占</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%A0%B4%E5%9D%8F%E7%8E%AF%E8%B7%AF%E7%AD%89%E5%BE%85"><span class="nav-text">破坏环路等待</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Summary"><span class="nav-text">Summary</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="nav-text">文件系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%8A%9F%E8%83%BD"><span class="nav-text">文件系统的功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E4%BB%B6-File"><span class="nav-text">文件(File)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%9A%84%E5%91%BD%E5%90%8D%E5%92%8C%E5%B1%9E%E6%80%A7%E3%80%81%E6%96%87%E4%BB%B6%E7%9A%84%E9%A1%BA%E5%BA%8F%E5%92%8C%E9%9A%8F%E6%9C%BA%E8%AE%BF%E9%97%AE%E6%A8%A1%E5%BC%8F%E3%80%81%E4%B8%8E%E6%96%87%E4%BB%B6%E7%9B%B8%E5%85%B3%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="nav-text">文件的命名和属性、文件的顺序和随机访问模式、与文件相关的操作</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E5%91%BD%E5%90%8D-File-Naming"><span class="nav-text">文件命名(File Naming)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E5%B1%9E%E6%80%A7-Metadata"><span class="nav-text">文件属性(Metadata)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E8%AE%BF%E9%97%AE-Access"><span class="nav-text">文件访问(Access)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%B8%8E%E6%96%87%E4%BB%B6%E7%9B%B8%E5%85%B3%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="nav-text">与文件相关的操作</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#inode-Index-Node"><span class="nav-text">inode (Index Node)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6%E8%A1%A8-Open-File-Table"><span class="nav-text">打开文件表(Open-File Table)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95-Directory"><span class="nav-text">目录(Directory)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95%E7%9A%84%E5%B1%82%E7%BA%A7%E7%BB%93%E6%9E%84-Hierarchical-Directory"><span class="nav-text">目录的层级结构(Hierarchical Directory)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%A1%AC%E9%93%BE%E6%8E%A5-Hard-Links-%E5%92%8C%E7%AC%A6%E5%8F%B7%E9%93%BE%E6%8E%A5-Symbolic-Links"><span class="nav-text">硬链接(Hard Links)和符号链接(Symbolic Links)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E5%92%8C%E7%9B%AE%E5%BD%95%E7%9A%84%E8%A7%92%E8%89%B2-Two-Key-Abstractions"><span class="nav-text">文件和目录的角色: Two Key Abstractions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%B8%83%E5%B1%80-File-System-Layout"><span class="nav-text">文件系统布局(File System Layout) ?????</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E5%82%A8%E5%AD%98%E7%9A%84%E5%AE%9E%E7%8E%B0-Allocation-Method"><span class="nav-text">文件储存的实现(Allocation Method)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BF%9E%E7%BB%AD%E5%88%86%E9%85%8D-Contiguous"><span class="nav-text">连续分配(Contiguous)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%93%BE%E8%A1%A8%E5%88%86%E9%85%8D-Linked-List-Allocation"><span class="nav-text">链表分配(Linked List Allocation)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E5%88%86%E9%85%8D%E8%A1%A8-File-Allocation-Table-FAT"><span class="nav-text">文件分配表(File Allocation Table, FAT)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Indexed-inode%E7%9A%84%E5%A4%9A%E7%BA%A7%E7%B4%A2%E5%BC%95%E8%AE%BE%E8%AE%A1"><span class="nav-text">Indexed (inode的多级索引设计)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Summary-1"><span class="nav-text">Summary</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95%E7%9A%84%E5%AE%9E%E7%8E%B0-Directory-Implementation"><span class="nav-text">目录的实现(Directory Implementation)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95%E9%A1%B9%E4%B8%AD%E5%8C%85%E5%90%AB%E7%9A%84%E4%BF%A1%E6%81%AF%E3%80%81%E4%B8%8D%E5%90%8C%E9%95%BF%E5%BA%A6%E6%96%87%E4%BB%B6%E5%90%8D%E7%9A%84%E5%A4%84%E7%90%86"><span class="nav-text">目录项中包含的信息、不同长度文件名的处理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9C%A8%E7%9B%AE%E5%BD%95%E4%B8%AD%E6%9F%A5%E6%89%BE%E6%96%87%E4%BB%B6"><span class="nav-text">在目录中查找文件</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B2%E7%A9%BA%E9%97%B4%E7%AE%A1%E7%90%86-Disk-Space-Management"><span class="nav-text">磁盘空闲空间管理(Disk Space Management)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%8D%E5%90%8C%E6%95%B0%E6%8D%AE%E5%9D%97%E5%A4%A7%E5%B0%8F%E5%AF%B9%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="nav-text">不同数据块大小对文件系统的影响</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%AE%B0%E5%BD%95%E7%A9%BA%E9%97%B2%E5%9D%97%EF%BC%9ABit-Map%E3%80%81Free-List"><span class="nav-text">记录空闲块：Bit Map、Free List</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Bit-Map"><span class="nav-text">Bit Map</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Free-List"><span class="nav-text">Free List</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%80%A7%E8%83%BD"><span class="nav-text">文件系统的性能</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BC%93%E5%AD%98-Cache"><span class="nav-text">缓存(Cache)</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Write-back-cache"><span class="nav-text">Write-back cache</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Write-though-cache"><span class="nav-text">Write-though cache</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Read-Ahead-Prefetching"><span class="nav-text">Read-Ahead Prefetching</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F-Fast-File-System-FFS"><span class="nav-text">快速文件系统(Fast File System, FFS)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%B8%80%E8%87%B4%E6%80%A7"><span class="nav-text">文件系统的一致性</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E2%98%85-%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E4%B8%80%E8%87%B4%E6%80%A7%E6%A3%80%E6%9F%A5-File-System-Consistency-Check-fsck"><span class="nav-text">★ 文件系统一致性检查(File System Consistency Check, fsck)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F-Virtual-File-System"><span class="nav-text">日志文件系统(Virtual File System)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F-Virtual-File-System-VFS"><span class="nav-text">虚拟文件系统(Virtual File System, VFS)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86"><span class="nav-text">设备管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BE%E5%A4%87%E6%8E%A7%E5%88%B6%E5%99%A8-Controller"><span class="nav-text">设备控制器(Controller)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BE%E5%A4%87%E7%B1%BB%E5%9E%8B"><span class="nav-text">设备类型</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9D%97%E8%AE%BE%E5%A4%87-block-device"><span class="nav-text">块设备(block device)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E8%AE%BE%E5%A4%87-character-device"><span class="nav-text">字符设备(character device)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BE%E5%A4%87%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F-Driver"><span class="nav-text">设备驱动程序(Driver)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E8%AE%BF%E9%97%AE%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="nav-text">进程访问寄存器的两种方式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84I-x2F-O-Port-Mapped-I-x2F-O"><span class="nav-text">端口映射I&#x2F;O (Port-Mapped I&#x2F;O)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84I-x2F-O-Memory-Mapped-I-x2F-O"><span class="nav-text">内存映射I&#x2F;O (Memory-Mapped I&#x2F;O)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A5%E5%AD%98%E5%82%A8%E5%99%A8%E8%AF%BB%E5%8F%96-Direct-Memory-Access-DMA"><span class="nav-text">直接存储器读取(Direct Memory Access, DMA)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A3%81%E7%9B%98"><span class="nav-text">磁盘</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A3%81%E7%9B%98%E8%87%82%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95-Disk-Arm-Scheduling-Algorithms"><span class="nav-text">磁盘臂调度算法(Disk Arm Scheduling Algorithms)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#FIFO-FCFS-order"><span class="nav-text">FIFO (FCFS) order</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Shortest-Seek-First-SSF-SSTF"><span class="nav-text">Shortest Seek First (SSF, SSTF)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Elevator-SCAN"><span class="nav-text">Elevator (SCAN)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BB%89%E4%BB%B7%E7%A3%81%E7%9B%98%E5%86%97%E4%BD%99%E9%98%B5%E5%88%97-Redundant-Array-of-Inexpensive-Disks-RAID"><span class="nav-text">廉价磁盘冗余阵列(Redundant Array of Inexpensive Disks, RAID)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-text"></span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Persvadisto"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Persvadisto</p>
+  <div class="site-description" itemprop="description">A car car man</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/persvadisto" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;persvadisto" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/persuader817" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;persuader817" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; Thu Jul 21 2022 08:00:00 GMT+0800 (GMT+08:00) – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Persvadisto</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>
