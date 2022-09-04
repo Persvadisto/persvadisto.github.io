@@ -205,7 +205,19 @@
 </div>
     </header>
 
-    
+    <!-- https://cdn.jsdelivr.net/npm/sakana-widget@2.3.0/lib/sakana.min.js -->
+<!-- https://cdnjs.cloudflare.com/ajax/libs/sakana-widget/2.3.0/sakana.min.js -->
+<div id="sakana-widget" style="position:fixed;bottom:10px;right:10px;"></div>
+<script>
+  function initSakanaWidget() {
+    new SakanaWidget({character: 'takina', size:225}).mount('#sakana-widget');
+  }
+</script>
+<script
+  async
+  onload="initSakanaWidget()"
+  src="https://cdn.jsdelivr.net/npm/sakana-widget@2.3.0/lib/sakana.min.js"
+></script>
   <div class="back-to-top">
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
