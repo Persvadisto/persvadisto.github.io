@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-03-20T05:25:55.596Z</updated>
+  <updated>2023-06-07T14:23:13.272Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2023年新高考一卷压轴题22题思路详解</title>
+    <link href="http://example.com/2023/06/07/2023%E6%96%B0%E9%AB%98%E8%80%83%E4%B8%80%E5%8D%B7%E6%95%B0%E5%AD%A6%E5%8E%8B%E8%BD%B4%E9%A2%98/"/>
+    <id>http://example.com/2023/06/07/2023%E6%96%B0%E9%AB%98%E8%80%83%E4%B8%80%E5%8D%B7%E6%95%B0%E5%AD%A6%E5%8E%8B%E8%BD%B4%E9%A2%98/</id>
+    <published>2023-06-07T14:11:51.077Z</published>
+    <updated>2023-06-07T14:23:13.272Z</updated>
+    
+    
+    <summary type="html">今天高考第一天，手痒了，做道压轴题玩玩</summary>
+    
+    
+    
+    <category term="杂谈" scheme="http://example.com/categories/%E6%9D%82%E8%B0%88/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Persvadisto的日文歌词手帐</title>
