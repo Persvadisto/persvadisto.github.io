@@ -30,7 +30,7 @@
 <meta property="og:image" content="http://example.com/2023/06/07/2023%E6%96%B0%E9%AB%98%E8%80%83%E4%B8%80%E5%8D%B7%E6%95%B0%E5%AD%A6%E5%8E%8B%E8%BD%B4%E9%A2%98/1.jpg">
 <meta property="og:image" content="http://example.com/2023/06/07/2023%E6%96%B0%E9%AB%98%E8%80%83%E4%B8%80%E5%8D%B7%E6%95%B0%E5%AD%A6%E5%8E%8B%E8%BD%B4%E9%A2%98/2.jpg">
 <meta property="article:published_time" content="2023-06-07T14:11:51.077Z">
-<meta property="article:modified_time" content="2023-06-07T14:23:13.272Z">
+<meta property="article:modified_time" content="2023-06-07T14:30:31.985Z">
 <meta property="article:author" content="Persvadisto">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/2023/06/07/2023%E6%96%B0%E9%AB%98%E8%80%83%E4%B8%80%E5%8D%B7%E6%95%B0%E5%AD%A6%E5%8E%8B%E8%BD%B4%E9%A2%98/1.jpg">
@@ -210,7 +210,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2023-06-07 22:11:51 / Modified: 22:23:13" itemprop="dateCreated datePublished" datetime="2023-06-07T22:11:51+08:00">2023-06-07</time>
+              <time title="Created: 2023-06-07 22:11:51 / Modified: 22:30:31" itemprop="dateCreated datePublished" datetime="2023-06-07T22:11:51+08:00">2023-06-07</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -266,7 +266,7 @@
 <p>第二问很有意思，难度不小。为了方便起见将抛物线方程里的 $\frac{1}{4}$ 丢掉，不影响结果（好孩子不要学我）</p>
 <p>设矩形 $ABDC$ 中 $A, B, C$ 落在抛物线上。显然如果要周长小的话，$A$ 应当在 $B$ 和 $C$ 之间，如果画图的话这点很明显。那么先假设 $A$ 的横坐标介于 $B$ 和 $C$ 的横坐标之间。$B$ 和 $C$ 在 $A$ 同一侧的情况留到最后考虑。</p>
 <p>设 $A$ 的坐标为 $(x_0, y_0)$, 不妨设 $x_C &lt; x_A&lt; x_B$. 直线 $AB$ 斜率设为 $k$（斜率显然不可能是 0 或者无穷）联立抛物线和直线 $AB$, 易求得 $x_B &#x3D; k - x_0$. 同理 $x_C &#x3D; -\frac{1}{k} - x_0$. 由 $x_C &lt; x_B$ 进一步得到 $k &gt; 0$. 矩形周长的一半为<br>$$<br>|AB| + |AC| &#x3D; \sqrt{1 + k^2} |k - 2x_0| + \sqrt{1 + \frac{1}{k^2}} \left|-\frac{1}{k} - 2x_0\right|<br>$$<br>既然约定了 $A, B, C$ 的横坐标的大小关系，上式就可以去掉绝对值<br>$$<br>|AB| + |AC| &#x3D; \sqrt{1 + k^2} (k - 2x_0) + \sqrt{1 + \frac{1}{k^2}} \left(\frac{1}{k} + 2x_0\right)<br>$$<br>这边换一个元 $a &#x3D; k - 2x_0$, 为什么这么换，凭几何直觉（）最后会画图说明一下原因。由 $x_A &gt; x_C$ 和 $x_A &lt; x_B$ 得到 $a$ 的范围 $0&lt;a&lt;k + \frac{1}{k}$.</p>
-<p>换元之后得到<br>$$<br>\begin{align}<br>|AB| + |AC| &amp;&#x3D; \sqrt{1 + k^2} a + \frac{\sqrt{1 + k^2}}{k} \left(k + \frac{1}{k} - a\right) \<br>&amp;&#x3D; \left(1 - \frac{1}{k}\right) \sqrt{1 + k^2} a + \frac{(1 + k^2)^{\frac{3}{2}}}{k^2}<br>\end {align}<br>$$<br>这就可以看成关于 $a$ 的一次函数，那么关键就是 $a$ 的系数的正负性了，分两种情况讨论：</p>
+<p>换元之后得到<br>$$<br>|AB| + |AC| &#x3D; \sqrt{1 + k^2} a + \frac{\sqrt{1 + k^2}}{k} \left(k + \frac{1}{k} - a\right) &#x3D; \left(1 - \frac{1}{k}\right) \sqrt{1 + k^2} a + \frac{(1 + k^2)^{\frac{3}{2}}}{k^2}<br>$$<br>这就可以看成关于 $a$ 的一次函数，那么关键就是 $a$ 的系数的正负性了，分两种情况讨论：</p>
 <ol>
 <li><p>若 $k \ge 1$, $a$ 的系数非负，要周长最小，就是要 $a$ 小，最小会无限接近 $0$, 那么<br>$$<br>|AB| + |AC| &gt; \frac{(1 + k^2)^{\frac{3}{2}}}{k^2} \ge \frac{3}{2} \sqrt 3<br>$$<br>右边导一导就出来了</p>
 </li>
@@ -274,7 +274,7 @@
 </li>
 </ol>
 <p>这样就能证到矩形的周长大于 $3\sqrt 3$.</p>
-<p>剩下还有一种情况，$x_B, x_C$ 在 $x_A$ 的同一侧，这种情况显然比第一种情况要周长要大，但还得证明一下。不妨设 $x_A &gt; x_B, x_A &gt; x_C$, 那就有 $a &lt; 0$ 和 $a &lt; k + \frac{1}{k}$. 矩形的半周长<br>$$<br>\begin{align}<br>|AB| + |AC| &amp;&#x3D; \sqrt{1 + k^2} \cdot (-a) + \frac{\sqrt{1 + k^2}}{k} \left(k + \frac{1}{k} - a\right) \<br>&amp;&gt; \sqrt{1 + k^2} \cdot (-a) + \frac{\sqrt{1 + k^2}}{k} \left(k + \frac{1}{k} - (-a)\right)<br>\end{align}<br>$$<br>这就和前一种情况一样了，不妨设 $k &lt; 0$（不然交换 $B$ 和 $C$，不影响）那 $-a$ 的系数为正，易得 $|AB| + |AC| &gt; \frac{3}{2}\sqrt 3$.</p>
+<p>剩下还有一种情况，$x_B, x_C$ 在 $x_A$ 的同一侧，这种情况显然比第一种情况要周长要大，但还得证明一下。不妨设 $x_A &gt; x_B, x_A &gt; x_C$, 那就有 $a &lt; 0$ 和 $a &lt; k + \frac{1}{k}$. 矩形的半周长<br>$$<br>|AB| + |AC| &#x3D; \sqrt{1 + k^2} \cdot (-a) + \frac{\sqrt{1 + k^2}}{k} \left(k + \frac{1}{k} - a\right)&gt; \sqrt{1 + k^2} \cdot (-a) + \frac{\sqrt{1 + k^2}}{k} \left(k + \frac{1}{k} - (-a)\right)<br>$$<br>这就和前一种情况一样了，不妨设 $k &lt; 0$（不然交换 $B$ 和 $C$，不影响）那 $-a$ 的系数为正，易得 $|AB| + |AC| &gt; \frac{3}{2}\sqrt 3$.</p>
 <h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>思路上有两处是要结合图像来思考的。第一处是 $A,B,C$ 的横向位置关系，看第二种情况的图（$B, C$ 在同一侧）看着周长就很大，而且可以从 $C$ 点画一条垂线，和抛物线的交点 $B’$ 围成的新矩形显然比原来的矩形周长要小。</p>
 <p><img src="1.jpg" alt="1"></p>
 <p>第二部分，将周长表示为 $k$ 和 $x_0$ 的式子之后，为什么要换元？不难发现 $|x_B - x_C|$ 是和 $x_0$ 没有关系的。那么把 $k$ 看成常数，$PQ$ 就是固定长度为 $k + \frac{1}{k}$ 的线段，问题就转化为：把 $PQ$ 切分成两部分，一部分乘一个小系数，另一部分乘一个大系数（这两个系数都比 $1$ 大），再将它们相加，要和尽可能小。</p>
