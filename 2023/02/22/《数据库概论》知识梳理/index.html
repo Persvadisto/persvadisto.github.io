@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="eo">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=LXGW:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="《数据库概论》期末考试周预习的内容。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《数据库概论》知识梳理">
+<meta property="og:url" content="http://example.com/2023/02/22/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%AE%BA%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/index.html">
+<meta property="og:site_name" content="Persvadisto">
+<meta property="og:description" content="《数据库概论》期末考试周预习的内容。">
+<meta property="og:locale">
+<meta property="og:image" content="http://example.com/2023/02/22/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%AE%BA%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20230207173547851.png">
+<meta property="og:image" content="http://example.com/2023/02/22/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%AE%BA%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20230208160130715.png">
+<meta property="og:image" content="http://example.com/2023/02/22/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%AE%BA%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20230208163132556.png">
+<meta property="og:image" content="http://example.com/2023/02/22/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%AE%BA%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20230208163054200.png">
+<meta property="og:image" content="http://example.com/2023/02/22/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%AE%BA%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20230208163202552.png">
+<meta property="og:image" content="http://example.com/2023/02/22/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%AE%BA%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20230215174035962.png">
+<meta property="og:image" content="http://example.com/2023/02/22/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%AE%BA%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20230209143740736.png">
+<meta property="og:image" content="http://example.com/2023/02/22/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%AE%BA%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20230209143930780.png">
+<meta property="og:image" content="http://example.com/2023/02/22/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%AE%BA%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20230209144158993.png">
+<meta property="og:image" content="http://example.com/2023/02/22/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%AE%BA%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20230209144241930-16759249670201.png">
+<meta property="og:image" content="http://example.com/2023/02/22/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%AE%BA%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20230215190851255.png">
+<meta property="og:image" content="http://example.com/2023/02/22/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%AE%BA%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20230215191238119.png">
+<meta property="og:image" content="http://example.com/2023/02/22/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%AE%BA%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20230209152911166.png">
+<meta property="og:image" content="http://example.com/2023/02/22/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%AE%BA%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20230209175646491.png">
+<meta property="article:published_time" content="2023-02-22T02:32:40.065Z">
+<meta property="article:modified_time" content="2024-03-13T11:20:19.134Z">
+<meta property="article:author" content="Persvadisto">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2023/02/22/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%AE%BA%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20230207173547851.png">
+
+<link rel="canonical" href="http://example.com/2023/02/22/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%AE%BA%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'eo'
+  };
+</script>
+
+  <title>《数据库概论》知识梳理 | Persvadisto</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Persvadisto" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Baskuligi navigacian stangon">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Persvadisto</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Ĉefpaĝo</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>Pri</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Kategorioj</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Arkivoj</a>
+
+  </li>
+        <li class="menu-item menu-item-links">
+
+    <a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>Links</a>
+
+  </li>
+        <li class="menu-item menu-item-rss">
+
+    <a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    <!-- https://cdn.jsdelivr.net/npm/sakana-widget@2.3.0/lib/sakana.min.js -->
+<!-- https://cdnjs.cloudflare.com/ajax/libs/sakana-widget/2.3.0/sakana.min.js -->
+<div id="sakana-widget" style="position:fixed;bottom:10px;right:10px;"></div>
+<script>
+  function initSakanaWidget() {
+    new SakanaWidget({character: 'takina', size:200}).mount('#sakana-widget');
+  }
+</script>
+<script
+  async
+  onload="initSakanaWidget()"
+  src="https://cdn.jsdelivr.net/npm/sakana-widget@2.3.0/lib/sakana.min.js"
+></script>
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="eo">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/02/22/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%AE%BA%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Persvadisto">
+      <meta itemprop="description" content="A car car man">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Persvadisto">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          《数据库概论》知识梳理
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Afiŝita je</span>
+
+              <time title="Kreita por: 2023-02-22 10:32:40" itemprop="dateCreated datePublished" datetime="2023-02-22T10:32:40+08:00">2023-02-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Redaktita je</span>
+                <time title="Modifita por: 2024-03-13 19:20:19" itemprop="dateModified" datetime="2024-03-13T19:20:19+08:00">2024-03-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">En</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">课程笔记</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Rigardoj" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Rigardoj: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="Nombro da signoj en la artikolo">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Nombro da signoj en la artikolo: </span>
+              <span>18k</span>
+            </span>
+            <span class="post-meta-item" title="Tempo de rigardo">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Tempo de rigardo &asymp;</span>
+              <span>16 minutoj.</span>
+            </span>
+            <div class="post-description">《数据库概论》期末考试周预习的内容。</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <span id="more"></span>
+<h3 id="Ch1-Introduction"><a href="#Ch1-Introduction" class="headerlink" title="Ch1. Introduction"></a>Ch1. Introduction</h3><h4 id="数据库的基本概念"><a href="#数据库的基本概念" class="headerlink" title="数据库的基本概念"></a>数据库的基本概念</h4><h5 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h5><p>长期存储在计算机内、有组织的、大量的、共享的数据集合。</p>
+<h5 id="数据库管理系统"><a href="#数据库管理系统" class="headerlink" title="数据库管理系统"></a>数据库管理系统</h5><p>位于用户与操作系统之间的一层数据管理软件，为用户或应用程序提供访问数据库的方法和接口。</p>
+<h5 id="数据模型"><a href="#数据模型" class="headerlink" title="数据模型"></a>数据模型</h5><ul>
+<li>数据模型用于描述实现世界中的用户数据及其复杂关系最终在数据库中的表示，主要包括：数据库中数据的数据结构、在该数据结构上可以执行的操作、以及必须满足的数据约束条件等三个组成部分。</li>
+<li>It also describes integrity constraints and the types of operations available to access and update this information.</li>
+<li>分类：<ul>
+<li>Hierarchical Data Model (层次数据模型)</li>
+<li>Network Data Model (网状数据模型)</li>
+<li>Relational Model (关系模型)，属于Object-Relational Model</li>
+<li>Object-Oriented Model (面向对象模型)，属于Object-Relational Model</li>
+</ul>
+</li>
+</ul>
+<h5 id="数据库用户，数据库管理员"><a href="#数据库用户，数据库管理员" class="headerlink" title="数据库用户，数据库管理员"></a>数据库用户，数据库管理员</h5><ul>
+<li>最终用户：交互式用户</li>
+<li>应用程序员：编写菜单程序的程序员</li>
+<li>数据库管理员：管理DBMS的专家</li>
+</ul>
+<h4 id="数据库系统的体系架构"><a href="#数据库系统的体系架构" class="headerlink" title="数据库系统的体系架构"></a>数据库系统的体系架构</h4><ul>
+<li>两层架构(Two-tier Architecture)：在两层C/S架构中，数据库和DBMS运行在数据库服务器中，数据库应用程序运行在客户机中，两者之间通过局域网实现数据访问</li>
+<li>三层架构(Three-tier Architecture)：在三层B/S架构中，数据库和DBMS运行在数据库服务器中，数据库应用程序运行在应用服务器（也称“Web服务器”）中，用户客户端只需要安装常用的浏览器，负责接收用户输入和结果展示。</li>
+</ul>
+<h4 id="数据库系统的发展历史"><a href="#数据库系统的发展历史" class="headerlink" title="数据库系统的发展历史"></a>数据库系统的发展历史</h4><ul>
+<li>关系数据库：关系数据模型，三级模式</li>
+</ul>
+<h3 id="★-Ch2-The-Relational-Model"><a href="#★-Ch2-The-Relational-Model" class="headerlink" title="★ Ch2. The Relational Model"></a>★ Ch2. The Relational Model</h3><h4 id="关系模型的基本概念"><a href="#关系模型的基本概念" class="headerlink" title="关系模型的基本概念"></a>关系模型的基本概念</h4><h5 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h5><p>表(table/relation)，属性(column/attribute)，元组(row/tuple)，表头(table heading)/关系模式(relational schema)，域(domain)</p>
+<h5 id="关系的约束规则-relational-rule"><a href="#关系的约束规则-relational-rule" class="headerlink" title="关系的约束规则(relational rule)"></a>关系的约束规则(relational rule)</h5><ul>
+<li>Rule 1. First Normal Form Rule: columns that have multi-valued attributes (repeating fields) or have any internal structure (record) are not permitted.</li>
+<li>Rule 2. Access Rows by Content Only Rule: can only retrieve rows by their content, the attribute values that exist in each row.</li>
+<li>Rule 3. The Unique Row Rule: <ul>
+<li>Two rows can’t be same in all attributes at once.</li>
+<li>So that a relation is an unordered SET of tuples.</li>
+</ul>
+</li>
+</ul>
+<h5 id="键-关键字-key-与超键-superkey"><a href="#键-关键字-key-与超键-superkey" class="headerlink" title="键/关键字(key) 与超键(superkey)"></a>键/关键字(key) 与超键(superkey)</h5><ul>
+<li>Superkey: is a set of columns that has the uniqueness property</li>
+<li>key: is a minimal key, no subset of columns also has uniqueness property</li>
+</ul>
+<h5 id="空值-null-value"><a href="#空值-null-value" class="headerlink" title="空值(null value)"></a>空值(null value)</h5><p>A null value is placed in a field of a table when a specific value is either unknown or inappropriate.</p>
+<h4 id="关系代数-relational-algebra"><a href="#关系代数-relational-algebra" class="headerlink" title="关系代数(relational algebra)"></a>关系代数(relational algebra)</h4><p>基本运算：并，差，投影，选择，迪卡尔乘积<br>扩充运算：交，自然联接/ θ-联接，除法</p>
+<h5 id="Set-theoretic-operations"><a href="#Set-theoretic-operations" class="headerlink" title="Set-theoretic operations"></a>Set-theoretic operations</h5><p>并，交，差，笛卡尔积</p>
+<h5 id="Native-relational-operations"><a href="#Native-relational-operations" class="headerlink" title="Native relational operations:"></a>Native relational operations:</h5><p>投影，选择，联接，除法</p>
+<p><img src="image-20230207173547851.png" alt="image-20230207173547851"></p>
+<p>除运算的推导公式：</p>
+<script type="math/tex; mode=display">
+R \div S = R[A_1, \cdots, A_n] - ((R[A_1, \cdots, A_n] \times S) - R)[A_1, \cdots, A_n]</script><h5 id="Other-Relational-Operations"><a href="#Other-Relational-Operations" class="headerlink" title="Other Relational Operations"></a>Other Relational Operations</h5><p>Theta Join</p>
+<script type="math/tex; mode=display">
+R \bowtie_{F} S = (R \times S) \text{ where } F</script><h4 id="难点"><a href="#难点" class="headerlink" title="难点"></a>难点</h4><ul>
+<li>查询条件带有‘否定’语义：‘不等’比较 &amp; 减法运算</li>
+<li>使用表联接查询，还是使用除法?</li>
+<li>正确使用自然连接运算和除法运算</li>
+<li>表的自联接</li>
+</ul>
+<h3 id="★-Ch3-Basic-SQL-Query-Language"><a href="#★-Ch3-Basic-SQL-Query-Language" class="headerlink" title="★ Ch3. Basic SQL Query Language"></a>★ Ch3. Basic SQL Query Language</h3><h4 id="数据访问命令的基本结构"><a href="#数据访问命令的基本结构" class="headerlink" title="数据访问命令的基本结构"></a>数据访问命令的基本结构</h4><h5 id="SELECT-命令的语句成分"><a href="#SELECT-命令的语句成分" class="headerlink" title="SELECT 命令的语句成分"></a>SELECT 命令的语句成分</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ...</span><br><span class="line"><span class="keyword">FROM</span> ...</span><br><span class="line">[<span class="keyword">WHERE</span> ... ]</span><br><span class="line">[<span class="keyword">GROUP</span> <span class="keyword">BY</span> ... [<span class="keyword">HAVING</span> ...]]  <span class="operator">/</span><span class="operator">/</span> <span class="keyword">GROUP</span> <span class="keyword">BY</span>值相同的统计合并, <span class="keyword">HAVING</span>对合并过的值筛选</span><br><span class="line">[<span class="keyword">ORDER</span> <span class="keyword">BY</span> ... [<span class="keyword">ASC</span><span class="operator">|</span><span class="keyword">DESC</span>]]  <span class="operator">/</span><span class="operator">/</span> 对结果按照一个列或者多个列进行排序</span><br></pre></td></tr></table></figure>
+<h4 id="基本的数据查询命令"><a href="#基本的数据查询命令" class="headerlink" title="基本的数据查询命令"></a>基本的数据查询命令</h4><h5 id="单表查询"><a href="#单表查询" class="headerlink" title="单表查询"></a>单表查询</h5><script type="math/tex; mode=display">
+( R \text{ where } \text{Condition} ) [ A_1, A_2, \cdots, A_m ]</script><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> A1, A2, ..., Am</span><br><span class="line"><span class="keyword">FROM</span> R</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">Condition</span> ;</span><br></pre></td></tr></table></figure>
+<h5 id="在FROM子句中，对表的重命名"><a href="#在FROM子句中，对表的重命名" class="headerlink" title="在FROM子句中，对表的重命名"></a>在FROM子句中，对表的重命名</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">distinct</span> cname, aname</span><br><span class="line"><span class="keyword">FROM</span> customers c, orders o, agents a</span><br><span class="line"><span class="keyword">WHERE</span> c.cid<span class="operator">=</span>o.cid <span class="keyword">and</span> o.aid<span class="operator">=</span>a.aid ;</span><br></pre></td></tr></table></figure>
+<h5 id="多表查询"><a href="#多表查询" class="headerlink" title="多表查询"></a>多表查询</h5><p>联接（join）查询</p>
+<script type="math/tex; mode=display">
+((R_1 \times R_2 \times \cdots \times R_n) \text{ where Condition}) [A_1, A_2, \cdots, A_m]</script><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> A1, A2, ..., Am</span><br><span class="line"><span class="keyword">FROM</span> R1, R2, …, Rn</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">Condition</span> ;</span><br></pre></td></tr></table></figure>
+<script type="math/tex; mode=display">
+\text{head}(R) = \{A_1, A_2, \cdots, A_n, B_1, B_2, \cdots, B_k\} \\
+\text{head}(S) = \{B_1, B_2, \cdots, B_k, C_1, C_2, \cdots, C_m\} \\
+((R \bowtie S) \text{ where Condition}) [\text{Col}_1, \text{Col}_2, \cdots, \text{Col}_r]</script><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> Col1, Col2, ..., Colr</span><br><span class="line"><span class="keyword">FROM</span> R, S</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">Condition</span> <span class="keyword">and</span></span><br><span class="line">	R.B1<span class="operator">=</span>S.B1 <span class="keyword">and</span> R.B2<span class="operator">=</span>S.B2 ... <span class="keyword">and</span> R.Bk<span class="operator">=</span>S.Bk ;</span><br></pre></td></tr></table></figure>
+<script type="math/tex; mode=display">
+(R \bowtie_{\text{Condition}}S)[A_1, A_2, \cdots, A_m]</script><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> A1, A2, ..., Ak</span><br><span class="line"><span class="keyword">FROM</span> R, S</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">Condition</span> ;</span><br></pre></td></tr></table></figure>
+<p>表自身的连接查询</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> c1.cid, c2.cid</span><br><span class="line"><span class="keyword">FROM</span> customers c1, customers c2</span><br><span class="line"><span class="keyword">WHERE</span> c1.city <span class="operator">=</span> c2.city <span class="keyword">and</span> c1.cid <span class="operator">&lt;</span> c2.cid ;</span><br></pre></td></tr></table></figure>
+<h5 id="扩展的查询谓词"><a href="#扩展的查询谓词" class="headerlink" title="扩展的查询谓词"></a>扩展的查询谓词</h5><p>between … and …</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">expr [<span class="keyword">NOT</span>] <span class="keyword">BETWEEN</span> expr1 <span class="keyword">AND</span> expr2</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> customers</span><br><span class="line"><span class="keyword">WHERE</span> discnt <span class="keyword">BETWEEN</span> <span class="number">6</span> <span class="keyword">AND</span> <span class="number">10</span></span><br></pre></td></tr></table></figure>
+<p>is null, in not null</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">column</span> <span class="keyword">IS</span> [<span class="keyword">NOT</span>] <span class="keyword">NULL</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> customers</span><br><span class="line"><span class="keyword">WHERE</span> discnt <span class="keyword">is</span> <span class="keyword">null</span></span><br></pre></td></tr></table></figure>
+<p>like</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">column</span> [<span class="keyword">NOT</span>] <span class="keyword">LIKE</span> val1 [ <span class="keyword">ESCAPE</span> val2 ]</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Select</span> cid</span><br><span class="line"><span class="keyword">From</span> customers</span><br><span class="line"><span class="keyword">Where</span> cname <span class="keyword">NOT</span> <span class="keyword">LIKE</span> ‘_ _ \ <span class="operator">%</span> <span class="operator">%</span>’</span><br><span class="line">	<span class="keyword">ESCAPE</span> ‘ \ ’ ;</span><br></pre></td></tr></table></figure>
+<p>in, not in</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">expr <span class="keyword">IN</span> ( subquery )</span><br><span class="line">expr <span class="keyword">NOT</span> <span class="keyword">IN</span> ( subquery )</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> cid <span class="keyword">from</span> orders</span><br><span class="line"><span class="keyword">where</span> aid <span class="keyword">IN</span> (</span><br><span class="line">	<span class="keyword">select</span> aid <span class="keyword">from</span> agents</span><br><span class="line">	<span class="keyword">where</span> city<span class="operator">=</span> ‘Duluth’ <span class="keyword">or</span> city<span class="operator">=</span>‘Dallas’ )</span><br></pre></td></tr></table></figure>
+<p>some, any, all</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">expr theta <span class="keyword">SOME</span> ( subquery )</span><br><span class="line">expr theta <span class="keyword">ANY</span> ( subquery )</span><br><span class="line">expr theta <span class="keyword">ALL</span> ( subquery )</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> aid</span><br><span class="line"><span class="keyword">FROM</span> agents</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">percent</span> <span class="operator">&lt;=</span> <span class="keyword">ALL</span> (</span><br><span class="line">	<span class="keyword">select</span> <span class="keyword">percent</span> <span class="keyword">from</span> agents ) ;</span><br></pre></td></tr></table></figure>
+<p>exists, not exists</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">EXISTS</span> ( subquery )</span><br><span class="line"><span class="keyword">NOT</span> <span class="keyword">EXISTS</span> ( subquery )</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Select</span> <span class="keyword">distinct</span> c.cname</span><br><span class="line"><span class="keyword">From</span> customers c</span><br><span class="line"><span class="keyword">Where</span> <span class="keyword">EXISTS</span> (</span><br><span class="line">	<span class="keyword">Select</span> <span class="operator">*</span></span><br><span class="line">	<span class="keyword">From</span> orders x</span><br><span class="line">	<span class="keyword">Where</span> c.cid<span class="operator">=</span>x.cid <span class="keyword">and</span> x.aid<span class="operator">=</span>‘a05’ );</span><br></pre></td></tr></table></figure>
+<h5 id="查询结果输出"><a href="#查询结果输出" class="headerlink" title="查询结果输出"></a>查询结果输出</h5><p>结果元组去重：distinct</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">distinct</span> pid <span class="keyword">FROM</span> orders ;</span><br></pre></td></tr></table></figure>
+<h5 id="子查询的集合运算"><a href="#子查询的集合运算" class="headerlink" title="子查询的集合运算"></a>子查询的集合运算</h5><p>UNION / INTERSECT / EXCEPT</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Subquery <span class="keyword">UNION</span> Subquery</span><br></pre></td></tr></table></figure>
+<p>UNION ALL / INTERSECT ALL / EXCEPT ALL</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Subquery <span class="keyword">UNION</span> <span class="keyword">ALL</span> Subquery</span><br></pre></td></tr></table></figure>
+<h4 id="复杂的数据查询指令"><a href="#复杂的数据查询指令" class="headerlink" title="复杂的数据查询指令"></a>复杂的数据查询指令</h4><h5 id="统计查询"><a href="#统计查询" class="headerlink" title="统计查询"></a>统计查询</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">sum</span> ( qty ) <span class="keyword">as</span> TOTAL</span><br><span class="line"><span class="keyword">from</span> orders</span><br><span class="line"><span class="keyword">where</span> pid <span class="operator">=</span> ‘p03’</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">count</span> ( cid )</span><br><span class="line"><span class="keyword">from</span> customers</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> cid</span><br><span class="line"><span class="keyword">from</span> customers c1</span><br><span class="line"><span class="keyword">where</span> discnt <span class="operator">&lt;</span> <span class="keyword">all</span> ( <span class="keyword">select</span> <span class="built_in">max</span>(c2.discnt)</span><br><span class="line">	<span class="keyword">from</span> customers c2 )</span><br></pre></td></tr></table></figure>
+<h5 id="关系代数中除法运算功能在SQL中的表示方法"><a href="#关系代数中除法运算功能在SQL中的表示方法" class="headerlink" title="关系代数中除法运算功能在SQL中的表示方法"></a>关系代数中除法运算功能在SQL中的表示方法</h5><script type="math/tex; mode=display">
+o[cid, aid] \div (a \text{ where city} = \text{`New York'})[aid]</script><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> c.cid</span><br><span class="line"><span class="keyword">FROM</span> customers c</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> (</span><br><span class="line">	<span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> agents a</span><br><span class="line">	<span class="keyword">WHERE</span> a.city <span class="operator">=</span> ‘<span class="keyword">New</span> York’ <span class="keyword">and</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> (</span><br><span class="line">		<span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> orders o</span><br><span class="line">		<span class="keyword">WHERE</span> o.cid<span class="operator">=</span>c.cid <span class="keyword">and</span> o.aid<span class="operator">=</span>a.aid ) )</span><br></pre></td></tr></table></figure>
+<h5 id="在FROM字句中嵌入子查询"><a href="#在FROM字句中嵌入子查询" class="headerlink" title="在FROM字句中嵌入子查询"></a>在FROM字句中嵌入子查询</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> cname</span><br><span class="line"><span class="keyword">from</span> (<span class="keyword">select</span> o.cid <span class="keyword">as</span> spcid</span><br><span class="line">	<span class="keyword">from</span> orders o, orders x</span><br><span class="line">	<span class="keyword">where</span> o.cid <span class="operator">=</span> x.cid <span class="keyword">and</span> o.pid <span class="operator">=</span> x.pid</span><br><span class="line">		<span class="keyword">and</span> o.ordno <span class="operator">&lt;&gt;</span> x.ordno) y,</span><br><span class="line">	customers c</span><br><span class="line"><span class="keyword">where</span> y.spcid <span class="operator">=</span> c.cid;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> cname, aname</span><br><span class="line"><span class="keyword">FROM</span> customers <span class="keyword">JOIN</span> agents</span><br><span class="line">	<span class="keyword">ON</span> customers.city<span class="operator">=</span>agents.city ;</span><br></pre></td></tr></table></figure>
+<h4 id="元组更新命令"><a href="#元组更新命令" class="headerlink" title="元组更新命令"></a>元组更新命令</h4><h5 id="元组的插入、修改、删除功能"><a href="#元组的插入、修改、删除功能" class="headerlink" title="元组的插入、修改、删除功能"></a>元组的插入、修改、删除功能</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span></span><br><span class="line"><span class="keyword">INTO</span> tablename [ ( colname, ...... ) ]</span><br><span class="line"><span class="keyword">VALUES</span> ( expr<span class="operator">|</span><span class="keyword">NULL</span>, ...... ) <span class="operator">|</span> subquery</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> orders(ordno,<span class="keyword">month</span>,cid,aid,pid)</span><br><span class="line"><span class="keyword">VALUES</span> (<span class="number">1107</span>, ‘aug’, ‘c006’, ‘a04’, ‘p01’);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> swcusts (</span><br><span class="line">	cid <span class="type">char</span>(<span class="number">4</span>) <span class="keyword">not</span> <span class="keyword">null</span>,</span><br><span class="line">	cname <span class="type">varchar</span>(<span class="number">13</span>),</span><br><span class="line">	city <span class="type">varchar</span>(<span class="number">20</span>),</span><br><span class="line">	discnt <span class="type">real</span> );</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> swcusts</span><br><span class="line">	<span class="keyword">select</span> <span class="operator">*</span></span><br><span class="line">	<span class="keyword">from</span> customers</span><br><span class="line">	<span class="keyword">where</span> city <span class="keyword">in</span> (‘Dallas’, ‘Austin’);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> tablename</span><br><span class="line"><span class="keyword">SET</span> colname<span class="operator">=</span>expr<span class="operator">|</span><span class="keyword">NULL</span><span class="operator">|</span>subquery, ......</span><br><span class="line">[ <span class="keyword">WHERE</span> <span class="keyword">search</span><span class="operator">-</span><span class="keyword">condition</span> ] ;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> agents</span><br><span class="line"><span class="keyword">SET</span> <span class="keyword">percent</span> <span class="operator">=</span> <span class="number">1.1</span> <span class="operator">*</span> <span class="keyword">percent</span></span><br><span class="line"><span class="keyword">WHERE</span> city <span class="operator">=</span> ‘<span class="keyword">New</span> York’</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span></span><br><span class="line"><span class="keyword">FROM</span> tablename</span><br><span class="line">[ <span class="keyword">WHERE</span> <span class="keyword">search</span><span class="operator">-</span><span class="keyword">condition</span> ] ;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span></span><br><span class="line"><span class="keyword">FROM</span> agents</span><br><span class="line"><span class="keyword">WHERE</span> city <span class="operator">=</span> ‘<span class="keyword">New</span> York’ ;</span><br></pre></td></tr></table></figure>
+<h3 id="Ch7-Integrity-Views-Security-and-Catalogs"><a href="#Ch7-Integrity-Views-Security-and-Catalogs" class="headerlink" title="Ch7. Integrity, Views, Security, and Catalogs"></a>Ch7. Integrity, Views, Security, and Catalogs</h3><h4 id="基表定义命令"><a href="#基表定义命令" class="headerlink" title="基表定义命令"></a>基表定义命令</h4><h5 id="Create-Table-Statement"><a href="#Create-Table-Statement" class="headerlink" title="Create Table Statement"></a>Create Table Statement</h5><p><img src="image-20230208160130715.png" alt="image-20230208160130715"></p>
+<h5 id="Integrity"><a href="#Integrity" class="headerlink" title="Integrity"></a>Integrity</h5><p>Integrity Constraints in a single column</p>
+<p><img src="image-20230208163132556.png" alt="image-20230208163132556"></p>
+<ul>
+<li><p>NOT NULL：属性不能取空值。</p>
+</li>
+<li><p>UNIQUE：该属性的取值在表中具有唯一性。</p>
+</li>
+<li><p>PRIMARY KEY：主关键字约束的定义（由单个属性构成的主关键字的定义）；自动隐含着属性值‘非空’的约束要求。如果定义只能定义一个主关键字。</p>
+</li>
+<li><p>CHECK约束：可以通过一个逻辑表达式来定义该属性的取值约束</p>
+</li>
+<li><p>REFERENCES：</p>
+<p><img src="image-20230208163054200.png" alt="image-20230208163054200"></p>
+</li>
+</ul>
+<p>Integrity Constraints in multiple columns (table constraints)</p>
+<p><img src="image-20230208163202552.png" alt="image-20230208163202552"></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> orders(</span><br><span class="line">	ordno <span class="type">integer</span> <span class="keyword">not</span> <span class="keyword">null</span>,</span><br><span class="line">	<span class="keyword">month</span> <span class="type">char</span>(<span class="number">3</span>),</span><br><span class="line">	cid <span class="type">char</span>(<span class="number">4</span>) <span class="keyword">not</span> <span class="keyword">null</span>,</span><br><span class="line">	aid <span class="type">char</span>(<span class="number">3</span>) <span class="keyword">not</span> <span class="keyword">null</span>,</span><br><span class="line">	pid <span class="type">char</span>(<span class="number">3</span>) <span class="keyword">not</span> <span class="keyword">null</span>,</span><br><span class="line">	qty <span class="type">integer</span> <span class="keyword">not</span> <span class="keyword">null</span> <span class="keyword">constraint</span> qtyck <span class="keyword">check</span>( qty <span class="operator">&gt;=</span> <span class="number">0</span> ),</span><br><span class="line">	dollars <span class="type">float</span> <span class="keyword">default</span> <span class="number">0.0</span> <span class="keyword">constraint</span> dollarsck <span class="keyword">check</span> ( dollars <span class="operator">&gt;=</span> <span class="number">0.0</span> ),</span><br><span class="line">	<span class="keyword">primary</span> key ( ordno ),</span><br><span class="line">	<span class="keyword">constraint</span> cidref <span class="keyword">foreign</span> key (cid) <span class="keyword">references</span> customers,</span><br><span class="line">	<span class="keyword">constraint</span> aidref <span class="keyword">foreign</span> key (aid) <span class="keyword">references</span> agents,</span><br><span class="line">	<span class="keyword">constraint</span> pidref <span class="keyword">foreign</span> key (pid) <span class="keyword">references</span> products );</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> orders (</span><br><span class="line">	ordno <span class="type">integer</span> <span class="keyword">not</span> <span class="keyword">null</span>,</span><br><span class="line">	<span class="keyword">month</span> <span class="type">char</span> (<span class="number">3</span>),</span><br><span class="line">	cid <span class="type">char</span> (<span class="number">4</span>) <span class="keyword">not</span> <span class="keyword">null</span> <span class="keyword">references</span> customers,</span><br><span class="line">	aid <span class="type">char</span> (<span class="number">3</span>) <span class="keyword">not</span> <span class="keyword">null</span> <span class="keyword">references</span> agents,</span><br><span class="line">	pid <span class="type">char</span> (<span class="number">3</span>) <span class="keyword">not</span> <span class="keyword">null</span> <span class="keyword">references</span> products,</span><br><span class="line">	qty <span class="type">integer</span> <span class="keyword">not</span> <span class="keyword">null</span> <span class="keyword">constraint</span> qtyck <span class="keyword">check</span> ( qty <span class="operator">&gt;=</span> <span class="number">0</span> ),</span><br><span class="line">	dollars <span class="type">float</span> <span class="keyword">default</span> <span class="number">0.0</span></span><br><span class="line">		<span class="keyword">constraint</span> dollarsck <span class="keyword">check</span> ( dollars <span class="operator">&gt;=</span> <span class="number">0.0</span> ),</span><br><span class="line">	<span class="keyword">primary</span> key (ordno) );</span><br></pre></td></tr></table></figure>
+<h5 id="Referential-Integrity-Foreign-Key"><a href="#Referential-Integrity-Foreign-Key" class="headerlink" title="Referential Integrity: Foreign Key"></a>Referential Integrity: Foreign Key</h5><p>表T1的每一行中F（外键）的列都满足</p>
+<ol>
+<li>至少有一列为空值（如果该列允许为空）</li>
+<li>如果不包含空值，就必须与表T2 中某行的相应P的组合值相等</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Emp (</span><br><span class="line">	ssn <span class="type">char</span>(<span class="number">8</span>) <span class="keyword">PRIMARY</span> KEY,</span><br><span class="line">	dno <span class="type">char</span>(<span class="number">4</span>)</span><br><span class="line">	<span class="keyword">REFERENCES</span> Dept <span class="keyword">ON</span> <span class="keyword">DELETE</span> RESTRICT,</span><br><span class="line">……);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>RESTRICT：如果某部门中有职工，那么将不允许在Dept表中删除该部门元组，从而保证了Emp表中外键dno的引用完整性。</li>
+<li>CASCADE：如果某部门中有职工，那么在Dept表中删除该部门元组的同时，将从Emp表中删除该部门的所有职工。</li>
+<li>SET NULL：如果某部门中有职工，那么在Dept表中删除该部门元组的同时，在Emp表中将该部门所有职工的dno置为NULL.</li>
+</ul>
+<h5 id="触发器-trigger-：定义与分类"><a href="#触发器-trigger-：定义与分类" class="headerlink" title="触发器 (trigger)：定义与分类"></a>触发器 (trigger)：定义与分类</h5><p>定义：A database trigger is procedural code that is automatically executed in response to certain events on a particular table or view in a database.</p>
+<p>分类：</p>
+<ol>
+<li>For Each Row Type<ul>
+<li>This trigger gets executed once for each row of the result set affected by an insert/update/delete.（对每个受影响的行执行一次）</li>
+<li>before / after</li>
+</ul>
+</li>
+<li>For Each Statement Type<ul>
+<li>This trigger gets executed only once for the entire result set, but fires each time the statement is executed.（在语句结束时执行一次）</li>
+<li>before / after</li>
+</ul>
+</li>
+</ol>
+<h4 id="视图-view-定义命令"><a href="#视图-view-定义命令" class="headerlink" title="视图(view)定义命令"></a>视图(view)定义命令</h4><h5 id="视图的概念、特点与作用"><a href="#视图的概念、特点与作用" class="headerlink" title="视图的概念、特点与作用"></a>视图的概念、特点与作用</h5><p>Definition</p>
+<ul>
+<li>It is a table that results from a subquery, but which has its own name (table name &amp; attributes name)</li>
+<li>It can be used in most ways as a Base Table created by SQL CREATE TABLE statement</li>
+</ul>
+<p>Property</p>
+<ul>
+<li>no data storage in its own right, just window on data it selects from</li>
+<li>so, it is regarded as a Virtual Table</li>
+</ul>
+<p>Weakness</p>
+<ul>
+<li>limits to View Updates</li>
+</ul>
+<p>作用：</p>
+<ol>
+<li>视图提供了一种方法，使复杂的、经常用到的查询写起来更容易。</li>
+<li>视图允许过时的表和引用过时表的程序不被重新组织。<ul>
+<li>使程序对数据的访问独立于其物理结构的改变 (数据独立性)</li>
+</ul>
+</li>
+<li>视图加入了一种安全措施，让不同的用户以不同的方式看相同的数据。</li>
+</ol>
+<h5 id="视图的创建命令"><a href="#视图的创建命令" class="headerlink" title="视图的创建命令"></a>视图的创建命令</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">VIEW</span> view_name [(col_name &#123;, …...&#125;)]</span><br><span class="line">	<span class="keyword">AS</span> subquery</span><br><span class="line">	[ <span class="keyword">WITH</span> <span class="keyword">CHECK</span> OPTION ]</span><br></pre></td></tr></table></figure>
+<h5 id="可更新视图的判定方法"><a href="#可更新视图的判定方法" class="headerlink" title="可更新视图的判定方法"></a>可更新视图的判定方法</h5><p>A view table is said to be updatable when the following conditions hold for its Subquery clause.</p>
+<ol>
+<li>The FROM clause of the Subquery must contain <u>only a single table</u>, and if that table is a view table it must also be an updatable view table.</li>
+<li>Neither the <u>GROUP BY</u> nor <u>HAVING</u> clause is present.</li>
+<li>The <u>DISTINCT</u> keyword is not specified.</li>
+<li>The WHERE clause <u>does not contain a Subquery that references any table in the FROM clause</u>, directly or indirectly via views.</li>
+<li>All result columns of the Subquery are simple column names: <u>no expressions</u>, <u>no column name appears more than once</u>.</li>
+</ol>
+<h4 id="安全性"><a href="#安全性" class="headerlink" title="安全性"></a>安全性</h4><h5 id="授权语句-GRANT…TO…-和权限回收语句-REVOKE…FROM…"><a href="#授权语句-GRANT…TO…-和权限回收语句-REVOKE…FROM…" class="headerlink" title="授权语句(GRANT…TO…) 和权限回收语句(REVOKE…FROM…)"></a>授权语句(GRANT…TO…) 和权限回收语句(REVOKE…FROM…)</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> &#123;<span class="keyword">ALL</span> PRIVILEGES<span class="operator">|</span>privilege &#123;, privilege … &#125;&#125;</span><br><span class="line">	<span class="keyword">ON</span> [ <span class="keyword">TABLE</span> ] tablename <span class="operator">|</span> viewname</span><br><span class="line">	<span class="keyword">TO</span> &#123; PUBLIC <span class="operator">|</span> <span class="keyword">user</span><span class="operator">-</span>name &#123; , <span class="keyword">user</span><span class="operator">-</span>name … &#125; &#125;</span><br><span class="line">	[ <span class="keyword">WITH</span> <span class="keyword">GRANT</span> OPTION ]</span><br></pre></td></tr></table></figure>
+<p>privileges</p>
+<ul>
+<li>SELECT, DELETE, INSERT</li>
+<li>UPDATE [ col_name {, col_name …} ]</li>
+<li>REFERENCES [ col_name {, col_name …} ]</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">REVOKE</span> &#123; <span class="keyword">ALL</span> PRIVILEGES <span class="operator">|</span> privilege &#123;, privilege …&#125; &#125;</span><br><span class="line">	<span class="keyword">ON</span> tablename <span class="operator">|</span> viewname</span><br><span class="line">	<span class="keyword">FROM</span> &#123; PUBLIC <span class="operator">|</span> <span class="keyword">user</span><span class="operator">-</span>name &#123;, <span class="keyword">user</span><span class="operator">-</span>name … &#125;&#125;</span><br><span class="line">	&#123; CASCADE <span class="operator">|</span> RESTRICT &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Ch5-Programs-to-Access-Database"><a href="#Ch5-Programs-to-Access-Database" class="headerlink" title="Ch5. Programs to Access Database"></a>Ch5. Programs to Access Database</h3><h4 id="数据库访问"><a href="#数据库访问" class="headerlink" title="数据库访问"></a>数据库访问</h4><p>SQL语言的不同使用方式：嵌入式SQL (ESQL)，交互式SQL (ISQL)</p>
+<ul>
+<li>Embedded SQL (ESQL): SQL statements embedded in host language (e.g. COBOL, C/C++, Java, …)<ul>
+<li>for Application Programmers to develop menu applications</li>
+<li>for end-users to access a database through menu applications</li>
+</ul>
+</li>
+<li>Interactive SQL (ISQL):<ul>
+<li>for Casual Users to access a database</li>
+</ul>
+</li>
+</ul>
+<p>在嵌入式SQL中，应用程序获取查询结果元组的两种方式：select……into…… 和使用‘游标’，它们之间有什么区别？</p>
+<ul>
+<li>select…into…只适用于返回单条结果元组的查询</li>
+<li>游标能够处理多行</li>
+</ul>
+<p>在数据库访问中，最常见的访问异常是sqlerror和not found，它们有什么区别？</p>
+<ul>
+<li>SQLERROR<ul>
+<li>arise from a programming error</li>
+<li>it can terminates execution of the program</li>
+</ul>
+</li>
+<li>NOT FOUND<ul>
+<li>No rows are affected following some SQL statement such as Select, Fetch, Insert, Update, or Delete.</li>
+<li>It often be used to end loop, or change the flow of control.</li>
+</ul>
+</li>
+</ul>
+<p>在应用程序与数据库管理系统的交互过程中，是如何处理‘空值’问题的？</p>
+<ul>
+<li>使用指示器变量 (Indicator Variables)</li>
+</ul>
+<h4 id="游标-Cursor"><a href="#游标-Cursor" class="headerlink" title="游标(Cursor)"></a>游标(Cursor)</h4><h5 id="游标的用处"><a href="#游标的用处" class="headerlink" title="游标的用处"></a>游标的用处</h5><p>一次一行原则：在嵌入式SQL程序中，每当检索未知数量的行时，程序员应该假设这些记录不能一次全部放入任一声明过的数组中，并且程序的设计也应该反映出这一假设。</p>
+<p>如何处理未知个数的行这一问题让我们想到了从文件中处理未知个数的输入值的方法，我们通常是通过一个循环每次处理一个值。由于程序是以顺序的、每次一步的方式执行的，很显然，从一条Select语句中我们总是每次查看一行。当我们在未知个数的行上执行Select语旬时，每次从记录集中检索一行，需要一个游标记录当前位置。</p>
+<h5 id="与游标有关的四条语句"><a href="#与游标有关的四条语句" class="headerlink" title="与游标有关的四条语句"></a>与游标有关的四条语句</h5><ol>
+<li><p>declare a cursor</p>
+<p>define a cursor with an ESQL select statement which may return multiple rows</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">EXEC</span> <span class="keyword">SQL</span> <span class="keyword">DECLARE</span> agent_dollars <span class="keyword">CURSOR</span> <span class="keyword">FOR</span></span><br><span class="line">	<span class="keyword">select</span> aid, <span class="built_in">sum</span>(dollars)</span><br><span class="line">	<span class="keyword">from</span> orders</span><br><span class="line">	<span class="keyword">where</span> cid <span class="operator">=</span> :cust_id</span><br><span class="line">	<span class="keyword">group</span> <span class="keyword">by</span> aid ;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>open the cursor</p>
+<p>execute the select statement and open the result set</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">EXEC</span> <span class="keyword">SQL</span> <span class="keyword">OPEN</span> agent_dollars ;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>fetch the result rows</p>
+<p>loop to fetch rows</p>
+<p>fetch one row at a time</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">while (<span class="literal">TRUE</span>) &#123; <span class="comment">/* loop to fetch rows */</span></span><br><span class="line">	<span class="keyword">exec</span> <span class="keyword">sql</span> <span class="keyword">fetch</span> agent_dollars</span><br><span class="line">		<span class="keyword">into</span> :agent_id, :dollar_sum;</span><br><span class="line">	printf(&quot;%s %11.2f\n&quot;,agent_id,dollar_sum);</span><br><span class="line">&#125; <span class="comment">/* end fetch loop */</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>close the cursor</p>
+<p>release the result set</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">EXEC</span> <span class="keyword">SQL</span> <span class="keyword">CLOSE</span> agent_dollars ;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="事务-transaction"><a href="#事务-transaction" class="headerlink" title="事务 (transaction)"></a>事务 (transaction)</h4><h5 id="什么是关系数据库中的事务？事务的ACID性质是什么？"><a href="#什么是关系数据库中的事务？事务的ACID性质是什么？" class="headerlink" title="什么是关系数据库中的事务？事务的ACID性质是什么？"></a>什么是关系数据库中的事务？事务的ACID性质是什么？</h5><p>The Concept of a Transaction</p>
+<ul>
+<li>group several SQL statements together into a single indivisible, all-or-nothing transactional package.</li>
+</ul>
+<p>ACID properties:</p>
+<ul>
+<li>原子性：The set of updates contained in a transaction must <strong>succeed or fail as a unit</strong> (either they all happen or none happen). This is true even in presence of a crash.</li>
+<li>一致性：If all the individual processes follow certain rules and use transactions right, then <strong>the rules won’t be broken by any set of transactions acting together</strong>.</li>
+<li>隔离性：Means that <strong>operations of different transactions seem not to be interleaved in time</strong>, as if ALL operations of one transaction before or after all operations of any other transactions.</li>
+<li>持久性：When the system returns to the logic after a Commit Work statement, it guarantees that all updates of a committed transaction are on disk, <strong>the changes it has made to the data will survive any machine or system failures.</strong></li>
+</ul>
+<h5 id="事务是如何开始和如何结束的？事务的结束方式有哪几种？它们的区别是什么？"><a href="#事务是如何开始和如何结束的？事务的结束方式有哪几种？它们的区别是什么？" class="headerlink" title="事务是如何开始和如何结束的？事务的结束方式有哪几种？它们的区别是什么？"></a>事务是如何开始和如何结束的？事务的结束方式有哪几种？它们的区别是什么？</h5><p>How Transactions Are Specified in Programs</p>
+<ul>
+<li>Start Transaction<ul>
+<li>when first access is made to table after connect or prior commit or abort.</li>
+</ul>
+</li>
+<li>End Transaction<ol>
+<li>exec sql commit work;<ul>
+<li>Successful commit, rows updated, become concurrently visible.</li>
+</ul>
+</li>
+<li>exec sql rollback work;<ul>
+<li>Unsuccessful abort, row value updates rolled back and become concurrently visible.</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h4 id="数据库访问中间件"><a href="#数据库访问中间件" class="headerlink" title="数据库访问中间件"></a>数据库访问中间件</h4><h5 id="最常用的数据库访问中间件有哪些"><a href="#最常用的数据库访问中间件有哪些" class="headerlink" title="最常用的数据库访问中间件有哪些"></a>最常用的数据库访问中间件有哪些</h5><p>见下图</p>
+<h5 id="web数据库应用的数据交换流程是什么"><a href="#web数据库应用的数据交换流程是什么" class="headerlink" title="web数据库应用的数据交换流程是什么"></a>web数据库应用的数据交换流程是什么</h5><p><img src="image-20230215174035962.png" alt="image-20230215174035962"></p>
+<h3 id="★-Ch6-Database-Design"><a href="#★-Ch6-Database-Design" class="headerlink" title="★ Ch6. Database Design"></a>★ Ch6. Database Design</h3><h4 id="概念设计"><a href="#概念设计" class="headerlink" title="概念设计"></a>概念设计</h4><h5 id="EER模型"><a href="#EER模型" class="headerlink" title="EER模型"></a>EER模型</h5><p>基本概念：实体(entity)，属性(attribute)，联系(relationship)</p>
+<ul>
+<li>用长方形、椭圆形、菱形来表示，概念用无向线段相连</li>
+<li>ER模型中的identifier和primary identifier的作用相当于关系模型或SQL语言中的key和primary key.<ul>
+<li>identifier在ER图中通过加下划线的方式来表示</li>
+</ul>
+</li>
+<li>composite attribute的表示方法：在composite attribute和其各个成员属性之间用‘无向线段’直接相连。</li>
+<li>multi-valued attribute 的表示方法（二选一）：<ol>
+<li>在 multi-valued attribute 和 实体集之间用双线段连接；</li>
+<li>可在 Cardinality of Attributes（属性基数）中描述取值特征（单值 or 集合值）。</li>
+</ol>
+</li>
+<li>Transforming Entities and Attributes to Relations<ol>
+<li>An entity is mapped to a single table.</li>
+<li>A multi-valued attribute must be mapped to its own table.</li>
+</ol>
+</li>
+<li>因‘联系’而产生的信息，可以抽象为‘联系’上的属性，并用无向线段连接到对应的联系上。</li>
+<li>为了描述一个实体在一个联系中所担当的‘角色’(role)，可以在它们之间的连线上添加适当的有意义的‘文字标注’。</li>
+</ul>
+<p>Cardinality of Entity Participation in a Relationship</p>
+<ul>
+<li>实体E在联系R中的参与基数：Card(E, R) = <min_card, max_card></min_card,></li>
+</ul>
+<p>single-valued &amp; multi-valued participation, mandatory &amp; optional participation</p>
+<ul>
+<li>single-valued &amp; multi-valued participation<ul>
+<li>single-valued participation (单值参与): max_card(E, R) = 1</li>
+<li>multi-valued participation (多值参与): max_card(E, R) = N</li>
+</ul>
+</li>
+<li>mandatory &amp; optional participation<ul>
+<li>mandatory participation (强制参与): min_card(E, R) = 1</li>
+<li>optional participation (可选参与): min_card(E, R) = 0</li>
+</ul>
+</li>
+</ul>
+<p>One-to-One, Many-to-Many, and Many-to-One Relationship：根据实体在联系中的最大参与基数max_card对联系进行类别划分</p>
+<ul>
+<li>One-to-One: Card(E, R) = <0, **1**>, Card(F, R) = <0, **1**></0,></0,></li>
+<li>Many-to-One: Card(E, R) = <0, **n**>, Card(F, R) = <1, **1**></1,></0,></li>
+<li>Many-to-Many: Card(E, R) = <1, **n**>, Card(F, R) = <0, **n**></0,></1,></li>
+</ul>
+<p>Transforming Binary Relationships to Relations</p>
+<ol>
+<li><p>N-N Relationships：</p>
+<p><img src="image-20230209143740736.png" alt="image-20230209143740736"></p>
+<p>works_on(<u>eid</u>, <u>proj_id</u>, percent)</p>
+</li>
+<li><p>N-1 Relationships</p>
+<p><img src="image-20230209143930780.png" alt="image-20230209143930780"></p>
+<p>Instructors(<u>insid</u>, lname, office_no, ext)<br>Course_sections(<u>secid</u>, course, period, insid, room)</p>
+</li>
+</ol>
+<p>N-ary relationships的转换</p>
+<ul>
+<li><p><img src="image-20230209144158993.png" alt="image-20230209144158993"></p>
+<p>orders(<u>cid</u>, <u>pid</u>, <u>aid</u>, ordno, month, qty, dollars)</p>
+</li>
+</ul>
+<p>recursive relationship的转换</p>
+<ul>
+<li><p><img src="image-20230209144241930-16759249670201.png" alt="image-20230209144241930"></p>
+<p>Employees (<u>eid</u>, ename, ……, mgr_id)</p>
+</li>
+</ul>
+<p>Cardinality of Attributes, Weak Entity, Generalization Hierarchies</p>
+<ul>
+<li><p>Cardinality of Attributes (属性基数)</p>
+<p><img src="image-20230215190851255.png" alt="image-20230215190851255"></p>
+</li>
+<li><p>Weak Entities (弱实体)：如果实体的所有实例都通过一个联系R依赖于另一个实体的实例而存在，那么这个实体就称为弱实体，而另一个实体称为强实体。</p>
+</li>
+<li><p>Generalization Hierarchies (泛化层次)：多个有公共属性的实体可以泛化为一个更高层次的超类型实体。</p>
+<p><img src="image-20230215191238119.png" alt="image-20230215191238119"></p>
+</li>
+</ul>
+<h4 id="规范化"><a href="#规范化" class="headerlink" title="规范化"></a>规范化</h4><h5 id="规范化的目的与手段"><a href="#规范化的目的与手段" class="headerlink" title="规范化的目的与手段"></a>规范化的目的与手段</h5><ul>
+<li>在一个关系中，属性与属性之间需要满足一定的约束条件，这样的约束条件，我们称之为‘范式’ (Normal From)</li>
+<li>不同的约束条件，就构成了不同级别的范式定义</li>
+<li>规范化设计的目标，是希望最终设计得到的每一个关系都能满足到特定范式（通常是3NF）的要求，从而避免出现过高的数据冗余存储和操作异常现象。</li>
+</ul>
+<h5 id="函数依赖"><a href="#函数依赖" class="headerlink" title="函数依赖"></a>函数依赖</h5><p>函数依赖的定义：</p>
+<ul>
+<li>A and B are two sets of attributes in the same relation T. A → B if and only if For any rows r1 and r2 in any instance of relation T, if r1[A] = r2[A] then r1[B] = r2[B]. 读作“A函数决定B”.</li>
+</ul>
+<p><img src="image-20230209152911166.png" alt="image-20230209152911166"></p>
+<p>（注意一对多和多对一的区别）</p>
+<p>Armstrong’s Axioms：3条公理 + 若干定理</p>
+<ol>
+<li>Inclusion Rule: If $Y \subseteq X$, then $X \rightarrow Y$.</li>
+<li>Transitivity Rule: If $X \rightarrow Y$ and $Y \rightarrow Z$, then $X \rightarrow Z$.</li>
+<li>Augmentation rule: If $X \rightarrow Y$, then $XZ \rightarrow YZ$.</li>
+</ol>
+<p>基于函数依赖的关键字：</p>
+<ul>
+<li><p>Given a table $T$ with a set of FDs $F$ and a set of attributes $X$ in $\text{Head}(T)$, $X$ is a key of $T$ iff $X$ full functionally determines all attributes in $T$. 即 $X \stackrel{f}{\rightarrow} \text{Head}(T) \in F^+$.</p>
+</li>
+<li><p>关键字的发现算法：</p>
+<p>输入：关系 $T$ 的属性集合 $U$, 函数依赖集最小覆盖 $F$, 属性子集和划分 $U_L, U_R, U_A$.</p>
+<p>输出：关键字 $K$.</p>
+<p><img src="image-20230209175646491.png" alt="image-20230209175646491"></p>
+</li>
+</ul>
+<p>PRIME ATTRIBUTE (主属性)</p>
+<ul>
+<li>In a table $T$, an attribute $A$ is said to be prime if and only if the attribute $A$ exists in some key $K$ for the table.</li>
+<li>A prime attribute of a table T is any attribute that is part of a key for that table, not necessarily a primary key.</li>
+</ul>
+<p>NON-PRIME ATTRIBUTE (非主属性)</p>
+<ul>
+<li>In a table $T$, an attribute $A$ is said to be non-prime if and only if the attribute $A$ doesn’t exist in any key $K$ for the table.</li>
+</ul>
+<p>trivial functional dependency (平凡函数依赖) vs. non-trivial functional dependency (非平凡函数依赖)</p>
+<ul>
+<li>$X \rightarrow Y$ is called trivial if $Y$ is a subset of $X$.</li>
+</ul>
+<p>partial functional dependency (部分函数依赖) vs. full functional dependency (完全函数依赖)</p>
+<ul>
+<li>$X\rightarrow Y$ is called partial if we have another FD $W \rightarrow Y$ and $W \subset X$.</li>
+</ul>
+<p>Closure of a Set of FDs (函数依赖集 $F$ 的闭包，记为 $F^+$)</p>
+<ul>
+<li>$F^+ = \{X \rightarrow Y | F \models X \rightarrow Y\}$</li>
+<li>计算过程：<ol>
+<li>$F$ 中的每一个函数依赖都是其闭包 $F^+$ 的成员；</li>
+<li>利用自反规则推导得到的所有平凡函数依赖，也都是闭包 $F^+$；</li>
+<li>如果函数依赖 $f_1, f_2, \cdots, f_k (k&gt; 1)$ 是闭包 $F^+$ 的成员，且利用Armstrong公理系统能够从 $f_1, f_2, \cdots , f_k$ 推导得到函数依赖 $f$, 则函数依赖 $f$ 也是闭包 $F^+$ 中的成员；</li>
+<li>重复步骤③，直至 $F^+$ 中不再有新的函数依赖加入。</li>
+</ol>
+</li>
+</ul>
+<p>FD Set Cover (函数依赖集的覆盖)</p>
+<ul>
+<li>$F$ cover $G$ iff $G \subseteq F^+$.</li>
+</ul>
+<p>Equivalence of two sets of FDs (函数依赖集的等价)</p>
+<ul>
+<li>$F \equiv G$ iff $F$ cover $G$ and $G$ cover $F$.</li>
+</ul>
+<p>Closure of a Set of Attributes (属性集的闭包)</p>
+<ul>
+<li>$X_F^+ = \{A |X \rightarrow A \in F^+\} = \{A | A \text{ is a single attribute and } X \rightarrow A \text{ can be derived from } F\}$</li>
+</ul>
+<p>The following statements are equivalent:</p>
+<script type="math/tex; mode=display">
+X \rightarrow Y \text{ can be derived from } F \Leftrightarrow X \rightarrow Y \in F^+ \Leftrightarrow Y \subseteq X_F^+</script><p>Minimal Cover (最小覆盖)</p>
+<ul>
+<li>a minimal set M of FDs that covers a given set F of FDs.</li>
+<li>计算过程：<ol>
+<li>从函数依赖集 $F$, 我们创建函数依赖一个等价集 $H$, 它的函数依赖的右边只有单个属性。</li>
+<li>从函数依赖集 $H$, 顺次去掉在 $H$ 中非关键的单个函数依赖。</li>
+<li>从函数依赖集 $H$, 顺次用左边具有更少属性的函数依赖替换原来的函数依赖，只要不会导致 $H^+$ 改变。（说明：在step 3计算完成后，需要按照step 2的方法重新检查一遍，是否产生新的冗余函数依赖并消除之。）</li>
+<li>从剩下的函数依赖集中收集所有左边相同的函数依赖，使用联合规则创建一个等价函数依赖集 $M$, 它的所有函数依赖的左边是唯一的。</li>
+</ol>
+</li>
+</ul>
+<h5 id="范式：1NF-2NF-3NF-BCNF"><a href="#范式：1NF-2NF-3NF-BCNF" class="headerlink" title="范式：1NF, 2NF, 3NF, BCNF"></a>范式：1NF, 2NF, 3NF, BCNF</h5><p>各个范式的定义：</p>
+<ul>
+<li><p>BCNF: A table $T$ in a database schema with FD set $F$ is in BCNF iff</p>
+<p>for any FD $X \rightarrow A$ in $F^+$ that lies in $T$ (all attributes of $X$ and $A$ in $T$), $A$ is <strong>a single attribute</strong> that isn’t in $X$, then $X$ must be <strong>a superkey</strong> for $T$.</p>
+</li>
+<li><p>3NF: A table $T$ in a database schema with FD set $F$ is in 3NF iff</p>
+<p>for any FD $X \rightarrow A$ in $F^+$ that lies in $T$, if $A$ is <strong>a single non-prime attribute</strong> that isn’t in $X$, then $X$ must be <strong>a superkey</strong> for $T$.</p>
+</li>
+<li><p>2NF: A table $T$ in a database schema with FD set $F$ is in 2NF iff</p>
+<p>for any FD $X \rightarrow A$ in $F^+$ that lies in $T$, where $A$ is <strong>a single non-prime attribute</strong> that isn’t in $X$, then $X$ is <strong>not properly contained in any key</strong> of $T$.</p>
+</li>
+</ul>
+<p>2NF、3NF、BCNF相互之间的关系及证明：BCNF $\Rightarrow$ 3NF $\Rightarrow$ 2NF. 证明由定义易知。</p>
+<p>一个关系是否满足某个范式的判断：首先找Keys, Prime Attributes, Non-Prime Attributes.</p>
+<ul>
+<li><p>BCNF</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">flag = true</span><br><span class="line">for each X→A in F+ &#123;</span><br><span class="line">	if (A is a single attribute that isn’t in X) &#123;</span><br><span class="line">		if (X isn&#x27;t a superkey for T) &#123;</span><br><span class="line">			flag = false;</span><br><span class="line">			break;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">if (flag == true) T is in BCNF</span><br><span class="line">else T isn&#x27;t in BCNF</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>3NF</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">flag = true</span><br><span class="line">for each X→A in F+ &#123;</span><br><span class="line">	if (A is a single non-prime attribute that isn’t in X) &#123;</span><br><span class="line">		if (X isn&#x27;t a superkey for T) &#123;</span><br><span class="line">			flag = false;</span><br><span class="line">			break;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">if (flag == true) T is in BCNF</span><br><span class="line">else T isn&#x27;t in BCNF</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="模式分解"><a href="#模式分解" class="headerlink" title="模式分解"></a>模式分解</h5><p>decomposition of table T (关系分解)：For any table T with an associated set of functional dependencies F, a decomposition of T into k tables is a set of tables $\{T_1, T_2, \cdots, T_k\}$, with two properties:</p>
+<ol>
+<li>for every table $T_i$ in the set, $\text{Head}(T_i) \subset \text{Head}(T)$</li>
+<li>$\text{Head}(T) = \text{Head}(T_1) \cup \text{Head}(T_2) \cup \cdots \cup \text{Head}(T_k)$</li>
+</ol>
+<p>无损联结性(Lossless Decomposition): A decomposition of a table $T$ with an associated set $F$ of FDs is said to be <strong>a lossless decomposition</strong> if, for any possible future content of $T$, the FDs in $F$ guarantee that the following relationship will hold: (有损分解将 $\equiv$ 替换为 $\sub$)</p>
+<script type="math/tex; mode=display">
+T \equiv T_1 \bowtie T_2 \bowtie \cdots \bowtie T_k</script><p>依赖保持性(FD Preserved)的定义</p>
+<ul>
+<li><p>设关系模式 $R$ 上的函数依赖集为 $F$, 将关系模式 $R$ 分解为 $\{T_1, T_2, \cdots, T_k\}$ 这 $k$ 个子关系模式。Then an FD $X \rightarrow Y$ of $F$ is said to be preserved in the decomposition of $T$, if for some table $T_i$ of the decomposition, $X \cup Y \subseteq \text{Head}(T_i)$. </p>
+<p>$F_i = \{X \rightarrow Y | F \models X \rightarrow Y , X \cup Y \subset \text{Head}(T_i)\}$.</p>
+</li>
+<li><p>如果函数依赖集 $F$ 和 $(F_1 \cup F_2 \cup \cdots \cup F_k)$ 是相互等价的，即 $F^+ = (F_1 \cup F_2 \cup \cdots \cup F_k)^+$, 则称该分解满足依赖保持性。</p>
+</li>
+</ul>
+<p>无损联结性的判定定理</p>
+<p>Given a table $T$ with a set $F$ of FDs valid on $T$, then a decomposition of $T$ into two table $\{T_1, T_2\}$ is a lossless decomposition if one of the following functional dependencies is implied by $F$: (1) $\text{Head}(T_1) \cap \text{Head}(T_2) \rightarrow \text{Head}(T_1)$ or (2) $\text{Head}(T_1) \cap \text{Head}(T_2) \rightarrow \text{Head}(T_2)$. </p>
+<p>分解算法：到3NF且能够满足无损联结性和依赖保持性的分解算法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Replace F with minimal cover of F</span><br><span class="line">S = emptyset							/* S是集合属性的集合 */</span><br><span class="line">for all X → Y in F</span><br><span class="line">	if, for all Z∈S, X∪Y 不包含于 Z		/* 没有table包含X → Y */</span><br><span class="line">		then S = S∪Heading(X∪Y)</span><br><span class="line">end for</span><br><span class="line">if, for all candidate keys K for T:		/* 所有key不出现在任何table */</span><br><span class="line">		for all Z∈S, K 不包含于 Z</span><br><span class="line">	then choose a candidate key K and</span><br><span class="line">		set S = S∪Heading(K).</span><br></pre></td></tr></table></figure>
+<p>分解到BCNF（可能不满足依赖保持性）</p>
+<h4 id="数据库设计案例"><a href="#数据库设计案例" class="headerlink" title="数据库设计案例"></a>数据库设计案例</h4><ul>
+<li>ER模型设计</li>
+<li>ER模型到关系模型的转换</li>
+<li>对指定关系的规范化设计<ul>
+<li>函数依赖的发现</li>
+<li>范式的判断与分解</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/12/29/Persvadisto%E7%9A%84%E6%97%A5%E6%96%87%E6%AD%8C%E8%AF%8D%E6%89%8B%E5%B8%90/" rel="prev" title="Persvadisto的日文歌词手帐">
+      <i class="fa fa-chevron-left"></i> Persvadisto的日文歌词手帐
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/06/07/2023%E6%96%B0%E9%AB%98%E8%80%83%E4%B8%80%E5%8D%B7%E6%95%B0%E5%AD%A6%E5%8E%8B%E8%BD%B4%E9%A2%98/" rel="next" title="2023年新高考一卷数学压轴题22题思路详解">
+      2023年新高考一卷数学压轴题22题思路详解 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Enhavtabelo
+        </li>
+        <li class="sidebar-nav-overview">
+          Superrigardo
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Ch1-Introduction"><span class="nav-text">Ch1. Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">数据库的基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">数据库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F"><span class="nav-text">数据库管理系统</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B"><span class="nav-text">数据模型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%94%A8%E6%88%B7%EF%BC%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E5%91%98"><span class="nav-text">数据库用户，数据库管理员</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%BD%93%E7%B3%BB%E6%9E%B6%E6%9E%84"><span class="nav-text">数据库系统的体系架构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%8F%91%E5%B1%95%E5%8E%86%E5%8F%B2"><span class="nav-text">数据库系统的发展历史</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%98%85-Ch2-The-Relational-Model"><span class="nav-text">★ Ch2. The Relational Model</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">关系模型的基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-text">数据结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E7%9A%84%E7%BA%A6%E6%9D%9F%E8%A7%84%E5%88%99-relational-rule"><span class="nav-text">关系的约束规则(relational rule)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%94%AE-%E5%85%B3%E9%94%AE%E5%AD%97-key-%E4%B8%8E%E8%B6%85%E9%94%AE-superkey"><span class="nav-text">键&#x2F;关键字(key) 与超键(superkey)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%A9%BA%E5%80%BC-null-value"><span class="nav-text">空值(null value)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0-relational-algebra"><span class="nav-text">关系代数(relational algebra)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Set-theoretic-operations"><span class="nav-text">Set-theoretic operations</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Native-relational-operations"><span class="nav-text">Native relational operations:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Other-Relational-Operations"><span class="nav-text">Other Relational Operations</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9A%BE%E7%82%B9"><span class="nav-text">难点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%98%85-Ch3-Basic-SQL-Query-Language"><span class="nav-text">★ Ch3. Basic SQL Query Language</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%AE%BF%E9%97%AE%E5%91%BD%E4%BB%A4%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84"><span class="nav-text">数据访问命令的基本结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#SELECT-%E5%91%BD%E4%BB%A4%E7%9A%84%E8%AF%AD%E5%8F%A5%E6%88%90%E5%88%86"><span class="nav-text">SELECT 命令的语句成分</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E6%9F%A5%E8%AF%A2%E5%91%BD%E4%BB%A4"><span class="nav-text">基本的数据查询命令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8D%95%E8%A1%A8%E6%9F%A5%E8%AF%A2"><span class="nav-text">单表查询</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9C%A8FROM%E5%AD%90%E5%8F%A5%E4%B8%AD%EF%BC%8C%E5%AF%B9%E8%A1%A8%E7%9A%84%E9%87%8D%E5%91%BD%E5%90%8D"><span class="nav-text">在FROM子句中，对表的重命名</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2"><span class="nav-text">多表查询</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%89%A9%E5%B1%95%E7%9A%84%E6%9F%A5%E8%AF%A2%E8%B0%93%E8%AF%8D"><span class="nav-text">扩展的查询谓词</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E7%BB%93%E6%9E%9C%E8%BE%93%E5%87%BA"><span class="nav-text">查询结果输出</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AD%90%E6%9F%A5%E8%AF%A2%E7%9A%84%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97"><span class="nav-text">子查询的集合运算</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%8D%E6%9D%82%E7%9A%84%E6%95%B0%E6%8D%AE%E6%9F%A5%E8%AF%A2%E6%8C%87%E4%BB%A4"><span class="nav-text">复杂的数据查询指令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BB%9F%E8%AE%A1%E6%9F%A5%E8%AF%A2"><span class="nav-text">统计查询</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0%E4%B8%AD%E9%99%A4%E6%B3%95%E8%BF%90%E7%AE%97%E5%8A%9F%E8%83%BD%E5%9C%A8SQL%E4%B8%AD%E7%9A%84%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95"><span class="nav-text">关系代数中除法运算功能在SQL中的表示方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9C%A8FROM%E5%AD%97%E5%8F%A5%E4%B8%AD%E5%B5%8C%E5%85%A5%E5%AD%90%E6%9F%A5%E8%AF%A2"><span class="nav-text">在FROM字句中嵌入子查询</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%83%E7%BB%84%E6%9B%B4%E6%96%B0%E5%91%BD%E4%BB%A4"><span class="nav-text">元组更新命令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%83%E7%BB%84%E7%9A%84%E6%8F%92%E5%85%A5%E3%80%81%E4%BF%AE%E6%94%B9%E3%80%81%E5%88%A0%E9%99%A4%E5%8A%9F%E8%83%BD"><span class="nav-text">元组的插入、修改、删除功能</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ch7-Integrity-Views-Security-and-Catalogs"><span class="nav-text">Ch7. Integrity, Views, Security, and Catalogs</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E8%A1%A8%E5%AE%9A%E4%B9%89%E5%91%BD%E4%BB%A4"><span class="nav-text">基表定义命令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Create-Table-Statement"><span class="nav-text">Create Table Statement</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Integrity"><span class="nav-text">Integrity</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Referential-Integrity-Foreign-Key"><span class="nav-text">Referential Integrity: Foreign Key</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%A7%A6%E5%8F%91%E5%99%A8-trigger-%EF%BC%9A%E5%AE%9A%E4%B9%89%E4%B8%8E%E5%88%86%E7%B1%BB"><span class="nav-text">触发器 (trigger)：定义与分类</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%86%E5%9B%BE-view-%E5%AE%9A%E4%B9%89%E5%91%BD%E4%BB%A4"><span class="nav-text">视图(view)定义命令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%A7%86%E5%9B%BE%E7%9A%84%E6%A6%82%E5%BF%B5%E3%80%81%E7%89%B9%E7%82%B9%E4%B8%8E%E4%BD%9C%E7%94%A8"><span class="nav-text">视图的概念、特点与作用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%A7%86%E5%9B%BE%E7%9A%84%E5%88%9B%E5%BB%BA%E5%91%BD%E4%BB%A4"><span class="nav-text">视图的创建命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%AF%E6%9B%B4%E6%96%B0%E8%A7%86%E5%9B%BE%E7%9A%84%E5%88%A4%E5%AE%9A%E6%96%B9%E6%B3%95"><span class="nav-text">可更新视图的判定方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E5%85%A8%E6%80%A7"><span class="nav-text">安全性</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8E%88%E6%9D%83%E8%AF%AD%E5%8F%A5-GRANT%E2%80%A6TO%E2%80%A6-%E5%92%8C%E6%9D%83%E9%99%90%E5%9B%9E%E6%94%B6%E8%AF%AD%E5%8F%A5-REVOKE%E2%80%A6FROM%E2%80%A6"><span class="nav-text">授权语句(GRANT…TO…) 和权限回收语句(REVOKE…FROM…)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ch5-Programs-to-Access-Database"><span class="nav-text">Ch5. Programs to Access Database</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BF%E9%97%AE"><span class="nav-text">数据库访问</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B8%B8%E6%A0%87-Cursor"><span class="nav-text">游标(Cursor)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%B8%B8%E6%A0%87%E7%9A%84%E7%94%A8%E5%A4%84"><span class="nav-text">游标的用处</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%8E%E6%B8%B8%E6%A0%87%E6%9C%89%E5%85%B3%E7%9A%84%E5%9B%9B%E6%9D%A1%E8%AF%AD%E5%8F%A5"><span class="nav-text">与游标有关的四条语句</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1-transaction"><span class="nav-text">事务 (transaction)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E7%9A%84%E4%BA%8B%E5%8A%A1%EF%BC%9F%E4%BA%8B%E5%8A%A1%E7%9A%84ACID%E6%80%A7%E8%B4%A8%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-text">什么是关系数据库中的事务？事务的ACID性质是什么？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E6%98%AF%E5%A6%82%E4%BD%95%E5%BC%80%E5%A7%8B%E5%92%8C%E5%A6%82%E4%BD%95%E7%BB%93%E6%9D%9F%E7%9A%84%EF%BC%9F%E4%BA%8B%E5%8A%A1%E7%9A%84%E7%BB%93%E6%9D%9F%E6%96%B9%E5%BC%8F%E6%9C%89%E5%93%AA%E5%87%A0%E7%A7%8D%EF%BC%9F%E5%AE%83%E4%BB%AC%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-text">事务是如何开始和如何结束的？事务的结束方式有哪几种？它们的区别是什么？</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BF%E9%97%AE%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="nav-text">数据库访问中间件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%80%E5%B8%B8%E7%94%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BF%E9%97%AE%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9C%89%E5%93%AA%E4%BA%9B"><span class="nav-text">最常用的数据库访问中间件有哪些</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#web%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BA%94%E7%94%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BA%A4%E6%8D%A2%E6%B5%81%E7%A8%8B%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-text">web数据库应用的数据交换流程是什么</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%98%85-Ch6-Database-Design"><span class="nav-text">★ Ch6. Database Design</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5%E8%AE%BE%E8%AE%A1"><span class="nav-text">概念设计</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#EER%E6%A8%A1%E5%9E%8B"><span class="nav-text">EER模型</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%84%E8%8C%83%E5%8C%96"><span class="nav-text">规范化</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%A7%84%E8%8C%83%E5%8C%96%E7%9A%84%E7%9B%AE%E7%9A%84%E4%B8%8E%E6%89%8B%E6%AE%B5"><span class="nav-text">规范化的目的与手段</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E4%BE%9D%E8%B5%96"><span class="nav-text">函数依赖</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%8C%83%E5%BC%8F%EF%BC%9A1NF-2NF-3NF-BCNF"><span class="nav-text">范式：1NF, 2NF, 3NF, BCNF</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%A8%A1%E5%BC%8F%E5%88%86%E8%A7%A3"><span class="nav-text">模式分解</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1%E6%A1%88%E4%BE%8B"><span class="nav-text">数据库设计案例</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Persvadisto"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Persvadisto</p>
+  <div class="site-description" itemprop="description">A car car man</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">afiŝoj</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">kategorioj</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/persvadisto" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;persvadisto" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:persvadisto@foxmail.com" title="E-Mail → mailto:persvadisto@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/persuader817" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;persuader817" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2022 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Persvadisto</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="Nombro da signoj en la tuta reto">173k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Tempo tuta de rigardo">2:37</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Tutaj visitoj">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Tutaj rigardoj">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '91b9df3eb1c4ed5f0578',
+      clientSecret: '6b6329201d17d5fdc7ebba2bc5b63011e6e2c0c5',
+      repo        : 'persvadisto.github.io',
+      owner       : 'Persvadisto',
+      admin       : ['Persvadisto'],
+      id          : '48998fa278e4550e0e86b89cd7a49c1f',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

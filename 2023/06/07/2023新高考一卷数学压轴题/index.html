@@ -241,7 +241,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Nombro da signoj en la artikolo: </span>
-              <span>2.6k</span>
+              <span>2.5k</span>
             </span>
             <span class="post-meta-item" title="Tempo de rigardo">
               <span class="post-meta-item-icon">
@@ -262,32 +262,42 @@
 
       
         <span id="more"></span>
-
 <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
 <p>点 $P$ 到 $x$ 轴的距离等于点 $P$ 到 $(0, \frac{1}{2})$ 的距离。记点 $P$ 的轨迹为 $C$.</p>
 <p>(1) 求 $C$ 的方程；</p>
 <p>(2) 已知矩形有三个点在 $C$ 上，证明矩形的周长大于 $3\sqrt 3$.</p>
 </blockquote>
-<h1 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h1><p>第一问算出来方程为 $y &#x3D; x^2 + \frac{1}{4}$, 没什么好说的，抛物线性质，注意是到 $x$ 轴的距离而不是准线。</p>
+<h1 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h1><p>第一问算出来方程为 $y = x^2 + \frac{1}{4}$, 没什么好说的，抛物线性质，注意是到 $x$ 轴的距离而不是准线。</p>
 <p>第二问很有意思，难度不小。为了方便起见将抛物线方程里的 $\frac{1}{4}$ 丢掉，不影响结果（好孩子不要学我）</p>
 <p>设矩形 $ABDC$ 中 $A, B, C$ 落在抛物线上。显然如果要周长小的话，$A$ 应当在 $B$ 和 $C$ 之间，如果画图的话这点很明显。那么先假设 $A$ 的横坐标介于 $B$ 和 $C$ 的横坐标之间。$B$ 和 $C$ 在 $A$ 同一侧的情况留到最后考虑。</p>
-<p>设 $A$ 的坐标为 $(x_0, y_0)$, 不妨设 $x_C &lt; x_A&lt; x_B$. 直线 $AB$ 斜率设为 $k$（斜率显然不可能是 0 或者无穷）联立抛物线和直线 $AB$, 易求得 $x_B &#x3D; k - x_0$. 同理 $x_C &#x3D; -\frac{1}{k} - x_0$. 由 $x_C &lt; x_B$ 进一步得到 $k &gt; 0$. 矩形周长的一半为<br>$$<br>|AB| + |AC| &#x3D; \sqrt{1 + k^2} |k - 2x_0| + \sqrt{1 + \frac{1}{k^2}} \left|-\frac{1}{k} - 2x_0\right|<br>$$<br>既然约定了 $A, B, C$ 的横坐标的大小关系，上式就可以去掉绝对值<br>$$<br>|AB| + |AC| &#x3D; \sqrt{1 + k^2} (k - 2x_0) + \sqrt{1 + \frac{1}{k^2}} \left(\frac{1}{k} + 2x_0\right)<br>$$<br>这边换一个元 $a &#x3D; k - 2x_0$, 为什么这么换，凭几何直觉（）最后会画图说明一下原因。由 $x_A &gt; x_C$ 和 $x_A &lt; x_B$ 得到 $a$ 的范围 $0&lt;a&lt;k + \frac{1}{k}$.</p>
-<p>换元之后得到<br>$$<br>|AB| + |AC| &#x3D; \sqrt{1 + k^2} a + \frac{\sqrt{1 + k^2}}{k} \left(k + \frac{1}{k} - a\right) &#x3D; \left(1 - \frac{1}{k}\right) \sqrt{1 + k^2} a + \frac{(1 + k^2)^{\frac{3}{2}}}{k^2}<br>$$<br>这就可以看成关于 $a$ 的一次函数，那么关键就是 $a$ 的系数的正负性了，分两种情况讨论：</p>
+<p>设 $A$ 的坐标为 $(x_0, y_0)$, 不妨设 $x_C &lt; x_A&lt; x_B$. 直线 $AB$ 斜率设为 $k$（斜率显然不可能是 0 或者无穷）联立抛物线和直线 $AB$, 易求得 $x_B = k - x_0$. 同理 $x_C = -\frac{1}{k} - x_0$. 由 $x_C &lt; x_B$ 进一步得到 $k &gt; 0$. 矩形周长的一半为 </p>
+<script type="math/tex; mode=display">
+|AB| + |AC| = \sqrt{1 + k^2} |k - 2x_0| + \sqrt{1 + \frac{1}{k^2}} \left|-\frac{1}{k} - 2x_0\right|</script><p>既然约定了 $A, B, C$ 的横坐标的大小关系，上式就可以去掉绝对值</p>
+<script type="math/tex; mode=display">
+|AB| + |AC| = \sqrt{1 + k^2} (k - 2x_0) + \sqrt{1 + \frac{1}{k^2}} \left(\frac{1}{k} + 2x_0\right)</script><p>这边换一个元 $a = k - 2x_0$, 为什么这么换，凭几何直觉（）最后会画图说明一下原因。由 $x_A &gt; x_C$ 和 $x_A &lt; x_B$ 得到 $a$ 的范围 $0&lt;a&lt;k + \frac{1}{k}$.</p>
+<p>换元之后得到</p>
+<script type="math/tex; mode=display">
+|AB| + |AC| = \sqrt{1 + k^2} a + \frac{\sqrt{1 + k^2}}{k} \left(k + \frac{1}{k} - a\right) = \left(1 - \frac{1}{k}\right) \sqrt{1 + k^2} a + \frac{(1 + k^2)^{\frac{3}{2}}}{k^2}</script><p>这就可以看成关于 $a$ 的一次函数，那么关键就是 $a$ 的系数的正负性了，分两种情况讨论：</p>
 <ol>
-<li><p>若 $k \ge 1$, $a$ 的系数非负，要周长最小，就是要 $a$ 小，最小会无限接近 $0$, 那么<br>$$<br>|AB| + |AC| &gt; \frac{(1 + k^2)^{\frac{3}{2}}}{k^2} \ge \frac{3}{2} \sqrt 3<br>$$<br>右边导一导就出来了</p>
+<li><p>若 $k \ge 1$, $a$ 的系数非负，要周长最小，就是要 $a$ 小，最小会无限接近 $0$, 那么</p>
+<script type="math/tex; mode=display">
+|AB| + |AC| > \frac{(1 + k^2)^{\frac{3}{2}}}{k^2} \ge \frac{3}{2} \sqrt 3</script><p>右边导一导就出来了</p>
 </li>
-<li><p>若 $0 &lt; k &lt; 1$, $a$ 的系数为负数，要周长最小，就是要 $a$ 大，将 $a &lt; k + \frac{1}{k}$ 代入式子，得到<br>$$<br>|AB| + |AC| &gt; \left(1 - \frac{1}{k}\right) \sqrt{1 + k^2} \left(k + \frac{1}{k} \right) + \frac{(1 + k^2)^{\frac{3}{2}}}{k^2} &#x3D; \frac{(1 + \left(\frac{1}{k}\right)^2)^{\frac{3}{2}}}{\left(\frac{1}{k}\right)^2} \ge \frac{3}{2} \sqrt 3<br>$$</p>
-</li>
+<li><p>若 $0 &lt; k &lt; 1$, $a$ 的系数为负数，要周长最小，就是要 $a$ 大，将 $a &lt; k + \frac{1}{k}$ 代入式子，得到</p>
+<script type="math/tex; mode=display">
+|AB| + |AC| > \left(1 - \frac{1}{k}\right) \sqrt{1 + k^2} \left(k + \frac{1}{k} \right) + \frac{(1 + k^2)^{\frac{3}{2}}}{k^2} = \frac{(1 + \left(\frac{1}{k}\right)^2)^{\frac{3}{2}}}{\left(\frac{1}{k}\right)^2} \ge \frac{3}{2} \sqrt 3</script></li>
 </ol>
 <p>这样就能证到矩形的周长大于 $3\sqrt 3$.</p>
-<p>剩下还有一种情况，$x_B, x_C$ 在 $x_A$ 的同一侧，这种情况显然比第一种情况要周长要大，但还得证明一下。不妨设 $x_A &gt; x_B, x_A &gt; x_C$, 那就有 $a &lt; 0$ 和 $a &lt; k + \frac{1}{k}$. 矩形的半周长<br>$$<br>|AB| + |AC| &#x3D; \sqrt{1 + k^2} \cdot (-a) + \frac{\sqrt{1 + k^2}}{k} \left(k + \frac{1}{k} - a\right)&gt; \sqrt{1 + k^2} \cdot (-a) + \frac{\sqrt{1 + k^2}}{k} \left(k + \frac{1}{k} - (-a)\right)<br>$$<br>这就和前一种情况一样了，不妨设 $k &lt; 0$（不然交换 $B$ 和 $C$，不影响）那 $-a$ 的系数为正，易得 $|AB| + |AC| &gt; \frac{3}{2}\sqrt 3$.</p>
+<p>剩下还有一种情况，$x_B, x_C$ 在 $x_A$ 的同一侧，这种情况显然比第一种情况要周长要大，但还得证明一下。不妨设 $x_A &gt; x_B, x_A &gt; x_C$, 那就有 $a &lt; 0$ 和 $a &lt; k + \frac{1}{k}$. 矩形的半周长</p>
+<script type="math/tex; mode=display">
+|AB| + |AC| = \sqrt{1 + k^2} \cdot (-a) + \frac{\sqrt{1 + k^2}}{k} \left(k + \frac{1}{k} - a\right)> \sqrt{1 + k^2} \cdot (-a) + \frac{\sqrt{1 + k^2}}{k} \left(k + \frac{1}{k} - (-a)\right)</script><p>这就和前一种情况一样了，不妨设 $k &lt; 0$（不然交换 $B$ 和 $C$，不影响）那 $-a$ 的系数为正，易得 $|AB| + |AC| &gt; \frac{3}{2}\sqrt 3$.</p>
 <h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>思路上有两处是要结合图像来思考的。第一处是 $A,B,C$ 的横向位置关系，看第二种情况的图（$B, C$ 在同一侧）看着周长就很大，而且可以从 $C$ 点画一条垂线，和抛物线的交点 $B’$ 围成的新矩形显然比原来的矩形周长要小。</p>
 <p><img src="1.jpg" alt="1"></p>
 <p>第二部分，将周长表示为 $k$ 和 $x_0$ 的式子之后，为什么要换元？不难发现 $|x_B - x_C|$ 是和 $x_0$ 没有关系的。那么把 $k$ 看成常数，$PQ$ 就是固定长度为 $k + \frac{1}{k}$ 的线段，问题就转化为：把 $PQ$ 切分成两部分，一部分乘一个小系数，另一部分乘一个大系数（这两个系数都比 $1$ 大），再将它们相加，要和尽可能小。</p>
 <p><img src="2.jpg" alt="2"></p>
 <p>直觉上显然就是要短的部分乘大系数，长的部分乘小系数。那自然就是要短的部分尽可能短，短到越接近零越好。那对 $k$ 大小分类就是判断 $a$ 对应的是小系数还是大系数。如果是小系数，$a$ 就尽可能大；如果是大系数 $a$ 就尽可能小。</p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>按我这种做法，最关键的一点就是抽象出这样的几何直觉，不然光看 $k$ 和 $x_0$ 的式子，不结合具体的几何意义真的很难下手。难度除了体现在这一点之外，就算有很好的几何想法，落实到代数证明，就免不了要打各种补丁，证明自己那些直觉是有道理的，想严格证明还不是很容易。虽然考生都说数学很简单，但这道题想拿满分难度确实非常大。</p>
-<h1 id="碎碎念"><a href="#碎碎念" class="headerlink" title="碎碎念"></a>碎碎念</h1><p>21考卷压轴题送的，22年太忙没看题，今年23年压轴题实在是惊人。本来抱着”看看自己智力退化到什么程度了”心态简单看看，越陷越深，花了将近两个小时才严格（应该挺严格的吧？）证明出来，就算高中阶段也没做过这么顶的抛物线题，也算是弥补缺憾了。倒数第二题似乎和马尔可夫链有关，看上去也挺有意思，不过之后要准备考试&#x2F;夏令营，摆了不写了（）</p>
+<h1 id="碎碎念"><a href="#碎碎念" class="headerlink" title="碎碎念"></a>碎碎念</h1><p>21考卷压轴题送的，22年太忙没看题，今年23年压轴题实在是惊人。本来抱着”看看自己智力退化到什么程度了”心态简单看看，越陷越深，花了将近两个小时才严格（应该挺严格的吧？）证明出来，就算高中阶段也没做过这么顶的抛物线题，也算是弥补缺憾了。倒数第二题似乎和马尔可夫链有关，看上去也挺有意思，不过之后要准备考试/夏令营，摆了不写了（）</p>
 
     </div>
 
@@ -303,8 +313,8 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/12/29/Persvadisto%E7%9A%84%E6%97%A5%E6%96%87%E6%AD%8C%E8%AF%8D%E6%89%8B%E5%B8%90/" rel="prev" title="Persvadisto的日文歌词手帐">
-      <i class="fa fa-chevron-left"></i> Persvadisto的日文歌词手帐
+    <a href="/2023/02/22/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%AE%BA%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/" rel="prev" title="《数据库概论》知识梳理">
+      <i class="fa fa-chevron-left"></i> 《数据库概论》知识梳理
     </a></div>
       <div class="post-nav-item">
     <a href="/2023/09/22/%EF%BC%88%E8%87%AA%E7%94%A8%EF%BC%89%E6%9E%97%E6%AA%8E%E8%8F%AF%E6%86%90%E6%AD%8C%E3%80%8C%E6%AF%8D%E3%81%8C%E6%AD%8C%E3%81%84%E3%81%9F%E3%81%8B%E3%81%A3%E3%81%9F%E7%89%88%E3%80%8D%E5%BF%B5%E7%99%BD%E9%83%A8%E5%88%86%E5%90%AC%E5%86%99/" rel="next" title="林檎華憐歌「母が歌いたかった版」念白部分听写">
@@ -385,7 +395,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">afiŝoj</span>
         </a>
       </div>
@@ -439,12 +449,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Nombro da signoj en la tuta reto">144k</span>
+    <span title="Nombro da signoj en la tuta reto">173k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Tempo tuta de rigardo">2:11</span>
+    <span title="Tempo tuta de rigardo">2:37</span>
 </div>
 
         

@@ -234,14 +234,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Nombro da signoj en la artikolo: </span>
-              <span>2.9k</span>
+              <span>2.7k</span>
             </span>
             <span class="post-meta-item" title="Tempo de rigardo">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Tempo de rigardo &asymp;</span>
-              <span>3 minutoj.</span>
+              <span>2 minutoj.</span>
             </span>
             <div class="post-description">image caption领域的文章，transformer和多模态领域结合的经典之作</div>
 
@@ -255,7 +255,6 @@
 
       
         <span id="more"></span>
-
 <h4 id="一些碎碎念"><a href="#一些碎碎念" class="headerlink" title="一些碎碎念"></a>一些碎碎念</h4><p>因为各种原因一直咕咕了正好一个月，今天闲下来就先解决图片的问题，顺便分享论文的阅读笔记 φ(゜▽゜*)♪ 剩下的随缘发（</p>
 <h4 id="文章解决的问题"><a href="#文章解决的问题" class="headerlink" title="文章解决的问题"></a>文章解决的问题</h4><p>image caption需要understand and model the relationships between visual and textual elements，来生成输出序列。Transformer虽表现优异，但在图像描述上还不够好，所以作者在Transformer的基础上提出了$\mathcal{M}^2$(Meshed Transformer with Memory).</p>
 <h4 id="创新点"><a href="#创新点" class="headerlink" title="创新点"></a>创新点</h4><ul>
@@ -263,22 +262,41 @@
 <li><strong>Mesh</strong>: 句子的生成采用多层次结构，Encoder Layer和Decoder Layer之间以网络状的方式连接</li>
 </ul>
 <h4 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h4><p>COCO和nocaps</p>
-<h4 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h4><p><img src="image-20220714170152130.png"></p>
-<p>整个模型分为encoder和decoder模块，encoder负责处理输入图像的区域并设计它们之间的关系，decoder从每个encoder的输出中逐字读取并输出描述。文字和图像级特征之间的模态内和跨模态的交互都是通过scaled dot-product attention来建模的。Attention定义为：<br>$$<br>\operatorname{Attention}(  {Q},   {K},   {V}) &#x3D; \operatorname{softmax} \left(\frac{  {Q}   {K}^\top}{\sqrt{d}}\right)   {V}<br>$$<br>和Transformer里的Scaled Dot-Product Attention定义方式一致。</p>
-<h5 id="Memory-Augmented-Encoder"><a href="#Memory-Augmented-Encoder" class="headerlink" title="Memory-Augmented Encoder"></a>Memory-Augmented Encoder</h5><p>Encoder最上面这里输入的$X$是从输入图像中抽取出来的图像区域的集合。在最初的Transformer里的Self attention操作的公式如下<br>$$<br>\mathcal{S}(  {X}) &#x3D; \text{Attention}(W_q   {X}, W_k   {X}, W_v   {X})<br>$$<br>把X经过三个不同的线性变换，然后作为Attention的输入。因为self-attention难以图像不同区域之间的关系，所以为了解决这个问题，作者引入了Memory机制，用来对先验知识进行编码。定义的Memory-augmented attention如下</p>
-<p>$$<br>\mathcal{M}_{\text{mem}}(  {X}) &#x3D; \text{Attention}(W_q   {X},   {K},   {V})<br>$$<br>$$<br>{K} &#x3D; [W_k   {X},   {M}_k]<br>$$<br>$$<br>{V} &#x3D; [W_v   {X},   {M}_v]<br>$$<br>输入的不再是对$X$的三种线性变换后的$Q$，$K$，$V$，这里的$K$和$V$是拓展过的，分别被拼接上了$M_k$和$M_v$. $M_k$和$M_v$是和$X$无关的可学习参数，通过SGD来更新。这里的Memory-augmented attention也可以是多头的，扩充方式和Transformer一样。</p>
-<p>在Encoding layer，作者将记忆增强嵌入到一个类似transformer的层中。<br>$$<br>\mathcal{F}({X}_i) &#x3D; U \sigma(VX_i + b) +c<br>$$<br>$$<br>{Z} &#x3D; \text{AddNorm}(\mathcal{M}_{\text{mem}}(X))<br>$$<br>$$<br>\widetilde{  {X}}&#x3D; \text{AddNorm} (\mathcal{F}(Z))<br>$$<br>这里的F是一个FNN，将输入的每个vector线性变换，过一次ReLU，再线性变换一次。总的流程是计算X的Memory-augmented attention并AddNorm, 过一次FNN再AddNorm得到输出。对比原来的Transformer的encoder，只有Self-Attention换成了Memory-augmented attention，其他部分都是一样的。</p>
+<h4 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h4><p><img src="image-20220714170152130.png" alt></p>
+<p>整个模型分为encoder和decoder模块，encoder负责处理输入图像的区域并设计它们之间的关系，decoder从每个encoder的输出中逐字读取并输出描述。文字和图像级特征之间的模态内和跨模态的交互都是通过scaled dot-product attention来建模的。Attention定义为：</p>
+<script type="math/tex; mode=display">
+\operatorname{Attention}(  {Q},   {K},   {V}) = \operatorname{softmax} \left(\frac{  {Q}   {K}^\top}{\sqrt{d}}\right)   {V}</script><p>和Transformer里的Scaled Dot-Product Attention定义方式一致。</p>
+<h5 id="Memory-Augmented-Encoder"><a href="#Memory-Augmented-Encoder" class="headerlink" title="Memory-Augmented Encoder"></a>Memory-Augmented Encoder</h5><p>Encoder最上面这里输入的$X$是从输入图像中抽取出来的图像区域的集合。在最初的Transformer里的Self attention操作的公式如下</p>
+<script type="math/tex; mode=display">
+\mathcal{S}(  {X}) = \text{Attention}(W_q   {X}, W_k   {X}, W_v   {X})</script><p>把X经过三个不同的线性变换，然后作为Attention的输入。因为self-attention难以图像不同区域之间的关系，所以为了解决这个问题，作者引入了Memory机制，用来对先验知识进行编码。定义的Memory-augmented attention如下</p>
+<script type="math/tex; mode=display">
+\mathcal{M}_{\text{mem}}(  {X}) = \text{Attention}(W_q   {X},   {K},   {V})</script><script type="math/tex; mode=display">
+{K} = [W_k   {X},   {M}_k]</script><script type="math/tex; mode=display">
+{V} = [W_v   {X},   {M}_v]</script><p>输入的不再是对$X$的三种线性变换后的$Q$，$K$，$V$，这里的$K$和$V$是拓展过的，分别被拼接上了$M_k$和$M_v$. $M_k$和$M_v$是和$X$无关的可学习参数，通过SGD来更新。这里的Memory-augmented attention也可以是多头的，扩充方式和Transformer一样。</p>
+<p>在Encoding layer，作者将记忆增强嵌入到一个类似transformer的层中。</p>
+<script type="math/tex; mode=display">
+\mathcal{F}({X}\_i) = U \sigma(VX_i + b) +c</script><script type="math/tex; mode=display">
+{Z} = \text{AddNorm}(\mathcal{M}\_{\text{mem}}(X))</script><script type="math/tex; mode=display">
+\widetilde{  {X}}= \text{AddNorm} (\mathcal{F}(Z))</script><p>这里的F是一个FNN，将输入的每个vector线性变换，过一次ReLU，再线性变换一次。总的流程是计算X的Memory-augmented attention并AddNorm, 过一次FNN再AddNorm得到输出。对比原来的Transformer的encoder，只有Self-Attention换成了Memory-augmented attention，其他部分都是一样的。</p>
 <p>上面这是单层的layer, 把这些layer堆叠起来就是文中介绍的encoder.</p>
 <h5 id="Meshed-Decoder"><a href="#Meshed-Decoder" class="headerlink" title="Meshed Decoder"></a>Meshed Decoder</h5><p>每一个Decoder Layer都要接受所有的Encoder Layer作为输入，也就是图像的多层表示。这就是为什么说这个叫做Meshed Decoder.</p>
-<p>为了融合多层表示，作者采用了加权求和的方式，定义了一个Meshed Cross-Attention.<br>$$<br>\mathcal{M}_{\text{mesh}}(\widetilde{\mathcal{X}},{Y}) &#x3D; \sum_{i&#x3D;1}^N  {\alpha}_i \odot \mathcal{C}(\widetilde{  {X}}^i,   {Y} )<br>$$<br>$$<br>\mathcal{C}(\widetilde{  {X}}^i,   {Y} ) &#x3D; \text{Attention}(W_q   {Y}, W_k \widetilde{  {X}}^i, W_v \widetilde{  {X}}^i)<br>$$<br>这里的C是Cross-Attention, 定义方式和Transformer里的一样，然后Meshed Cross-Attention就是对Encoder的每一个Layer都做Cross-Attention, 然后再加权求和。$\alpha_i$就是权重矩阵，通过下面的公式来计算<br>$$<br>{\alpha}_i &#x3D; \sigma \left(W_i \left[  {Y}, \mathcal{C}(\widetilde{  {X}}^i,   {Y})\right] + b_i\right)<br>$$<br>$W_i$和$b_i$是可学习的矩阵和向量。整体的decoding layer如下：</p>
-<p>$$<br>{Z} &#x3D; \text{AddNorm}(\mathcal{M}_{\text{mesh}}(\widetilde{\mathcal{X}}, \text{AddNorm}(\mathcal{S}_{\text{mask}}(  {Y})))<br>$$<br>$$<br>\widetilde{  {Y}} &#x3D; \text{AddNorm} (\mathcal{F}(  {Z}))<br>$$<br>除了Mesh的部分，其他和Transformer都是一致的。</p>
+<p>为了融合多层表示，作者采用了加权求和的方式，定义了一个Meshed Cross-Attention.</p>
+<script type="math/tex; mode=display">
+\mathcal{M}\_{\text{mesh}}(\widetilde{\mathcal{X}},{Y}) = \sum\_{i=1}^N  {\alpha}\_i \odot \mathcal{C}(\widetilde{  {X}}^i,   {Y} )</script><script type="math/tex; mode=display">
+\mathcal{C}(\widetilde{  {X}}^i,   {Y} ) = \text{Attention}(W_q   {Y}, W_k \widetilde{  {X}}^i, W_v \widetilde{  {X}}^i)</script><p>这里的C是Cross-Attention, 定义方式和Transformer里的一样，然后Meshed Cross-Attention就是对Encoder的每一个Layer都做Cross-Attention, 然后再加权求和。$\alpha_i$就是权重矩阵，通过下面的公式来计算</p>
+<script type="math/tex; mode=display">
+{\alpha}_i = \sigma \left(W_i \left[  {Y}, \mathcal{C}(\widetilde{  {X}}^i,   {Y})\right] + b_i\right)</script><p>$W_i$和$b_i$是可学习的矩阵和向量。整体的decoding layer如下：</p>
+<script type="math/tex; mode=display">
+{Z} = \text{AddNorm}(\mathcal{M}\_{\text{mesh}}(\widetilde{\mathcal{X}}, \text{AddNorm}(\mathcal{S}\_{\text{mask}}(  {Y})))</script><script type="math/tex; mode=display">
+\widetilde{  {Y}} = \text{AddNorm} (\mathcal{F}(  {Z}))</script><p>除了Mesh的部分，其他和Transformer都是一致的。</p>
 <h4 id="训练方法"><a href="#训练方法" class="headerlink" title="训练方法"></a>训练方法</h4><ul>
 <li><p>使用word-level cross-entropy loss来训练</p>
 </li>
 <li><p>采用reinforcement learning对sequence generation结果进行微调</p>
 </li>
-<li><p>采用CIDEr-D作为奖励<br>$$<br>\nabla_\theta L(\theta) &#x3D; - \frac{1}{k} \sum_{i&#x3D;1}^k \left((r(w^i) - b) \nabla_\theta \log p(w^i)\right)<br>$$</p>
-</li>
+<li><p>采用CIDEr-D作为奖励</p>
+<script type="math/tex; mode=display">
+\nabla_\theta L(\theta) = - \frac{1}{k} \sum_{i=1}^k \left((r(w^i) - b) \nabla_\theta \log p(w^i)\right)</script></li>
 </ul>
 <h4 id="评价方式"><a href="#评价方式" class="headerlink" title="评价方式"></a>评价方式</h4><p>BLEU, METEOR, ROUGE, CIDEr, and SPICE.</p>
 <h4 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h4><ul>
@@ -383,7 +401,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">afiŝoj</span>
         </a>
       </div>
@@ -437,12 +455,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Nombro da signoj en la tuta reto">144k</span>
+    <span title="Nombro da signoj en la tuta reto">173k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Tempo tuta de rigardo">2:11</span>
+    <span title="Tempo tuta de rigardo">2:37</span>
 </div>
 
         

@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="eo">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=LXGW:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="《自然语言处理》期末考试周整理的内容。评价为好课">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《自然语言处理》知识梳理">
+<meta property="og:url" content="http://example.com/2024/03/13/%E3%80%8A%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/index.html">
+<meta property="og:site_name" content="Persvadisto">
+<meta property="og:description" content="《自然语言处理》期末考试周整理的内容。评价为好课">
+<meta property="og:locale">
+<meta property="og:image" content="http://example.com/2024/03/13/%E3%80%8A%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20230617155737968.png">
+<meta property="og:image" content="http://example.com/2024/03/13/%E3%80%8A%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20230617165248480.png">
+<meta property="og:image" content="http://example.com/2024/03/13/%E3%80%8A%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20230617165856874.png">
+<meta property="og:image" content="http://example.com/2024/03/13/%E3%80%8A%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20230617165932712.png">
+<meta property="og:image" content="http://example.com/2024/03/13/%E3%80%8A%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20230617170958130.png">
+<meta property="og:image" content="http://example.com/2024/03/13/%E3%80%8A%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20230617173941369.png">
+<meta property="og:image" content="http://example.com/2024/03/13/%E3%80%8A%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20230618105907916.png">
+<meta property="og:image" content="http://example.com/2024/03/13/%E3%80%8A%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20230618110245600.png">
+<meta property="og:image" content="http://example.com/2024/03/13/%E3%80%8A%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20230618111012504.png">
+<meta property="og:image" content="http://example.com/2024/03/13/%E3%80%8A%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20230618192554303.png">
+<meta property="og:image" content="http://example.com/2024/03/13/%E3%80%8A%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20230618195725068.png">
+<meta property="og:image" content="http://example.com/2024/03/13/%E3%80%8A%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20230618163453008.png">
+<meta property="og:image" content="http://example.com/2024/03/13/%E3%80%8A%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20230618164906147.png">
+<meta property="og:image" content="http://example.com/2024/03/13/%E3%80%8A%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20230618171337001.png">
+<meta property="og:image" content="http://example.com/2024/03/13/%E3%80%8A%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20230618173627085.png">
+<meta property="og:image" content="http://example.com/2024/03/13/%E3%80%8A%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20230618173708948.png">
+<meta property="og:image" content="http://example.com/2024/03/13/%E3%80%8A%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20230618180904007.png">
+<meta property="article:published_time" content="2024-03-13T11:27:28.162Z">
+<meta property="article:modified_time" content="2024-03-13T11:49:35.514Z">
+<meta property="article:author" content="Persvadisto">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2024/03/13/%E3%80%8A%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20230617155737968.png">
+
+<link rel="canonical" href="http://example.com/2024/03/13/%E3%80%8A%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'eo'
+  };
+</script>
+
+  <title>《自然语言处理》知识梳理 | Persvadisto</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Persvadisto" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Baskuligi navigacian stangon">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Persvadisto</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Ĉefpaĝo</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>Pri</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Kategorioj</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Arkivoj</a>
+
+  </li>
+        <li class="menu-item menu-item-links">
+
+    <a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>Links</a>
+
+  </li>
+        <li class="menu-item menu-item-rss">
+
+    <a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    <!-- https://cdn.jsdelivr.net/npm/sakana-widget@2.3.0/lib/sakana.min.js -->
+<!-- https://cdnjs.cloudflare.com/ajax/libs/sakana-widget/2.3.0/sakana.min.js -->
+<div id="sakana-widget" style="position:fixed;bottom:10px;right:10px;"></div>
+<script>
+  function initSakanaWidget() {
+    new SakanaWidget({character: 'takina', size:200}).mount('#sakana-widget');
+  }
+</script>
+<script
+  async
+  onload="initSakanaWidget()"
+  src="https://cdn.jsdelivr.net/npm/sakana-widget@2.3.0/lib/sakana.min.js"
+></script>
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="eo">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/13/%E3%80%8A%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Persvadisto">
+      <meta itemprop="description" content="A car car man">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Persvadisto">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          《自然语言处理》知识梳理
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Afiŝita je</span>
+              
+
+              <time title="Kreita por: 2024-03-13 19:27:28 / Modifita por: 19:49:35" itemprop="dateCreated datePublished" datetime="2024-03-13T19:27:28+08:00">2024-03-13</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">En</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">课程笔记</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Rigardoj" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Rigardoj: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="Nombro da signoj en la artikolo">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Nombro da signoj en la artikolo: </span>
+              <span>13k</span>
+            </span>
+            <span class="post-meta-item" title="Tempo de rigardo">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Tempo de rigardo &asymp;</span>
+              <span>12 minutoj.</span>
+            </span>
+            <div class="post-description">《自然语言处理》期末考试周整理的内容。评价为好课</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <span id="more"></span>
+<h2 id="Lecture-1-自然语言处理简介"><a href="#Lecture-1-自然语言处理简介" class="headerlink" title="Lecture 1 自然语言处理简介"></a>Lecture 1 自然语言处理简介</h2><p>语言的定义：</p>
+<ul>
+<li>一种由三部分组成的符号交流系统：记号，意义和两者间的对应关系</li>
+<li>由组合语法规则制约、旨在传达语义的记号形式系统</li>
+</ul>
+<p>概念：利用计算机对自然语言进行各种加工处理、信息提取及应用的技术。</p>
+<p>重要性：</p>
+<ul>
+<li>自然语言丰富多样，是人类表达思想、传递信息的重要载体。</li>
+<li>语言智能是人类智能的重要表现，语言智能被誉为人工智能皇冠上的明珠。</li>
+<li>具有重要战略地位。</li>
+</ul>
+<p>应用：</p>
+<ul>
+<li>文本分类：垃圾邮件检测、新闻分类</li>
+<li>情感分析：用户情绪感知、产品分析、舆情监控、情绪原因识别</li>
+<li>信息抽取：知识图谱、搜索引擎、对话机器人</li>
+<li>信息检索</li>
+<li>推荐系统</li>
+<li>问答系统</li>
+<li>对话系统：手机助手、智能客服</li>
+<li>文本生成：图像描述生成、文本摘要、赛事解说、剧本生成</li>
+</ul>
+<p>难点：</p>
+<ul>
+<li>无处不在的歧义</li>
+<li>语⾔表达的多样性、动态性</li>
+<li>上下文和世界知识（语言无关）的利用和处理</li>
+</ul>
+<h2 id="Lecture-2-基于规则的自然语言处理"><a href="#Lecture-2-基于规则的自然语言处理" class="headerlink" title="Lecture 2 基于规则的自然语言处理"></a>Lecture 2 基于规则的自然语言处理</h2><p>规则方法的思想：</p>
+<ul>
+<li>以规则形式表示语言知识</li>
+<li>基于规则的知识表示和推理</li>
+<li>强调人对语言知识的理性整理（知识工程）</li>
+<li>受计算语言学理论指导</li>
+<li>语言规则（数据）与程序分离，程序体现为规则语言的解释器！</li>
+</ul>
+<p>规则方法的发展脉络：</p>
+<ul>
+<li>起步发展期：人工智能诞生</li>
+<li>反思发展期：任务失败目标落空</li>
+<li>应用发展期：专家系统遍地开花，人工智能转向实用</li>
+</ul>
+<h3 id="中文分词：方法、歧义以及如何消歧"><a href="#中文分词：方法、歧义以及如何消歧" class="headerlink" title="中文分词：方法、歧义以及如何消歧"></a>中文分词：方法、歧义以及如何消歧</h3><p>分词是指根据某个分词规范，把一个“字”串划分成“词”串。</p>
+<p>分词方法：</p>
+<ul>
+<li>正向最大匹配(FMM)或逆向最大匹配(RMM)<ul>
+<li>从左至右(FMM)或从右至左(RMM)，取最长的词。</li>
+</ul>
+</li>
+<li>双向最大匹配<ul>
+<li>分别采用FMM和RMM进行分词，能发现交集型歧义；如果结果一致，则认为成功；否则，采用消歧规则进行消歧。</li>
+</ul>
+</li>
+<li>正向最大、逆向最小匹配<ul>
+<li>正向采用FMM，逆向采用最短词，能发现组合型歧义。</li>
+</ul>
+</li>
+<li>逐词遍历匹配<ul>
+<li>在全句中取最长的词，去掉之，对剩下字符串重复该过程</li>
+</ul>
+</li>
+<li>设立切分标记<ul>
+<li>收集词首字和词尾字，先把句子分成较小单位，再用某些方法切分</li>
+</ul>
+</li>
+<li>全切分<ul>
+<li>获得所有可能的切分，选择最大可能的切分</li>
+</ul>
+</li>
+</ul>
+<p>切分歧义：</p>
+<ul>
+<li>交集型歧义：ABC切分成AB/C或A/BC e.g. “和平等”</li>
+<li>组合型歧义：AB切分成AB或A/B e.g. “马上”</li>
+<li>混合型歧义：由交集型歧义和组合型歧义嵌套与交叉而成</li>
+</ul>
+<p>伪歧义与真歧义：伪歧义字段指在任何情况下只有一种切分，根据歧义字段本身就能消歧；真歧义字段指在不同的情况下有多种切分， 根据歧义字段的上下文来消歧。</p>
+<p>基于规则的歧义字段消歧方法：</p>
+<ul>
+<li>利用歧义字串、前驱字串和后继字串的句法、语义和语用信息<ul>
+<li>句法信息：一阵风吹过来，今天有阵风 根据前面是否有数词</li>
+<li>语义信息：他学会了解数学难题 难题一般是解而不是了解</li>
+<li>语用信息：乒乓球拍卖完了 根据场景、上下文确定</li>
+</ul>
+</li>
+<li>规则的粒度：<ul>
+<li>基于具体的词（个性规则）</li>
+<li>基于词类、词义类（共性规则）</li>
+</ul>
+</li>
+</ul>
+<h3 id="规则方法的优点与缺点"><a href="#规则方法的优点与缺点" class="headerlink" title="规则方法的优点与缺点"></a>规则方法的优点与缺点</h3><p>优点：</p>
+<ul>
+<li>利用人类专家总结的规则，对特定领域精确度高</li>
+<li>受到计算语言学理论指导</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>规则质量依赖于语言学家的知识和经验，获取成本高</li>
+<li>规则有限，泛化性、鲁棒性差</li>
+<li>一致性差，规则之间容易发生冲突</li>
+<li>扩充困难，大规模规则系统维护难度大</li>
+</ul>
+<h2 id="Lecture-3-语言模型和词向量"><a href="#Lecture-3-语言模型和词向量" class="headerlink" title="Lecture 3 语言模型和词向量"></a>Lecture 3 语言模型和词向量</h2><h3 id="统计语言模型的定义、参数估计、平滑以及公式推导等"><a href="#统计语言模型的定义、参数估计、平滑以及公式推导等" class="headerlink" title="统计语言模型的定义、参数估计、平滑以及公式推导等"></a>统计语言模型的定义、参数估计、平滑以及公式推导等</h3><p>语言模型是衡量一句话出现在自然语言中的概率的模型，核心在于根据前文预测下一个词出现的概率。</p>
+<p>数学形式上，给定一句话 $s = \{w_1, w_2, \cdots, w_n\}$, 对应概率为</p>
+<script type="math/tex; mode=display">
+P(s) = P(w_1, \cdots, w_n) = P(w_1)P(w_2|w_1)\cdots P(w_n|w_1,...w_{n-1}) = \prod_{i=1}^n  P(w_i | w_1, \cdots, w_{i-1})</script><p>用频率估计概率（大数定理）</p>
+<p><img src="image-20230617155737968.png" alt="image-20230617155737968"></p>
+<p>数据稀疏问题：没有足够的训练数据，对于未观测到的数据，出现零概率现象。</p>
+<p>解决办法：参数平滑。</p>
+<ul>
+<li><p>拉普拉斯平滑</p>
+<script type="math/tex; mode=display">
+\begin{align}
+P(w_i | w_1, \cdots w_{i-1}) & = P(w_i | w_{i-k}, \cdots w_{i-1}) \\
+&= \frac{P(w_{i-k}, \cdots w_{i-1}, w_i)}{P(w_{i-k}, \cdots w_{i-1})} \\
+& \approx \frac{count(w_{i-k}, \cdots w_{i-1}, w_i) \textcolor{red}{+ 1}}{count(w_{i-k}, \cdots w_{i-1}) \textcolor{red}{ +|V|}}
+\end{align}</script></li>
+<li><p>回退策略（n-gram -&gt; m-gram, n &gt; m）</p>
+<script type="math/tex; mode=display">
+\begin{align}
+P(w_i | w_1, \cdots w_{i-1}) & = P(w_i | w_{i-k}, \cdots w_{i-1}) \\
+&= \frac{P(w_{i-k}, \cdots w_{i-1}, w_i)}{P(w_{i-k}, \cdots w_{i-1})} \\
+& \approx \frac{count(w_{i-k}, \cdots w_{i-1}, w_i)}{count(w_{i-k}, \cdots w_{i-1})}\\
+& \approx \frac{count(w_{i-k\textcolor{red}{+j}}, \cdots w_{i-1}, w_i)}{count(w_{i-k\textcolor{red}{+j}}, \cdots w_{i-1})}
+\end{align}</script></li>
+</ul>
+<p>参数规模问题：随着 $k$ 的增大，参数数目是指数爆炸的，因此需要神经语言模型和好的词表示。</p>
+<p>语言模型评价方法：困惑度 (Perplexity) 用来度量一个概率分布或概率模型预测样本的好坏程度。可以用来比较两个概率模型，低困惑度的概率模型能更好地预测样本。</p>
+<script type="math/tex; mode=display">
+\text{Perplexity}(s) = P(w_1, \cdots, w_n)^{-\frac{1}{n}}</script><h3 id="离散词表示-vs-连续词表示"><a href="#离散词表示-vs-连续词表示" class="headerlink" title="离散词表示 vs 连续词表示"></a>离散词表示 vs 连续词表示</h3><p>离散词表示</p>
+<ul>
+<li><p>方法举例：</p>
+<ul>
+<li><p>One-hot 表示：当前词维度为1，其它词的维度为0</p>
+</li>
+<li><p>词频 (Term Frequency, TF)：在文档中出现频率越高的词对当前文档可能越重要</p>
+<script type="math/tex; mode=display">
+f_{ij} = \frac{count(\text{term } i) \text{ in doc }j}{count(\text{all term}) \text{ in doc }j} \\
+tf_{ij} = \frac{f_{ij}}{\max_k(f_{kj})}</script></li>
+<li><p>逆文档频率 (Inverse Document Frequency, IDF)：在很多文档中都出现的词可能不重要（如虚词）</p>
+<script type="math/tex; mode=display">
+df_i = \text{doc frequency of term }i = \text{numbers of doc containing term }i \\
+idf_i = \log_2 \frac{N}{df_i}</script></li>
+<li><p>TF-IDF：综合一个词在当前文档中的频率和所有文档中出现的次数来度量这个词对当前文档的重要性（tf 乘 idf）</p>
+</li>
+</ul>
+</li>
+<li><p>优点：<em>可解释性好，允许直接匹配，简单易用。</em></p>
+</li>
+<li><p>缺点：语义鸿沟（不同词在不同维度，很难建立联系）、维度爆炸（一个词一个维度）</p>
+</li>
+</ul>
+<p>连续词表示（分布式词表示）</p>
+<ul>
+<li>词向量（word vectors, word embeddings）：用一个低维稠密的向量表示单词的整体含义</li>
+<li>特性：<ul>
+<li>每一维不表示具体的含义，利用整体来表达含义</li>
+<li>低维：节省存储空间，节省计算空间</li>
+<li>可以度量词之词之间的语义相似性</li>
+</ul>
+</li>
+<li>核心思想：一个词的含义能被这个词所在的上下文反映</li>
+<li>方法举例：<ul>
+<li>Word2Vec: 是一套学习词向量的算法框架<ul>
+<li>算法思想：<ul>
+<li>大量的自然语言文本（训练语料）</li>
+<li>为词表中的每个词随机初始化一个向量表示</li>
+<li>遍历文本中的每个单词 𝑐，其上下文单词为 𝑜</li>
+<li>使用单词 𝑐 的上下文 𝑜 预测单词 𝑐 的概率分布（核心思想）</li>
+<li>更新词向量的表示使得单词 𝑐 的预测概率最大化</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>GloVe</li>
+</ul>
+</li>
+<li>优点：<em>低维（节省存储空间和计算时间），可以度量词之词之间的语义相似性，能够捕获上下文信息。</em></li>
+<li>缺点：<em>维度不灵活，语义歧义，难以解释，数据依赖性大。</em></li>
+</ul>
+<h3 id="CBOW-和-Skip-gram-的异同"><a href="#CBOW-和-Skip-gram-的异同" class="headerlink" title="CBOW 和 Skip-gram 的异同"></a>CBOW 和 Skip-gram 的异同</h3><p>CBOW：连续词袋模型。</p>
+<ul>
+<li>目的：获得词向量</li>
+<li>优化目标：局部语言模型 $P(w_i | w_{i-2}, w_{i-1}, w_{i+1}, w_{i+2})$</li>
+<li><img src="image-20230617165248480.png" alt="image-20230617165248480"></li>
+</ul>
+<p>相同点：</p>
+<ul>
+<li>基于核心思想：一个词的含义能被这个词所在的上下文反映</li>
+<li>目的：获得词向量</li>
+<li>优化目标：局部语言模型</li>
+<li>使用相同的训练样本</li>
+<li>使用神经网络进行训练</li>
+</ul>
+<p>不同点：</p>
+<ul>
+<li><p>连续词典模型（CBOW）利用单词 𝑐 的上下文 𝑜 预测单词 𝑐</p>
+<p><img src="image-20230617165856874.png" alt="image-20230617165856874"></p>
+</li>
+<li><p>Skip-gram 利用单词 𝑐 预测单词 𝑐 的上下文 𝑜</p>
+<p><img src="image-20230617165932712.png" alt="image-20230617165932712"></p>
+</li>
+</ul>
+<h3 id="word2vec-如何加速训练"><a href="#word2vec-如何加速训练" class="headerlink" title="word2vec 如何加速训练"></a>word2vec 如何加速训练</h3><p>以 CBOW 为例，数据似然和损失函数为</p>
+<script type="math/tex; mode=display">
+L(\theta) = \prod_{i=1}^n P(w_i|w_o; \theta)\\
+J(\theta) = -\frac{1}{n} L(\theta) = -\frac{1}{n} \prod_{i=1}^n P(w_i|w_o; \theta)</script><p>需要计算 $P(w_i|w_o;\theta)$: 度量单词 $w_i$ 和上下文 $w_o$ 的相关性。$v_o^T v_i$ 越大越相关。其中 $v_i$ 为 $w_i$ 词向量，$v_o = \frac{v_{i-k} + \cdots v_{i-1} + v_{i+1} + \cdots + v_{i+k}}{2k}$ 为上下文 $w_o$ 的词向量。故</p>
+<script type="math/tex; mode=display">
+P(w_i|w_o; \theta) = \frac{\exp(v_o^T v_i)}{\sum_{j=1}^{|V|}\exp(v_o^Tv_j)}</script><p>Softmax 的困境：上式分母的计算非常耗时，需要遍历词表中所有的词。需要通过其他方法加速训练。</p>
+<p><strong>负采样：</strong></p>
+<ul>
+<li><p>不再遍历词表中的所有词。</p>
+</li>
+<li><p>随机采样一些噪音词作为负样本，通过正样本和负样本之间的对比学习让模型知道当前位置应该是放什么词。</p>
+</li>
+<li><p><img src="image-20230617170958130.png" alt="image-20230617170958130"></p>
+</li>
+<li><p>将正样本最大化，将负样本最小化（$u$ 是另一套词向量，训练更稳定）</p>
+<script type="math/tex; mode=display">
+J(\theta) = - \log \sigma(u_o^T v_i ) - \sum_{m \in \{M \text{ sampled indices}\}} \log \sigma (-u_o^T v_m)</script></li>
+</ul>
+<p>这种加速方法可以应用到其他方法中</p>
+<h3 id="GloVe-的核心思想"><a href="#GloVe-的核心思想" class="headerlink" title="GloVe 的核心思想"></a>GloVe 的核心思想</h3><p>共现矩阵法 VS 直接学习法：</p>
+<ul>
+<li>共现矩阵：<ul>
+<li>代表方法： LSA, HAL</li>
+<li>优点：速度快、有效利用统计数据</li>
+<li>缺点：过分依赖单词共现性和数据量</li>
+</ul>
+</li>
+<li>直接学习：<ul>
+<li>代表方法： Skip-gram/CBOW</li>
+<li>优点：能捕获语法和语义信息</li>
+<li>缺点：速度和数据规模相关、未有效利用统计数据</li>
+</ul>
+</li>
+</ul>
+<p>GLOVE：集两家之长</p>
+<ul>
+<li><p>共现概率矩阵 $X_{ij}$</p>
+</li>
+<li><p>单词 $w_i, w_j$ 的词向量 $v_i, v_j$.</p>
+</li>
+<li><p><strong>核心思想：以学习的方式，用词向量之间的语义关系来拟合共现概率矩阵</strong></p>
+<script type="math/tex; mode=display">
+J = \sum_{i,j=1}^{|V|} f(X_{ij}) (v_i^T v_j + b_i + b_j - \log X_{ij})^2</script></li>
+</ul>
+<h2 id="Lecture-4-神经网络和语言模型"><a href="#Lecture-4-神经网络和语言模型" class="headerlink" title="Lecture 4 神经网络和语言模型"></a>Lecture 4 神经网络和语言模型</h2><h3 id="深层网络的问题以及如何理解"><a href="#深层网络的问题以及如何理解" class="headerlink" title="深层网络的问题以及如何理解"></a>深层网络的问题以及如何理解</h3><p>RNN：梯度爆炸、梯度消失</p>
+<p><img src="image-20230617173941369.png" alt="image-20230617173941369"></p>
+<ul>
+<li>深层网络比一般神经网络更容易产生梯度问题：梯度连乘后容易接近0（消失）或者爆炸。</li>
+<li>梯度消失常用解决方案：ReLU, 残差连接…</li>
+<li>梯度爆炸常用解决方案：梯度裁剪（Clipping）</li>
+</ul>
+<h2 id="Lecture-5-高级神经网络和预训练模型"><a href="#Lecture-5-高级神经网络和预训练模型" class="headerlink" title="Lecture 5 高级神经网络和预训练模型"></a>Lecture 5 高级神经网络和预训练模型</h2><h3 id="注意力机制的设计目标与应用领域"><a href="#注意力机制的设计目标与应用领域" class="headerlink" title="注意力机制的设计目标与应用领域"></a>注意力机制的设计目标与应用领域</h3><p><strong>Attention Mechanism 设计目标：目标端解码时，直接从源端句子捕获对当前解码有帮助的信息，从而生成更相关、更准确的解码结果。</strong></p>
+<p>优点：</p>
+<ul>
+<li>缓解 RNN 中的信息瓶颈问题</li>
+<li>缓解长距离依赖问题</li>
+<li>具有一定的可解释性</li>
+</ul>
+<p>应用领域：</p>
+<ul>
+<li>文本分类：帮助模型关注并捕捉与分类任务相关的关键词或短语</li>
+<li>文本摘要：帮助模型确定哪些部分的文本是重要的，以生成准确而具有信息量的摘要。</li>
+<li>视觉问答：将注意力集中在与问题相关的图像区域上，从而生成准确的回答。</li>
+<li>语音识别：用于将语音信号与对应的文本进行对齐。</li>
+</ul>
+<h3 id="Transformer-网络"><a href="#Transformer-网络" class="headerlink" title="Transformer 网络"></a>Transformer 网络</h3><blockquote>
+<p>组件、设计原理，尤其是 position embedding</p>
+</blockquote>
+<p>Transformer 总体架构：一个基于 attention 机制的编码器，一个基于 attention 机制的解码器。</p>
+<p><img src="image-20230618105907916.png" alt="image-20230618105907916"></p>
+<p>位置编码</p>
+<ul>
+<li><strong>为什么需要？注意力计算是加权和，无法考虑相对位置关系。</strong></li>
+<li>将位置编码 $p_i$ 注入到输入编码中 $x_i = x_i + p_i$</li>
+<li>两种表示：<ul>
+<li>三角函数表示：直接根据正余弦函数计算位置编码，不需要从头学习，直接计算得出。</li>
+<li>从头学习：随机初始化位置编码 $p_i$，并跟随网络一起训练，能更好地拟合数据</li>
+</ul>
+</li>
+</ul>
+<p>自注意力机制</p>
+<p><img src="image-20230618110245600.png" alt="image-20230618110245600"></p>
+<p>多头自注意力机制</p>
+<ul>
+<li><p>并行地计算多个自注意力过程，并拼接输出结果</p>
+</li>
+<li><script type="math/tex; mode=display">
+O_i = \text{softmax} \left(\frac{Q_i K_i^T}{\sqrt d_k}\right) V_i \\
+O = [O_1, \cdots, O_M]</script></li>
+<li><p><em>Multi-head 可以在更细致的层面上提取不同 head 的特征，总体计算两和单一 head 相同的情况下，提取特征的效果更佳。</em></p>
+</li>
+</ul>
+<p>残差连接</p>
+<ul>
+<li><p>将浅层网络和深层网络相连，有利于梯度回传</p>
+</li>
+<li><p>使深处网络的训练变得更加容易</p>
+</li>
+<li><script type="math/tex; mode=display">
+X^l = \text{MultiHeadAttn} (X^{l-1}) + X^{l-1}</script></li>
+</ul>
+<p>层正则</p>
+<ul>
+<li>对输入进行标准化（减均值除以方差）</li>
+<li>加速收敛，提升模型训练的稳定性</li>
+</ul>
+<p>前馈网络</p>
+<ul>
+<li><p>两层前馈神经网络</p>
+</li>
+<li><script type="math/tex; mode=display">
+\text{FFN}(X) = \max (0, XW_1 + b_1) W_2 + b_2</script></li>
+<li><p><em>单纯的多头注意力机制不足以提取到理想的特征，因此增加全连接层来提升网络的能力</em></p>
+</li>
+</ul>
+<p>Transformer 解码器</p>
+<p><img src="image-20230618111012504.png" alt="image-20230618111012504"></p>
+<h3 id="序列到序列问题实际建模"><a href="#序列到序列问题实际建模" class="headerlink" title="序列到序列问题实际建模"></a>序列到序列问题实际建模</h3><blockquote>
+<p>面对一个实际问题。深度学习怎么建模，参数怎么估计，怎么预测。很多问题都可以转成成序列到序列的一个自然语言处理问题，比如<strong>分类其实也可以视为序列到序列的问题</strong>，目标序列它只有一个字符，就是我们要分类的那个token.</p>
+</blockquote>
+<h2 id="Lecture-6-文本分类"><a href="#Lecture-6-文本分类" class="headerlink" title="Lecture 6 文本分类"></a>Lecture 6 文本分类</h2><h3 id="朴素贝叶斯概念及其计算"><a href="#朴素贝叶斯概念及其计算" class="headerlink" title="朴素贝叶斯概念及其计算"></a>朴素贝叶斯概念及其计算</h3><p>朴素贝叶斯模型 (NAÏVE BAYES)</p>
+<ul>
+<li>一个概率模型</li>
+<li>一个生成式模型</li>
+<li>具有”朴素“假设<ul>
+<li>特征之间相互独立，即任意两个词出现的概率互不影响。</li>
+</ul>
+</li>
+<li>适用于离散分布</li>
+<li>广泛应用于文本分类、自然语言处理和模式识别</li>
+</ul>
+<script type="math/tex; mode=display">
+\mathop{\arg\!\max}_{y}\, P(y|x) = \mathop{\arg\!\max}_{y}\, P(x, y) = \mathop{\arg\!\max}_{y}\, P(x|y) P(y) = \mathop{\arg\!\max}_{y}\, P(y) \prod_{i=1}
+^n P(w_i|y)</script><ul>
+<li>$P(w_i|y)$ 的计算和具体的概率文档表示模型有关：伯努利文档模型、多项式文档模型</li>
+</ul>
+<h4 id="伯努利文档模型"><a href="#伯努利文档模型" class="headerlink" title="伯努利文档模型"></a>伯努利文档模型</h4><ul>
+<li><p>表示文本时只考虑单词是否出现，<strong>不考虑出现次数</strong></p>
+</li>
+<li><p>符号定义</p>
+<ul>
+<li>$d_t$ 表示单词 $w_t$ 是否在文本 $x$ 中出现，出现则为1，不出现则为0.</li>
+<li>$N$: 数据集 $D$ 中的文档总数</li>
+<li>$N_k$: 数据集 $D$ 中标签为 $c_k$ 的文档总数</li>
+<li>$n_k(w_t)$: 标签为 $c_k$ 的文档中，包含单词 $w_t$ 的文档数目</li>
+</ul>
+</li>
+<li><script type="math/tex; mode=display">
+P(x, c_k) = P(c_k) \prod_{t=1}^{|V|} (d_t P(w_t | c_k) + (1-d_t)(1-P(w_t|c_k))) \\
+\hat P(w_t | c_k) = \frac{n_k(w_t)}{N_k}, \quad\hat P(c_k) = \frac{N_k}{N} \\
+\mathop{\arg\!\max}_{c_k} \, P(c_k|x) = \mathop{\arg\!\max}_{c_k} \, P(c_k) \prod_{t=1}^{|V|} (d_t P(w_t | c_k) + (1-d_t)(1-P(w_t|c_k)))</script></li>
+<li><p>零概率（拉普拉斯平滑）</p>
+<script type="math/tex; mode=display">
+\hat P(w_t | c_k) = \frac{n_k(w_t) + 1}{N_k + 2}, \quad\hat P(c_k) = \frac{N_k + 1}{N + |Y|}</script></li>
+</ul>
+<p><img src="image-20230618192554303.png" alt="image-20230618192554303"></p>
+<h4 id="多项式文档模型"><a href="#多项式文档模型" class="headerlink" title="多项式文档模型"></a>多项式文档模型</h4><ul>
+<li><p>考虑了词频对文本分类的重要性</p>
+</li>
+<li><p>符号定义</p>
+<ul>
+<li>$N$: 数据集 $D$ 中的文档总数</li>
+<li>$N_k$: 数据集 $D$ 中标签为 $c_k$ 的文档总数</li>
+<li>$n_{it}$: 单词 $w_t$ 在第 $i$ 个文档中出现的次数</li>
+<li>$n_i$: 第 $i$ 个文档包含的总单词数</li>
+<li>$z_{ik}$: 如果第 $i$ 个文档的标签为 $c_k$, 则 $z_{ik} = 1$ 否则 $z_{ik}=0$.</li>
+</ul>
+</li>
+<li><script type="math/tex; mode=display">
+P(x, c_k) = P(c_k) \frac{n_i!}{\prod_{t=1}^{|V|} n_{it}!} \prod_{t=1}^{|V|} P(w_t | c_k)^{n_{it}} \\
+\hat P(w_t | c_k) = \frac{\sum_{i=1}^N n_{it} z_{ik}}{\sum_{j=1}^{|V|} \sum_{i=1}^N n_{ij} z_{ik}}, \quad\hat P(c_k) = \frac{N_k}{N} \\
+\mathop{\arg\!\max}_{c_k} \, P(c_k|x) = \mathop{\arg\!\max}_{c_k} \, P(c_k) \prod_{t=1}^{|V|} P(w_t | c_k)^{n_{it}} \\</script></li>
+<li><p>零概率（拉普拉斯平滑）</p>
+<script type="math/tex; mode=display">
+\hat P(w_t | c_k) = \frac{n_k(w_t) + 1}{N_k + |V|}, \quad\hat P(c_k) = \frac{N_k + 1}{N + |Y|}</script></li>
+<li></li>
+</ul>
+<p><img src="image-20230618195725068.png" alt="image-20230618195725068"></p>
+<h3 id="Logistic-回归、softmax-回归等概念与之相关计算"><a href="#Logistic-回归、softmax-回归等概念与之相关计算" class="headerlink" title="Logistic 回归、softmax 回归等概念与之相关计算"></a>Logistic 回归、softmax 回归等概念与之相关计算</h3><p>Logistic 回归</p>
+<ul>
+<li><p>逻辑回归是一种二分类模型</p>
+</li>
+<li><p>逻辑回归是一种线性分类模型</p>
+</li>
+<li><p>用一个非线性激活函数（Sigmoid函数）来模拟后验概率</p>
+</li>
+<li><script type="math/tex; mode=display">
+P(y|x) = \left(\frac{1}{1+e^{-\omega^T v}}\right)^y \left(1 - \frac{1}{1+e^{-\omega^T v}}\right)^{1-y} \\
+L = \prod_{i=1}^N P(y_i|x_i) = \prod_{i=1}^N \left(\frac{1}{1+e^{-\omega^T v_i}}\right)^{y_i} \left(1 - \frac{1}{1+e^{-\omega^T v_i}}\right)^{1-y_i}</script></li>
+</ul>
+<p>Softmax 回归</p>
+<ul>
+<li><p>Softmax 回归是一种多分类模型，也叫做多分类逻辑回归</p>
+</li>
+<li><p>在 NLP 中，也被称做最大熵模型</p>
+</li>
+<li><p>一种经常使用的分类算法</p>
+</li>
+<li><script type="math/tex; mode=display">
+P(j|x) = \textcolor \red \exp h_j(x) = \frac{e^{\omega_j^Tv}}{\sum_{k=1}^m e^{\omega_k^Tv}} \\
+\hat y = \mathop{\arg\!\max}_{j \in \{c_1, \cdots c_m\}}\, P(j | x) \\
+L = \prod_{i=1}^N P(y_i|x_i) = \prod_{i=1}^N \frac{e^{\omega_{y_i}^Tv_i}}{\sum_{k=1}^m e^{\omega_k^Tv_i}} \\
+\mathcal L = -\frac{1}{N} \log L = -\frac{1}{N} \sum_{i=1}^N \log \frac{e^{\omega_{y_i}^Tv_i}}{\sum_{k=1}^m e^{\omega_k^Tv_i}} = -\frac{1}{N} \sum_{i=1}^N h_{y_i}(x_i) \\
+\frac{\partial \mathcal L}{\partial \omega_t} = -\frac{1}{N} \frac{\partial \sum_{i=1}^N h_{y_i}(x_i)}{\partial \omega_t}
+= \begin{cases}
+-\frac{1}{N} \sum_{i=1}^N (1 - h_t(x_i)) v_i, & t = y_i \\
+\frac{1}{N} \sum_{i=1}^N (h_t(x_i)) v_i, & t \neq y_i 
+\end{cases}\\
+\frac{\partial \mathcal L}{\partial \omega_t} = -\frac{1}{N} \sum_{i=1}^N\left(\mathbb I (t = y_i) - h_t(x_i)\right)v_i</script></li>
+<li></li>
+</ul>
+<h2 id="Lecture-7-序列化标注"><a href="#Lecture-7-序列化标注" class="headerlink" title="Lecture 7 序列化标注"></a>Lecture 7 序列化标注</h2><ul>
+<li><p>定义：给定一个观测序列作为输入，输出是一个标记序列或状态序列。</p>
+</li>
+<li><p>目标：建立一个模型，使它能够对观测序列给出对应的标记序列。</p>
+</li>
+<li><p>♀ 标注：给定句子 $X$，求句子对应的词性序列 $Y$</p>
+<script type="math/tex; mode=display">
+\mathop{\arg\!\max}_Y\, P(Y|X) = \mathop{\arg\!\max}_Y\, P(Y)P(X|Y) \\
+P(\text{名词 动词 动词 名词 }| \text{ 我 喜欢 画 画}) \propto P(\text{名词 动词 动词 名词}) P( \text{我 喜欢 画 画 } | \text{ 名词 动词 动词 名词})</script></li>
+</ul>
+<h3 id="隐马尔可夫概念及其计算"><a href="#隐马尔可夫概念及其计算" class="headerlink" title="隐马尔可夫概念及其计算"></a>隐马尔可夫概念及其计算</h3><blockquote>
+<p>概念、参数估计、如何优化</p>
+</blockquote>
+<p>马尔可夫链：描述在状态空间中，从一个状态到另一个状态转换的随机过程。</p>
+<p>马尔科夫假设：马尔可夫链在任意时刻 $t$ 的状态只依赖于它在前一时刻的状态，与其他时刻的状态无关。</p>
+<p>HMM 是一阶马尔可夫链的扩展</p>
+<ul>
+<li><p>状态序列不可见（隐藏）</p>
+</li>
+<li><p>隐藏的状态序列满足一阶马尔可夫链性质</p>
+</li>
+<li><p>可见的观察值与隐藏的状态之间存在概率关系</p>
+</li>
+<li><p>序列化标注的统计学模型。</p>
+<ul>
+<li>描述了由隐马尔可夫链随机生成观测序列的过程，属于生成模型。</li>
+</ul>
+</li>
+<li><p>时序概率模型</p>
+<ul>
+<li>描述由一个隐藏的马尔可夫链随机生成不可观测的状态随机序列，再由各个状态生成一个观测值，从而产生观测序列的过程。</li>
+</ul>
+</li>
+<li><p>计算 $P(Y)$</p>
+<script type="math/tex; mode=display">
+P(Y) = P(y_1, \cdots, y_n) = \prod_{t=1}^n P(y_t | y_1, \cdots, y_{t-1}) = \prod_{t=1}^n P(y_t | y_{t-1})</script></li>
+<li><p>计算 $P(X|Y)$</p>
+<script type="math/tex; mode=display">
+P(X|Y) = P(x_1, \cdots, x_n | y_1, \cdots y_n) = \prod_{t=1}^n P(x_t|x_1, y_1, \cdots, x_{t-1}, y_{t-1}, y_t) = \prod_{t=1}^n P(x_t|y_t)</script></li>
+<li><p>计算 $P(Y, X)$</p>
+<script type="math/tex; mode=display">
+P(Y, X) = P(Y) P(X|Y) = \prod_{t=1}^n P(y_t | y_{t-1}) P(x_t|y_t)</script></li>
+</ul>
+<p>HMM 的三组参数：$\lambda = (A, B, \pi)$.</p>
+<ul>
+<li><p>状态集合 ℚ：预先定义的词性标签集</p>
+</li>
+<li><p>观测值集合 𝕍：词表集合</p>
+</li>
+<li><p>状态转移概率：词性之间的转移概率</p>
+<script type="math/tex; mode=display">
+A = [a_{ij}]_{Q \times Q}, \quad a_{ij} = P(y_{t+1} = q_j | y_t = q_i), \quad 1 \le i, j \le Q</script></li>
+<li><p>输出观测概率（发射概率）：某个词性生成某个词的概率</p>
+<script type="math/tex; mode=display">
+B = [b_{j}(k)]_{Q \times V}, \quad b_{j}(k) = P(x_{t} = v_k | y_t = q_j), \quad 1 \le j \le Q, 1 \le k \le V</script></li>
+<li><p>初始状态概率：以某个词性作为开始状态的概率</p>
+<script type="math/tex; mode=display">
+\pi = [\pi_1, \pi_2, \cdots, \pi_Q], \quad \pi_i = P(y_1 = q_i), \quad 1 \le i \le Q</script></li>
+</ul>
+<p>HMM中的三类问题</p>
+<ul>
+<li>概率计算：给定 HMM 模型 $\lambda = (A, B, \pi)$ 和观测序列 $X = (x_1, x_2, \cdots, x_n)$, 计算观测序列 $X$ 出现的概率 $P(X|\lambda)$.</li>
+<li>模型学习（参数估计）：已知观测序列 $X = (x_1, x_2, \cdots, x_n)$, 估计 HMM 模型 $\lambda = (A, B, \pi)$ 的参数，使得该模型下观测序列的概率 $P(X|\lambda)$ 最大。</li>
+<li>预测（解码）：已知 HMM 模型 $\lambda = (A, B, \pi)$ 和观测序列 $X = (x_1, x_2, \cdots, x_n)$，求该观测序列对应的最可能的状态序列 $Y = (y_1, y_2, \cdots, y_n)$.</li>
+</ul>
+<p>概率计算</p>
+<ul>
+<li><p>直接计算法：枚举所有长度为 $n$ 的状态序列，计算它们生成观测序列的概率并求和</p>
+<script type="math/tex; mode=display">
+P(X|\lambda) = \sum_{y_1, y_2, \cdots, y_n} \pi_{y_1} \prod _{t=1}^n a_{y_t, y_{t+1}} b_{y_t} (x_t)</script></li>
+<li><p>前向算法：定义前向概率 $\alpha_t(i) = P(x_1, x_2, \cdots, x_t, y_t = q_i | \lambda)$</p>
+<script type="math/tex; mode=display">
+\alpha_1(i) = \pi_i b_i (x_1), \quad i = 1, 2, \cdots, Q \\
+\alpha_t(i) = \left[\sum_{j=1}^Q \alpha_{t-1}(j)a_{j, i}\right] b_i(x_t), \quad i = 1, 2, \cdots, Q,\quad t = 2, \cdots, n \\
+P(X|\lambda) = \sum_{i=1}^Q \alpha_n(i), \quad i = 1 , 2, \cdots , Q</script></li>
+<li><p>后向算法：定义后向概率 $\beta_t(i) = P(x_{t+1}, x_{t+2}, \cdots, x_n| y_t = q_i, \lambda)$</p>
+<script type="math/tex; mode=display">
+\beta_n(i) = 1, \quad i = 1, 2, \cdots, Q \\
+\beta_t(i) = \sum_{j=1}^Q a_{i, j} b_{j}(x_{t+1}) \beta_{t+1}(j), \quad i = 1, 2, \cdots, Q, \quad t = n, n-1, \cdots, 1 \\
+P(X|\lambda) = \sum_{i=1}^Q \pi_i \beta_1(i) b_i (x_1), \quad i = 1, 2, \cdots, Q</script></li>
+</ul>
+<p>模型学习（参数估计）</p>
+<ul>
+<li>监督学习：训练数据包括观测序列和对应的状态序列，通过监督学习来学习隐马尔可夫模型。</li>
+<li>无监督学习：训练数据仅包括观测序列，通过无监督学习来学习隐马尔可夫模型。</li>
+</ul>
+<p>预测（解码）</p>
+<ul>
+<li><p>计算目标：</p>
+<script type="math/tex; mode=display">
+\mathop{\arg\!\max}_{y_1, y_2, \cdots, y_n} \, P(y_1, y_2, \cdots, x_1, x_2, \cdots, x_n) = \mathop{\arg\!\max}_{y_1, y_2, \cdots, y_n} \, \pi_{y_1} \prod_{t=1}^n a_{y_t, y_{t+1}} b_{y_t} (x_t)</script></li>
+<li><p>维特比算法：p407-p410</p>
+</li>
+</ul>
+<h2 id="Lecture-8-句法分析"><a href="#Lecture-8-句法分析" class="headerlink" title="Lecture 8 句法分析"></a>Lecture 8 句法分析</h2><h3 id="句法分析"><a href="#句法分析" class="headerlink" title="句法分析"></a>句法分析</h3><p>句法：一门语言里支配句子结构，决定词、短语、从句等句子成分如何组成其上级成分，直到组成句子的规则或过程。</p>
+<p>句法分析：确定句子的组成。词、短语以及它们之间的关系。</p>
+<p>句法分析类型</p>
+<ul>
+<li><p><strong>成分句法分析</strong>：研究词如何构成短语、短语如何构成句子。</p>
+<ul>
+<li><pre><code class="lang-json">(S (NP (NNP John)) (VP (VBD ate) (NP (DT the) (NN apple))))
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p><strong>依存句法分析</strong>：研究词之间的依赖（或支配）关系。</p>
+<ul>
+<li>依存是有向的：词与词之间的依赖关系是二元不对称的 (“箭头”)， “箭头”头部指向的词依赖“箭头”尾部指向的词（称为依存头）</li>
+<li>依存边是有类型的：表明两个词之间的依赖关系类型，如主语 (sub)、宾语 (obj)等</li>
+<li>每个词只有一个依存头：没有环，依存关系是树结构</li>
+</ul>
+</li>
+</ul>
+<h3 id="CKY-计算"><a href="#CKY-计算" class="headerlink" title="CKY 计算"></a>CKY 计算</h3><p>自底向上的动态规划算法。由句子（带词性）和文法 $G$ 计算句法树。</p>
+<p><img src="image-20230618163453008.png" alt="image-20230618163453008"></p>
+<ul>
+<li>动态规划：将分析中间结果存放在表中，减少重复计算</li>
+<li>复杂度 $O(n^3|G|)$.</li>
+<li>算法前提：上下文无关文法CFG转换为乔姆斯基范式CNF</li>
+<li>歧义问题</li>
+</ul>
+<h3 id="PCFG-计算"><a href="#PCFG-计算" class="headerlink" title="PCFG 计算"></a>PCFG 计算</h3><p>PCFG 一般由五元组构成 $G = (N, T, S, R, P)$</p>
+<ul>
+<li>$N, T, S, R$ 定义同 CFG</li>
+<li>$P(X \to Y_1 Y_2 \cdots Y_n)$：产生式对应的概率</li>
+<li>利用 PCFG 计算一棵句法树 $t$ 的概率（用到的每条规则的概率之乘积）</li>
+</ul>
+<p><img src="image-20230618164906147.png" alt="image-20230618164906147"></p>
+<h2 id="Lecture-9-机器翻译"><a href="#Lecture-9-机器翻译" class="headerlink" title="Lecture 9 机器翻译"></a>Lecture 9 机器翻译</h2><h3 id="机器翻译的思想、深度学习建模"><a href="#机器翻译的思想、深度学习建模" class="headerlink" title="机器翻译的思想、深度学习建模"></a>机器翻译的思想、深度学习建模</h3><p>机器翻译（Machine Translation）是一个将源语言的句子 $x$ 翻译成目标语言句子 $y$（译文）的任务。</p>
+<ul>
+<li>理性主义：以生成语言学为基础，依靠人类先验知识<ul>
+<li>基于规则的机器翻译</li>
+</ul>
+</li>
+<li>经验主义：以数据驱动为基础，从数据中学习经验和知识<ul>
+<li>基于实例的机器翻译</li>
+<li>统计机器翻译</li>
+<li>神经机器翻译</li>
+</ul>
+</li>
+</ul>
+<p>神经机器翻译（Neural Machine Translation）：用端到端（end-to-end）的神经网络来建模机器翻译任务。</p>
+<p>编码器-解码器框架（Encoder-decoder）</p>
+<ul>
+<li>Seq2Seq</li>
+<li>编码器（encoder）：用来编码源语言的输入</li>
+<li>解码器（decoder）：用来生成目标语言的输出</li>
+</ul>
+<h3 id="贪心解码与柱搜索"><a href="#贪心解码与柱搜索" class="headerlink" title="贪心解码与柱搜索"></a>贪心解码与柱搜索</h3><p>贪心解码： 解码时，每个时刻从解码器取出概率最大的词（argmax）作为预测结果。</p>
+<p>贪心解码的问题：某一时刻的错误翻译会影响后续所有翻译，因此不一定能解码出全局最佳（译文概率最大）的译文。</p>
+<p>枚举解码：枚举所有的翻译结果 $y$, 复杂度 $O(V^T)$ 极其耗时。</p>
+<p>柱搜索解码：</p>
+<ul>
+<li>在贪心搜索基础上扩大搜索空间，从而更有可能解码出全局最优的译文（贪心和枚举的折中）</li>
+<li>核心思想：在 $t$ 时刻，保留 $k$ 个概率最大的翻译结果（$k$ 为 beam size）<ul>
+<li>相比于枚举，极大提高搜索效率</li>
+<li>并不能保证一定解码出最优的译文</li>
+</ul>
+</li>
+</ul>
+<p><img src="image-20230618171337001.png" alt="image-20230618171337001"></p>
+<h3 id="BLEU-的定义、计算、存在的问题"><a href="#BLEU-的定义、计算、存在的问题" class="headerlink" title="BLEU 的定义、计算、存在的问题"></a>BLEU 的定义、计算、存在的问题</h3><p>BLEU 的定义</p>
+<ul>
+<li>一种衡量机器翻译质量的自动评估指标。</li>
+<li>统计机器翻译译文与参考译文中 $n$ 元文法匹配的数目占系统译文中所有 $n$ 元文法总数的比例，即 $n$ 元文法的精确率。</li>
+</ul>
+<p>BLEU 的计算</p>
+<ul>
+<li><p>符号定义：</p>
+<ul>
+<li>$y^*$: 源语言句子  $x$ 对应的机器翻译译文</li>
+<li>$(y_1, \cdots, y_M)$: $M$ 个人工参考译文</li>
+<li>$count_{match}(ngram)$: 某 ngram 片段在 $y^*$ 和$(y_1, \cdots, y_M)$ 中共同出现的最大次数。（比如爱在译文中出现4次，参考译文1中出现1次，在2中出现2次，共同出现的最大次数为2）</li>
+<li>$count(ngram)$: ngram 片段在 $y^*$ 中出现的次数</li>
+</ul>
+</li>
+<li><p>频数统计</p>
+<p><img src="image-20230618173627085.png" alt="image-20230618173627085"></p>
+</li>
+<li><p>计算所有 ngram 的精确率 $p_n$</p>
+<p><img src="image-20230618173708948.png" alt="image-20230618173708948"></p>
+</li>
+<li><p>引入长度惩罚因子 $BP$, 对过短的译文进行惩罚</p>
+<ul>
+<li><p>$c$: 测试语料中每个源语言句子对应的系统译文 $y^*$ 的长度之和</p>
+</li>
+<li><p>$r$: 测试语料中每个源语言句子对应的多个参考译文 $(y_1, \cdots, y_n)$ 中最短译文或者与 $y^*$ 长度最接近的参考译文的长度之和</p>
+<script type="math/tex; mode=display">
+BP = \begin{cases} 1, & c >r \\ e^{1 - \frac{r}{c}}, & c \le r \end{cases}</script></li>
+</ul>
+</li>
+<li><p>综合 ngram 匹配精确率和长度惩罚因子，BLEU评分公式为</p>
+<script type="math/tex; mode=display">
+BLEU = BP \times \prod_{n=1}^4 p_n^{w_n} = BP \times \exp\left(\sum_{n=1}^4 w_n \log p_n\right)</script></li>
+</ul>
+<p>BLEU 的优缺点</p>
+<ul>
+<li>优点：自动评估，能够从 ngram 角度评估翻译质量</li>
+<li>缺点：无法从语义层面度量翻译质量</li>
+</ul>
+<h2 id="Lecture-10-自然语言处理范式演进"><a href="#Lecture-10-自然语言处理范式演进" class="headerlink" title="Lecture 10 自然语言处理范式演进"></a>Lecture 10 自然语言处理范式演进</h2><h3 id="Prompt-的核心思想"><a href="#Prompt-的核心思想" class="headerlink" title="Prompt 的核心思想"></a>Prompt 的核心思想</h3><p>深度学习范式：预训练 + 提示 + 预测</p>
+<ul>
+<li>预训练：从海量无标记文本中学习语法和语义知识</li>
+<li>提示：设计 prompt，将下游任务转换成语言模型进行训练</li>
+<li>预测：利用预训练语言模型对下游任务进行预测</li>
+</ul>
+<p>Prompt 定义：Prompt 是一种通过向输入文本添加额外的提示文本，从而更好地利用预训练模型知识的技术。</p>
+<p>Prompt 工作流</p>
+<ul>
+<li>Prompt 工程：设计合适的 prompt (提示文本)，将下游任务转换为对应的语言模型任务</li>
+<li>Answer 工程：设计对应的单词-标签映射，将上述语言模型预测出来的词映射到对应的类别空间</li>
+</ul>
+<p>核心思想：<em>通过在输入文本中插入一个明确的提示或指导信息，以指导模型产生更准确、一致的输出。</em></p>
+<p>为什么能 work: <em>prompt 可以看做是对预训练语言模型中已经记忆的知识的一种检索方式，由于 prompt 任务形式就是预训练任务，所以相比于 fine-tuning，当使用 prompt 形式向模型中输入样本时，预测时得到了“提示”，能够更好地抽取预训练阶段学到的信息。</em></p>
+<h3 id="Prompt-设计题"><a href="#Prompt-设计题" class="headerlink" title="Prompt 设计题"></a>Prompt 设计题</h3><p><img src="image-20230618180904007.png" alt="image-20230618180904007"></p>
+<h3 id="Prompt-Learning-amp-Instruction-Learning"><a href="#Prompt-Learning-amp-Instruction-Learning" class="headerlink" title="Prompt Learning &amp; Instruction Learning"></a>Prompt Learning &amp; Instruction Learning</h3><blockquote>
+<p>区别与联系</p>
+</blockquote>
+<p>指令学习 (Instruction Tuning)</p>
+<ul>
+<li>构造各种不同任务的指令描述</li>
+<li>人工标注或半自动构造若干任务的提示样本和答案，参与模型再训练 (有监督训练)；数据量百万级规模</li>
+<li>更好地激活了模型理解用户意图（任务）能力；增强了任务本身的泛化能力(小样本/零样本的能力)</li>
+<li>样例：请帮我翻译… 请润色… 请提取… 请总结…</li>
+</ul>
+<p><em>指示学习和提示学习的目的都是去挖掘语言模型本身具备的知识。不同的是 Prompt 是激发语言模型的补全能力，例如根据上半句生成下半句，或是完形填空等。Instruct 是激发语言模型的理解能力，它通过给出更明显的指令，让模型去做出正确的行动。指示学习的优点是它经过多任务的微调后，也能够在其他任务上做 zero-shot，而提示学习都是针对一个任务的。泛化能力不如指示学习。</em></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/12/04/202312%20JLPT%20N1%20%E4%BD%93%E9%AA%8C%E5%AF%84%E5%BD%95/" rel="prev" title="202312 JLPT N1 体验寄录">
+      <i class="fa fa-chevron-left"></i> 202312 JLPT N1 体验寄录
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Enhavtabelo
+        </li>
+        <li class="sidebar-nav-overview">
+          Superrigardo
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Lecture-1-%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E7%AE%80%E4%BB%8B"><span class="nav-text">Lecture 1 自然语言处理简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lecture-2-%E5%9F%BA%E4%BA%8E%E8%A7%84%E5%88%99%E7%9A%84%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86"><span class="nav-text">Lecture 2 基于规则的自然语言处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%AD%E6%96%87%E5%88%86%E8%AF%8D%EF%BC%9A%E6%96%B9%E6%B3%95%E3%80%81%E6%AD%A7%E4%B9%89%E4%BB%A5%E5%8F%8A%E5%A6%82%E4%BD%95%E6%B6%88%E6%AD%A7"><span class="nav-text">中文分词：方法、歧义以及如何消歧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%84%E5%88%99%E6%96%B9%E6%B3%95%E7%9A%84%E4%BC%98%E7%82%B9%E4%B8%8E%E7%BC%BA%E7%82%B9"><span class="nav-text">规则方法的优点与缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lecture-3-%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E5%92%8C%E8%AF%8D%E5%90%91%E9%87%8F"><span class="nav-text">Lecture 3 语言模型和词向量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%9F%E8%AE%A1%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AE%9A%E4%B9%89%E3%80%81%E5%8F%82%E6%95%B0%E4%BC%B0%E8%AE%A1%E3%80%81%E5%B9%B3%E6%BB%91%E4%BB%A5%E5%8F%8A%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC%E7%AD%89"><span class="nav-text">统计语言模型的定义、参数估计、平滑以及公式推导等</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A6%BB%E6%95%A3%E8%AF%8D%E8%A1%A8%E7%A4%BA-vs-%E8%BF%9E%E7%BB%AD%E8%AF%8D%E8%A1%A8%E7%A4%BA"><span class="nav-text">离散词表示 vs 连续词表示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CBOW-%E5%92%8C-Skip-gram-%E7%9A%84%E5%BC%82%E5%90%8C"><span class="nav-text">CBOW 和 Skip-gram 的异同</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#word2vec-%E5%A6%82%E4%BD%95%E5%8A%A0%E9%80%9F%E8%AE%AD%E7%BB%83"><span class="nav-text">word2vec 如何加速训练</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GloVe-%E7%9A%84%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3"><span class="nav-text">GloVe 的核心思想</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lecture-4-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%92%8C%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B"><span class="nav-text">Lecture 4 神经网络和语言模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%B1%E5%B1%82%E7%BD%91%E7%BB%9C%E7%9A%84%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3"><span class="nav-text">深层网络的问题以及如何理解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lecture-5-%E9%AB%98%E7%BA%A7%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%92%8C%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B"><span class="nav-text">Lecture 5 高级神经网络和预训练模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6%E7%9A%84%E8%AE%BE%E8%AE%A1%E7%9B%AE%E6%A0%87%E4%B8%8E%E5%BA%94%E7%94%A8%E9%A2%86%E5%9F%9F"><span class="nav-text">注意力机制的设计目标与应用领域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Transformer-%E7%BD%91%E7%BB%9C"><span class="nav-text">Transformer 网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%8F%E5%88%97%E5%88%B0%E5%BA%8F%E5%88%97%E9%97%AE%E9%A2%98%E5%AE%9E%E9%99%85%E5%BB%BA%E6%A8%A1"><span class="nav-text">序列到序列问题实际建模</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lecture-6-%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB"><span class="nav-text">Lecture 6 文本分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%A6%82%E5%BF%B5%E5%8F%8A%E5%85%B6%E8%AE%A1%E7%AE%97"><span class="nav-text">朴素贝叶斯概念及其计算</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BC%AF%E5%8A%AA%E5%88%A9%E6%96%87%E6%A1%A3%E6%A8%A1%E5%9E%8B"><span class="nav-text">伯努利文档模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%9A%E9%A1%B9%E5%BC%8F%E6%96%87%E6%A1%A3%E6%A8%A1%E5%9E%8B"><span class="nav-text">多项式文档模型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Logistic-%E5%9B%9E%E5%BD%92%E3%80%81softmax-%E5%9B%9E%E5%BD%92%E7%AD%89%E6%A6%82%E5%BF%B5%E4%B8%8E%E4%B9%8B%E7%9B%B8%E5%85%B3%E8%AE%A1%E7%AE%97"><span class="nav-text">Logistic 回归、softmax 回归等概念与之相关计算</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lecture-7-%E5%BA%8F%E5%88%97%E5%8C%96%E6%A0%87%E6%B3%A8"><span class="nav-text">Lecture 7 序列化标注</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9A%90%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E6%A6%82%E5%BF%B5%E5%8F%8A%E5%85%B6%E8%AE%A1%E7%AE%97"><span class="nav-text">隐马尔可夫概念及其计算</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lecture-8-%E5%8F%A5%E6%B3%95%E5%88%86%E6%9E%90"><span class="nav-text">Lecture 8 句法分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%A5%E6%B3%95%E5%88%86%E6%9E%90"><span class="nav-text">句法分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CKY-%E8%AE%A1%E7%AE%97"><span class="nav-text">CKY 计算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PCFG-%E8%AE%A1%E7%AE%97"><span class="nav-text">PCFG 计算</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lecture-9-%E6%9C%BA%E5%99%A8%E7%BF%BB%E8%AF%91"><span class="nav-text">Lecture 9 机器翻译</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E7%BF%BB%E8%AF%91%E7%9A%84%E6%80%9D%E6%83%B3%E3%80%81%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%BB%BA%E6%A8%A1"><span class="nav-text">机器翻译的思想、深度学习建模</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B4%AA%E5%BF%83%E8%A7%A3%E7%A0%81%E4%B8%8E%E6%9F%B1%E6%90%9C%E7%B4%A2"><span class="nav-text">贪心解码与柱搜索</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BLEU-%E7%9A%84%E5%AE%9A%E4%B9%89%E3%80%81%E8%AE%A1%E7%AE%97%E3%80%81%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-text">BLEU 的定义、计算、存在的问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lecture-10-%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E8%8C%83%E5%BC%8F%E6%BC%94%E8%BF%9B"><span class="nav-text">Lecture 10 自然语言处理范式演进</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Prompt-%E7%9A%84%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3"><span class="nav-text">Prompt 的核心思想</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Prompt-%E8%AE%BE%E8%AE%A1%E9%A2%98"><span class="nav-text">Prompt 设计题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Prompt-Learning-amp-Instruction-Learning"><span class="nav-text">Prompt Learning &amp; Instruction Learning</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Persvadisto"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Persvadisto</p>
+  <div class="site-description" itemprop="description">A car car man</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">afiŝoj</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">kategorioj</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/persvadisto" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;persvadisto" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:persvadisto@foxmail.com" title="E-Mail → mailto:persvadisto@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/persuader817" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;persuader817" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2022 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Persvadisto</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="Nombro da signoj en la tuta reto">173k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Tempo tuta de rigardo">2:37</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Tutaj visitoj">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Tutaj rigardoj">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '91b9df3eb1c4ed5f0578',
+      clientSecret: '6b6329201d17d5fdc7ebba2bc5b63011e6e2c0c5',
+      repo        : 'persvadisto.github.io',
+      owner       : 'Persvadisto',
+      admin       : ['Persvadisto'],
+      id          : 'c2e7bc85eda9113294fccfe801b8463d',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>
