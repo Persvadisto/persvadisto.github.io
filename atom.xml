@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-03-13T11:49:35.514Z</updated>
+  <updated>2024-05-29T18:02:58.107Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>wowaka 未发表乐曲「NOTOK」中日歌词（个人渣翻）</title>
+    <link href="http://example.com/2024/05/30/NOTOK/"/>
+    <id>http://example.com/2024/05/30/NOTOK/</id>
+    <published>2024-05-29T17:47:18.810Z</published>
+    <updated>2024-05-29T18:02:58.107Z</updated>
+    
+    
+    <summary type="html">wowaka 歌词集送到手之后，看到收录的未发表乐曲的歌词，奈何网上找不到中文甚至英文翻译，只好硬啃了 qwq 初次翻译歌词，如有错误或更好的地方还请指正。P.S. 原歌词没标振り仮名，我凭着浅薄的个人理解给标上便于阅读。</summary>
+    
+    
+    
+    <category term="日本語" scheme="http://example.com/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/"/>
+    
+    <category term="翻译" scheme="http://example.com/categories/%E7%BF%BB%E8%AF%91/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>《自然语言处理》知识梳理</title>
@@ -163,23 +182,6 @@
     
     
     <summary type="html">image caption领域的文章，利用自然语言指导图像描述生成</summary>
-    
-    
-    
-    <category term="论文笔记" scheme="http://example.com/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Meshed-Memory Transformer for Image Captioning (CVPR 2020)</title>
-    <link href="http://example.com/2022/08/21/Meshed-Memory_Transformer_for_Image_Captioning/"/>
-    <id>http://example.com/2022/08/21/Meshed-Memory_Transformer_for_Image_Captioning/</id>
-    <published>2022-08-21T12:00:00.459Z</published>
-    <updated>2022-08-21T12:02:52.449Z</updated>
-    
-    
-    <summary type="html">image caption领域的文章，transformer和多模态领域结合的经典之作</summary>
     
     
     
