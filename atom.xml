@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-05-30T01:24:04.171Z</updated>
+  <updated>2024-06-07T13:31:52.773Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2024年新高考一卷数学压轴题数列题思路详解</title>
+    <link href="http://example.com/2024/06/07/2024%E6%96%B0%E9%AB%98%E8%80%83%E4%B8%80%E5%8D%B7%E6%95%B0%E5%AD%A6%E5%8E%8B%E8%BD%B4%E9%A2%98/"/>
+    <id>http://example.com/2024/06/07/2024%E6%96%B0%E9%AB%98%E8%80%83%E4%B8%80%E5%8D%B7%E6%95%B0%E5%AD%A6%E5%8E%8B%E8%BD%B4%E9%A2%98/</id>
+    <published>2024-06-07T13:28:37.419Z</published>
+    <updated>2024-06-07T13:31:52.773Z</updated>
+    
+    
+    <summary type="html">不知不觉一年过去，今天又是高考第一天，按惯例还是做道压轴题玩玩（</summary>
+    
+    
+    
+    <category term="杂谈" scheme="http://example.com/categories/%E6%9D%82%E8%B0%88/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>wowaka 未发表乐曲「NOTOK」中日歌词（个人渣翻）</title>
@@ -165,23 +182,6 @@
     
     
     <summary type="html">image caption领域的文章，利用包含人类评价的数据集来结合RL来提升模型的描述能力</summary>
-    
-    
-    
-    <category term="论文笔记" scheme="http://example.com/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Teaching Machines to Describe Images via Natural Language Feedback (NIPS 2017)</title>
-    <link href="http://example.com/2022/08/22/Teaching_Machines_to_Describe_Images_via_Natural_Language_Feedback/"/>
-    <id>http://example.com/2022/08/22/Teaching_Machines_to_Describe_Images_via_Natural_Language_Feedback/</id>
-    <published>2022-08-22T12:04:18.920Z</published>
-    <updated>2022-08-22T12:31:37.670Z</updated>
-    
-    
-    <summary type="html">image caption领域的文章，利用自然语言指导图像描述生成</summary>
     
     
     
