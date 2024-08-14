@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-06-07T13:31:52.773Z</updated>
+  <updated>2024-08-14T11:33:55.492Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>「錯乱する月」歌词听写</title>
+    <link href="http://example.com/2024/08/14/%E3%80%8C%E9%8C%AF%E4%B9%B1%E3%81%99%E3%82%8B%E6%9C%88%E3%80%8D%E6%AD%8C%E8%AF%8D%E5%90%AC%E5%86%99/"/>
+    <id>http://example.com/2024/08/14/%E3%80%8C%E9%8C%AF%E4%B9%B1%E3%81%99%E3%82%8B%E6%9C%88%E3%80%8D%E6%AD%8C%E8%AF%8D%E5%90%AC%E5%86%99/</id>
+    <published>2024-08-14T10:17:40.565Z</published>
+    <updated>2024-08-14T11:33:55.492Z</updated>
+    
+    
+    <summary type="html">【建设中】</summary>
+    
+    
+    
+    <category term="日本語" scheme="http://example.com/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>2024年新高考一卷数学压轴题数列题思路详解</title>
@@ -169,23 +186,6 @@
     
     
     <category term="课程笔记" scheme="http://example.com/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Reinforcing an Image Caption Generator Using Off-Line Human Feedback (AAAI 2020)</title>
-    <link href="http://example.com/2022/08/22/Reinforcing_an_Image_Caption_Generator_Using_Off-Line_Human_Feedback/"/>
-    <id>http://example.com/2022/08/22/Reinforcing_an_Image_Caption_Generator_Using_Off-Line_Human_Feedback/</id>
-    <published>2022-08-22T12:27:49.536Z</published>
-    <updated>2022-08-22T12:44:39.798Z</updated>
-    
-    
-    <summary type="html">image caption领域的文章，利用包含人类评价的数据集来结合RL来提升模型的描述能力</summary>
-    
-    
-    
-    <category term="论文笔记" scheme="http://example.com/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
     
     
   </entry>
