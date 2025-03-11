@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="eo">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=LXGW:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="本来以为 sss+ 「幸せになれる隠しコマンドがあるらしい」之后防蹭已经可以毕业了，但最近推「一か罰」总是留尾还是弄得脑子麻麻的，因而发现对星星的理解还只是停留于表层。于是查找资料简单了解了下判定原理，并对平时积累的一些小经验用该原理进行了解释。浅尝辄止还谈不上舞萌科研（x）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【maimai dx 个人心得】如何划星星不蹭">
+<meta property="og:url" content="http://example.com/2025/03/11/%E3%80%90maimai%20dx%20%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97%E3%80%91%E5%A6%82%E4%BD%95%E5%88%92%E6%98%9F%E6%98%9F%E4%B8%8D%E8%B9%AD/index.html">
+<meta property="og:site_name" content="Persvadisto">
+<meta property="og:description" content="本来以为 sss+ 「幸せになれる隠しコマンドがあるらしい」之后防蹭已经可以毕业了，但最近推「一か罰」总是留尾还是弄得脑子麻麻的，因而发现对星星的理解还只是停留于表层。于是查找资料简单了解了下判定原理，并对平时积累的一些小经验用该原理进行了解释。浅尝辄止还谈不上舞萌科研（x）">
+<meta property="og:locale">
+<meta property="og:image" content="http://example.com/2025/03/11/%E3%80%90maimai%20dx%20%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97%E3%80%91%E5%A6%82%E4%BD%95%E5%88%92%E6%98%9F%E6%98%9F%E4%B8%8D%E8%B9%AD/pandingqu.png">
+<meta property="og:image" content="http://example.com/2025/03/11/%E3%80%90maimai%20dx%20%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97%E3%80%91%E5%A6%82%E4%BD%95%E5%88%92%E6%98%9F%E6%98%9F%E4%B8%8D%E8%B9%AD/haiboku.jpg">
+<meta property="og:image" content="http://example.com/2025/03/11/%E3%80%90maimai%20dx%20%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97%E3%80%91%E5%A6%82%E4%BD%95%E5%88%92%E6%98%9F%E6%98%9F%E4%B8%8D%E8%B9%AD/usa.jpg">
+<meta property="og:image" content="http://example.com/2025/03/11/%E3%80%90maimai%20dx%20%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97%E3%80%91%E5%A6%82%E4%BD%95%E5%88%92%E6%98%9F%E6%98%9F%E4%B8%8D%E8%B9%AD/kodou.jpg">
+<meta property="og:image" content="http://example.com/2025/03/11/%E3%80%90maimai%20dx%20%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97%E3%80%91%E5%A6%82%E4%BD%95%E5%88%92%E6%98%9F%E6%98%9F%E4%B8%8D%E8%B9%AD/fd.jpg">
+<meta property="og:image" content="http://example.com/2025/03/11/%E3%80%90maimai%20dx%20%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97%E3%80%91%E5%A6%82%E4%BD%95%E5%88%92%E6%98%9F%E6%98%9F%E4%B8%8D%E8%B9%AD/tsuki.jpg">
+<meta property="og:image" content="http://example.com/2025/03/11/%E3%80%90maimai%20dx%20%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97%E3%80%91%E5%A6%82%E4%BD%95%E5%88%92%E6%98%9F%E6%98%9F%E4%B8%8D%E8%B9%AD/cthuga.jpg">
+<meta property="og:image" content="http://example.com/2025/03/11/%E3%80%90maimai%20dx%20%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97%E3%80%91%E5%A6%82%E4%BD%95%E5%88%92%E6%98%9F%E6%98%9F%E4%B8%8D%E8%B9%AD/d0.jpg">
+<meta property="og:image" content="http://example.com/2025/03/11/%E3%80%90maimai%20dx%20%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97%E3%80%91%E5%A6%82%E4%BD%95%E5%88%92%E6%98%9F%E6%98%9F%E4%B8%8D%E8%B9%AD/xingyin.jpg">
+<meta property="article:published_time" content="2025-03-11T12:02:08.493Z">
+<meta property="article:modified_time" content="2025-03-11T12:09:24.143Z">
+<meta property="article:author" content="Persvadisto">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2025/03/11/%E3%80%90maimai%20dx%20%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97%E3%80%91%E5%A6%82%E4%BD%95%E5%88%92%E6%98%9F%E6%98%9F%E4%B8%8D%E8%B9%AD/pandingqu.png">
+
+<link rel="canonical" href="http://example.com/2025/03/11/%E3%80%90maimai%20dx%20%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97%E3%80%91%E5%A6%82%E4%BD%95%E5%88%92%E6%98%9F%E6%98%9F%E4%B8%8D%E8%B9%AD/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'eo'
+  };
+</script>
+
+  <title>【maimai dx 个人心得】如何划星星不蹭 | Persvadisto</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Persvadisto" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Baskuligi navigacian stangon">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Persvadisto</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Ĉefpaĝo</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>Pri</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Kategorioj</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Arkivoj</a>
+
+  </li>
+        <li class="menu-item menu-item-links">
+
+    <a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>Links</a>
+
+  </li>
+        <li class="menu-item menu-item-anime">
+
+    <a href="/bangumis/" rel="section"><i class="fas fa-tv fa-fw"></i>Anime</a>
+
+  </li>
+        <li class="menu-item menu-item-rss">
+
+    <a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    <!-- https://cdn.jsdelivr.net/npm/sakana-widget@2.3.0/lib/sakana.min.js -->
+<!-- https://cdnjs.cloudflare.com/ajax/libs/sakana-widget/2.3.0/sakana.min.js -->
+<div id="sakana-widget" style="position:fixed;bottom:10px;right:10px;"></div>
+<script>
+  function initSakanaWidget() {
+    new SakanaWidget({character: 'takina', size:200}).mount('#sakana-widget');
+  }
+</script>
+<script
+  async
+  onload="initSakanaWidget()"
+  src="https://cdn.jsdelivr.net/npm/sakana-widget@2.3.0/lib/sakana.min.js"
+></script>
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="eo">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/11/%E3%80%90maimai%20dx%20%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97%E3%80%91%E5%A6%82%E4%BD%95%E5%88%92%E6%98%9F%E6%98%9F%E4%B8%8D%E8%B9%AD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Persvadisto">
+      <meta itemprop="description" content="あとは毎日毎日神様にお祈りする、天を敬う、それしかない">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Persvadisto">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【maimai dx 个人心得】如何划星星不蹭
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Afiŝita je</span>
+              
+
+              <time title="Kreita por: 2025-03-11 20:02:08 / Modifita por: 20:09:24" itemprop="dateCreated datePublished" datetime="2025-03-11T20:02:08+08:00">2025-03-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">En</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/maimai/" itemprop="url" rel="index"><span itemprop="name">maimai</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Rigardoj" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Rigardoj: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="Nombro da signoj en la artikolo">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Nombro da signoj en la artikolo: </span>
+              <span>2.6k</span>
+            </span>
+            <span class="post-meta-item" title="Tempo de rigardo">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Tempo de rigardo &asymp;</span>
+              <span>2 minutoj.</span>
+            </span>
+            <div class="post-description">本来以为 sss+ 「幸せになれる隠しコマンドがあるらしい」之后防蹭已经可以毕业了，但最近推「一か罰」总是留尾还是弄得脑子麻麻的，因而发现对星星的理解还只是停留于表层。于是查找资料简单了解了下判定原理，并对平时积累的一些小经验用该原理进行了解释。浅尝辄止还谈不上舞萌科研（x）</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <span id="more"></span>
+<h1 id="在此之前的预备知识"><a href="#在此之前的预备知识" class="headerlink" title="在此之前的预备知识"></a>在此之前的预备知识</h1><p>首先为了方便描述，我们需要先了解判定区长什么样子：</p>
+<p><img src="pandingqu.png" alt="0"></p>
+<p>对于星星描述的语言（本文使用 simai 語），由于文中都会指出会经过哪些判定区，因此阅读本文不需要相应的预备知识，但如果真的感兴趣，你可以参考<a target="_blank" rel="noopener" href="https://w.atwiki.jp/simai/pages/1002.html">这里</a>（但我也不太熟用错了别打我w）</p>
+<h1 id="下面进入正文"><a href="#下面进入正文" class="headerlink" title="下面进入正文"></a>下面进入正文</h1><p>考虑 1^4 的弧线星星需要经过的判定区：1a 2a 3a 4a，那么需要完成的任务队列为：1a[on], 1a[off], 2a[on], 2a[off], 3a[on], 3a[off], 4a[on]，其中 [on] 表示判定区感应到接触，感应的是<strong>屏幕被触控的状态</strong>而非摸下去这个动作。[off] 表示判定区的感应消失的事件，感应的是<strong>手抬起来这个动作</strong>而非屏幕上没有手的状态。</p>
+<p>每当一个 slide track 出现，队列<strong>前三个</strong>任务可被完成，任务完成后将清空自身及之前的任务，留下更短的队列，当最后一个任务完成时 slide track 被判定完毕。</p>
+<p>由此可以解释一些常见（？）现象：</p>
+<ul>
+<li>A 区免判：即划星星可以直接从星星头对应的下一个区域开始划。例如 1^4，从 2a 开始划先触发的是 2a[on] 任务，刚好是队列中第三个任务，完成该任务将直接清除任务队列中的 1a[on], 1a[off], 2a[on]. 假如点一下 2a 并松手的话，任务队列将仅剩下 3a[on], 3a[off], 4a[on]. 此时可直接点一下 4a 即可判定整条星星。</li>
+<li>跳区：为 A 区免判的更广义的形式，即划星星可以直接从星星残留部分的第一个区域对应的下一个区域开始划。以 1^6 的星星为例，如果点一下 2a 并松开，此时任务队列中还有 3a[on], 3a[off], 4a[on], 4a[off], 5a[on], 5a[off], 6a[on]，屏幕上会残留 3^6 的星星，这时再点一下 4a 并松开，此时任务队列中还有 5a[on], 5a[off], 6a[on]，屏幕上会残留 5^6 的星星，再点一下 6a 则 slide track 结束。回顾整个过程，1a, 3a, 5a 区域没有被触碰，而是触碰 2a, 4a, 6a 即可消去 1^2, 3^4, 5^6 的长度为 2 的星星片段，每次完成的都是任务队列中第三个任务，因而可以被判定。</li>
+<li>松手判定：以 1^4 为例，如果 2a 没有松开，点击 4a 将不会判定整条星星，这是因为 2a[off] 未触发，此时 4a[on] 为任务队列的第四个任务，无法被直接完成。</li>
+</ul>
+<p>特殊情况：当星星的长度为三格时，如 1^3, 1-3, 1V35，2a/2b/4b[on] 将不可跳过，统一到队列理论中则为：</p>
+<ul>
+<li>1^3: 1a[on], 1a[off], 2a[on], 2a[on], 2a[off], 3a[on].</li>
+<li>1-3: 1a[on], 1a[off], 2a/2b[on], 2a/2b[on], 2a/2b[off], 3a[on].</li>
+<li>1V35: 1a[on], 1a[off], 2a/2b[on], 2a/2b[on], 2a/2b[off], 3a[on], 4a/4b[on], 4a/4b[on], 4a/4b[off], 5a[on].</li>
+</ul>
+<p>代入任务队列理论，划完 1^3 的星星可以依次点击 1a, 2a, 3a 或者 2a, 3a. 由于有两个 2a[on]，因而 2a 区域不可跳区，出现跳区保护现象。与此相对，1^4 的星星则可以通过点击 2a, 4a 来跳过 3a 区域，3a 区域未被保护。</p>
+<h1 id="我懂了，然后呢"><a href="#我懂了，然后呢" class="headerlink" title="我懂了，然后呢"></a>我懂了，然后呢</h1><p>那么为此可以总结一些防蹭注意点/星星处理细节（√）</p>
+<h2 id="星星蹭-tap"><a href="#星星蹭-tap" class="headerlink" title="星星蹭 tap"></a>星星蹭 tap</h2><ul>
+<li>8-5 防蹭 6a tap. 例如「敗北の少年」定拍星星段，由于 8-5 的直线星星中经过 7b, 6b 区域，照着划很容易大手摸到 6a，解决方法是用指尖尽量不要碰到 6a 和 7a。或者极端情况可以弯一点，从 8a 划到 c 7b 6b 的交界处再划到 5a 一定不会蹭（但可能会没拐过来导致 5a 留尾）<ul>
+<li>还有一些很蹭的星星阵，如「ウサテイ」也需要注意该种防蹭。</li>
+</ul>
+</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><img src="haiboku.jpg" alt="haiboku"></th>
+<th style="text-align:center"><img src="usa.jpg" alt="usa"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">敗北の少年 MASTER Lv13</td>
+<td style="text-align:center">ウサテイ MASTER Lv14</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>星星的第一个判定区持续有 tap 单点。<ul>
+<li>如「鼓動」结尾一手点 1a tap 一手划星星 1-4 和 1-6。建议从 b2/b8 开始划星星，防止蹭到 1a 的 tap.</li>
+<li>如 「FREEDOM DiVE (tpz Overcute Remix) 」的 6-1 应当等 6 号位的 tap 全部结束再启动。</li>
+</ul>
+</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><img src="kodou.jpg" alt="kodou"></th>
+<th style="text-align:center"><img src="fd.jpg" alt="fd"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">鼓動 MASTER Lv13</td>
+<td style="text-align:center">FREEDOM DiVE MASTER Lv14</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="星星蹭星星"><a href="#星星蹭星星" class="headerlink" title="星星蹭星星"></a>星星蹭星星</h2><ul>
+<li><p>外蹭内。例如「SD 月に叢雲華に風」中的 8&gt;4 防蹭 8p4，前者判定区为 8a 1a 2a 3a 4a 后者判定区为 8a 1b 2b 3b 4a。由于星星很快时可能手会不注意贴框，导致摸 2a 的同时摸到了 2b，那结尾摸 4a 时候就会把第二根判掉。</p>
+</li>
+<li><p>第一根星星的路径上有/或极其靠近第二根星星的尾巴（更特别是第二根是长度为 3 的短星星时），由于第一根星星一定会摸到第二根星星的尾巴，所以一定不要摸到第二根的第二个判定区。</p>
+</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><img src="tsuki.jpg" alt="tsuki"></th>
+<th style="text-align:center"><img src="cthuga.jpg" alt="cthuga"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">SD 月に叢雲華に風 MASTER Lv13</td>
+<td style="text-align:center">Cthuga MASTER Lv14</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>一笔画星星留尾。1&gt;5 可以通过 2a, 4a 跳过 3a，但如果一笔画 3a 有个星星尾就得注意不能跳 3a.</li>
+</ul>
+<h2 id="其他省力-省脑小手法"><a href="#其他省力-省脑小手法" class="headerlink" title="其他省力/省脑小手法"></a>其他省力/省脑小手法</h2><ul>
+<li><p>1p4 的星星，经过区域为 1a 1b 2b 3b 4b 5b 6b 7b 8b 1b 2b 3b 4a，可以看到 b 区要绕一大圈，所以很容易脑梗/划不全，此时可以在 b 区和 c 区左右搓几下，其中注意不要碰到 4a（因为不碰尾巴的 a 区星星就绝对不可能被判定掉）就可以只剩一个 4a 的尾巴。在两个 p 形双押星星出现时可以有效防止脑梗。</p>
+<ul>
+<li>例如 Destr0yer 这里可以直接上下搓 b 区和 c 区防止脑梗</li>
+</ul>
+</li>
+<li><p>4V5 的星星，经过区域为 4a 4b c 5b 5a，可以利用跳区只接触 4b 5b 5a，从尖尖的大幅度的 V 形变成小摸一下就能解决的厂字形。</p>
+</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><img src="d0.jpg" alt="7"></th>
+<th style="text-align:center"><img src="xingyin.jpg" alt="8"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">SD Destr0yer MASTER Lv14</td>
+<td style="text-align:center">幸せになれる隠しコマンドがあるらしい MASTER Lv14</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>如果想提前处理慢星星到只剩一个尾巴再最后解决，此时可以保留尾巴长度为 2 的星星段，防止刻意追求余留长度为 1 而导致不小心摸到 a 区。</li>
+</ul>
+<h1 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h1><ul>
+<li>触碰星星尾部的 a 区是星星判定的必要条件，若余留长度为 2 则也可以判（总长度为 3 的星星除外），因此触碰 a 区时请务必小心。</li>
+<li>对于星星蹭 tap，注意防蹭哪些 a 区；对于星星蹭星星，注意划第一根时经过的路径如果不小心大手划歪向外/向内是否会蹭/跳区蹭第二根星星，通过空间防蹭（避开某些判定区）和时间防蹭（蹭掉第二根时刚好处在第二根的判定时间范围内）注意/提前设计手法。</li>
+</ul>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p>[1] <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Tq4y1f73d">https://www.bilibili.com/video/BV1Tq4y1f73d</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/08/14/%E3%80%8C%E9%8C%AF%E4%B9%B1%E3%81%99%E3%82%8B%E6%9C%88%E3%80%8D%E6%AD%8C%E8%AF%8D%E5%90%AC%E5%86%99/" rel="prev" title="「錯乱する月」歌词听写">
+      <i class="fa fa-chevron-left"></i> 「錯乱する月」歌词听写
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Enhavtabelo
+        </li>
+        <li class="sidebar-nav-overview">
+          Superrigardo
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9C%A8%E6%AD%A4%E4%B9%8B%E5%89%8D%E7%9A%84%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86"><span class="nav-text">在此之前的预备知识</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%8B%E9%9D%A2%E8%BF%9B%E5%85%A5%E6%AD%A3%E6%96%87"><span class="nav-text">下面进入正文</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%88%91%E6%87%82%E4%BA%86%EF%BC%8C%E7%84%B6%E5%90%8E%E5%91%A2"><span class="nav-text">我懂了，然后呢</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%98%9F%E6%98%9F%E8%B9%AD-tap"><span class="nav-text">星星蹭 tap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%98%9F%E6%98%9F%E8%B9%AD%E6%98%9F%E6%98%9F"><span class="nav-text">星星蹭星星</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E7%9C%81%E5%8A%9B-%E7%9C%81%E8%84%91%E5%B0%8F%E6%89%8B%E6%B3%95"><span class="nav-text">其他省力&#x2F;省脑小手法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TL-DR"><span class="nav-text">TL;DR</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-text">References</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Persvadisto"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Persvadisto</p>
+  <div class="site-description" itemprop="description">あとは毎日毎日神様にお祈りする、天を敬う、それしかない</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-name">afiŝoj</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">kategorioj</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/persvadisto" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;persvadisto" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:persvadisto@foxmail.com" title="E-Mail → mailto:persvadisto@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/persuader817" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;persuader817" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2022 – 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Persvadisto</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="Nombro da signoj en la tuta reto">196k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Tempo tuta de rigardo">2:58</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Tutaj visitoj">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Tutaj rigardoj">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '91b9df3eb1c4ed5f0578',
+      clientSecret: '6b6329201d17d5fdc7ebba2bc5b63011e6e2c0c5',
+      repo        : 'persvadisto.github.io',
+      owner       : 'Persvadisto',
+      admin       : ['Persvadisto'],
+      id          : '1780a4251889e28b0537b249f3c43448',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+<!-- hexo injector body_end start --><script src="/js/furigana.js"></script><!-- hexo injector body_end end --></body>
+</html>

@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-08-14T14:45:55.140Z</updated>
+  <updated>2025-03-11T12:09:24.143Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【maimai dx 个人心得】如何划星星不蹭</title>
+    <link href="http://example.com/2025/03/11/%E3%80%90maimai%20dx%20%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97%E3%80%91%E5%A6%82%E4%BD%95%E5%88%92%E6%98%9F%E6%98%9F%E4%B8%8D%E8%B9%AD/"/>
+    <id>http://example.com/2025/03/11/%E3%80%90maimai%20dx%20%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97%E3%80%91%E5%A6%82%E4%BD%95%E5%88%92%E6%98%9F%E6%98%9F%E4%B8%8D%E8%B9%AD/</id>
+    <published>2025-03-11T12:02:08.493Z</published>
+    <updated>2025-03-11T12:09:24.143Z</updated>
+    
+    
+    <summary type="html">本来以为 sss+ 「幸せになれる隠しコマンドがあるらしい」之后防蹭已经可以毕业了，但最近推「一か罰」总是留尾还是弄得脑子麻麻的，因而发现对星星的理解还只是停留于表层。于是查找资料简单了解了下判定原理，并对平时积累的一些小经验用该原理进行了解释。浅尝辄止还谈不上舞萌科研（x）</summary>
+    
+    
+    
+    <category term="maimai" scheme="http://example.com/categories/maimai/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>「錯乱する月」歌词听写</title>
@@ -169,23 +186,6 @@
     <category term="日本語" scheme="http://example.com/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/"/>
     
     <category term="拾花" scheme="http://example.com/categories/%E6%8B%BE%E8%8A%B1/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>《操作系统》知识梳理</title>
-    <link href="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/"/>
-    <id>http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/</id>
-    <published>2022-08-22T12:49:18.827Z</published>
-    <updated>2022-08-22T13:03:23.391Z</updated>
-    
-    
-    <summary type="html">《操作系统》期末考试周整理的内容。</summary>
-    
-    
-    
-    <category term="课程笔记" scheme="http://example.com/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
     
     
   </entry>
