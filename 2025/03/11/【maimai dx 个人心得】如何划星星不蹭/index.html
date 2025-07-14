@@ -17,32 +17,32 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"persvadisto.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="本来以为 sss+ 「幸せになれる隠しコマンドがあるらしい」之后防蹭已经可以毕业了，但最近推「一か罰」总是留尾还是弄得脑子麻麻的，因而发现对星星的理解还只是停留于表层。于是查找资料简单了解了下判定原理，并对平时积累的一些小经验用该原理进行了解释。浅尝辄止还谈不上舞萌科研（x）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【maimai dx 个人心得】如何划星星不蹭">
-<meta property="og:url" content="http://example.com/2025/03/11/%E3%80%90maimai%20dx%20%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97%E3%80%91%E5%A6%82%E4%BD%95%E5%88%92%E6%98%9F%E6%98%9F%E4%B8%8D%E8%B9%AD/index.html">
+<meta property="og:url" content="https://persvadisto.github.io/2025/03/11/%E3%80%90maimai%20dx%20%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97%E3%80%91%E5%A6%82%E4%BD%95%E5%88%92%E6%98%9F%E6%98%9F%E4%B8%8D%E8%B9%AD/index.html">
 <meta property="og:site_name" content="Persvadisto">
 <meta property="og:description" content="本来以为 sss+ 「幸せになれる隠しコマンドがあるらしい」之后防蹭已经可以毕业了，但最近推「一か罰」总是留尾还是弄得脑子麻麻的，因而发现对星星的理解还只是停留于表层。于是查找资料简单了解了下判定原理，并对平时积累的一些小经验用该原理进行了解释。浅尝辄止还谈不上舞萌科研（x）">
 <meta property="og:locale">
-<meta property="og:image" content="http://example.com/2025/03/11/%E3%80%90maimai%20dx%20%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97%E3%80%91%E5%A6%82%E4%BD%95%E5%88%92%E6%98%9F%E6%98%9F%E4%B8%8D%E8%B9%AD/pandingqu.png">
-<meta property="og:image" content="http://example.com/2025/03/11/%E3%80%90maimai%20dx%20%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97%E3%80%91%E5%A6%82%E4%BD%95%E5%88%92%E6%98%9F%E6%98%9F%E4%B8%8D%E8%B9%AD/haiboku.jpg">
-<meta property="og:image" content="http://example.com/2025/03/11/%E3%80%90maimai%20dx%20%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97%E3%80%91%E5%A6%82%E4%BD%95%E5%88%92%E6%98%9F%E6%98%9F%E4%B8%8D%E8%B9%AD/usa.jpg">
-<meta property="og:image" content="http://example.com/2025/03/11/%E3%80%90maimai%20dx%20%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97%E3%80%91%E5%A6%82%E4%BD%95%E5%88%92%E6%98%9F%E6%98%9F%E4%B8%8D%E8%B9%AD/kodou.jpg">
-<meta property="og:image" content="http://example.com/2025/03/11/%E3%80%90maimai%20dx%20%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97%E3%80%91%E5%A6%82%E4%BD%95%E5%88%92%E6%98%9F%E6%98%9F%E4%B8%8D%E8%B9%AD/fd.jpg">
-<meta property="og:image" content="http://example.com/2025/03/11/%E3%80%90maimai%20dx%20%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97%E3%80%91%E5%A6%82%E4%BD%95%E5%88%92%E6%98%9F%E6%98%9F%E4%B8%8D%E8%B9%AD/tsuki.jpg">
-<meta property="og:image" content="http://example.com/2025/03/11/%E3%80%90maimai%20dx%20%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97%E3%80%91%E5%A6%82%E4%BD%95%E5%88%92%E6%98%9F%E6%98%9F%E4%B8%8D%E8%B9%AD/cthuga.jpg">
-<meta property="og:image" content="http://example.com/2025/03/11/%E3%80%90maimai%20dx%20%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97%E3%80%91%E5%A6%82%E4%BD%95%E5%88%92%E6%98%9F%E6%98%9F%E4%B8%8D%E8%B9%AD/d0.jpg">
-<meta property="og:image" content="http://example.com/2025/03/11/%E3%80%90maimai%20dx%20%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97%E3%80%91%E5%A6%82%E4%BD%95%E5%88%92%E6%98%9F%E6%98%9F%E4%B8%8D%E8%B9%AD/xingyin.jpg">
+<meta property="og:image" content="https://persvadisto.github.io/2025/03/11/%E3%80%90maimai%20dx%20%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97%E3%80%91%E5%A6%82%E4%BD%95%E5%88%92%E6%98%9F%E6%98%9F%E4%B8%8D%E8%B9%AD/pandingqu.png">
+<meta property="og:image" content="https://persvadisto.github.io/2025/03/11/%E3%80%90maimai%20dx%20%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97%E3%80%91%E5%A6%82%E4%BD%95%E5%88%92%E6%98%9F%E6%98%9F%E4%B8%8D%E8%B9%AD/haiboku.jpg">
+<meta property="og:image" content="https://persvadisto.github.io/2025/03/11/%E3%80%90maimai%20dx%20%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97%E3%80%91%E5%A6%82%E4%BD%95%E5%88%92%E6%98%9F%E6%98%9F%E4%B8%8D%E8%B9%AD/usa.jpg">
+<meta property="og:image" content="https://persvadisto.github.io/2025/03/11/%E3%80%90maimai%20dx%20%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97%E3%80%91%E5%A6%82%E4%BD%95%E5%88%92%E6%98%9F%E6%98%9F%E4%B8%8D%E8%B9%AD/kodou.jpg">
+<meta property="og:image" content="https://persvadisto.github.io/2025/03/11/%E3%80%90maimai%20dx%20%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97%E3%80%91%E5%A6%82%E4%BD%95%E5%88%92%E6%98%9F%E6%98%9F%E4%B8%8D%E8%B9%AD/fd.jpg">
+<meta property="og:image" content="https://persvadisto.github.io/2025/03/11/%E3%80%90maimai%20dx%20%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97%E3%80%91%E5%A6%82%E4%BD%95%E5%88%92%E6%98%9F%E6%98%9F%E4%B8%8D%E8%B9%AD/tsuki.jpg">
+<meta property="og:image" content="https://persvadisto.github.io/2025/03/11/%E3%80%90maimai%20dx%20%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97%E3%80%91%E5%A6%82%E4%BD%95%E5%88%92%E6%98%9F%E6%98%9F%E4%B8%8D%E8%B9%AD/cthuga.jpg">
+<meta property="og:image" content="https://persvadisto.github.io/2025/03/11/%E3%80%90maimai%20dx%20%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97%E3%80%91%E5%A6%82%E4%BD%95%E5%88%92%E6%98%9F%E6%98%9F%E4%B8%8D%E8%B9%AD/d0.jpg">
+<meta property="og:image" content="https://persvadisto.github.io/2025/03/11/%E3%80%90maimai%20dx%20%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97%E3%80%91%E5%A6%82%E4%BD%95%E5%88%92%E6%98%9F%E6%98%9F%E4%B8%8D%E8%B9%AD/xingyin.jpg">
 <meta property="article:published_time" content="2025-03-11T12:02:08.493Z">
 <meta property="article:modified_time" content="2025-03-11T12:09:24.143Z">
 <meta property="article:author" content="Persvadisto">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2025/03/11/%E3%80%90maimai%20dx%20%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97%E3%80%91%E5%A6%82%E4%BD%95%E5%88%92%E6%98%9F%E6%98%9F%E4%B8%8D%E8%B9%AD/pandingqu.png">
+<meta name="twitter:image" content="https://persvadisto.github.io/2025/03/11/%E3%80%90maimai%20dx%20%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97%E3%80%91%E5%A6%82%E4%BD%95%E5%88%92%E6%98%9F%E6%98%9F%E4%B8%8D%E8%B9%AD/pandingqu.png">
 
-<link rel="canonical" href="http://example.com/2025/03/11/%E3%80%90maimai%20dx%20%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97%E3%80%91%E5%A6%82%E4%BD%95%E5%88%92%E6%98%9F%E6%98%9F%E4%B8%8D%E8%B9%AD/">
+<link rel="canonical" href="https://persvadisto.github.io/2025/03/11/%E3%80%90maimai%20dx%20%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97%E3%80%91%E5%A6%82%E4%BD%95%E5%88%92%E6%98%9F%E6%98%9F%E4%B8%8D%E8%B9%AD/">
 
 
 <script id="page-configurations">
@@ -198,7 +198,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="eo">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/11/%E3%80%90maimai%20dx%20%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97%E3%80%91%E5%A6%82%E4%BD%95%E5%88%92%E6%98%9F%E6%98%9F%E4%B8%8D%E8%B9%AD/">
+    <link itemprop="mainEntityOfPage" href="https://persvadisto.github.io/2025/03/11/%E3%80%90maimai%20dx%20%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97%E3%80%91%E5%A6%82%E4%BD%95%E5%88%92%E6%98%9F%E6%98%9F%E4%B8%8D%E8%B9%AD/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">

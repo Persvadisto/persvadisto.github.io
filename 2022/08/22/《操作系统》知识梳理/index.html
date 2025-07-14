@@ -17,86 +17,86 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"persvadisto.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="《操作系统》期末考试周整理的内容。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《操作系统》知识梳理">
-<meta property="og:url" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/index.html">
+<meta property="og:url" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/index.html">
 <meta property="og:site_name" content="Persvadisto">
 <meta property="og:description" content="《操作系统》期末考试周整理的内容。">
 <meta property="og:locale">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220606203121532.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220606203141110.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220606221932005.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220606223535990.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220606223241825.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220606231153282.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220606231245673.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220606232132485.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607101811445.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607102836333.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607112807846.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607114127859.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607165426701.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607170009882.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/Translation.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607175525528.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607175816134.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607180225246.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607193042014.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607193538780.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607195120988.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220612153556367.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607202810994.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607230425182.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607231914243.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607231921374.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607232545013.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220608100010360.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220608101559452.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220608102518337.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220608104142826.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220608105354184.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220608110712923.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220608111031144.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220608164106284.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220608170153485.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220608170910843.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220608192038116.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220609105507918.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220609143428513.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220609145228916.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220609161144740.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220609163912022.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220609165712764.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220609171246130.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220609184335072.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220609184459156.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220609184616759.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220609185020696.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220609193857473.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220609193941903.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220609195315090.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220609200356718.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220610095750730.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220610100158676.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220610103119931.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220610115148560.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220610121051445.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220610122446607.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220610151201198.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220608083112155.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220608083748555.png">
-<meta property="og:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220608091211541.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220606203121532.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220606203141110.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220606221932005.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220606223535990.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220606223241825.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220606231153282.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220606231245673.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220606232132485.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607101811445.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607102836333.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607112807846.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607114127859.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607165426701.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607170009882.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/Translation.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607175525528.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607175816134.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607180225246.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607193042014.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607193538780.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607195120988.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220612153556367.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607202810994.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607230425182.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607231914243.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607231921374.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220607232545013.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220608100010360.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220608101559452.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220608102518337.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220608104142826.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220608105354184.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220608110712923.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220608111031144.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220608164106284.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220608170153485.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220608170910843.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220608192038116.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220609105507918.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220609143428513.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220609145228916.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220609161144740.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220609163912022.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220609165712764.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220609171246130.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220609184335072.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220609184459156.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220609184616759.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220609185020696.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220609193857473.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220609193941903.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220609195315090.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220609200356718.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220610095750730.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220610100158676.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220610103119931.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220610115148560.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220610121051445.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220610122446607.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220610151201198.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220608083112155.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220608083748555.png">
+<meta property="og:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220608091211541.png">
 <meta property="article:published_time" content="2022-08-22T12:49:18.827Z">
 <meta property="article:modified_time" content="2022-08-22T13:03:23.391Z">
 <meta property="article:author" content="Persvadisto">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220606203121532.png">
+<meta name="twitter:image" content="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/image-20220606203121532.png">
 
-<link rel="canonical" href="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/">
+<link rel="canonical" href="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/">
 
 
 <script id="page-configurations">
@@ -252,7 +252,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="eo">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/">
+    <link itemprop="mainEntityOfPage" href="https://persvadisto.github.io/2022/08/22/%E3%80%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">

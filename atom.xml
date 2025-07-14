@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Persvadisto</title>
-  <icon>http://example.com/icon.png</icon>
+  <icon>https://persvadisto.github.io/icon.png</icon>
   
-  <link href="http://example.com/atom.xml" rel="self"/>
+  <link href="https://persvadisto.github.io/atom.xml" rel="self"/>
   
-  <link href="http://example.com/"/>
+  <link href="https://persvadisto.github.io/"/>
   <updated>2025-04-09T14:38:48.399Z</updated>
-  <id>http://example.com/</id>
+  <id>https://persvadisto.github.io/</id>
   
   <author>
     <name>Persvadisto</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Manĝi en NJU：vakskukurba supo, terpomo kaj rizo</title>
-    <link href="http://example.com/2025/04/09/Man%C4%9Di%20en%20NJU-%20vakskukurba%20supo,%20terpomo%20kaj%20rizo/"/>
-    <id>http://example.com/2025/04/09/Man%C4%9Di%20en%20NJU-%20vakskukurba%20supo,%20terpomo%20kaj%20rizo/</id>
+    <link href="https://persvadisto.github.io/2025/04/09/Man%C4%9Di%20en%20NJU-%20vakskukurba%20supo,%20terpomo%20kaj%20rizo/"/>
+    <id>https://persvadisto.github.io/2025/04/09/Man%C4%9Di%20en%20NJU-%20vakskukurba%20supo,%20terpomo%20kaj%20rizo/</id>
     <published>2025-04-09T14:22:23.039Z</published>
     <updated>2025-04-09T14:38:48.399Z</updated>
     
@@ -28,15 +28,15 @@
     
     
     
-    <category term="Esperanto" scheme="http://example.com/categories/Esperanto/"/>
+    <category term="Esperanto" scheme="https://persvadisto.github.io/categories/Esperanto/"/>
     
     
   </entry>
   
   <entry>
     <title>【maimai dx 个人心得】如何划星星不蹭</title>
-    <link href="http://example.com/2025/03/11/%E3%80%90maimai%20dx%20%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97%E3%80%91%E5%A6%82%E4%BD%95%E5%88%92%E6%98%9F%E6%98%9F%E4%B8%8D%E8%B9%AD/"/>
-    <id>http://example.com/2025/03/11/%E3%80%90maimai%20dx%20%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97%E3%80%91%E5%A6%82%E4%BD%95%E5%88%92%E6%98%9F%E6%98%9F%E4%B8%8D%E8%B9%AD/</id>
+    <link href="https://persvadisto.github.io/2025/03/11/%E3%80%90maimai%20dx%20%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97%E3%80%91%E5%A6%82%E4%BD%95%E5%88%92%E6%98%9F%E6%98%9F%E4%B8%8D%E8%B9%AD/"/>
+    <id>https://persvadisto.github.io/2025/03/11/%E3%80%90maimai%20dx%20%E4%B8%AA%E4%BA%BA%E5%BF%83%E5%BE%97%E3%80%91%E5%A6%82%E4%BD%95%E5%88%92%E6%98%9F%E6%98%9F%E4%B8%8D%E8%B9%AD/</id>
     <published>2025-03-11T12:02:08.493Z</published>
     <updated>2025-03-11T12:09:24.143Z</updated>
     
@@ -45,15 +45,15 @@
     
     
     
-    <category term="maimai" scheme="http://example.com/categories/maimai/"/>
+    <category term="maimai" scheme="https://persvadisto.github.io/categories/maimai/"/>
     
     
   </entry>
   
   <entry>
     <title>「錯乱する月」歌词听写</title>
-    <link href="http://example.com/2024/08/14/%E3%80%8C%E9%8C%AF%E4%B9%B1%E3%81%99%E3%82%8B%E6%9C%88%E3%80%8D%E6%AD%8C%E8%AF%8D%E5%90%AC%E5%86%99/"/>
-    <id>http://example.com/2024/08/14/%E3%80%8C%E9%8C%AF%E4%B9%B1%E3%81%99%E3%82%8B%E6%9C%88%E3%80%8D%E6%AD%8C%E8%AF%8D%E5%90%AC%E5%86%99/</id>
+    <link href="https://persvadisto.github.io/2024/08/14/%E3%80%8C%E9%8C%AF%E4%B9%B1%E3%81%99%E3%82%8B%E6%9C%88%E3%80%8D%E6%AD%8C%E8%AF%8D%E5%90%AC%E5%86%99/"/>
+    <id>https://persvadisto.github.io/2024/08/14/%E3%80%8C%E9%8C%AF%E4%B9%B1%E3%81%99%E3%82%8B%E6%9C%88%E3%80%8D%E6%AD%8C%E8%AF%8D%E5%90%AC%E5%86%99/</id>
     <published>2024-08-14T10:17:40.565Z</published>
     <updated>2025-04-09T14:36:21.859Z</updated>
     
@@ -62,15 +62,15 @@
     
     
     
-    <category term="日本語" scheme="http://example.com/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/"/>
+    <category term="日本語" scheme="https://persvadisto.github.io/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/"/>
     
     
   </entry>
   
   <entry>
     <title>2024年新高考一卷数学压轴题数列题思路详解</title>
-    <link href="http://example.com/2024/06/07/2024%E6%96%B0%E9%AB%98%E8%80%83%E4%B8%80%E5%8D%B7%E6%95%B0%E5%AD%A6%E5%8E%8B%E8%BD%B4%E9%A2%98/"/>
-    <id>http://example.com/2024/06/07/2024%E6%96%B0%E9%AB%98%E8%80%83%E4%B8%80%E5%8D%B7%E6%95%B0%E5%AD%A6%E5%8E%8B%E8%BD%B4%E9%A2%98/</id>
+    <link href="https://persvadisto.github.io/2024/06/07/2024%E6%96%B0%E9%AB%98%E8%80%83%E4%B8%80%E5%8D%B7%E6%95%B0%E5%AD%A6%E5%8E%8B%E8%BD%B4%E9%A2%98/"/>
+    <id>https://persvadisto.github.io/2024/06/07/2024%E6%96%B0%E9%AB%98%E8%80%83%E4%B8%80%E5%8D%B7%E6%95%B0%E5%AD%A6%E5%8E%8B%E8%BD%B4%E9%A2%98/</id>
     <published>2024-06-07T13:28:37.419Z</published>
     <updated>2024-06-07T13:31:52.773Z</updated>
     
@@ -79,15 +79,15 @@
     
     
     
-    <category term="杂谈" scheme="http://example.com/categories/%E6%9D%82%E8%B0%88/"/>
+    <category term="杂谈" scheme="https://persvadisto.github.io/categories/%E6%9D%82%E8%B0%88/"/>
     
     
   </entry>
   
   <entry>
     <title>wowaka 未发表乐曲「NOTOK」中日歌词（个人渣翻）</title>
-    <link href="http://example.com/2024/05/30/NOTOK/"/>
-    <id>http://example.com/2024/05/30/NOTOK/</id>
+    <link href="https://persvadisto.github.io/2024/05/30/NOTOK/"/>
+    <id>https://persvadisto.github.io/2024/05/30/NOTOK/</id>
     <published>2024-05-29T17:47:18.810Z</published>
     <updated>2024-05-30T01:24:04.171Z</updated>
     
@@ -96,17 +96,17 @@
     
     
     
-    <category term="日本語" scheme="http://example.com/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/"/>
+    <category term="日本語" scheme="https://persvadisto.github.io/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/"/>
     
-    <category term="翻译" scheme="http://example.com/categories/%E7%BF%BB%E8%AF%91/"/>
+    <category term="翻译" scheme="https://persvadisto.github.io/categories/%E7%BF%BB%E8%AF%91/"/>
     
     
   </entry>
   
   <entry>
     <title>《自然语言处理》知识梳理</title>
-    <link href="http://example.com/2024/03/13/%E3%80%8A%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/"/>
-    <id>http://example.com/2024/03/13/%E3%80%8A%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/</id>
+    <link href="https://persvadisto.github.io/2024/03/13/%E3%80%8A%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/"/>
+    <id>https://persvadisto.github.io/2024/03/13/%E3%80%8A%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/</id>
     <published>2024-03-13T11:27:28.162Z</published>
     <updated>2024-03-13T11:49:35.514Z</updated>
     
@@ -115,15 +115,15 @@
     
     
     
-    <category term="课程笔记" scheme="http://example.com/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
+    <category term="课程笔记" scheme="https://persvadisto.github.io/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
     
     
   </entry>
   
   <entry>
     <title>202312 JLPT N1 体验寄录</title>
-    <link href="http://example.com/2023/12/04/202312%20JLPT%20N1%20%E4%BD%93%E9%AA%8C%E5%AF%84%E5%BD%95/"/>
-    <id>http://example.com/2023/12/04/202312%20JLPT%20N1%20%E4%BD%93%E9%AA%8C%E5%AF%84%E5%BD%95/</id>
+    <link href="https://persvadisto.github.io/2023/12/04/202312%20JLPT%20N1%20%E4%BD%93%E9%AA%8C%E5%AF%84%E5%BD%95/"/>
+    <id>https://persvadisto.github.io/2023/12/04/202312%20JLPT%20N1%20%E4%BD%93%E9%AA%8C%E5%AF%84%E5%BD%95/</id>
     <published>2023-12-04T15:20:55.432Z</published>
     <updated>2024-04-02T14:10:12.705Z</updated>
     
@@ -132,15 +132,15 @@
     
     
     
-    <category term="日本語" scheme="http://example.com/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/"/>
+    <category term="日本語" scheme="https://persvadisto.github.io/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/"/>
     
     
   </entry>
   
   <entry>
     <title>林檎華憐歌「母が歌いたかった版」念白部分听写</title>
-    <link href="http://example.com/2023/09/22/%EF%BC%88%E8%87%AA%E7%94%A8%EF%BC%89%E6%9E%97%E6%AA%8E%E8%8F%AF%E6%86%90%E6%AD%8C%E3%80%8C%E6%AF%8D%E3%81%8C%E6%AD%8C%E3%81%84%E3%81%9F%E3%81%8B%E3%81%A3%E3%81%9F%E7%89%88%E3%80%8D%E5%BF%B5%E7%99%BD%E9%83%A8%E5%88%86%E5%90%AC%E5%86%99/"/>
-    <id>http://example.com/2023/09/22/%EF%BC%88%E8%87%AA%E7%94%A8%EF%BC%89%E6%9E%97%E6%AA%8E%E8%8F%AF%E6%86%90%E6%AD%8C%E3%80%8C%E6%AF%8D%E3%81%8C%E6%AD%8C%E3%81%84%E3%81%9F%E3%81%8B%E3%81%A3%E3%81%9F%E7%89%88%E3%80%8D%E5%BF%B5%E7%99%BD%E9%83%A8%E5%88%86%E5%90%AC%E5%86%99/</id>
+    <link href="https://persvadisto.github.io/2023/09/22/%EF%BC%88%E8%87%AA%E7%94%A8%EF%BC%89%E6%9E%97%E6%AA%8E%E8%8F%AF%E6%86%90%E6%AD%8C%E3%80%8C%E6%AF%8D%E3%81%8C%E6%AD%8C%E3%81%84%E3%81%9F%E3%81%8B%E3%81%A3%E3%81%9F%E7%89%88%E3%80%8D%E5%BF%B5%E7%99%BD%E9%83%A8%E5%88%86%E5%90%AC%E5%86%99/"/>
+    <id>https://persvadisto.github.io/2023/09/22/%EF%BC%88%E8%87%AA%E7%94%A8%EF%BC%89%E6%9E%97%E6%AA%8E%E8%8F%AF%E6%86%90%E6%AD%8C%E3%80%8C%E6%AF%8D%E3%81%8C%E6%AD%8C%E3%81%84%E3%81%9F%E3%81%8B%E3%81%A3%E3%81%9F%E7%89%88%E3%80%8D%E5%BF%B5%E7%99%BD%E9%83%A8%E5%88%86%E5%90%AC%E5%86%99/</id>
     <published>2023-09-21T16:14:02.757Z</published>
     <updated>2023-12-05T15:23:57.118Z</updated>
     
@@ -149,15 +149,15 @@
     
     
     
-    <category term="日本語" scheme="http://example.com/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/"/>
+    <category term="日本語" scheme="https://persvadisto.github.io/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/"/>
     
     
   </entry>
   
   <entry>
     <title>2023年新高考一卷数学压轴题22题思路详解</title>
-    <link href="http://example.com/2023/06/07/2023%E6%96%B0%E9%AB%98%E8%80%83%E4%B8%80%E5%8D%B7%E6%95%B0%E5%AD%A6%E5%8E%8B%E8%BD%B4%E9%A2%98/"/>
-    <id>http://example.com/2023/06/07/2023%E6%96%B0%E9%AB%98%E8%80%83%E4%B8%80%E5%8D%B7%E6%95%B0%E5%AD%A6%E5%8E%8B%E8%BD%B4%E9%A2%98/</id>
+    <link href="https://persvadisto.github.io/2023/06/07/2023%E6%96%B0%E9%AB%98%E8%80%83%E4%B8%80%E5%8D%B7%E6%95%B0%E5%AD%A6%E5%8E%8B%E8%BD%B4%E9%A2%98/"/>
+    <id>https://persvadisto.github.io/2023/06/07/2023%E6%96%B0%E9%AB%98%E8%80%83%E4%B8%80%E5%8D%B7%E6%95%B0%E5%AD%A6%E5%8E%8B%E8%BD%B4%E9%A2%98/</id>
     <published>2023-06-07T14:11:51.077Z</published>
     <updated>2023-10-11T13:19:45.741Z</updated>
     
@@ -166,15 +166,15 @@
     
     
     
-    <category term="杂谈" scheme="http://example.com/categories/%E6%9D%82%E8%B0%88/"/>
+    <category term="杂谈" scheme="https://persvadisto.github.io/categories/%E6%9D%82%E8%B0%88/"/>
     
     
   </entry>
   
   <entry>
     <title>《数据库概论》知识梳理</title>
-    <link href="http://example.com/2023/02/22/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%AE%BA%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/"/>
-    <id>http://example.com/2023/02/22/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%AE%BA%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/</id>
+    <link href="https://persvadisto.github.io/2023/02/22/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%AE%BA%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/"/>
+    <id>https://persvadisto.github.io/2023/02/22/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%AE%BA%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/</id>
     <published>2023-02-22T02:32:40.065Z</published>
     <updated>2024-03-13T11:20:19.134Z</updated>
     
@@ -183,7 +183,7 @@
     
     
     
-    <category term="课程笔记" scheme="http://example.com/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
+    <category term="课程笔记" scheme="https://persvadisto.github.io/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
     
     
   </entry>
