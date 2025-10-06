@@ -6,7 +6,7 @@
   <link href="https://persvadisto.github.io/atom.xml" rel="self"/>
   
   <link href="https://persvadisto.github.io/"/>
-  <updated>2025-04-09T14:38:48.399Z</updated>
+  <updated>2025-10-06T16:47:42.041Z</updated>
   <id>https://persvadisto.github.io/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>凋叶棕《幽明境を分かつこと》歌词和歌部分古典文法分析</title>
+    <link href="https://persvadisto.github.io/2025/10/07/htknw/"/>
+    <id>https://persvadisto.github.io/2025/10/07/htknw/</id>
+    <published>2025-10-06T16:38:00.646Z</published>
+    <updated>2025-10-06T16:47:42.041Z</updated>
+    
+    
+    <summary type="html">一点古典文法练手。</summary>
+    
+    
+    
+    <category term="日本語" scheme="https://persvadisto.github.io/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Manĝi en NJU：vakskukurba supo, terpomo kaj rizo</title>
@@ -167,23 +184,6 @@
     
     
     <category term="杂谈" scheme="https://persvadisto.github.io/categories/%E6%9D%82%E8%B0%88/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>《数据库概论》知识梳理</title>
-    <link href="https://persvadisto.github.io/2023/02/22/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%AE%BA%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/"/>
-    <id>https://persvadisto.github.io/2023/02/22/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%AE%BA%E3%80%8B%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/</id>
-    <published>2023-02-22T02:32:40.065Z</published>
-    <updated>2024-03-13T11:20:19.134Z</updated>
-    
-    
-    <summary type="html">《数据库概论》期末考试周预习的内容。</summary>
-    
-    
-    
-    <category term="课程笔记" scheme="https://persvadisto.github.io/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
     
     
   </entry>
